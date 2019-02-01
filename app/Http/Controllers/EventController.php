@@ -15,8 +15,8 @@ class EventController extends Controller
     public function index()
     {
         $event = \DB::table('events')
-        ->oldest()
-        ->get();
+                ->oldest()
+                ->get();
         return view('crud.events.index', compact('event'));
     }
 
@@ -34,9 +34,9 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $event = new Event([
-             'address'=> $request->get('address'),
-             'city'=> $request->get('city'),
-             'state'=> $request->get('state')
+             'title'=> $request->get('title'),
+             'employee'=> $request->get('employee'),
+             'date'=> $request->get('date')
          ]);
 
         $event->save();
@@ -67,12 +67,12 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         $data = $this->validate($request, [
-          'address'=>'required',
-          'city'=> 'required',
-          'state'=> 'required',
+          'title'=>'required',
+          'employee'=> 'required',
+          'date'=> 'required',
         ]);
         $data['id'] = $id;
-        $location->updateEvent($data);
+        $event->updateEvent($data);
 
         return redirect('/events');
     }

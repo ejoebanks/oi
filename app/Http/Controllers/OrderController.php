@@ -10,7 +10,7 @@ Use App\Notifications\OrderConfirmation;
 use Illuminate\Notifications\Notification;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
-class OrderController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,15 +42,15 @@ class OrderController extends Controller
 
     public function appointment($order_id)
     {
-        $order = \DB::table('orders')
-        ->join('services', 'services.id', '=', 'orders.serviceid')
-        ->join('locations', 'locations.id', '=', 'orders.locationid')
-        ->join('users', 'users.id', '=', 'orders.clientid')
-        ->select('orders.*', 'orders.id as order_id', 'services.servicename as servname', 'services.id as servid', 'locations.*', 'users.firstname', 'users.lastname')
-        ->where('orders.id', '=', $order_id)
+        $order = \DB::table('events')
+        //->join('services', 'services.id', '=', 'orders.serviceid')
+        //->join('locations', 'locations.id', '=', 'orders.locationid')
+        //->join('users', 'users.id', '=', 'orders.clientid')
+        //->select('orders.*', 'orders.id as order_id', 'services.servicename as servname', 'services.id as servid', 'locations.*', 'users.firstname', 'users.lastname')
+        ->where('events.id', '=', $order_id)
         ->get();
 
-        return view('crud.order.appointment', compact('order'));
+        return view('crud.events.appointment', compact('event'));
     }
 
     /**
@@ -310,8 +310,9 @@ class OrderController extends Controller
         $events = [];
         //$data = Order::where('employeeid', \Auth::user()->id)->first();
 
+        /*
         if (is_Object(Auth::user()) && Auth::user()->type == 1) {
-            $data = \DB::table('orders')
+            $data = \DB::table('events')
                   ->where('employeeid', Auth::user()->id)
                   ->select('orders.*', 'orders.id as order_id')
                   ->get();
@@ -322,10 +323,17 @@ class OrderController extends Controller
                   ->select('orders.*', 'orders.id as order_id')
                   ->get();
             $editable = false;
-
         }
+        */
+
+        $data = \DB::table('events')
+              //->where('employeeid', 1)
+              ->select('events.*', 'events.id as order_id')
+              ->get();
+
         if ($data->count()) {
             foreach ($data as $key => $value) {
+              /*
               if ( $value->status == 0){
                 $bg = '#ffeeba';
               } else if ($value->status == 1) {
@@ -333,11 +341,15 @@ class OrderController extends Controller
               } else {
                 $bg = '#c3e6cb';
               }
+              */
+              $bg = '#c3e6cb';
+              $editable = true;
+
                 $events[] = Calendar::event(
-                         $value->horsename." @ ".$value->buildingid,
+                         $value->title." @ ".$value->employee,
                          true, //Marks as full day
-                         new \DateTime($value->scheduledtime),
-                         new \DateTime($value->scheduledtime.' +1 day'),
+                         new \DateTime($value->date),
+                         new \DateTime($value->date.' +1 day'),
                          $value->id,
                       [
                           'color' => $bg,

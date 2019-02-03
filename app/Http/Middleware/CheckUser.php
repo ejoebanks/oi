@@ -26,6 +26,7 @@ class CheckUser
             return redirect('/update/user/'.$id);
         }
 
+        /*
         if(!is_object(Order::find($routeFromID)) && $reqRoute == 'view/{id}'){
           return redirect()->back();
         }
@@ -36,6 +37,7 @@ class CheckUser
                 return redirect()->back();
             }
         }
+        */
 
         return $next($request);
     }

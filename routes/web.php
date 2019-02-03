@@ -28,8 +28,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/confirm/{id}', 'OrderController@approveOrder');
     Route::get('/complete/{id}', 'OrderController@completeOrder');
 
+    Route::get('/home', function () {
+        return view('home');
+    });
+
     // Appointment list (requests, pending, complete)
-    Route::get('/home', 'OrderController@homeList');
+    //Route::get('/home', 'OrderController@homeList');
     Route::post('/calendar', 'OrderController@updateDate');
 });
 
@@ -44,6 +48,10 @@ Route::group(['middleware' => 'auth' ], function () {
     //Route::get('/schedule', 'OrderController@freqUsed');
     //Route::post('/schedule', 'OrderController@scheduleAppt');
 
+    // Landing Page
+    Route::get('', function () {
+        return view('home');
+    });
 
     //Account details update
     Route::get('/update/user/{id}', 'UserController@singleEdit')->middleware('check');
@@ -70,15 +78,8 @@ Route::get('/gallery', function () {
 Route::get('/contact', 'ContactController@show');
 Route::post('/contact', 'ContactController@mailToAdmin');
 
-// Landing Page
-Route::get('', function () {
-    return view('landing');
-});
 
 // Tentative Schedule
-Route::get('/tentative', function () {
-    return view('tentative');
-});
 
 Auth::routes();
 

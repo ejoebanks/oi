@@ -10,11 +10,13 @@
       <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-confirmation/1.0.5/bootstrap-confirmation.min.js"></script>-->
       @yield('style')
 
-      <title>{{ ('Horse Braiding Scheduling') }}
+      <title>{{ ('OI Employee Management') }}
       </title>
       <!-- Scripts -->
       <?php
+      if (is_Object(Auth::user())) {
           $id = Auth::user()->type;
+      }
       ?>
       <script src="{{ asset('js/app.js') }}" >
       </script>
@@ -32,7 +34,7 @@
           <div class="container">
             <a class="navbar-brand" href="/">
               <i class="fas fa-horse fa-lg"> </i>
-              IHBO</a>
+              OI</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -102,6 +104,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <?php $uid = Auth::user()->id; ?>
+                      <a href="/ordersummary" class="dropdown-item">View Orders</a>
 
                       <a href="{{action('UserController@singleEdit', $uid)}}" class="dropdown-item">Update Account
                       </a>

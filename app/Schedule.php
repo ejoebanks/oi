@@ -10,14 +10,15 @@ class Schedule extends Model
     protected $table = 'schedule';
 
     protected $fillable = [
-      'firstName', 'lastName',
+      'firstName', 'lastName', 'shift'
   ];
 
-    public function updateService($data)
+    public function updateSchedule($data)
     {
         $schedule = $this->find($data['id']);
         $schedule->firstName = $data['firstName'];
         $schedule->lastName = $data['lastName'];
+        $schedule->shift = $data['shift'];
         $schedule->save();
         return 1;
     }

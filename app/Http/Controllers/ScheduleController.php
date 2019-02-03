@@ -14,7 +14,7 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        $schedule = \DB::table('schedule')->oldest()->get();
+        $schedule = \DB::table('schedule')->orderBy('shift')->get();
         return view('crud.schedule.index', compact('schedule'));
     }
 
@@ -33,10 +33,11 @@ class ScheduleController extends Controller
         $schedule = new Schedule([
             'firstName'=>$request->get('firstName'),
             'lastName'=> $request->get('lastName'),
+            'shift'=> $request->get('shift')
         ]);
 
         $schedule->save();
-        return redirect('/schedules');
+        return redirect('/schedule');
     }
 
     public function show($id)
@@ -64,11 +65,12 @@ class ScheduleController extends Controller
         $data = $this->validate($request, [
           'firstName'=>'required',
           'lastName'=> 'required',
+          'shift'=> 'required',
         ]);
         $data['id'] = $id;
         $schedule->updateSchedule($data);
 
-        return redirect('/schedules');
+        return redirect('/schedule');
     }
 
 

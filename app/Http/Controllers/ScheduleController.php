@@ -7,22 +7,18 @@ use App\Schedule;
 
 class ScheduleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $schedule = \DB::table('schedule')->orderBy('shift')->get();
         return view('crud.schedule.index', compact('schedule'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index2()
+    {
+        $schedule = \DB::table('schedule')->orderBy('shift')->get();
+        return view('crud.schedule.list', compact('schedule'));
+    }
+
     public function create()
     {
         return view('crud.schedule.create');
@@ -45,12 +41,6 @@ class ScheduleController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $schedule = Schedule::where('id', $id)

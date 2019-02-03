@@ -10,7 +10,7 @@ Use App\Notifications\OrderConfirmation;
 use Illuminate\Notifications\Notification;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
-class EventController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -227,10 +227,10 @@ class EventController extends Controller
 
     public function updateDate(Request $request)
     {
-        $scheduledtime = $request->input('scheduledtime');
+        $scheduledtime = $request->input('date');
         $order_id = $request->input('order_id');
         $order = Order::find($order_id);
-        $order->scheduledtime = $scheduledtime;
+        $order->date = $scheduledtime;
         $order->save();
     }
 

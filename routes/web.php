@@ -61,6 +61,7 @@ Route::group(['middleware' => 'auth' ], function () {
 
 
 Route::get('/lists', 'ScheduleController@index2');
+Route::post('/lists', 'ScheduleController@index2');
 
 
 // Gallery

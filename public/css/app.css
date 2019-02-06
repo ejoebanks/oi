@@ -163,6 +163,10 @@ padding-right: 1.1rem;
   font-size: 50px;
   color: #fff;
   line-height: 100px;
-  background: #000;
+  background: #4D8C57;
   margin: 0 auto;
+}
+
+#shift {
+  text-align: center;
 }

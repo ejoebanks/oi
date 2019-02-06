@@ -18,8 +18,12 @@ if (Auth::user() != null && Auth::user()->type == 1) {
     <br/>
     <?php
     foreach (range('A', 'D') as $char) {
+        $shiftcount = \DB::table('schedule')->where('shift', '=', $char)->count();
         ?>
     <div class="col-sm">
+    <div id="sCount">{{ $shiftcount }}</div>
+    <br/>
+
       <h1> Shift {{ $char }} </h1>
       <table class="table table-list-search table table-striped">
           <thead>

@@ -153,3 +153,16 @@ padding-left: 1.1rem;
 padding-right: 1.1rem;
 }
 }
+
+#sCount {
+  text-align: center;
+  font-size: 3rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #fff;
+  line-height: 100px;
+  background: #000;
+  margin: 0 auto;
+}

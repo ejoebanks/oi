@@ -50,6 +50,17 @@ class ScheduleController extends Controller
         return view('crud.schedule.edit', compact('schedule', 'id'));
     }
 
+    public function updateShift($id, $char)
+    {
+        $schedule = Schedule::find($id);
+        if ($char == 'A' || $char == 'B' || $char == 'C' || $char == 'D'){
+          $schedule->shift = $char;
+          $schedule->save();
+        }
+
+        return redirect('/lists');
+    }
+
     public function update(Request $request, $id)
     {
         $schedule = new Schedule();

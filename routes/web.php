@@ -7,16 +7,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     //CRUDS
     Route::resource('users', 'UserController');
-    Route::resource('buildings', 'BuildingController');
     Route::resource('schedule', 'ScheduleController');
-    Route::resource('orders', 'OrderController');
-    Route::resource('locations', 'LocationController');
-
-    //Confirm or deny orders
-    Route::get('/reject/{id}', 'OrderController@rejectOrder');
-    Route::get('/deny/{id}', 'OrderController@cancelOrder');
-    Route::get('/confirm/{id}', 'OrderController@approveOrder');
-    Route::get('/complete/{id}', 'OrderController@completeOrder');
 
     Route::get('/home', function () {
         return view('home');
@@ -25,18 +16,16 @@ Route::group(['middleware' => 'admin'], function () {
     // Appointment list (requests, pending, complete)
     //Route::get('/home', 'OrderController@homeList');
     Route::post('/calendar', 'OrderController@updateDate');
+
+    // Viewing & Updating shifts
+    Route::get('/lists', 'ScheduleController@index2');
+    Route::post('/lists', 'ScheduleController@index2');
+    Route::get('/lists/{id}/{char}', 'ScheduleController@updateShift');
 });
 
 
 //Ensuring user is logged in
 Route::group(['middleware' => 'auth' ], function () {
-    //Orders List page
-    Route::get('/ordersummary', 'OrderController@listOrders');
-    Route::post('/ordersummary', 'OrderController@reviseOrder');
-
-    //Order Placing
-    //Route::get('/schedule', 'OrderController@freqUsed');
-    //Route::post('/schedule', 'OrderController@scheduleAppt');
 
     // Landing Page
     Route::get('', function () {
@@ -53,28 +42,11 @@ Route::group(['middleware' => 'auth' ], function () {
     //View Last Submitted Orders
     Route::get('/submitted', 'OrderController@lastOrder');
 
-    // Order revision
-    Route::get('/revise/{id}', 'OrderController@reviseReview');
-    Route::post('/revise/{id}', 'OrderController@reviseSubmit');
-
-});
-
-
-Route::get('/lists', 'ScheduleController@index2');
-Route::post('/lists', 'ScheduleController@index2');
-
-
-// Gallery
-Route::get('/gallery', function () {
-    return view('gallery');
 });
 
 // Contact Form
 Route::get('/contact', 'ContactController@show');
 Route::post('/contact', 'ContactController@mailToAdmin');
-
-
-// Tentative Schedule
 
 Auth::routes();
 

@@ -30,7 +30,7 @@
     </head>
     <body>
       <div id="app">
-        
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container">
             <a class="navbar-brand" href="/">
@@ -62,13 +62,6 @@
                 </li>
               <?php
           } ?>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="/gallery">
-                    <i class="fas fa-images fa-lg"></i>
-                    Gallery
-                  </a>
-                </li>
 
               </ul>
                 <ul class="navbar-nav ml-auto">
@@ -105,8 +98,6 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <?php $uid = Auth::user()->id; ?>
-                      <a href="/ordersummary" class="dropdown-item">View Orders</a>
-
                       <a href="{{action('UserController@singleEdit', $uid)}}" class="dropdown-item">Update Account
                       </a>
                   <?php if ($id > 0) {

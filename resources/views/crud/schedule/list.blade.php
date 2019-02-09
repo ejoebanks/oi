@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="row">
+
 <?php
 if (Auth::user() != null && Auth::user()->type == 1) {
     ?>
@@ -18,8 +20,7 @@ if (Auth::user() != null && Auth::user()->type == 1) {
     <br/>
     <?php
     foreach (range('A', 'D') as $char) {
-        $shiftcount = \DB::table('schedule')->where('shift', '=', $char)->count();
-        ?>
+        $shiftcount = \DB::table('schedule')->where('shift', '=', $char)->count(); ?>
     <div class="col-sm">
     <div id="sCount">{{ $shiftcount }}</div>
     <br/>
@@ -36,10 +37,14 @@ if (Auth::user() != null && Auth::user()->type == 1) {
               @foreach($schedule as $s)
               @if($char == $s->shift)
               <tr>
-                <td><div class="btn-group">
+                <td><div class="btn-group-vertical">
                   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{$s->id}}
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
                   </button>
+                  <button data-toggle="collapse" data-target="#{{$s->id}}"class="btn btn-sm btn-outline-secondary"><i class="fa fa-eye" aria-hidden="true"></i>
+</button>
+
+
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="">Shift</a>
                     <div class="dropdown-divider"></div>
@@ -48,7 +53,15 @@ if (Auth::user() != null && Auth::user()->type == 1) {
                 </div>
                 </td>
               </td>
-                  <td>{{$s->firstName}} {{ $s->lastName }}</td>
+                  <td>{{ucfirst(strtolower($s->firstName))}} {{ucfirst(strtolower($s->lastName))}}
+                    <br/>
+                    <div id="{{$s->id}}" class="collapse">
+                      <br/>
+                      <strong>Seniority:</strong> {{$s->seniority}}
+                      <strong>Primary Job:</strong> {{$s->primaryJob}}
+                      <strong>Comments:</strong> {{$s->comments}}
+                    </div>
+                  </td>
               </tr>
               @endif
               @endforeach

@@ -29,8 +29,8 @@ if (Auth::user() != null && Auth::user()->type == 1) {
       <table class="table table-list-search table table-striped">
           <thead>
               <tr>
-                <td>ID</td>
-                <td>Name</td>
+                <td>Action</td>
+                <td>Employee</td>
               </tr>
           </thead>
           <tbody>
@@ -53,7 +53,7 @@ if (Auth::user() != null && Auth::user()->type == 1) {
                 </div>
                 </td>
               </td>
-                  <td>{{ucfirst(strtolower($s->firstName))}} {{ucfirst(strtolower($s->lastName))}}
+                  <td>{{$s->id}} <br/> {{ucfirst(strtolower($s->firstName))}} {{ucfirst(strtolower($s->lastName))}}
                     <br/>
                     <div id="{{$s->id}}" class="collapse">
                       <br/>

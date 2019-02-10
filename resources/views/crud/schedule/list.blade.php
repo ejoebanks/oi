@@ -53,15 +53,23 @@ if (Auth::user() != null && Auth::user()->type == 1) {
                 </div>
                 </td>
               </td>
-                  <td>{{$s->id}} <br/> {{ucfirst(strtolower($s->firstName))}} {{ucfirst(strtolower($s->lastName))}}
-                    <br/>
+                  <td>
+<h4><span class="badge badge-secondary">{{$s->id}}</span></h4> <h6>{{ucfirst(strtolower($s->firstName))}} {{ucfirst(strtolower($s->lastName))}}</h6>
+
                     <div id="{{$s->id}}" class="collapse">
                       <br/>
                       <strong>Seniority:</strong> {{$s->seniority}}
                       <strong>Primary Job:</strong> {{$s->primaryJob}}
                       <strong>Comments:</strong> {{$s->comments}}
                     </div>
-                  </td>
+                  <div id="{{$s->id}}" class="collapse">
+                    <br/>
+                    <strong>Seniority:</strong> {{$s->seniority}}
+                    <strong>Primary Job:</strong> {{$s->primaryJob}}
+                    <strong>Comments:</strong> {{$s->comments}}
+                  </div>
+                </td>
+
               </tr>
               @endif
               @endforeach

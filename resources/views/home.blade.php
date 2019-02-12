@@ -11,8 +11,11 @@
     <div class="col-sm-4">
       <div class="cliente">
         <a href="/lists" button type="button" class="btn btn-secondary btn-lg btn-block">View Shifts</button></a>
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Update Shift</button>
         <button type="button" class="btn btn-secondary btn-lg btn-block">Add Employee</button>
+        <button type="button" class="btn btn-secondary btn-lg btn-block">Add Event</button>
+
+        <button type="button" class="btn btn-secondary btn-lg btn-block">Recent Changes</button>
+
         </div>
     </div>
 

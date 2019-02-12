@@ -29,13 +29,14 @@
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
+      <?php asset('images/Owens_Illinois.png') ?>
       <div id="app">
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container">
             <a class="navbar-brand" href="/">
-              <i class="fas fa-horse fa-lg"> </i>
-              OI</a>
+              <img src="{{ asset('images/Owens_Illinois.png') }}" alt="Owens-Header">
+              </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -45,19 +46,10 @@
                 <?php
           if (isset($id) && $id > 0) {
               ?>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="/home">
-                    <i class="fas fa-calendar-check fa-lg"></i>
-                    </i>
-                    Appointments
-                  </a>
-                </li>
-
                 <li class="nav-item">
                   <a class="nav-link" href="/calendar">
                     <i class="fas fa-calendar-alt fa-lg"></i>
-                    Calendar
+                    Events
                   </a>
                 </li>
               <?php
@@ -82,9 +74,9 @@
                   </li>
                   @else
                   <li class="nav-item">
-                    <a class="nav-link" href="/schedule">
-                      <i class="fas fa-external-link-square-alt fa-lg"></i>
-                      Place Order
+                    <a class="nav-link" href="/lists">
+                      <i class="fa fa-list" aria-hidden="true"></i>
+                      Shifts
                     </a>
                   </li>
                   <li class="nav-item dropdown">

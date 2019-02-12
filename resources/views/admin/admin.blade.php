@@ -9,9 +9,7 @@
 
       <div class="col-sm-4">
           <a href="/schedule" button type="button" class="btn btn-primary btn-lg btn-block">Schedule</button></a>
-          <a href="/buildings" button type="button" class="btn btn-primary btn-lg btn-block">Buildings</button></a>
-          <a href="/locations" button type="button" class="btn btn-primary btn-lg btn-block">Locations</button></a>
-          <a href="/users" button type="button" class="btn btn-primary btn-lg btn-block">Users</button></a>
+          <a href="/users" button type="button" class="btn btn-primary btn-lg btn-block">Staff</button></a>
       </div>
 
       <div class="col-sm-4">

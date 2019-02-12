@@ -15,7 +15,7 @@ class ScheduleController extends Controller
 
     public function index2()
     {
-        $schedule = \DB::table('schedule')->orderBy('shift')->get();
+        $schedule = \DB::table('schedule')->orderBy('seniority', 'desc')->get();
 
         return view('crud.schedule.list', compact('schedule', 'shiftcount'));
     }

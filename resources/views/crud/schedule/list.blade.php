@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
 
-<?php
-if (Auth::user() != null && Auth::user()->type == 1) {
-    ?>
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -24,8 +20,7 @@ if (Auth::user() != null && Auth::user()->type == 1) {
     <div class="col-sm">
     <div id="sCount">{{ $shiftcount }}</div>
     <br/>
-
-      <h1 id="shift"> Shift {{ $char }} </h1>
+      <h1 id="shift"> Shift {{ $char }}</h1>
       <table class="table table-list-search table table-striped">
           <thead>
               <tr>
@@ -37,55 +32,70 @@ if (Auth::user() != null && Auth::user()->type == 1) {
               @foreach($schedule as $s)
               @if($char == $s->shift)
               <tr>
-                <td><div class="btn-group-vertical">
+                <td>
+                  <div class="btn-group-vertical">
                   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   </button>
-                  <button data-toggle="collapse" data-target="#{{$s->id}}"class="btn btn-sm btn-outline-secondary"><i class="fa fa-eye" aria-hidden="true"></i>
-</button>
 
+                  <button data-toggle="collapse" data-target="#{{$s->id}}"class="btn btn-sm btn-outline-secondary">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                  </button>
 
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="">Shift</a>
+                    <p class="dropdown-item">Shift</p>
                     <div class="dropdown-divider"></div>
                     @include('functions.shiftdropdown')
                   </div>
                 </div>
                 </td>
-              </td>
                   <td>
-<h4><span class="badge badge-secondary">{{$s->id}}</span></h4> <h6>{{ucfirst(strtolower($s->firstName))}} {{ucfirst(strtolower($s->lastName))}}</h6>
-
-                    <div id="{{$s->id}}" class="collapse">
-                      <br/>
-                      <strong>Seniority:</strong> {{$s->seniority}}
-                      <strong>Primary Job:</strong> {{$s->primaryJob}}
-                      <strong>Comments:</strong> {{$s->comments}}
-                    </div>
+                    <h4><span class="badge badge-secondary">{{$s->id}}</span></h4>
+                    <h6>{{ucfirst(strtolower($s->firstName))}} {{ucfirst(strtolower($s->lastName))}}</h6>
+                  </td>
+                </tr>
+                <tr></tr>
+                <tr class="no-bottom-border">
+                  <td colspan="2">
                   <div id="{{$s->id}}" class="collapse">
-                    <br/>
-                    <strong>Seniority:</strong> {{$s->seniority}}
-                    <strong>Primary Job:</strong> {{$s->primaryJob}}
-                    <strong>Comments:</strong> {{$s->comments}}
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <span id="collapseTitle" class="float-md-left">Seniority:</span>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <span class="float-md-right">{{ $s->seniority }}</span>
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <span id="collapseTitle" class="float-md-left">Primary Job:</span>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <span class="float-md-right">{{ $s->primaryJob }}</span>
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <span id="collapseTitle" class="float-md-left">Comments:</span>
+                        </div>
+                        <div class="col-md-6 text-center">
+                          <?php
+                          if ($s->comments == null){
+                            $var = "None";
+                          } else {
+                            $var = $s->comments;
+                          }?>
+                            <span class="float-md-right">{{ $var }}</span>
+                        </div>
+                    </div>
                   </div>
                 </td>
-
-              </tr>
+                </tr>
               @endif
               @endforeach
           </tbody>
       </table>
-
     </div>
   <?php
     } ?>
   </div>
-<div>
-  <?php
-} else {
-        ?>
-    @include('functions.denied')
-  <?php
-    } ?>
-
+</div>
 @endsection

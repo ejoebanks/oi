@@ -43,6 +43,7 @@ if (Auth::user() != null && Auth::user()->id == $user->id) {
             <input type="text" class="form-control" name="email" value="{{ $user->email }}" required/>
         </div>
 
+        <!--
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="address">Address:</label>
@@ -60,6 +61,7 @@ if (Auth::user() != null && Auth::user()->id == $user->id) {
             <label for="state">State:</label>
             <input type="text" class="form-control" name="state" value="{{ $user->state }}" required/>
           </div>
+          -->
 
 
           <div class="form-group">

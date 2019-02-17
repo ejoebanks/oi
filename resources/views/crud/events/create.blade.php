@@ -12,24 +12,24 @@
     </div><br />
 @endif
 <div class="container">
-    <form method="post" action="{{ action('LocationController@store') }}">
+    <form method="post" action="{{ action('EventController@store') }}">
+
+      <div class="form-group">
+          <input type="hidden" value="{{csrf_token()}}" name="_token" />
+          <label for="employee">Employee:</label>
+          <input type="text" class="form-control" name="employee"/>
+      </div>
+
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="address">Address:</label>
-            <input type="text" class="form-control" name="address"/>
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" name="title"/>
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="city">City:</label>
-            <input type="text" class="form-control" name="city"/>
-        </div>
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="state">State:</label>
-              <select class="form-control" value="state" name="state" >
-                @include('functions.states')
+            <label for="date">Date:</label>
+            <input type="text" class="form-control" name="date"/>
         </div>
 
         <button type="submit" class="btn btn-primary">Create</button>

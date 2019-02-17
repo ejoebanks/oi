@@ -14,9 +14,6 @@ if (Auth::user() != null && Auth::user()->type == 1) {
               <td>ID</td>
               <td>First Name</td>
               <td>Last Name</td>
-              <td>Address</td>
-              <td>City</td>
-              <td>State</td>
               <td>Email</td>
               <td>Password</td>
               <td>Admin</td>
@@ -30,9 +27,6 @@ if (Auth::user() != null && Auth::user()->type == 1) {
                 <td>{{$user->id}}</td>
                 <td>{{$user->firstname}}</td>
                 <td>{{$user->lastname}}</td>
-                <td>{{$user->address}}</td>
-                <td>{{$user->city}}</td>
-                <td>{{$user->state}}</td>
                 <td>{{$user->email}}</td>
                 <td class="forcedWidth">{{$user->password}}</td>
                 <td>{{$user->type}}</td>

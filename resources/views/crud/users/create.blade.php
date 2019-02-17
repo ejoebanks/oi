@@ -30,6 +30,7 @@ if (Auth::user() != null && Auth::user()->type == 1) {
           <input type="text" class="form-control" name="lastname" required/>
       </div>
 
+<!--
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="address">Address:</label>
@@ -47,7 +48,7 @@ if (Auth::user() != null && Auth::user()->type == 1) {
             <label for="state">State:</label>
             <input type="text" class="form-control" name="state" required/>
         </div>
-
+-->
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />

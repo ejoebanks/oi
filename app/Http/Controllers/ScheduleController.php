@@ -8,6 +8,12 @@ use Auth;
 
 class ScheduleController extends Controller
 {
+    public function recent()
+    {
+        $recentChanges = \DB::table('schedule')->orderBy('updated_at', 'desc')->take(10)->get();
+        return view('recent', compact('recentChanges'));
+    }
+
     public function index()
     {
         $schedule = \DB::table('schedule')->orderBy('shift')->get();

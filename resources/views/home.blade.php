@@ -13,7 +13,7 @@
         <a href="/lists" button type="button" class="btn btn-secondary btn-lg btn-block">View Shifts</button></a>
         <a href="/users/create" button type="button" class="btn btn-secondary btn-lg btn-block">Add Employee</button>
         <a href="/events/create"  button type="button" class="btn btn-secondary btn-lg btn-block">Add Event</button></a>
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Recent Changes</button>
+        <a href="/changes"  button type="button" class="btn btn-secondary btn-lg btn-block">Recent Changes</button></a>
 
         </div>
     </div>

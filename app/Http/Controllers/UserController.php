@@ -32,11 +32,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new User([
+            'clockNumber'=>$request->get('clockNumber'),
             'firstname'=>$request->get('firstname'),
             'lastname'=>$request->get('lastname'),
-            'address'=> $request->get('address'),
-            'city'=> $request->get('city'),
-            'state'=> $request->get('state'),
             'email'=> $request->get('email'),
             'type'=> $request->get('type'),
             'password'=> bcrypt($request->get('password'))
@@ -78,11 +76,9 @@ class UserController extends Controller
     {
         $user = new User();
         $data = $this->validate($request, [
+          'clockNumber'=>'required|integer|max:255',
           'firstname'=>'required|string|max:255',
           'lastname'=>'required|string|max:255',
-          'address'=> 'required|string|max:255',
-          'city'=> 'required|string|max:255',
-          'state'=> 'required|string|max:255',
           'email'=> 'required|string|email|max:255',
           'password'=> 'required|string|min:6',
           'type'=> 'required'

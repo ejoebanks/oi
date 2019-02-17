@@ -20,6 +20,13 @@ if (Auth::user() != null && Auth::user()->type == 1) {
 
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
+          <label for="clockNumber">Clock Number:</label>
+          <input type="text" class="form-control" name="clockNumber" required/>
+      </div>
+
+
+      <div class="form-group">
+          <input type="hidden" value="{{csrf_token()}}" name="_token" />
           <label for="firstname">First Name:</label>
           <input type="text" class="form-control" name="firstname" required/>
       </div>

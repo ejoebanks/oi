@@ -8,8 +8,8 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-8">
-      <table class="table table-bordered">
-        <thead class="thead-dark">
+      <table class="table table-striped" id="recentTab">
+        <thead>
     <tr>
       <th scope="col">Clock #</th>
       <th scope="col">Name</th>

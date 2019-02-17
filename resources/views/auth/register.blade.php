@@ -12,6 +12,20 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Clock Number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="clockNumber" type="number" class="form-control{{ $errors->has('clockNumber') ? ' is-invalid' : '' }}" name="clockNumber" value="{{ old('clockNumber') }}" min="0" required autofocus>
+
+                                @if ($errors->has('clockNumber'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('clockNumber') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
@@ -24,21 +38,6 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Clock Number') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="clockNumber" type="number" class="form-control{{ $errors->has('clockNumber') ? ' is-invalid' : '' }}" name="clockNumber" value="{{ old('clockNumber') }}" required autofocus>
-
-                                @if ($errors->has('clockNumber'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('clockNumber') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>

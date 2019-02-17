@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'address', 'city', 'state', 'password', 'type'
+        'id', 'firstname', 'lastname', 'email', 'clockNumber', 'password', 'type'
     ];
 
     public function updateUser($data)
@@ -23,9 +23,7 @@ class User extends Authenticatable
         $user = $this->find($data['id']);
         $user->firstname = $data['firstname'];
         $user->lastname = $data['lastname'];
-        $user->address = $data['address'];
-        $user->city = $data['city'];
-        $user->state = $data['state'];
+        $user->id = $data['clockNumber'];
         $user->email = $data['email'];
         $user->type = $data['type'];
         $user->password = bcrypt($data['password']);
@@ -38,9 +36,6 @@ class User extends Authenticatable
         $user = $this->find($data['id']);
         $user->firstname = $data['firstname'];
         $user->lastname = $data['lastname'];
-        $user->address = $data['address'];
-        $user->city = $data['city'];
-        $user->state = $data['state'];
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
         $user->save();

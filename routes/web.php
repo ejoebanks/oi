@@ -8,6 +8,8 @@ Route::group(['middleware' => 'admin'], function () {
     //CRUDS
     Route::resource('users', 'UserController');
     Route::resource('schedule', 'ScheduleController');
+    Route::resource('events', 'EventController');
+
 
     Route::get('/home', function () {
         return view('home');
@@ -28,10 +30,7 @@ Route::group(['middleware' => 'admin'], function () {
 Route::group(['middleware' => 'auth' ], function () {
 
     // Landing Page
-    Route::get('', function () {
-        return view('home');
-    });
-
+    Route::get('', 'ScheduleController@personalShift');
     //Account details update
     Route::get('/update/user/{id}', 'UserController@singleEdit')->middleware('check');
     Route::post('/update/user/{id}', 'UserController@singleUpdate')->middleware('check');
@@ -43,6 +42,8 @@ Route::group(['middleware' => 'auth' ], function () {
     Route::get('/submitted', 'OrderController@lastOrder');
 
 });
+
+
 
 // Contact Form
 Route::get('/contact', 'ContactController@show');

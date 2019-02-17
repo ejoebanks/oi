@@ -12,8 +12,7 @@
       <div class="cliente">
         <a href="/lists" button type="button" class="btn btn-secondary btn-lg btn-block">View Shifts</button></a>
         <button type="button" class="btn btn-secondary btn-lg btn-block">Add Employee</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Add Event</button>
-
+        <a href="/events/create"  button type="button" class="btn btn-secondary btn-lg btn-block">Add Event</button></a>
         <button type="button" class="btn btn-secondary btn-lg btn-block">Recent Changes</button>
 
         </div>
@@ -39,12 +38,12 @@
         <div class="col-sm-3">
             <!--left col-->
 
+            {{ $firstName }} {{ $lastName }}
             <ul class="list-group">
                 <li class="list-group-item text-muted">Profile</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Real name</strong></span> Joseph Doe</li>
-
             </ul>
 
             <div class="panel panel-default">
@@ -76,7 +75,6 @@
                 <li><a href="#messages" data-toggle="tab">Messages</a></li>
                 <li><a href="#settings" data-toggle="tab">Settings</a></li>
             </ul>
-
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
                     <div class="table-responsive">

@@ -17,6 +17,7 @@ class EventController extends Controller
         $event = \DB::table('events')
                 ->oldest()
                 ->get();
+
         return view('crud.events.index', compact('event'));
     }
 

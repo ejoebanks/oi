@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Schedule;
+use Auth;
 
 class ScheduleController extends Controller
 {
@@ -17,8 +18,24 @@ class ScheduleController extends Controller
     {
         $schedule = \DB::table('schedule')->orderBy('seniority', 'desc')->get();
 
-        return view('crud.schedule.list', compact('schedule', 'shiftcount'));
+        $normalUser = Schedule::where('id', Auth::user()->id)
+                      ->first();
+
+
+        return view('crud.schedule.list', compact('schedule', 'shiftcount', 'normalUser'));
     }
+
+    public function personalShift()
+    {
+        $normalUser = Schedule::where('id', Auth::user()->clockNumber)
+                      ->first();
+
+        $firstName = $normalUser->firstName;
+        $lastName = $normalUser->lastName;
+
+        return view('home', compact('normalUser', 'firstName', 'lastName'));
+    }
+
 
     public function create()
     {
@@ -53,9 +70,9 @@ class ScheduleController extends Controller
     public function updateShift($id, $char)
     {
         $schedule = Schedule::find($id);
-        if ($char == 'A' || $char == 'B' || $char == 'C' || $char == 'D'){
-          $schedule->shift = $char;
-          $schedule->save();
+        if ($char == 'A' || $char == 'B' || $char == 'C' || $char == 'D') {
+            $schedule->shift = $char;
+            $schedule->save();
         }
 
         return redirect('/lists');

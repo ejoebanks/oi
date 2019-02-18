@@ -13371,6 +13371,7 @@ $.ajaxSetup({
        }
    });
 
+/*
 $( document ).ready(function() {
   $('input[name="scheduledtime"]').mask('0000-00-00');
   $('#scheduledtime').datepicker({
@@ -13378,8 +13379,22 @@ $( document ).ready(function() {
       uiLibrary: 'bootstrap4'
   });
 });
+*/
 
 $(document).ready(function() {
+    var shiftA = document.getElementById('shiftA').getAttribute('value');
+    var shiftB = document.getElementById('shiftB').getAttribute('value');
+    var shiftC = document.getElementById('shiftC').getAttribute('value');
+    var shiftD = document.getElementById('shiftD').getAttribute('value');
+
+    var min = Math.min(shiftA, shiftB, shiftC, shiftD);
+
+    var alphabet = "ABCD".split("");
+    _.each(alphabet, function(letter) {
+      if (document.getElementById('shift'+letter).getAttribute('value') == min)
+        document.getElementById('shift'+letter).style.backgroundColor = "#CCCC00";
+    });
+
     var activeSystemClass = $('.list-group-item.active');
 
     //something is entered in search form

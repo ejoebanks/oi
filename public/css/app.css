@@ -9200,7 +9200,7 @@ a.text-dark:focus, a.text-dark:hover {
   }
 }
 
-#sCount {
+#shiftA, #shiftB, #shiftC, #shiftD {
   text-align: center;
   font-size: 3rem;
   width: 100px;

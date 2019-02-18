@@ -18,7 +18,8 @@
     foreach (range('A', 'D') as $char) {
         $shiftcount = \DB::table('schedule')->where('shift', '=', $char)->count(); ?>
     <div class="col-sm">
-    <div id="sCount">{{ $shiftcount }}</div>
+    <div id="shift{{ $char }}" value="{{$shiftcount}}">{{ $shiftcount }}</div>
+
     <br/>
       <h1 id="shift"> Shift {{ $char }}</h1>
       <table class="table table-list-search table table-striped">

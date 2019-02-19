@@ -65,6 +65,13 @@ if (Auth::user() != null && Auth::user()->type == 1) {
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
+            <label for="emergencyContact">Emergency Contact:</label>
+            <input type="text" class="form-control" name="emergencyContact" required/>
+        </div>
+
+
+        <div class="form-group">
+            <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="password">Password:</label>
             <input type="password" class="form-control" name="password" required/>
         </div>

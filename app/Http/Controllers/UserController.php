@@ -36,6 +36,7 @@ class UserController extends Controller
             'firstname'=>$request->get('firstname'),
             'lastname'=>$request->get('lastname'),
             'email'=> $request->get('email'),
+            'emergencyContact'=>$request->get('emergencyContact'),
             'type'=> $request->get('type'),
             'password'=> bcrypt($request->get('password'))
         ]);
@@ -80,6 +81,7 @@ class UserController extends Controller
           'firstname'=>'required|string|max:255',
           'lastname'=>'required|string|max:255',
           'email'=> 'required|string|email|max:255',
+          'emergencyContact'=> 'required|string|max:15',
           'password'=> 'required|string|min:6',
           'type'=> 'required'
         ]);
@@ -95,10 +97,8 @@ class UserController extends Controller
         $data = $this->validate($request, [
           'firstname'=>'required|string|max:255',
           'lastname'=>'required|string|max:255',
-          'address'=> 'required|string|max:255',
-          'city'=> 'required|string|max:255',
-          'state'=> 'required|string|max:255',
           'email'=> 'required|string|email|max:255',
+          'emergencyContact'=> 'required|string|max:15',
           'password'=> 'required|string|min:6',
         ]);
         $data['id'] = $id;

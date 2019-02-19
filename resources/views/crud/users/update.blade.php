@@ -43,6 +43,13 @@ if (Auth::user() != null && Auth::user()->id == $user->id) {
             <input type="text" class="form-control" name="email" value="{{ $user->email }}" required/>
         </div>
 
+        <div class="form-group">
+            <input type="hidden" value="{{csrf_token()}}" name="_token" />
+            <label for="emergencyContact">Emergency Contact:</label>
+            <input type="text" class="form-control" name="emergencyContact" value="{{ $user->emergencyContact }}" required/>
+        </div>
+
+
         <!--
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />

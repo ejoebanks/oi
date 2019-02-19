@@ -24,6 +24,7 @@ class User extends Authenticatable
         $user->firstname = $data['firstname'];
         $user->lastname = $data['lastname'];
         $user->id = $data['clockNumber'];
+        $user->emergencyContact = $data['emergencyContact'];
         $user->email = $data['email'];
         $user->type = $data['type'];
         $user->password = bcrypt($data['password']);
@@ -36,6 +37,7 @@ class User extends Authenticatable
         $user = $this->find($data['id']);
         $user->firstname = $data['firstname'];
         $user->lastname = $data['lastname'];
+        $user->emergencyContact = $data['emergencyContact'];
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
         $user->save();

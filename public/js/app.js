@@ -13382,17 +13382,20 @@ $( document ).ready(function() {
 */
 
 $(document).ready(function() {
+    const allEqual = arr => arr.every( v => v === arr[0] );
     var shiftA = document.getElementById('shiftA').getAttribute('value');
     var shiftB = document.getElementById('shiftB').getAttribute('value');
     var shiftC = document.getElementById('shiftC').getAttribute('value');
     var shiftD = document.getElementById('shiftD').getAttribute('value');
-
     var min = Math.min(shiftA, shiftB, shiftC, shiftD);
 
     var alphabet = "ABCD".split("");
     _.each(alphabet, function(letter) {
-      if (document.getElementById('shift'+letter).getAttribute('value') == min)
+      if (document.getElementById('shift'+letter).getAttribute('value') == min && !allEqual([shiftA, shiftB, shiftC, shiftD])){
         document.getElementById('shift'+letter).style.backgroundColor = "#CCCC00";
+      } else {
+        document.getElementById('shift'+letter).style.backgroundColor = "#4D8C57";
+      }
     });
 
     var activeSystemClass = $('.list-group-item.active');

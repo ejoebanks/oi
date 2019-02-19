@@ -2,9 +2,6 @@
 
 @section('content')
 <br/>
-<?php
-if (Auth::user() != null && Auth::user()->type == 1) {
-    ?>
 
 <div class="container">
   <div class="row">
@@ -46,27 +43,4 @@ if (Auth::user() != null && Auth::user()->type == 1) {
   </div>
     <a href="{{ action('UserController@create') }}" button type="submit" class="btn btn-primary">Insert New User</button></a>
 
-<div>
-<?php
-} else {
-        ?>
-  @include('functions.denied')
-<?php
-    } ?>
-
-
 @endsection
-
-
-<script>
-function myFunction() {
-    var txt;
-    var r = confirm("Press a button!\nEither OK or Cancel.\nThe button you pressed will be displayed in the result window.");
-    if (r == true) {
-        txt = "You pressed OK!";
-    } else {
-        txt = "You pressed Cancel!";
-    }
-    document.getElementById("demo").innerHTML = txt;
-}
-</script>

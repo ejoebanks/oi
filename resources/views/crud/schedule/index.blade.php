@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<?php
-if (Auth::user() != null && Auth::user()->type == 1) {
-    ?>
-
 <div class="container">
     <table class="table table-striped">
         <thead>
@@ -40,11 +36,4 @@ if (Auth::user() != null && Auth::user()->type == 1) {
     <a href="{{ action('ScheduleController@create') }}" button type="submit" class="btn btn-primary">Insert New Schedule</button></a>
 
 <div>
-  <?php
-} else {
-        ?>
-    @include('functions.denied')
-  <?php
-    } ?>
-
 @endsection

@@ -19,7 +19,6 @@ Route::group(['middleware' => 'admin'], function () {
     //Route::get('/home', 'OrderController@homeList');
     Route::post('/calendar', 'OrderController@updateDate');
 
-
     //Recent Changes
     Route::get('/changes', 'ScheduleController@recent');
 

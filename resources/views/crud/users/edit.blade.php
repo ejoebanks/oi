@@ -18,6 +18,12 @@
 
            <input type="hidden" name="_method" value="PATCH">
 
+           <div class="form-group">
+               <input type="hidden" value="{{csrf_token()}}" name="_token" />
+               <label for="clockNumber">Clock Number:</label>
+               <input type="text" class="form-control" name="clockNumber" value="{{ $user->clockNumber }}" required/>
+           </div>
+
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="firstname">First Name:</label>

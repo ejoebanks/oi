@@ -9,6 +9,7 @@
         <thead>
             <tr>
               <td>ID</td>
+              <td>Seniority</td>
               <td>First Name</td>
               <td>Last Name</td>
               <td>Email</td>

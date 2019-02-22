@@ -49,7 +49,7 @@
                 </div>
                 </td>
                   <td>
-                    <h4><span class="badge badge-secondary">{{$s->id}}</span></h4>
+                    <h4><span class="badge badge-secondary">{{$s->clockNumber}}</span></h4>
                     <h6>{{ $s->firstName }} {{ $s->lastName}}</h6>
                   </td>
                 </tr>

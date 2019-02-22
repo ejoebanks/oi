@@ -18,9 +18,8 @@
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
           <label for="clockNumber">Clock Number:</label>
-          <input type="text" class="form-control" name="clockNumber" required/>
+          <input type="text" class="form-control" name="id" required/>
       </div>
-
 
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />

@@ -9,6 +9,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('users', 'UserController');
     Route::resource('schedule', 'ScheduleController');
     Route::resource('events', 'EventController');
+    Route::resource('staff', 'StaffController');
 
 
     Route::get('/home', function () {

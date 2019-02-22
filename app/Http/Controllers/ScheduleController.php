@@ -16,7 +16,11 @@ class ScheduleController extends Controller
 
     public function index()
     {
-        $schedule = \DB::table('schedule')->orderBy('shift')->get();
+        $schedule = \DB::table('schedule')
+                  ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
+                  ->orderBy('shift')
+                  ->get();
+
         return view('crud.schedule.index', compact('schedule'));
     }
 
@@ -71,6 +75,7 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         $schedule = Schedule::where('id', $id)
+                      ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
                       ->first();
 
         return view('crud.schedule.edit', compact('schedule', 'id'));

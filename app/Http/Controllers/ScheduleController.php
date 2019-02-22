@@ -22,7 +22,10 @@ class ScheduleController extends Controller
 
     public function index2()
     {
-        $schedule = \DB::table('schedule')->orderBy('seniority', 'desc')->get();
+        $schedule = \DB::table('schedule')
+                  ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
+                  ->orderBy('seniority', 'desc')
+                  ->get();
 
         $normalUser = Schedule::where('id', Auth::user()->id)
                       ->first();
@@ -36,8 +39,8 @@ class ScheduleController extends Controller
         $normalUser = Schedule::where('id', Auth::user()->clockNumber)
                       ->first();
 
-        $firstName = $normalUser->firstName;
-        $lastName = $normalUser->lastName;
+        //$firstName = $normalUser->firstName;
+        //$lastName = $normalUser->lastName;
 
         return view('home', compact('normalUser', 'firstName', 'lastName'));
     }

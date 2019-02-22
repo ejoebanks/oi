@@ -20,22 +20,9 @@
            <div class="form-group">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
                <label for="id">Clock #:</label>
-               <input type="text" class="form-control" name="id" value="{{ $schedule->id }}" />
+               <input type="text" class="form-control" name="clockNumber" value="{{ $schedule->clockNumber }}" />
            </div>
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="firstName">First Name:</label>
-            <input type="text" class="form-control" name="firstName" value="{{ $schedule->firstName }}" />
-        </div>
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="lastName">Last Name:</label>
-            <input type="text" class="form-control" name="lastName" value="{{ $schedule->lastName }}" />
-        </div>
-
-
+        
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="shift">Shift:</label>

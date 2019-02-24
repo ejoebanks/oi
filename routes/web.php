@@ -21,7 +21,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/calendar', 'OrderController@updateDate');
 
     //Recent Changes
-    Route::get('/changes', 'ScheduleController@recent');
+    Route::get('/changes', 'ShiftChangeController@recent');
 
     // Viewing & Updating shifts
     Route::get('/lists', 'ScheduleController@index2');
@@ -44,10 +44,12 @@ Route::group(['middleware' => 'auth' ], function () {
 
     //View Last Submitted Orders
     Route::get('/submitted', 'OrderController@lastOrder');
-
 });
 
 
+Route::get('/test', function () {
+    return view('testpage');
+});
 
 // Contact Form
 Route::get('/contact', 'ContactController@show');

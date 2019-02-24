@@ -19,13 +19,14 @@
     </tr>
   </thead>
   <tbody>
+    <?php $i = 0; ?>
       @foreach($recentChanges as $change)
         <tr>
-          <td><h5>{{ $change->id }}</h5></td>
-          <td><h5>{{ $change->firstName }} {{$change->lastName}}</h5></th>
-          <td><h5>{{ $change->shift }}</h5></td>
-          <td><h5>X</h5></td>
-          <td><h5>{{ date('m-d-Y', strtotime($change->updated_at)) }}</h5></td>
+          <td><h5>{{ $i++ }}</h5></td>
+          <td><h5>{{ $change->firstName }} {{ "Smith" }}</h5></th>
+          <td><h5>{{ $change->currentshift }}</h5></td>
+          <td><h5>{{ $change->prevshift }}</h5></td>
+          <td><h5>{{ date('m-d-Y', strtotime($change->created)) }}</h5></td>
         </tr>
       @endforeach
     </tbody>

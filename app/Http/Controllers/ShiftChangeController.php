@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Schedule;
 use App\ShiftChange;
 use Auth;
 
-class ScheduleController extends Controller
+class ShiftChangeController extends Controller
 {
     public function recent()
     {
-        $recentChanges = \DB::table('schedule')
-                    ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
-                    ->select('staff.clockNumber as id', 'schedule.updated_at AS updated', 'schedule.shift', 'schedule.clockNumber', 'staff.firstName', 'staff.lastName')
-                    ->orderBy('schedule.updated_at', 'desc')
+        $recentChanges = \DB::table('shiftchanges')
+                    ->join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
+                    ->select('staff.clockNumber as id', 'shiftchanges.created_at AS created', 'shiftchanges.prevshift', 'shiftchanges.currentshift', 'staff.firstName', 'staff.lastName')
+                    ->orderBy('shiftchanges.created_at', 'desc')
                     ->take(10)
                     ->get();
         return view('recent', compact('recentChanges'));
@@ -90,13 +89,8 @@ class ScheduleController extends Controller
     public function updateShift($id, $char)
     {
         $schedule = Schedule::find($id);
-        $shiftchange = new ShiftChange();
         if ($char == 'A' || $char == 'B' || $char == 'C' || $char == 'D') {
-            $shiftchange->prevshift = $schedule->shift;
             $schedule->shift = $char;
-            $shiftchange->clockNumber = $schedule->clockNumber;
-            $shiftchange->currentshift = $char;
-            $shiftchange->save();
             $schedule->save();
         }
 

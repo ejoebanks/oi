@@ -9228,3 +9228,18 @@ a.text-dark:focus, a.text-dark:hover {
 #recentTab {
   text-align: center;
 }
+
+#login_header{
+  background-color: #040c13;
+  color: white;
+  font-size: 1rem;
+}
+
+#login_container{
+  background-color: black;
+}
+
+#login_body {
+  background-color: #103455;
+  color: white;
+}

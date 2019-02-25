@@ -9230,7 +9230,8 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 #login_header{
-  background-color: #040c13;
+  background-color: #0e2a43;
+  border-bottom: 5px solid #E86F2A;
   color: white;
   font-size: 1rem;
 }

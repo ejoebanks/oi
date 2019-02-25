@@ -67,13 +67,14 @@ $(document).ready(function() {
     calcAll();
   });
 
-  // Event triggers for the main functions
+  // Event triggers (change) for the main calculations
   $(document).on("change", ".amount", calcAll);
   $(document).on("change", ".amt", calcCourse);
 });
 
-// Function for the term calculator
+// Function for the term, cumulative, and projection calculator
 function calcAll() {
+
   // Variables for term calculation
   var gpa = 0;
   var grade = 5;
@@ -139,35 +140,56 @@ function calcAll() {
         grade = parseFloat($(this).find("#currentgrade").val());
       }
 
+      //Trigger calculation of minimum for repeat course function,
+      //so that the minimum grade is removed between two repeated
+      //courses.
       if (previousgrade !== null) {
         work = 50;
       }
     }
 
+    // If values are not set, display nothing
     if (grade == 5 || credithours == 5 || tempGrade == 5 || previousgrade == null) {
       $(this).find(".total").val("");
     }
+
+    //Marks I, W, X, and CR courses as not used in GPA calculation
     if (grade == 100) {
       $(this).find(".total").val("Not used in calculation.");
       credithours = 5;
       grade = 5;
     }
+
     if (grade !== 5 && credithours !== 5) {
+
+      //Totals credit hours
       if (credtaken == 0 && pastgpa == 0 || credtaken == "foo") {
         totalcredits += credithours;
+
+      //If credits were set in the cumulative function, total
+      //it then return to the if, so past credits aren't added repeatedly
       } else {
         totalcredits += (credithours + credtaken);
         pastgradeval = pastgpa * credtaken;
         credtaken = "foo";
       }
+
+      //Total the term credits separate from cumulative
       termCredits += credithours;
 
+
+      //Remove minimum grade and credit hours from a repeated course
+      //so GPA and total credits are displayed correctly.
       if (work == 50 && pastgpa !== 0 && credtaken !== 0) {
         pastgradeval -= (Math.min(tempGrade, previousgrade) * credithours);
         totalcredits -= credithours;
       }
+
+      //Total each row to display quality points at the last column
       rowTotal = grade * credithours;
       $(this).find(".total").val(rowTotal.toFixed(2));
+
+      //Re-set the variables
       credithours = 5;
       grade = 5;
       tempGrade = 5;
@@ -204,6 +226,7 @@ function calcAll() {
     }
   });
 
+  //Limit GPA to 4.0
   if (gpa > 4.0) {
     gpa = 4.0;
   }
@@ -231,7 +254,7 @@ function calcAll() {
     achievedgoal = (projectedgradeval - currentgradeval) / credleft;
 
 
-    // Changes output depending on necessary GPA
+    // If appplicable values are set, continue
     if (totcreds !== 0 && targetgpa !== 0 && credleft !== 0 && currentgradeval !== 0) {
       $("#proj_box").show();
       if (achievedgoal.toFixed(2) <= 4.0 && achievedgoal.toFixed(2) > 0) {

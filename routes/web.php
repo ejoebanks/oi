@@ -1,5 +1,7 @@
 <?php
+
 Route::group(['middleware' => 'admin'], function () {
+  
     //Admin Page
     Route::get('/admin', function () {
         return view('admin.admin');

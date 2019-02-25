@@ -698,7 +698,7 @@ springStats.saConfig = springStats.saConfig || {
                 </div>
                 <hr/>
                 <div class="cu_box" id="cu_box"></div>
-                <div id="cred_box" class="cred_box">0.00</div>
+                <div id="cred_box" class="cred_box"></div>
               </div>
       </div>
         <hr/>

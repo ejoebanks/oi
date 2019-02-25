@@ -10,6 +10,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('schedule', 'ScheduleController');
     Route::resource('events', 'EventController');
     Route::resource('staff', 'StaffController');
+    Route::resource('shiftchanges', 'ShiftChangeController');
 
 
     Route::get('/home', function () {

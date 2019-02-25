@@ -11,9 +11,10 @@ class ShiftChangeController extends Controller
 
     public function index()
     {
-        $shiftchange = \DB::table('schedule')
-                  ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
-                  ->orderBy('shift')
+        $shiftchange = \DB::table('shiftchanges')
+                  ->join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
+                  ->select('staff.clockNumber as id', 'staff.firstName', 'staff.lastName', 'shiftchanges.currentshift', 'shiftchanges.prevshift', 'shiftchanges.created_at')
+                  ->orderBy('shiftchanges.created_at', 'desc')
                   ->get();
 
         return view('crud.shiftchanges.index', compact('shiftchange'));

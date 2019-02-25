@@ -9,7 +9,7 @@ class ShiftChange extends Model
     protected $table = 'shiftchanges';
 
     protected $fillable = [
-      'clockNumber', 'currentshift', 'prevshift', 'created_at'
+      'clockNumber', 'currentshift', 'prevshift'
   ];
 
     public function updateChange($data)
@@ -17,7 +17,6 @@ class ShiftChange extends Model
         $shiftchange = $this->find($data['clockNumber']);
         $shiftchange->currentshift = $data['currentshift'];
         $shiftchange->prevshift = $data['prevshift'];
-        $shiftchange->created_at = $data['created_at'];
         $shiftchange->save();
         return 1;
     }

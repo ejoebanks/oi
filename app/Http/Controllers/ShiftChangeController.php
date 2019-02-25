@@ -8,68 +8,33 @@ use Auth;
 
 class ShiftChangeController extends Controller
 {
-    public function recent()
-    {
-        $recentChanges = \DB::table('shiftchanges')
-                    ->join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
-                    ->select('staff.clockNumber as id', 'shiftchanges.created_at AS created', 'shiftchanges.prevshift', 'shiftchanges.currentshift', 'staff.firstName', 'staff.lastName')
-                    ->orderBy('shiftchanges.created_at', 'desc')
-                    ->take(10)
-                    ->get();
-        return view('recent', compact('recentChanges'));
-    }
 
     public function index()
     {
-        $schedule = \DB::table('schedule')
+        $shiftchange = \DB::table('schedule')
                   ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
                   ->orderBy('shift')
                   ->get();
 
-        return view('crud.schedule.index', compact('schedule'));
-    }
-
-    public function index2()
-    {
-        $schedule = \DB::table('schedule')
-                  ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
-                  ->orderBy('seniority', 'desc')
-                  ->get();
-
-        $normalUser = Schedule::where('id', Auth::user()->id)
-                      ->first();
-
-
-        return view('crud.schedule.list', compact('schedule', 'shiftcount', 'normalUser'));
-    }
-
-    public function personalShift()
-    {
-        $normalUser = Schedule::where('id', Auth::user()->clockNumber)
-                      ->first();
-
-        //$firstName = $normalUser->firstName;
-        //$lastName = $normalUser->lastName;
-
-        return view('home', compact('normalUser', 'firstName', 'lastName'));
+        return view('crud.shiftchanges.index', compact('shiftchange'));
     }
 
 
     public function create()
     {
-        return view('crud.schedule.create');
+        return view('crud.shiftchanges.create');
     }
 
     public function store(Request $request)
     {
-        $schedule = new Schedule([
-            'firstName'=>$request->get('firstName'),
-            'lastName'=> $request->get('lastName'),
-            'shift'=> $request->get('shift')
-        ]);
+        $shiftchange = new ShiftChange([
+            'clockNumber'=>$request->get('clockNumber'),
+            'currentshift'=> $request->get('currentshift'),
+            'prevshift'=> $request->get('prevshift')
+            ]);
 
-        $schedule->save();
-        return redirect('/schedule');
+        $shiftchange->save();
+        return redirect('/shiftchanges');
     }
 
     public function show($id)
@@ -79,44 +44,34 @@ class ShiftChangeController extends Controller
 
     public function edit($id)
     {
-        $schedule = Schedule::where('id', $id)
+        $shiftchange = ShiftChange::where('id', $id)
                       ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
                       ->first();
 
-        return view('crud.schedule.edit', compact('schedule', 'id'));
+        return view('crud.shiftchanges.edit', compact('schedule', 'id'));
     }
 
-    public function updateShift($id, $char)
-    {
-        $schedule = Schedule::find($id);
-        if ($char == 'A' || $char == 'B' || $char == 'C' || $char == 'D') {
-            $schedule->shift = $char;
-            $schedule->save();
-        }
-
-        return redirect('/lists');
-    }
 
     public function update(Request $request, $id)
     {
-        $schedule = new Schedule();
+        $shiftchange = new ShiftChange();
         $data = $this->validate($request, [
-          'firstName'=>'required',
-          'lastName'=> 'required',
-          'shift'=> 'required',
+          'clockNumber'=>'required',
+          'currentshift'=> 'required',
+          'prevshift'=> 'required',
         ]);
         $data['id'] = $id;
-        $schedule->updateSchedule($data);
+        $shiftchange->UpdateShiftChange($data);
 
-        return redirect('/schedule');
+        return redirect('/shiftchanges');
     }
 
 
     public function destroy($id)
     {
-        $schedule = Schedule::find($id);
-        $schedule->delete();
+        $shiftchange = ShiftChange::find($id);
+        $shiftchange->delete();
 
-        return redirect('/schedule');
+        return redirect('/shiftchanges');
     }
 }

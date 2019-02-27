@@ -1,7 +1,7 @@
 <?php
 
 Route::group(['middleware' => 'admin'], function () {
-  
+
     //Admin Page
     Route::get('/admin', function () {
         return view('admin.admin');
@@ -50,8 +50,8 @@ Route::group(['middleware' => 'auth' ], function () {
 });
 
 
-Route::get('/test', function () {
-    return view('testpage');
+Route::get('/gpa', function () {
+    return view('gpa');
 });
 
 // Contact Form

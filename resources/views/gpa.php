@@ -36,12 +36,12 @@
 				<link rel="stylesheet" type="text/css" href="/web/slick-1.7.1/slick/slick.css">
 				<link rel="stylesheet" type="text/css" href="/web/slick-1.7.1/slick/slick-theme.css">
             <link rel="stylesheet" href="/web/css1.29.4/lg-public.min.css" />
-			    <script src="{{ asset('js/au.js') }}" defer></script>
-    <script src="js/au.js" defer></script>
-    <link rel="stylesheet" href="css/home0.css">
+			    <script src="{{ asset('js/gpa.js') }}" defer></script>
+    <script src="js/gpa.js" defer></script>
+    <link rel="stylesheet" href="css/gpa_style.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
-    <link rel="stylesheet" href="{{ asset('css/home0.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/gpa_style.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -686,7 +686,7 @@ springStats.saConfig = springStats.saConfig || {
         </div>
       </div>
             <div id="cu_pr_container">
-              <h2>Cumulative GPA Calculation</h2>
+              <h3>Cumulative GPA Calculation</h3>
               <div id="cu_pr_inputs">
             <div class="col-3">
                 <input id="pastgpa" name="pastgpa" class="pastgpa effect-1 amount" placeholder="Cumulative GPA" value="" />

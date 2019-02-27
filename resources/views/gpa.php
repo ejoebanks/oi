@@ -703,7 +703,7 @@ springStats.saConfig = springStats.saConfig || {
       </div>
         <hr/>
         <div id="cu_pr_container">
-          <h2>Projection GPA Calculation</h2>
+          <h3>Projection GPA Calculation</h3>
           <div id="cu_pr_inputs">
         <div class="col-3">
           <input id="targetgpa" name="targetgpa" placeholder="GPA" class="targetgpa amount effect-1" type="number" value=""/>

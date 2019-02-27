@@ -5,11 +5,9 @@
       <table class="table table-striped">
         <thead>
             <tr>
-              <td>ID</td>
-              <td>Address</td>
-              <td>City</td>
-              <td>State</td>
-
+              <td>Employee</td>
+              <td>Title</td>
+              <td>Date</td>
               <td colspan="2">Action</td>
             </tr>
         </thead>

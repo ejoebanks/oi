@@ -661,8 +661,8 @@ springStats.saConfig = springStats.saConfig || {
            </table>
 
            <div class="form-actions">
-             <input type="button" value="Add Course" class="btn btn-outline-primary addRow" />
-             <input type="reset" value="Reset Fields" onclick="resetform()" class="btn btn-outline-danger" />
+             <input type="button" value="Add Course" class="btn btn-success addRow" />
+             <input type="reset" value="Reset Fields" onclick="resetform()" class="btn btn-success" />
              <hr/>
              <section class="outputcontainer">
                <div class="left-half">

@@ -71,6 +71,8 @@ html, body {
 
 .btn_remove {
   postion: absolute;
+  background-color: #B22222	;
+  color: white;
   top: 50%;
 }
 

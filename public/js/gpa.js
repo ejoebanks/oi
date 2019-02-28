@@ -237,8 +237,12 @@ function calcAll() {
   } else {
     $("#show_box").text(termGPA.toFixed(2));
     $("#term_cred").text(termCredits.toFixed(2));
-    $("#cred_box").text("Combined with your current term GPA of " + termGPA.toFixed(2) + " and current cumulative GPA of " + parseFloat($('#pastgpa').val()).toFixed(2) + ", your new cumulative GPA will be " + gpa.toFixed(2) + " over " + totalcredits.toFixed(2) + " total credits.");
-
+    if (!isNaN(parseFloat($('#pastgpa').val()).toFixed(2)) && !isNaN(parseFloat($('#credtaken').val()).toFixed(2))) {
+      $("#cred_box").show();
+      $("#cred_box").text("Combined with your current term GPA of " + termGPA.toFixed(2) + " and current cumulative GPA of " + parseFloat($('#pastgpa').val()).toFixed(2) + ", your new cumulative GPA will be " + gpa.toFixed(2) + " over " + totalcredits.toFixed(2) + " total credits.");
+    } else {
+      $("#cred_box").hide();
+    }
   }
 
   // Projection calculation

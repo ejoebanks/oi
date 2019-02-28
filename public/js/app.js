@@ -13400,16 +13400,16 @@ $(document).ready(function() {
 
     var activeSystemClass = $('.list-group-item.active');
 
-    //something is entered in search form
+    //Something is entered into the input
     $('#system-search').keyup( function() {
        var that = this;
-        // affect all table rows on in systems table
+        // Look through all table rows
         var tableBody = $('.table-list-search tbody');
         var tableRowsClass = $('.table-list-search tbody tr');
         $('.search-sf').remove();
         tableRowsClass.each( function(i, val) {
 
-            //Lower text for case insensitive
+            //Avoid case sensitivity
             var rowText = $(val).text().toLowerCase();
             var inputText = $(that).val().toLowerCase();
             if(inputText != '')
@@ -13427,7 +13427,7 @@ $(document).ready(function() {
 
             if( rowText.indexOf( inputText ) == -1 )
             {
-                //hide rows
+                //Hide rows
                 tableRowsClass.eq(i).hide();
 
             }
@@ -13437,7 +13437,7 @@ $(document).ready(function() {
                 tableRowsClass.eq(i).show();
             }
         });
-        //all tr elements are hidden
+        //Hide all TR elements if nothing found
         if(tableRowsClass.children(':visible').length == 0)
         {
             tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');

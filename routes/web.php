@@ -27,7 +27,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/changes', 'ShiftChangeController@recent');
 
     // Viewing & Updating shifts
-    Route::get('/lists', 'ScheduleController@index2');
+    Route::get('/lists', 'ScheduleController@listShifts');
     Route::post('/lists', 'ScheduleController@index2');
     Route::get('/lists/{id}/{char}', 'ScheduleController@updateShift');
 });

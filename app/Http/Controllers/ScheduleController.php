@@ -30,7 +30,7 @@ class ScheduleController extends Controller
         return view('crud.schedule.index', compact('schedule'));
     }
 
-    public function index2()
+    public function listShifts()
     {
         $schedule = \DB::table('schedule')
                   ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')

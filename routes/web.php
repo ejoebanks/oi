@@ -28,7 +28,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     // Viewing & Updating shifts
     Route::get('/lists', 'ScheduleController@listShifts');
-    Route::post('/lists', 'ScheduleController@index2');
+    Route::post('/lists', 'ScheduleController@listShifts');
     Route::get('/lists/{id}/{char}', 'ScheduleController@updateShift');
 });
 
@@ -47,6 +47,10 @@ Route::group(['middleware' => 'auth' ], function () {
 
     //View Last Submitted Orders
     Route::get('/submitted', 'OrderController@lastOrder');
+
+    // Calendar View
+    Route::get('/calendar', 'OrderController@calendar');
+
 });
 
 
@@ -55,13 +59,11 @@ Route::get('/gpa', function () {
 });
 
 // Contact Form
-Route::get('/contact', 'ContactController@show');
-Route::post('/contact', 'ContactController@mailToAdmin');
+//Route::get('/contact', 'ContactController@show');
+//Route::post('/contact', 'ContactController@mailToAdmin');
 
 Auth::routes();
 
-// Calendar View
-Route::get('/calendar', 'OrderController@calendar');
 
 // Login Functions
 Route::get('login', array(

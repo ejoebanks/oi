@@ -21,9 +21,9 @@ class User extends Authenticatable
     public function updateUser($data)
     {
         $user = $this->find($data['id']);
+        $user->id = $data['id'];
         $user->firstname = $data['firstname'];
         $user->lastname = $data['lastname'];
-        $user->id = $data['clockNumber'];
         $user->emergencyContact = $data['emergencyContact'];
         $user->email = $data['email'];
         $user->type = $data['type'];

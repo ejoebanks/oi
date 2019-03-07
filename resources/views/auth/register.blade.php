@@ -15,11 +15,11 @@
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Clock Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="clockNumber" type="number" class="form-control{{ $errors->has('clockNumber') ? ' is-invalid' : '' }}" name="clockNumber" value="{{ old('clockNumber') }}" min="0" required autofocus>
+                                <input id="id" type="number" class="form-control{{ $errors->has('id') ? ' is-invalid' : '' }}" name="id" value="{{ old('id') }}" min="0" required autofocus>
 
-                                @if ($errors->has('clockNumber'))
+                                @if ($errors->has('id'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('clockNumber') }}</strong>
+                                        <strong>{{ $errors->first('id') }}</strong>
                                     </span>
                                 @endif
                             </div>

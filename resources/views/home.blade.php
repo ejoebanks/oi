@@ -29,7 +29,7 @@
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-sm-10">
-            <h1>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h1></div>
+            <h1 id="greet">Hello, {{ Auth::user()->firstname }}</h1></div>
         <div class="col-sm-2">
             <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png"></a>
         </div>
@@ -75,13 +75,11 @@
                                     <th>Label 3</th>
                                     <th>Label </th>
                                     <th>Label </th>
-                                    <th>Label </th>
                                 </tr>
                             </thead>
                             <tbody id="items">
                                 <tr>
                                     <td>1</td>
-                                    <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
@@ -95,11 +93,9 @@
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
-                                    <td>Table cell</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
@@ -113,11 +109,9 @@
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
-                                    <td>Table cell</td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
-                                    <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
@@ -131,11 +125,9 @@
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
-                                    <td>Table cell</td>
                                 </tr>
                                 <tr>
                                     <td>7</td>
-                                    <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
@@ -149,20 +141,9 @@
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
-                                    <td>Table cell</td>
                                 </tr>
                                 <tr>
                                     <td>9</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>

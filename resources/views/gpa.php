@@ -698,7 +698,7 @@ springStats.saConfig = springStats.saConfig || {
                 </div>
                 <hr/>
                 <div class="cu_box" id="cu_box"></div>
-                <div id="cred_box" class="cred_box"></div>
+                <h4><div id="cred_box" class="cred_box"></div></h4>
               </div>
       </div>
         <hr/>
@@ -714,7 +714,7 @@ springStats.saConfig = springStats.saConfig || {
                 <span class="focus-border"></span>
             </div>
             <hr/>
-            <div class="proj_box" id="proj_box"></div>
+            <h4><div class="proj_box" id="proj_box"></div></h4>
           </div>
         </div>
 

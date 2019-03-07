@@ -43,17 +43,12 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <?php
-          if (isset($id) && $id > 0) {
-              ?>
                 <li class="nav-item">
                   <a class="nav-link" href="/calendar">
                     <i class="fas fa-calendar-alt fa-lg"></i>
                     Events
                   </a>
                 </li>
-              <?php
-          } ?>
 
               </ul>
                 <ul class="navbar-nav ml-auto">

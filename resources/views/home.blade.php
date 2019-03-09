@@ -17,7 +17,7 @@
       </div>
 
       <div class="text">
-        <span>View and manage employee shifts.</span>
+        <h5>There are currently <span id="counts">{{ $shiftCount }}</span> active shifts.</h5>
       </div>
 
       <a href="/lists">View</a>
@@ -36,11 +36,11 @@
       </div>
 
       <div class="text">
-        <span>Currently, there are {{ "#" }} staff members.</span>
+        <h5>There are currently <span id="counts">{{ $staffCount }}</span> staff members.</h5>
       </div>
 
-      <a href="#">View</a> <i class="fas fa-ellipsis-v"></i>
-      <a href="#">Add</a>
+      <a href="/staff">View</a> <i class="fas fa-ellipsis-v"></i>
+      <a href="/staff/create">Add</a>
 
 
      </div>
@@ -57,9 +57,12 @@
       </div>
 
       <div class="text">
-        <span>There are currently {{ "#" }} events in the next 7 days.</span>
+        <?php if ($eventCount > 0){?>
+          <h5>There are currently <span id="counts">{{ $eventCount }}</span> events in the next 7 days.</h5>
+        <?php } else {?>
+          <h5>There are no upcoming events.</h5>
+        <?php } ?>
       </div>
-
       <a href="/events">View</a> <i class="fas fa-ellipsis-v"></i>
       <a href="/events/create">Add</a>
 
@@ -80,7 +83,13 @@
       </div>
 
       <div class="text">
-        <span>There have been {{ "#" }} in the past 30 days.</span>
+        <?php
+        $now2 = date('Y-m-d H:i:s');
+        $then = date('Y-m-d H:i:s', strtotime($now2. ' - 30 days'));
+        echo $now2;
+        echo $then;
+?>
+        <h5>There has been <span id="counts">{{ $shiftchangecount }}</span> shift changes in the past month.</h5>
       </div>
 
       <a href="/changes">View</a>

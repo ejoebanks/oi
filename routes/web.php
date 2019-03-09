@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth' ], function () {
 
     // Landing Page
     Route::get('', 'ScheduleController@personalShift');
+    
     //Account details update
     Route::get('/update/user/{id}', 'UserController@singleEdit')->middleware('check');
     Route::post('/update/user/{id}', 'UserController@singleUpdate')->middleware('check');

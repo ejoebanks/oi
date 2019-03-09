@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Schedule;
+Use App\Staff;
+Use App\Event;
+use \DateTime;
 use App\ShiftChange;
 use Auth;
 
@@ -17,6 +20,7 @@ class ScheduleController extends Controller
                     ->orderBy('schedule.updated_at', 'desc')
                     ->take(10)
                     ->get();
+
         return view('recent', compact('recentChanges'));
     }
 
@@ -49,10 +53,29 @@ class ScheduleController extends Controller
         $normalUser = Schedule::where('id', Auth::user()->clockNumber)
                       ->first();
 
+        //Counts
+        $shiftCount = Schedule::count();
+        $staffCount = Staff::count();
+
+        date_default_timezone_set('America/Chicago');
+        $now = date("Y-m-d");
+        $end = date('Y-m-d', strtotime($now. ' + 7 days'));
+
+        $eventCount = \DB::table('events')
+                    ->whereBetween('date', [$now, $end])
+                    ->count();
+
+        $today = date('Y-m-d H:i:s');;
+        $aMonthAgo = date('Y-m-d H:i:s', strtotime($today. ' - 30 days'));
+
+        $shiftchangecount = \DB::table('shiftchanges')
+                    ->whereBetween('created_at', [$aMonthAgo, $today])
+                    ->count();
+
         //$firstName = $normalUser->firstName;
         //$lastName = $normalUser->lastName;
 
-        return view('home', compact('normalUser', 'firstName', 'lastName'));
+        return view('home', compact('normalUser', 'firstName', 'lastName', 'shiftCount', 'staffCount', 'eventCount', 'shiftchangecount'));
     }
 
 

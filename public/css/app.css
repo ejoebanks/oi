@@ -9244,3 +9244,9 @@ a.text-dark:focus, a.text-dark:hover {
   background-color: #103455;
   color: white;
 }
+
+#counts {
+  color: #4183D7;
+  font-weight: bold;
+  font-size: 1.2rem;
+}

@@ -3,24 +3,96 @@
 @section('content')
 
 @if(Auth::user()->type == 1)
-<br/>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-4">
-    </div>
-    <div class="col-sm-4">
-      <div class="cliente">
-        <a href="/lists" button type="button" class="btn btn-secondary btn-lg btn-block">View Shifts</button></a>
-        <a href="/staff/create" button type="button" class="btn btn-secondary btn-lg btn-block">Add Employee</button>
-        <a href="/events/create"  button type="button" class="btn btn-secondary btn-lg btn-block">Add Event</button></a>
-        <a href="/changes"  button type="button" class="btn btn-secondary btn-lg btn-block">Recent Changes</button></a>
+<div class="row">
 
-        </div>
-    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
-    <div class="col-sm-4">
+    <div class="box-part text-center">
+
+                  <i class="far fa-clock fa-3x" id="cardIcon" aria-hidden="true"></i>
+
+      <div class="title">
+        <h4>Shifts</h4>
+      </div>
+
+      <div class="text">
+        <span>View and manage employee shifts.</span>
+      </div>
+
+      <a href="/lists">View</a>
+
+     </div>
   </div>
+
+   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+    <div class="box-part text-center">
+
+        <i class="fas fa-users fa-3x" id="cardIcon" aria-hidden="true"></i>
+
+      <div class="title">
+        <h4>Employees</h4>
+      </div>
+
+      <div class="text">
+        <span>Currently, there are {{ "#" }} staff members.</span>
+      </div>
+
+      <a href="#">View</a> <i class="fas fa-ellipsis-v"></i>
+      <a href="#">Add</a>
+
+
+     </div>
+  </div>
+
+   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+    <div class="box-part text-center">
+
+                  <i class="fas fa-calendar-day fa-3x" id="cardIcon" aria-hidden="true"></i>
+
+      <div class="title">
+        <h4>Events</h4>
+      </div>
+
+      <div class="text">
+        <span>There are currently {{ "#" }} events in the next 7 days.</span>
+      </div>
+
+      <a href="/events">View</a> <i class="fas fa-ellipsis-v"></i>
+      <a href="/events/create">Add</a>
+
+     </div>
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+  </div>
+
+   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+    <div class="box-part text-center">
+
+        <i class="fas fa-exchange-alt fa-3x" id="cardIcon" aria-hidden="true"></i>
+
+      <div class="title">
+        <h4>Recent Changes</h4>
+      </div>
+
+      <div class="text">
+        <span>There have been {{ "#" }} in the past 30 days.</span>
+      </div>
+
+      <a href="/changes">View</a>
+
+     </div>
+  </div>
+
+   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+  </div>
+
 </div>
+
 </div>
 @endif
 
@@ -57,7 +129,6 @@
         </div>
         <!--/col-3-->
         <div class="col-sm-9">
-
             <ul class="nav nav-tabs" id="myTab">
                 <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
                 <li><a href="#messages" data-toggle="tab">Messages</a></li>

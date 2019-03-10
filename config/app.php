@@ -184,6 +184,7 @@ return [
         'Blade' => Illuminate\Support\Facades\Blade::class,
         'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
         'Bus' => Illuminate\Support\Facades\Bus::class,
+        'Carbon' => 'Carbon\Carbon',
         'Cache' => Illuminate\Support\Facades\Cache::class,
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
         'Config' => Illuminate\Support\Facades\Config::class,

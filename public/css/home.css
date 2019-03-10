@@ -73,14 +73,16 @@ a.cards{
 
 .box-part{
     background:#FFF;
+    height: 300px;
     border-radius:0;
     padding:60px 10px;
     margin:30px 0px;
+    border: 2px outset #4183D7;
 }
 .text{
     margin:20px 0px;
 }
 
 #cardIcon{
-     color:#4183D7;
+     color: #4183D7;
 }

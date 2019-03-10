@@ -9250,3 +9250,13 @@ a.text-dark:focus, a.text-dark:hover {
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+#cardLink{
+  color: #4183D7;
+  font-size: 1.3rem;
+}
+
+#cardLink:hover {
+ text-decoration: none;
+ color: #E86F2A;
+}

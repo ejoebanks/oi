@@ -1,53 +1,58 @@
 @extends('layouts.app')
 
 @section('content')
-
 @if(Auth::user()->type == 1)
 <div class="container-fluid">
-<div class="row">
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-4">
+      <div class="box-part text-center">
 
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <i class="far fa-clock fa-3x" id="cardIcon" aria-hidden="true"></i>
 
-    <div class="box-part text-center">
+        <div class="title">
+          <h4>Shifts</h4>
+        </div>
 
-                  <i class="far fa-clock fa-3x" id="cardIcon" aria-hidden="true"></i>
+        <div class="text">
+          <h5>There are currently <span id="counts">{{ $shiftCount }}</span> active shifts, and <span id="counts">{{ $unassigned }}</span> Employees
+          have not been assigned a shift.</h5>
+        </div>
 
-      <div class="title">
-        <h4>Shifts</h4>
-      </div>
+        <a id="cardLink" href="/lists">View</a> <i class="fas fa-ellipsis-v"></i>
+        <a id="cardLink" href="#">Assign</a>
 
-      <div class="text">
-        <h5>There are currently <span id="counts">{{ $shiftCount }}</span> active shifts.</h5>
-      </div>
+       </div>
 
-      <a href="/lists">View</a>
+		</div>
+		<div class="col-md-4">
+      <div class="box-part text-center">
 
-     </div>
+          <i class="fas fa-users fa-3x" id="cardIcon" aria-hidden="true"></i>
+
+        <div class="title">
+          <h4>Employees</h4>
+        </div>
+
+        <div class="text">
+          <h5>There are currently <span id="counts">{{ $staffCount }}</span> staff members.</h5>
+        </div>
+
+        <a id="cardLink" href="/staff">View</a> <i class="fas fa-ellipsis-v"></i>
+        <a id="cardLink" href="/staff/create">Add</a>
+
+
+       </div>
+
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+  <div class="row">
+  <div class="col-md-2">
   </div>
-
-   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-    <div class="box-part text-center">
-
-        <i class="fas fa-users fa-3x" id="cardIcon" aria-hidden="true"></i>
-
-      <div class="title">
-        <h4>Employees</h4>
-      </div>
-
-      <div class="text">
-        <h5>There are currently <span id="counts">{{ $staffCount }}</span> staff members.</h5>
-      </div>
-
-      <a href="/staff">View</a> <i class="fas fa-ellipsis-v"></i>
-      <a href="/staff/create">Add</a>
-
-
-     </div>
-  </div>
-
-   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
+  <div class="col-md-4">
     <div class="box-part text-center">
 
                   <i class="fas fa-calendar-day fa-3x" id="cardIcon" aria-hidden="true"></i>
@@ -57,23 +62,22 @@
       </div>
 
       <div class="text">
-        <?php if ($eventCount > 0){?>
+        <?php if ($eventCount > 0) {
+    ?>
           <h5>There are currently <span id="counts">{{ $eventCount }}</span> events in the next 7 days.</h5>
-        <?php } else {?>
+        <?php
+} else {
+        ?>
           <h5>There are no upcoming events.</h5>
-        <?php } ?>
+        <?php
+    } ?>
       </div>
-      <a href="/events">View</a> <i class="fas fa-ellipsis-v"></i>
-      <a href="/events/create">Add</a>
+      <a id="cardLink" href="/events">View</a> <i class="fas fa-ellipsis-v"></i>
+      <a id="cardLink" href="/events/create">Add</a>
 
      </div>
   </div>
-
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-  </div>
-
-   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
+  <div class="col-md-4">
     <div class="box-part text-center">
 
         <i class="fas fa-exchange-alt fa-3x" id="cardIcon" aria-hidden="true"></i>
@@ -83,23 +87,15 @@
       </div>
 
       <div class="text">
-        <?php
-        $now2 = date('Y-m-d H:i:s');
-        $then = date('Y-m-d H:i:s', strtotime($now2. ' - 30 days'));
-        echo $now2;
-        echo $then;
-?>
         <h5>There has been <span id="counts">{{ $shiftchangecount }}</span> shift changes in the past month.</h5>
       </div>
 
-      <a href="/changes">View</a>
+      <a id="cardLink" href="/changes">View</a>
 
      </div>
   </div>
-
-   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+  <div class="col-md-2">
   </div>
-
 </div>
 
 </div>

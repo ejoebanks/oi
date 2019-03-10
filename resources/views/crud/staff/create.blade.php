@@ -24,7 +24,7 @@
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
           <label for="seniority">Seniority:</label>
-          <input type="text" class="form-control" name="seniority" required/>
+          <input id="seniority" name="seniority" />
       </div>
 
       <div class="form-group">

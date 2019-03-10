@@ -13444,3 +13444,11 @@ $(document).ready(function() {
         }
     });
 });
+
+$( document ).ready(function() {
+  $('input[name="seniority"]').mask('0000-00-00');
+  $('#seniority').datepicker({
+      format: 'yyyy-mm-dd',
+      uiLibrary: 'bootstrap4'
+  });
+});

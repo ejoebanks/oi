@@ -34,11 +34,10 @@
                 <td>
                   <div class="btn-group-vertical">
                   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                  </button>
+<i class="fas fa-pencil-alt"></i>                  </button>
 
                   <button data-toggle="collapse" data-target="#{{$s->id}}"class="btn btn-sm btn-outline-secondary">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <i class="far fa-eye" aria-hidden="true"></i>
                   </button>
 
                   <div class="dropdown-menu">

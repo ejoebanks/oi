@@ -9257,3 +9257,86 @@ a.text-dark:focus, a.text-dark:hover {
  text-decoration: none;
  color: #E86F2A;
 }
+
+#container {
+  min-height: 100%;
+  position: relative;
+}
+
+.centerBlock {
+  display: table;
+  margin: auto;
+}
+
+.forcedWidth {
+  width: 200px;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+#header {
+  padding: 10px;
+}
+
+#body {
+  padding: 10px;
+  padding-bottom: 30px;
+  /* Height of the footer */
+}
+
+#footer {
+  position: static;
+  clear: both;
+  bottom: 0;
+  width: 100%;
+  /* Height of the footer */
+  background: #454545;
+  text-align: center;
+  color: #999999;
+}
+
+#greet {
+  color: #222;
+  text-shadow: 0px 1px 2px #555;
+  font-size: 4rem;
+}
+
+.pt-4, .py-4 {
+  padding-top: 0rem !important;
+}
+
+.card {
+  height: 100%;
+}
+
+body{
+    background: #eee;
+}
+span{
+    font-size:15px;
+}
+a.cards{
+  text-decoration:none;
+  color: #0062cc;
+  border-bottom:2px solid #0062cc;
+}
+.box{
+    padding:60px 0px;
+}
+
+.box-part{
+    background:#FFF;
+    height: 300px;
+    border-radius:0;
+    padding:60px 10px;
+    margin:30px 0px;
+    box-shadow: 0 0 0 3px #fff, 0 0 0 5px #ddd, 0 0 0 10px #fff, 0 0 2px 10px #4183D7;
+
+}
+.text{
+    margin:20px 0px;
+}
+
+#cardIcon{
+     color: #4183D7;
+}

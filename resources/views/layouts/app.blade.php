@@ -112,6 +112,7 @@
         </nav>
 
         <main class="py-4">
+          <br/>
           @yield('content')
         </main>
       </div>

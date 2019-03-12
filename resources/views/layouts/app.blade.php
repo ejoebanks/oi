@@ -6,7 +6,6 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="{{ asset('css/home.css') }}">
       <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-confirmation/1.0.5/bootstrap-confirmation.min.js"></script>-->
       @yield('style')
 
@@ -23,10 +22,11 @@
 
       <!-- Fonts -->
       <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-          <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
       <!-- Styles -->
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
+      <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     </head>
     <body>
       <?php asset('images/Owens_Illinois.png') ?>

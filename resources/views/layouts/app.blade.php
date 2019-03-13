@@ -26,8 +26,6 @@
 
       <script src="{{ asset('js/gijgo.js') }}" >
       </script>
-
-
       <!-- Fonts -->
       <link rel="dns-prefetch" href="https://fonts.gstatic.com">
       <!-- Styles -->
@@ -47,7 +45,7 @@
               <img src="{{ asset('images/Owens_Illinois.png') }}" alt="Owens-Header">
               </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+              <i class="fas fa-chevron-circle-down"></i>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

@@ -34,10 +34,11 @@
                 <td>
                   <div class="btn-group-vertical">
                   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<i class="fas fa-pencil-alt"></i>                  </button>
+                      <i class="fas fa-pencil-alt"></i>
+                  </button>
 
-                  <button data-toggle="collapse" data-target="#{{$s->id}}"class="btn btn-sm btn-outline-secondary">
-                    <i class="far fa-eye" aria-hidden="true"></i>
+                  <button data-toggle="collapse" data-target="#EMP{{$s->id}}" aria-controls="EMP" aria-expanded="false" class="btn btn-sm btn-outline-secondary">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
                   </button>
 
                   <div class="dropdown-menu">
@@ -55,7 +56,7 @@
                 <tr></tr>
                 <tr class="no-bottom-border">
                   <td colspan="2">
-                  <div id="{{$s->id}}" class="collapse">
+                    <div class="collapse" id="EMP{{$s->id}}">
                     <div class="row">
                         <div class="col-md-6 text-center">
                             <span id="collapseTitle" class="float-md-left">Seniority:</span>

@@ -22,11 +22,17 @@
 
       <script src="{{ asset('js/custom.js') }}" >
       </script>
+      <link href="{{ asset('css/gijgo.css') }}" rel="stylesheet">
+
+      <script src="{{ asset('js/gijgo.js') }}" >
+      </script>
+
 
       <!-- Fonts -->
       <link rel="dns-prefetch" href="https://fonts.gstatic.com">
       <!-- Styles -->
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
       <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
       <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
       <link rel="stylesheet" href="{{ asset('css/home.css') }}">
@@ -117,8 +123,10 @@
         </main>
       </div>
       </div>
+      <!--
       <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
       <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+      -->
     </body>
   <div id="footer">
     © 2018
@@ -126,10 +134,6 @@
     </strong>
   </div>
   </div>
-  <!--
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
       @yield('script')

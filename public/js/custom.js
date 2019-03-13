@@ -1,3 +1,4 @@
+
 $.ajaxSetup({
      headers: {
            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -76,12 +77,4 @@ $(document).ready(function() {
             tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
         }
     });
-});
-
-$( document ).ready(function() {
-  $('input[name="seniority"]').mask('0000-00-00');
-  $('#seniority').datepicker({
-      format: 'yyyy-mm-dd',
-      uiLibrary: 'bootstrap4'
-  });
 });

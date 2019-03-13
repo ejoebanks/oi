@@ -24,6 +24,8 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
-    "inputmask": "^4.0.3"
+    "gijgo": "^1.9.12",
+    "inputmask": "^4.0.3",
+    "jquery-mask-plugin": "^1.14.15"
   }
 }

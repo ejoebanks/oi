@@ -1,4 +1,3 @@
-
 $.ajaxSetup({
      headers: {
            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -16,6 +15,17 @@ $( document ).ready(function() {
 */
 
 $(document).ready(function() {
+
+  $(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+      // put your options and callbacks here
+    })
+
+  });
+
     const allEqual = arr => arr.every( v => v === arr[0] );
     var shiftA = document.getElementById('shiftA').getAttribute('value');
     var shiftB = document.getElementById('shiftB').getAttribute('value');

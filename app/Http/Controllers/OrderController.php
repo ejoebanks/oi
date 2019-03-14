@@ -305,7 +305,9 @@ class OrderController extends Controller
         return view('crud.order.appointment', compact('order'));
     }
 
-    public function calendar()
+
+
+    public function cal()
     {
         $events = [];
         //$data = Order::where('employeeid', \Auth::user()->id)->first();
@@ -379,6 +381,7 @@ class OrderController extends Controller
 
         return view('calendar', compact('cal'));
     }
+
 
     public function homeList()
     {

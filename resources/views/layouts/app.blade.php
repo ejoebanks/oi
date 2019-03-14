@@ -22,6 +22,13 @@
 
       <script src="{{ asset('js/custom.js') }}" >
       </script>
+      <script src="{{ asset('js/moment.min.js') }}" >
+      </script>
+
+      <script src="{{ asset('js/fullcalendar.js') }}" >
+      </script>
+
+
       <link href="{{ asset('css/gijgo.css') }}" rel="stylesheet">
 
       <script src="{{ asset('js/gijgo.js') }}" >
@@ -30,6 +37,7 @@
       <link rel="dns-prefetch" href="https://fonts.gstatic.com">
       <!-- Styles -->
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/fullcalendar.css') }}" rel="stylesheet">
 
       <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
       <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
@@ -85,7 +93,7 @@
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       <i class="fa fa-user-o"></i>
                       </i>
-
+                      <i class="fas fa-user"></i>
                       {{ Auth::user()->firstname." ".Auth::user()->lastname }}
                       <span class="caret">
                       </span>
@@ -121,10 +129,6 @@
         </main>
       </div>
       </div>
-      <!--
-      <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
-      <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-      -->
     </body>
   <div id="footer">
     © 2018

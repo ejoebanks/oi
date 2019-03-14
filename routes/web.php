@@ -50,9 +50,7 @@ Route::group(['middleware' => 'auth' ], function () {
     Route::get('/submitted', 'OrderController@lastOrder');
 
     // Calendar View
-    Route::get('/calendar', function () {
-        return view('calendar');
-    });
+    Route::get('/calendar', 'EventController@all');
 
 });
 

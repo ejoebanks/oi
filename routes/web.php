@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth' ], function () {
 
     // Landing Page
     Route::get('', 'ScheduleController@personalShift');
-    
+
     //Account details update
     Route::get('/update/user/{id}', 'UserController@singleEdit')->middleware('check');
     Route::post('/update/user/{id}', 'UserController@singleUpdate')->middleware('check');
@@ -50,7 +50,9 @@ Route::group(['middleware' => 'auth' ], function () {
     Route::get('/submitted', 'OrderController@lastOrder');
 
     // Calendar View
-    Route::get('/calendar', 'OrderController@calendar');
+    Route::get('/calendar', function () {
+        return view('calendar');
+    });
 
 });
 

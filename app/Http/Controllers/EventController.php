@@ -21,6 +21,16 @@ class EventController extends Controller
         return view('crud.events.index', compact('event'));
     }
 
+    public function all()
+    {
+        $event = \DB::table('events')
+                ->oldest()
+                ->get();
+
+        return view('calendar', compact('event'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -58,7 +68,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        $events = Event::where('id', $id)
+        $event = Event::where('id', $id)
                     ->first();
 
         return view('crud.events.edit', compact('event', 'id'));

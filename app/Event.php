@@ -13,12 +13,12 @@ class Event extends Model
       'title', 'employee', 'date'
   ];
 
-    public function updateLocation($data)
+    public function updateEvent($data)
     {
         $event = $this->find($data['id']);
-        $event->address = $data['title'];
-        $event->city = $data['employee'];
-        $event->state = $data['date'];
+        $event->title = $data['title'];
+        $event->date = $data['employee'];
+        $event->employee = $data['date'];
         $event->save();
         return 1;
     }

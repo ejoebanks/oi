@@ -12,28 +12,29 @@
     </div><br />
 @endif
     <div class="container">
-      <form class="form-horizontal" role="form" method="POST" action="{{ action('LocationController@update',$location->id) }}">
+      <form class="form-horizontal" role="form" method="POST" action="{{ action('EventController@update',$event->id) }}">
            {!! csrf_field() !!}
 
            <input type="hidden" name="_method" value="PATCH">
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="city">City:</label>
-            <input type="text" class="form-control" name="city" value="{{ $location->city }}" />
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" name="title" value="{{ $event->title }}" />
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="address">Address:</label>
-            <input type="text" class="form-control" name="address" value="{{ $location->address }}" />
+            <label for="date">Date:</label>
+            <input type="text" class="form-control" name="date" value="{{ $event->date }}" />
         </div>
-
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="state">State:</label>
-            <input type="text" class="form-control" name="state" value="{{ $location->state }}" />
-          </div>
+            <label for="employee">Employee:</label>
+            <input type="text" class="form-control" name="employee" value="{{ $event->employee }}" />
+        </div>
+
+
 
         <button type="submit" class="btn btn-primary">Update</button>
         </form>

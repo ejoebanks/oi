@@ -12,14 +12,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($event as $loc)
+            @foreach($event as $ev)
             <tr>
-                <td>{{$loc->id}}</td>
-                <td>{{$loc->title}}</td>
-                <td>{{$loc->date}}</td>
-                <td><a href="{{action('EventController@edit',$loc->id)}}" class="btn btn-primary">Edit</a></td>
+                <td>{{$ev->id}}</td>
+                <td>{{$ev->title}}</td>
+                <td>{{$ev->date}}</td>
+                <td><a href="{{action('EventController@edit',$ev->id)}}" class="btn btn-primary">Edit</a></td>
                 <td>
-                    <form action="{{action('EventController@destroy', $loc->id)}}" method="post">
+                    <form action="{{action('EventController@destroy', $ev->id)}}" method="post">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
                     <button class="btn btn-danger" onclick="return confirm('Are you sure?')" type="submit">Delete</button>

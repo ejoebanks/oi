@@ -153,7 +153,19 @@
                   $('#modalheader').html("Create Event");
                   $('#event_update').val("Submit");
                   $('#editModal').modal();
-                }
+                },
+                eventDrop: function(calEvent, delta, revertFunc) {
+                            $(function() {
+                                $.ajax({
+                                    url: '/calendar/drop',
+                                    type: 'POST',
+                                    data: {
+                                      'method': 'POST',
+                                      'date': calEvent.start.format(),
+                                      'ev_id' : calEvent.id }
+                                });
+                              });
+                            }
 
             });
         });

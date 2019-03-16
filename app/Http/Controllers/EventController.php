@@ -163,6 +163,15 @@ class EventController extends Controller
           $event = Event::find($id);
           $event->delete();
       }
+      public function updateDate(Request $request)
+      {
+          $date = $request->input('date');
+          $id = $request->input('ev_id');
+          $event = Event::find($id);
+          $event->date = $date;
+          $event->save();
+      }
+
 
 
 }

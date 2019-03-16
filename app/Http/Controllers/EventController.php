@@ -24,10 +24,16 @@ class EventController extends Controller
     public function all()
     {
         $event = \DB::table('events')
-                ->oldest()
+                ->join('staff', 'events.employee', '=', 'staff.clockNumber')
+                ->select('staff.firstName', 'staff.lastName', 'events.*')
                 ->get();
 
-        return view('calendar', compact('event'));
+        $staff = \DB::table('staff')
+                //->join('events', 'events.employee', '=', 'staff.clockNumber')
+                //->select('staff.clockNumber', 'staff.firstName', 'staff.lastName')
+                ->get();
+
+        return view('calendar', compact('event', 'staff'));
     }
 
 
@@ -121,4 +127,42 @@ class EventController extends Controller
         return redirect('/home');
     }
     */
+
+    public function ajaxUpdate(Request $request)
+      {
+          $event = Event::with('client')->findOrFail($request->id);
+          $event->update($request->all());
+
+          return response()->json(['event' => $event]);
+      }
+
+      public function updateEvent(Request $request)
+      {
+          $id = $request->input('id');
+          if (Event::find($id) == null) {
+            $event = new Event([
+                 'title'=> $request->get('title'),
+                 'employee'=> $request->get('employee'),
+                 'date'=> $request->get('date')
+             ]);
+            $event->save();
+          } else {
+            $title = $request->input('title');
+            $employee = $request->input('employee');
+            $date = $request->input('date');
+            $event = Event::findOrFail($id);
+            $event->title = $title;
+            $event->employee = $employee;
+            $event->date = $date;
+            $event->save();
+          }
+      }
+      public function removeEvent(Request $request)
+      {
+          $id = $request->input('id');
+          $event = Event::find($id);
+          $event->delete();
+      }
+
+
 }

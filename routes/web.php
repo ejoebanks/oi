@@ -30,6 +30,11 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/lists', 'ScheduleController@listShifts');
     Route::get('/lists/{id}/{char}', 'ScheduleController@updateShift');
 
+    //Assigning a shift
+    Route::get('/unassigned', 'ScheduleController@unassignedEmployees');
+
+
+
 });
 
 

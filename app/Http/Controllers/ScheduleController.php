@@ -49,6 +49,17 @@ class ScheduleController extends Controller
         return view('crud.schedule.list', compact('schedule', 'shiftcount', 'normalUser'));
     }
 
+    public function unassignedEmployees() {
+      $unassigned = \DB::table('staff')
+                    ->leftjoin('schedule', 'staff.clockNumber', '=', 'schedule.clockNumber')
+                    ->where('schedule.clockNumber', '=', null)
+                    ->select('staff.*')
+                    ->get();
+
+     return view('unassigned', compact('unassigned'));
+
+    }
+
     public function personalShift()
     {
         $normalUser = Schedule::where('id', Auth::user()->clockNumber)

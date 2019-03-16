@@ -108,7 +108,6 @@
                         },
                         success: function(data) {
                             location.reload();
-
                         },
                         error: function(data) {
                             alert($('#title').val() + " | " + $('#ev_id').val());
@@ -149,7 +148,8 @@
                     $('#selected_time').val(moment(calEvent.selected_time).format('YYYY-MM-DD'));
                     $('#editModal').modal();
                 },
-                dayClick: function(calEvent, jsEvent, view) {
+                dayClick: function(calEvent, jsEvent, view, date) {
+                  $('#selected_time').val(calEvent.format('YYYY-MM-DD'));
                   $('#modalheader').html("Create Event");
                   $('#event_update').val("Submit");
                   $('#editModal').modal();

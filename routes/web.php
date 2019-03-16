@@ -21,7 +21,6 @@ Route::group(['middleware' => 'admin'], function () {
 
     // Appointment list (requests, pending, complete)
     //Route::get('/home', 'OrderController@homeList');
-    Route::post('/calendar', 'OrderController@updateDate');
 
     //Recent Changes
     Route::get('/changes', 'ShiftChangeController@recent');
@@ -30,6 +29,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/lists', 'ScheduleController@listShifts');
     Route::post('/lists', 'ScheduleController@listShifts');
     Route::get('/lists/{id}/{char}', 'ScheduleController@updateShift');
+
 });
 
 
@@ -51,6 +51,8 @@ Route::group(['middleware' => 'auth' ], function () {
 
     // Calendar View
     Route::get('/calendar', 'EventController@all');
+    Route::post('/calendar', 'EventController@updateEvent');
+    Route::post('/calendar/remove', 'EventController@removeEvent');
 
 });
 

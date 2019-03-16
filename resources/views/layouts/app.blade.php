@@ -22,6 +22,7 @@
 
       <script src="{{ asset('js/custom.js') }}" >
       </script>
+
       <script src="{{ asset('js/moment.min.js') }}" >
       </script>
 
@@ -46,7 +47,6 @@
     <body>
       <?php asset('images/Owens_Illinois.png') ?>
       <div id="app">
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container">
             <a class="navbar-brand" href="/">

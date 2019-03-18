@@ -25,7 +25,7 @@
         </a>
         <i class="fas fa-ellipsis-v">
         </i>
-        <a id="cardLink" href="#">Assign
+        <a id="cardLink" href="/unassigned">Assign
         </a>
       </div>
     </div>

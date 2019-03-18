@@ -55,9 +55,10 @@
                                     {{ __('Login') }}
                                 </button>
 
+                                <!--
                                 <a href="/register" class="btn btn-secondary">
                                 Register</a>
-
+                                -->
                                 <a class="btn btn-secondary" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>

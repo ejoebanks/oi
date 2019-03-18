@@ -265,3 +265,13 @@ pre {
 #rIcon{
   color: #495057;
 }
+
+.ulhead {
+  background-color: #2370B8;
+  color: white;
+}
+
+#shift {
+  color: green;
+  font-size: 6rem;
+}

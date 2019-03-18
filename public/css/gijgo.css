@@ -1213,9 +1213,6 @@ span.gj-grid-column-resizer {
 }
 
 .gj-grid-bootstrap-3 tbody tr td[data-mode="edit"] .gj-datepicker-bootstrap [role="input"] {
-    height: 37px;
-    border:0px;
-    border-radius: 0px;
 }
 
 .gj-grid-bootstrap-3 tbody tr td[data-mode="edit"] .gj-datepicker-bootstrap [role="right-icon"] {
@@ -1306,7 +1303,7 @@ div.gj-grid-wrapper div.gj-grid-bootstrap-4-toolbar {
 div.gj-grid-wrapper div.gj-grid-md-toolbar {
     font-weight: bold;
     font-size: 24px;
-    font-family: "Helvetica","Arial",sans-serif;
+    font-family: Raleway;
     background-color: rgb(255, 255, 255);
 
     border-top: 1px solid #e0e0e0;
@@ -1726,7 +1723,7 @@ ul.gj-list-md li.disabled > [data-role="wrapper"] > [data-role="expander"] {
 /* Material Design */
 .gj-editor-md {
     padding: 7px;
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-family: Raleway;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0;
@@ -1919,6 +1916,7 @@ ul.gj-list-md li.disabled > [data-role="wrapper"] > [data-role="expander"] {
 
 .gj-datepicker [role="right-icon"] {
     cursor: pointer;
+    background-color: #e9ecef;
 }
 
 .gj-picker div[role="navigator"] {
@@ -1946,7 +1944,7 @@ ul.gj-list-md li.disabled > [data-role="wrapper"] > [data-role="expander"] {
 
 /* Material Design */
 .gj-datepicker-md {
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-family: Raleway;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: .04em;
@@ -2350,7 +2348,7 @@ ul.gj-list-md li.disabled > [data-role="wrapper"] > [data-role="expander"] {
 
 /* Material Design */
 .gj-timepicker-md {
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-family: Raleway;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: .04em;

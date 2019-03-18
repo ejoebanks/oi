@@ -33,31 +33,47 @@
                   <form id="modalInputs">
                   <input type="hidden" name="event_id" id="event_id" value="" />
                   <input type="hidden" name="ev_id" id="ev_id" value="" />
-                    <div class="modal-body">
+                  <div class="modal-body mx-3">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <i class="fas fa-times-circle"></i>
+                      </button>
+
                         <h4 id="modalheader">Edit Event</h4>
                         <hr />
-                        Employee
-                        <br />
-                        <select class="form-control" name="employee" id="employee" required>
-                        @foreach($staff as $mem)
-                          <option value="<?= $mem->clockNumber ?>"><?= $mem->firstName. " ".$mem->lastName ?></option>
-                        @endforeach
-                        </select>
+                        <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <select class="form-control" name="employee" id="employee" required>
+                              <option value="01212121212">None</option>
+                            @foreach($staff as $mem)
+                              <option value="<?= $mem->clockNumber ?>"><?= $mem->firstName. " ".$mem->lastName ?></option>
+                            @endforeach
+                            </select>
+                          </div>
+                        </div>
 
-                        Event Title
                         <br />
-                        <input type="text" class="form-control" name="title" id="title" required>
+                        <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-heading"></i></span>
+                            </div>
+                              <input type="text" class="form-control" name="title" id="title" required placeholder="Event Title"/>
+                          </div>
+                        </div>
 
-
-                        Date:
                         <br />
-                            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-                            <input id="selected_time" name="selected_time" required/>
+                        <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <input class="form-control" name="selected_time" id="selected_time" required/>
+                          </div>
+                        </div>
                           </form>
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <input type="button" class="btn btn-danger" id="event_remove" value="Remove">
                         <input type="button" class="btn btn-primary" id="event_update" value="Save">
                     </div>
@@ -116,16 +132,26 @@
                 });
             });
 
-
             $('#calendar').fullCalendar({
                 editable: true,
                 selectable: true,
+                selectHelper: true,
+                eventRender: function(eventObj, $el) {
+                  $el.popover({
+                    title: eventObj.name,
+                    //content: eventObj.title,
+                    trigger: 'hover',
+                    placement: 'top',
+                    container: 'body'
+                  });
+                },
                 events: [
                     @foreach($event as $ev) {
                         textColor: 'white',
-                        color: '#4183D7',
+                        color: '#2370B8',
                         id: '{{ $ev->id }}',
-                        title: "{{ $ev->firstName }} {{ $ev->lastName }}\n{{ $ev->title }}",
+                        title: "{{ $ev->title }}",
+                        name: "{{ $ev->firstName}} {{$ev->lastName}}",
                         modalTitle: "{{ $ev->title }}",
                         start: '{{ $ev->date }}',
                         employee: '{{ $ev->employee }}',
@@ -134,9 +160,9 @@
                     @endforeach
                 ],
                 header: {
-                    left: 'addEventButton prev,next today',
-                    center: 'title',
-                    right: 'month,list'
+                    left: 'title',
+                    center: '',
+                    right: 'month,list prev,today,next'
                 },
                 eventClick: function(calEvent, jsEvent, view) {
                     $('#modalheader').html("Edit Event");

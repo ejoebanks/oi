@@ -17589,7 +17589,10 @@ $( document ).ready(function() {
   $('input[name="selected_time"]').mask('0000-00-00');
   $('#selected_time').datepicker({
       format: 'yyyy-mm-dd',
-      uiLibrary: 'bootstrap4'
+      uiLibrary: 'bootstrap4',
+      icons: {
+          rightIcon: '<div id="rIcon"><i class="fas fa-calendar-alt 3x"></i></div>'
+      }
   });
 
 });

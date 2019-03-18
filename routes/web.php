@@ -41,8 +41,6 @@ Route::group(['middleware' => 'admin'], function () {
 //Ensuring user is logged in
 Route::group(['middleware' => 'auth' ], function () {
 
-    // Landing Page
-    Route::get('', 'ScheduleController@personalShift');
 
     //Account details update
     Route::get('/update/user/{id}', 'UserController@singleEdit')->middleware('check');
@@ -59,7 +57,7 @@ Route::group(['middleware' => 'auth' ], function () {
     Route::post('/calendar', 'EventController@updateEvent');
     Route::post('/calendar/remove', 'EventController@removeEvent');
     Route::post('/calendar/drop', 'EventController@updateDate');
-
+    Route::get('', 'HomeController@homepage');
 });
 
 

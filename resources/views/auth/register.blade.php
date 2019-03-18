@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div id="login_header" class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
+                <div id="login_body" class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -24,7 +24,7 @@
                                 @endif
                             </div>
                         </div>
-
+                        <!--
                         <div class="form-group row">
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
@@ -52,7 +52,6 @@
                                 @endif
                             </div>
                         </div>
-                        <!--
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
@@ -133,7 +132,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-secondary">
                                     {{ __('Register') }}
                                 </button>
                             </div>

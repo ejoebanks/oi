@@ -101,7 +101,7 @@ class UserController extends Controller
           'lastname'=>'required|string|max:255',
           'email'=> 'required|string|email|max:255',
           'emergencyContact'=> 'required|string|max:15',
-          'password'=> 'required|string|min:6',
+          'password'=> 'required|string|min:6|confirmed',
         ]);
         $data['id'] = $id;
         $user->singleUpdate($data);

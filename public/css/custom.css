@@ -229,5 +229,39 @@ pre {
 }
 
 .modal-content {
+}
+
+#modalheader{
+  text-align: center;
+}
+
+.modal-footer {
+  margin: 0 auto;
+  float: none;
+}
+
+.btn-primary {
+  background-color: #0B3C5D;
+  border-color: #0B3C5D;
+}
+
+.btn-danger {
+  background-color: #E86F2A;
+  border-color: #E86F2A;
+}
+
+.btn-danger:hover, .btn-primary:hover{
+  color: #fff;
   background-color: silver;
+  border-color: silver;
+}
+
+
+#selected_time{
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+#rIcon{
+  color: #495057;
 }

@@ -24,14 +24,14 @@
 
            <div class="form-group">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
-               <label for="firstname">First Name:</label>
-               <input type="text" class="form-control" name="firstname" value="{{ $user->firstname }}" required/>
+               <label for="firstName">First Name:</label>
+               <input type="text" class="form-control" name="firstName" value="{{ $user->info->firstName }}" required/>
            </div>
 
            <div class="form-group">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
-               <label for="lastname">Last Name:</label>
-               <input type="text" class="form-control" name="lastname" value="{{ $user->lastname }}" required/>
+               <label for="lastName">Last Name:</label>
+               <input type="text" class="form-control" name="lastName" value="{{ $user->info->lastName }}" required/>
            </div>
 
         <div class="form-group">

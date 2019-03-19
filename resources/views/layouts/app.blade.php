@@ -94,7 +94,7 @@
                       <i class="fa fa-user-o"></i>
                       </i>
                       <i class="fas fa-user"></i>
-                      {{ Auth::user()->firstname." ".Auth::user()->lastname }}
+                      {{ Auth::user()->info->firstName." ".Auth::user()->info->lastName }}
                       <span class="caret">
                       </span>
                     </a>

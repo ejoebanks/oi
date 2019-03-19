@@ -6,16 +6,9 @@ use Illuminate\Http\Request;
 use App\Event;
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $event = \DB::table('events')
-                ->oldest()
-                ->get();
+        $event = Event::all();
 
         return view('crud.events.index', compact('event'));
     }
@@ -35,12 +28,6 @@ class EventController extends Controller
         return view('calendar', compact('event', 'staff'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('crud.events.create');
@@ -65,12 +52,6 @@ class EventController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $event = Event::where('id', $id)

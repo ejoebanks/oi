@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<?php use App\User;?>
 @if(Auth::user()->type == 1)
 <div class="container-fluid">
   <div class="row">
@@ -118,12 +119,10 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-          <h1 id="greet">Hello, {{ Auth::user()->firstname }}</h1>
+          <h1 id="greet">Hello, <br/>{{ $user->firstName }}</h1>
         </div>
         <div class="col-sm-5">
-          <?php var_dump($shift);?>
-          <h1>Your current shift is:</h1>
-            <h1 id="shift">{{ $shift->shift }}</h1>
+          <h1 >Your current shift is: <span id="currentshift">{{$user->shift}}</span></h1>
         </div>
     </div>
     <div class="row">
@@ -137,13 +136,13 @@
                   <span class="float-left">
                     <strong>Full Name
                     </strong>
-                  </span>{{ Auth::user()->firstname }} {{ Auth::user()->lastname}}
+                  </span>{{ $user->firstName }} {{ $user->lastName}}
                 </li>
                 <li class="list-group-item text-right">
                   <span class="float-left">
                     <strong>Seniority
                     </strong>
-                  </span> 2.13.2014
+                  </span> {{ $user->seniority }}
                 </li>
                 <li class="list-group-item text-right">
                   <span class="float-left">

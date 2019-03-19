@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Staff;
+use App\User;
 
 class StaffController extends Controller
 {
     public function index()
     {
+        $user = User::find(3648);
         $staff = \DB::table('staff')->oldest()->get();
-        return view('crud.staff.index', compact('staff'));
+        return view('crud.staff.index', compact('staff', 'user'));
     }
 
     public function create()

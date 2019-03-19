@@ -4,19 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Staff;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
+        $user = User::find(3648);
         //$users = User::where('id', auth()->user()->id)->get();
         $users = \DB::table('users')->oldest()->get();
-        return view('crud.users.index', compact('users'));
+        return view('crud.users.index', compact('users', 'user'));
     }
 
     /**
@@ -79,8 +77,8 @@ class UserController extends Controller
         $user = new User();
         $data = $this->validate($request, [
           'id'=>'required|integer|max:255',
-          'firstname'=>'required|string|max:255',
-          'lastname'=>'required|string|max:255',
+          'firstName'=>'required|string|max:255',
+          'lastName'=>'required|string|max:255',
           'seniority'=>'required|string|max:20',
           'email'=> 'required|string|email|max:255',
           'emergencyContact'=> 'required|string|max:15',
@@ -97,8 +95,8 @@ class UserController extends Controller
     {
         $user = new User();
         $data = $this->validate($request, [
-          'firstname'=>'required|string|max:255',
-          'lastname'=>'required|string|max:255',
+          'firstName'=>'required|string|max:255',
+          'lastName'=>'required|string|max:255',
           'email'=> 'required|string|email|max:255',
           'emergencyContact'=> 'required|string|max:15',
           'password'=> 'required|string|min:6|confirmed',

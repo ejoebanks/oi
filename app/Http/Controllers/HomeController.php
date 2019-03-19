@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Schedule;
+use App\Shift;
 use App\Staff;
 use App\Event;
 use App\User;
@@ -24,11 +24,11 @@ class HomeController extends Controller
     }
 
     public function homepage() {
-          $normalUser = Schedule::where('id', Auth::user()->clockNumber)
+          $normalUser = Shift::where('id', Auth::user()->clockNumber)
                         ->first();
 
           //Counts
-          $shiftCount = Schedule::count();
+          $shiftCount = Shift::count();
           $staffCount = Staff::count();
           $eventCount = \DB::table('events')
                           ->whereBetween('date', [Carbon::today()->toDateString(), Carbon::today()->addDays(7)->toDateString()])
@@ -39,15 +39,13 @@ class HomeController extends Controller
                                 ->count();
 
           $unassigned = \DB::table('staff')
-                        ->leftjoin('schedule', 'staff.clockNumber', '=', 'schedule.clockNumber')
-                        ->where('schedule.clockNumber', '=', null)
+                        ->leftjoin('shifts', 'staff.clockNumber', '=', 'shifts.clockNumber')
+                        ->where('shifts.clockNumber', '=', null)
                         ->count();
 
-      $user = \DB::table('schedule')
-              ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
-              ->select('schedule.shift', 'staff.firstName', 'staff.lastName', 'staff.seniority')
-              ->where('staff.clockNumber', '=', Auth::user()->id)
-              ->first();
+          $user = Staff::where('staff.clockNumber', Auth::user()->id)
+                  ->join('shifts', 'shifts.clockNumber', '=', 'staff.clockNumber')
+                  ->first();
 
     return view('home', compact('unassigned', 'normalUser', 'firstName', 'lastName', 'shiftCount', 'staffCount', 'eventCount', 'shiftchangecount', 'user'));
 

@@ -280,5 +280,8 @@ pre {
   font-size: 6rem;
   font-weight: bold;
   color: green;
+}
 
+#newemployee{
+  text-align: center;
 }

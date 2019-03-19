@@ -11,38 +11,31 @@
 
       <title>{{ ('OI Employee Management') }}
       </title>
-      <!-- Scripts -->
       <?php
       if (is_Object(Auth::user())) {
           $id = Auth::user()->type;
       }
       ?>
-      <script src="{{ asset('js/app.js') }}" >
-      </script>
 
-      <script src="{{ asset('js/custom.js') }}" >
-      </script>
+      <!-- Base Javascript -->
+      <script src="{{ asset('js/app.js') }}" ></script>
+      <script src="{{ asset('js/custom.js') }}" ></script>
 
-      <script src="{{ asset('js/moment.min.js') }}" >
-      </script>
+      <!-- Added Javascript  -->
+      <script src="{{ asset('js/moment.min.js') }}" ></script>
+      <script src="{{ asset('js/fullcalendar.js') }}" ></script>
+      <script src="{{ asset('js/gijgo.js') }}" ></script>
 
-      <script src="{{ asset('js/fullcalendar.js') }}" >
-      </script>
-
-
-      <link href="{{ asset('css/gijgo.css') }}" rel="stylesheet">
-
-      <script src="{{ asset('js/gijgo.js') }}" >
-      </script>
       <!-- Fonts -->
       <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
       <!-- Styles -->
+      <link href="{{ asset('css/gijgo.css') }}" rel="stylesheet">
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
       <link href="{{ asset('css/fullcalendar.css') }}" rel="stylesheet">
-
       <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
       <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
-      <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+      <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     </head>
     <body>
       <?php asset('images/Owens_Illinois.png') ?>
@@ -83,18 +76,24 @@
                     </a>
                   </li>
                   @else
+                  @if($id > 0)
                   <li class="nav-item">
                     <a class="nav-link" href="/lists">
                       <i class="fa fa-list" aria-hidden="true"></i>
                       Shifts
                     </a>
                   </li>
+                  @endif
                   <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       <i class="fa fa-user-o"></i>
                       </i>
                       <i class="fas fa-user"></i>
+                      @if (!is_object(Auth::user()->info))
+                      {{ Auth::user()->email }}
+                      @else
                       {{ Auth::user()->info->firstName." ".Auth::user()->info->lastName }}
+                      @endif
                       <span class="caret">
                       </span>
                     </a>
@@ -102,11 +101,9 @@
                       <?php $uid = Auth::user()->id; ?>
                       <a href="{{action('UserController@singleEdit', $uid)}}" class="dropdown-item">Update Account
                       </a>
-                  <?php if ($id > 0) {
-              ?>
+                  @if ($id > 0)
                     <a href="/admin" class="dropdown-item">Admin</a>
-          <?php
-          } ?>
+                  @endif
                       <a class="dropdown-item" href="{{ route('logout') }}"
                          onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">

@@ -272,6 +272,13 @@ pre {
 }
 
 #shift {
-  color: green;
+  color: black;
+  margin: 0;
+}
+
+#currentshift{
   font-size: 6rem;
+  font-weight: bold;
+  color: green;
+
 }

@@ -104,7 +104,7 @@ class UserController extends Controller
         $data['id'] = $id;
         $user->singleUpdate($data);
 
-        return redirect('/home');
+        return redirect('');
     }
 
 

@@ -133,9 +133,11 @@
             });
 
             $('#calendar').fullCalendar({
+              @if(Auth::user()->type == 1)
                 editable: true,
                 selectable: true,
                 selectHelper: true,
+              @endif
                 eventRender: function(eventObj, $el) {
                   $el.popover({
                     title: eventObj.name,
@@ -164,6 +166,7 @@
                     center: '',
                     right: 'month,list prev,today,next'
                 },
+                @if(Auth::user()->type == 1)
                 eventClick: function(calEvent, jsEvent, view) {
                     $('#modalheader').html("Edit Event");
                     $('#event_update').val("Save");
@@ -192,6 +195,7 @@
                                 });
                               });
                             }
+                  @endif
 
             });
         });

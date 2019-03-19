@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Schedule;
 use App\Staff;
 use App\Event;
+use App\User;
 use App\ShiftChange;
 use Auth;
 use Carbon\Carbon;
@@ -42,13 +43,13 @@ class HomeController extends Controller
                         ->where('schedule.clockNumber', '=', null)
                         ->count();
 
-      $shift = \DB::table('schedule')
+      $user = \DB::table('schedule')
               ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
-              ->select('schedule.shift', 'staff.firstName', 'staff.lastName')
+              ->select('schedule.shift', 'staff.firstName', 'staff.lastName', 'staff.seniority')
               ->where('staff.clockNumber', '=', Auth::user()->id)
               ->first();
 
-    return view('home', compact('unassigned', 'normalUser', 'firstName', 'lastName', 'shiftCount', 'staffCount', 'eventCount', 'shiftchangecount', 'shift'));
+    return view('home', compact('unassigned', 'normalUser', 'firstName', 'lastName', 'shiftCount', 'staffCount', 'eventCount', 'shiftchangecount', 'user'));
 
     }
 

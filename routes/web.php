@@ -9,7 +9,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     //CRUDS
     Route::resource('users', 'UserController');
-    Route::resource('schedule', 'ScheduleController');
+    Route::resource('shifts', 'ShiftController');
     Route::resource('events', 'EventController');
     Route::resource('staff', 'StaffController');
     Route::resource('shiftchanges', 'ShiftChangeController');
@@ -26,12 +26,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/changes', 'ShiftChangeController@recent');
 
     // Viewing & Updating shifts
-    Route::get('/lists', 'ScheduleController@listShifts');
-    Route::post('/lists', 'ScheduleController@listShifts');
-    Route::get('/lists/{id}/{char}', 'ScheduleController@updateShift');
+    Route::get('/lists', 'ShiftController@listShifts');
+    Route::post('/lists', 'ShiftController@listShifts');
+    Route::get('/lists/{id}/{char}', 'ShiftController@updateShift');
 
     //Assigning a shift
-    Route::get('/unassigned', 'ScheduleController@unassignedEmployees');
+    Route::get('/unassigned', 'ShiftController@unassignedEmployees');
 
 
 

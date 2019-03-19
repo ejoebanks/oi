@@ -9,6 +9,10 @@ class Staff extends Model
 {
     use Notifiable;
 
+    public function user() {
+      return $this->belongsTo(User::class, 'id', 'clockNumber');
+    }
+
     protected $primaryKey = 'clockNumber';
 
     protected $fillable = [

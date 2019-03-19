@@ -9,21 +9,20 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    function info() {
+        return $this->hasOne(Staff::class, 'clockNumber', 'id');
+    }
+
     protected $fillable = [
-        'id', 'firstname', 'lastname', 'email', 'clockNumber', 'password', 'type'
+        'id', 'firstName', 'lastName', 'email', 'clockNumber', 'password', 'type'
     ];
 
     public function updateUser($data)
     {
         $user = $this->find($data['id']);
         $user->id = $data['id'];
-        $user->firstname = $data['firstname'];
-        $user->lastname = $data['lastname'];
+        $user->firstName = $data['firstName'];
+        $user->lastName = $data['lastName'];
         $user->emergencyContact = $data['emergencyContact'];
         $user->email = $data['email'];
         $user->type = $data['type'];
@@ -35,12 +34,14 @@ class User extends Authenticatable
     public function singleUpdate($data)
     {
         $user = $this->find($data['id']);
-        $user->firstname = $data['firstname'];
-        $user->lastname = $data['lastname'];
+        $staff = Staff::find($data['id']);
+        $staff->firstName = $data['firstName'];
+        $staff->lastName = $data['lastName'];
         $user->emergencyContact = $data['emergencyContact'];
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
         $user->save();
+        $staff->save();
         return 1;
     }
 }

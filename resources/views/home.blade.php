@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<?php use App\User;?>
 @if(Auth::user()->type == 1)
 <div class="container-fluid">
   <div class="row">
@@ -18,7 +17,7 @@
             <span id="counts">{{ $shiftCount }}
             </span> active shifts, and
             <span id="counts">{{ $unassigned }}
-            </span> Employees
+            </span> employees
             have not been assigned a shift.
           </h5>
         </div>
@@ -68,22 +67,17 @@
           </h4>
         </div>
         <div class="text">
-          <?php if ($eventCount > 0) {
-?>
+          @if($eventCount > 0)
           <h5>There are currently
             <span id="counts">{{ $eventCount }}
             </span> events in the next 7 days.
           </h5>
-          <?php
-} else {
-?>
-          <h5>There are no upcoming events.
-          </h5>
-          <?php
-} ?>
+          @else
+          <h5>There are no upcoming events.</h5>
+          @endif
         </div>
         <br/>
-        <a id="cardLink" href="/events">View
+        <a id="cardLink" href="/calendar">View
         </a>
         <i class="fas fa-ellipsis-v">
         </i>
@@ -115,7 +109,7 @@
   </div>
 </div>
 @endif
-@if(Auth::user()->type == 0)
+@if(Auth::user()->type == 0 && is_object(Auth::user()->info))
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
@@ -332,6 +326,17 @@
 </div>
     </div>
 </div>
+@endif
+@if (!is_object(Auth::user()->info) && Auth::user()->type == 0)
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+          <br/></br/>
+          <br/></br/>
+          <br/></br/>
 
+        <h1 id="newemployee">You have not yet been assigned a shift, please check back later.</div>
+    </div>
+</div>
 @endif
 @endsection

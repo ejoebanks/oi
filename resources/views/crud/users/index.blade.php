@@ -9,9 +9,6 @@
         <thead>
             <tr>
               <td>ID</td>
-              <td>Seniority</td>
-              <td>First Name</td>
-              <td>Last Name</td>
               <td>Email</td>
               <td>Password</td>
               <td>Admin</td>
@@ -23,8 +20,6 @@
             @foreach($users as $user)
             <tr>
                 <td>{{$user->id}}</td>
-                <td>{{$user->firstname}}</td>
-                <td>{{$user->lastname}}</td>
                 <td>{{$user->email}}</td>
                 <td class="forcedWidth">{{$user->password}}</td>
                 <td>{{$user->type}}</td>

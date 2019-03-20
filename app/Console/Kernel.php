@@ -4,65 +4,35 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use DB;
-use DateTime;
-use DateTimeZone;
+use Carbon;
+use App\ShiftChange;
 use App\Order;
-use App\Notifications\AppointmentReminder;
+use App\Notifications\ChangeNotification;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
     protected $commands = [
       //
     ];
 
-    /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            $today = new DateTime('today', new DateTimeZone('America/Chicago'));
-            $order = \DB::table('orders')
-                      ->select('orders.*')
-                      ->where('notified', '!=', '1')
-                      ->orderBy('scheduledtime', 'asc')
-                      ->get();
+            $shiftchanges = ShiftChange::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
 
-            foreach ($order as $obj) {
-                // Check difference between now and appointment date
-                $date = new Datetime($obj->scheduledtime,
-                        new DateTimeZone('America/Chicago'));
-                $interval = $today->diff($date);
-                $final = $interval->days * 24 + $interval->h;
-
-                if ($final <= 24) {
-                    // Send e-mail to the client
-                    $sendTo = \App\User::find($obj->clientid);
-                    $sendTo->notify(new AppointmentReminder());
+            foreach ($shiftchanges as $change) {
+                    $sendTo = \App\User::find($change->clockNumber);
+                    $sendTo->notify(new ChangeNotification());
 
                     // Update order so e-mail doesn't get sent repeatedly
-                    $thisOrder = Order::find($obj->id);
-                    $thisOrder->notified = 1;
-                    $thisOrder->save();
-                }
+                    $thisChange = ShiftChange::find($change->id);
+                    $thisChange->notified = 1;
+                    $thisChange->save();
             }
           });
     }
 
-    /**
-     * Register the commands for the application.
-     *
-     * @return void
-     */
     protected function commands()
     {
         $this->load(__DIR__.'/Commands');

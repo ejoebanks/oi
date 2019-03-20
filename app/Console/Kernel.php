@@ -19,7 +19,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            $shiftchanges = ShiftChange::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+            $shiftchanges = ShiftChange::
+                            whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+                            ->where('notified', '!=', 1)
+                            ->get();
 
             foreach ($shiftchanges as $change) {
                     $sendTo = \App\User::find($change->clockNumber);

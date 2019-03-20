@@ -9,6 +9,7 @@
       <div class="box-part text-center">
         <i class="far fa-clock fa-3x" id="cardIcon" aria-hidden="true">
         </i>
+
         <div class="title">
           <h4>Shifts</h4>
         </div>

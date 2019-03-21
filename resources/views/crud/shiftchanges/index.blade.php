@@ -19,7 +19,7 @@
         <tbody>
             @foreach($shiftchange as $shift)
             <tr>
-                <td>{{$shift->id}}</td>
+                <td>{{$shift->clockNumber}}</td>
                 <td>{{$shift->firstName}} {{$shift->lastName}}</td>
                 <td>{{$shift->currentshift}}</td>
                 <td>{{$shift->prevshift}}</td>
@@ -38,6 +38,6 @@
         </tbody>
     </table>
   </div>
-    <a href="{{ action('ShiftChangeController@create') }}" button type="submit" class="btn btn-primary">Insert New Staff</button></a>
+    <a href="{{ action('ShiftChangeController@create') }}" button type="submit" class="btn btn-primary">Insert New Shift Change</button></a>
 
 @endsection

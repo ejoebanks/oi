@@ -12,8 +12,9 @@
         </ul>
     </div><br />
 @endif
+
     <div class="container">
-      <form class="form-horizontal" role="form" method="POST" action="{{ action('StaffController@update',$staff->clockNumber) }}">
+      <form class="form-horizontal" role="form" method="POST" action="{{ action('ShiftChangeController@update',$shiftchange->id) }}">
            {!! csrf_field() !!}
 
            <input type="hidden" name="_method" value="PATCH">
@@ -21,28 +22,29 @@
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="clockNumber">Clock Number:</label>
-            <input type="text" class="form-control" name="clockNumber" value="{{ $staff->clockNumber }}" required/>
+            <input type="text" class="form-control" name="clockNumber" value="{{ $shiftchange->clockNumber }}" required/>
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="seniority">Seniority:</label>
-            <input type="text" class="form-control" name="seniority" value="{{ $staff->seniority }}" required/>
+            <label for="currentshift">Current Shift:</label>
+            <select class="form-control" name="currentshift" value="{{ $shiftchange->currentshift }}">
+            @foreach(range('A', 'D') as $char)
+              @if($char == $shiftchange->currentshift)
+                @php ($active = "selected")
+              @else
+                @php ($active = "")
+              @endif
+              <option {{$active}} value="{{$char}}">{{$char}}</option>
+            @endforeach
+            </select>
         </div>
-
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="firstName">First Name:</label>
-            <input type="text" class="form-control" name="firstName" value="{{ $staff->firstName }}" required/>
+            <label for="prevshift">Previous Shift:</label>
+            <input type="text" class="form-control" name="prevshift" value="{{ $shiftchange->prevshift }}" required/>
         </div>
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="lastName">Last Name:</label>
-            <input type="text" class="form-control" name="lastName" value="{{ $staff->lastName }}" required/>
-        </div>
-
 
         <button type="submit" class="btn btn-primary">Update</button>
         </form>

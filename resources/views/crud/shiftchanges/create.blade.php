@@ -23,21 +23,15 @@
 
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="seniority">Seniority:</label>
-          <input type="text" class="form-control" name="seniority" required/>
-      </div>
-
-      <div class="form-group">
-          <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="firstName">First Name:</label>
-          <input type="text" class="form-control" name="firstName" required/>
+          <label for="currentshift">Current Shift:</label>
+          <input type="text" class="form-control" name="currentshift" required/>
       </div>
 
 
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="lastName">Last Name:</label>
-          <input type="text" class="form-control" name="lastName" required/>
+          <label for="prevshift">Previous Shift:</label>
+          <input type="text" class="form-control" name="prevshift" required/>
       </div>
 
        <button type="submit" class="btn btn-primary">Create</button>

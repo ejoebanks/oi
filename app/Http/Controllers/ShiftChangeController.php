@@ -25,7 +25,7 @@ class ShiftChangeController extends Controller
     {
         $shiftchange = \DB::table('shiftchanges')
                   ->join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
-                  ->select('staff.clockNumber as id', 'staff.firstName', 'staff.lastName', 'shiftchanges.currentshift', 'shiftchanges.prevshift', 'shiftchanges.created_at')
+                  ->select('shiftchanges.id as id', 'staff.clockNumber', 'staff.firstName', 'staff.lastName', 'shiftchanges.currentshift', 'shiftchanges.prevshift', 'shiftchanges.created_at')
                   ->orderBy('shiftchanges.created_at', 'desc')
                   ->get();
 
@@ -58,10 +58,10 @@ class ShiftChangeController extends Controller
     public function edit($id)
     {
         $shiftchange = ShiftChange::where('id', $id)
-                      ->join('staff', 'staff.clockNumber', '=', 'schedule.clockNumber')
+                      ->join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
                       ->first();
 
-        return view('crud.shiftchanges.edit', compact('schedule', 'id'));
+        return view('crud.shiftchanges.edit', compact('shiftchange', 'id'));
     }
 
 
@@ -74,7 +74,7 @@ class ShiftChangeController extends Controller
           'prevshift'=> 'required',
         ]);
         $data['id'] = $id;
-        $shiftchange->UpdateShiftChange($data);
+        $shiftchange->updateChange($data);
 
         return redirect('/shiftchanges');
     }

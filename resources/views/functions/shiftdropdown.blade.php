@@ -1,5 +1,4 @@
 <?php
-
 foreach(range('A', 'D') as $char) {
   if ($char == $s->shift){
     $active = 'active';

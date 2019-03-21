@@ -43,7 +43,6 @@
             <input type="text" class="form-control" name="lastName" value="{{ $staff->lastName }}" required/>
         </div>
 
-
         <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>

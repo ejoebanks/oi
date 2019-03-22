@@ -56,6 +56,7 @@ Route::group(['middleware' => 'auth' ], function () {
     Route::get('/calendar', 'EventController@all');
     Route::post('/calendar', 'EventController@updateEvent');
     Route::post('/calendar/remove', 'EventController@removeEvent');
+    Route::post('/calendar/create', 'EventController@updateEvent');
     Route::post('/calendar/drop', 'EventController@updateDate');
     Route::get('', 'HomeController@homepage');
 });

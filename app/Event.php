@@ -10,7 +10,7 @@ class Event extends Model
     protected $table = 'events';
 
     protected $fillable = [
-      'title', 'employee', 'date'
+      'title', 'employee', 'date', 'description'
   ];
 
     public function updateEvent($data)
@@ -18,6 +18,7 @@ class Event extends Model
         $event = $this->find($data['id']);
         $event->title = $data['title'];
         $event->date = $data['employee'];
+        $event->date = $data['description'];
         $event->employee = $data['date'];
         $event->save();
         return 1;

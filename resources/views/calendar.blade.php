@@ -46,15 +46,13 @@
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             <select class="form-control" name="employee" id="employee" required>
-                              <option value="01212121212">None</option>
+                              <option value="">None</option>
                             @foreach($staff as $mem)
                               <option value="<?= $mem->clockNumber ?>"><?= $mem->firstName. " ".$mem->lastName ?></option>
                             @endforeach
                             </select>
                           </div>
                         </div>
-
-                        <br />
                         <div class="form-group">
                           <div class="input-group input-group-lg">
                             <div class="input-group-prepend">
@@ -64,12 +62,21 @@
                           </div>
                         </div>
 
-                        <br />
                         <div class="form-group">
                           <div class="input-group input-group-lg">
                             <input class="form-control" name="selected_time" id="selected_time" required/>
                           </div>
                         </div>
+
+                        <div class="form-group">
+                          <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-info"></i></span>
+                            </div>
+                            <textarea class="form-control" name="description" id="description" placeholder="Description (Optional)" rows="3"></textarea>
+                          </div>
+                        </div>
+
                           </form>
                     </div>
 
@@ -93,21 +100,21 @@
             $('#event_update').click(function(calEvent, delta, revertFunc) {
                 $(function() {
                     $.ajax({
-                        url: '/calendar',
+                        url: '/calendar/create',
                         type: 'POST',
                         data: {
                             'method': 'POST',
                             'id': $('#ev_id').val(),
                             'employee': $('#employee').val(),
-                            "title": $("#title").val(),
+                            'title': $('#title').val(),
+                            'description': $('#description').val(),
                             'date': $('#selected_time').val()
                         },
                         success: function(data) {
                             location.reload();
-
                         },
                         error: function(data) {
-                            alert($('#title').val() + " | " + $('#ev_id').val());
+                            alert("Event submission failed.");
                         }
                     });
                 });
@@ -141,7 +148,7 @@
                 eventRender: function(eventObj, $el) {
                   $el.popover({
                     title: eventObj.name,
-                    //content: eventObj.title,
+                    content: eventObj.description,
                     trigger: 'hover',
                     placement: 'top',
                     container: 'body'
@@ -157,6 +164,19 @@
                         modalTitle: "{{ $ev->title }}",
                         start: '{{ $ev->date }}',
                         employee: '{{ $ev->employee }}',
+                        description: '{{ $ev->description }}',
+                        selected_time: '{{ $ev->date }}'
+                    },
+                    @endforeach
+                    @foreach($generalevent as $ev) {
+                        textColor: 'white',
+                        color: '#2370B8',
+                        id: '{{ $ev->id }}',
+                        title: "{{ $ev->title }}",
+                        name: "{{ $ev->title }}",
+                        modalTitle: "{{ $ev->title }}",
+                        description: "{{ $ev->description }}",
+                        start: '{{ $ev->date }}',
                         selected_time: '{{ $ev->date }}'
                     },
                     @endforeach
@@ -173,6 +193,7 @@
                     $('#event_id').val(calEvent._id);
                     $('#ev_id').val(calEvent.id);
                     $('#employee').val(calEvent.employee);
+                    $("#description").val(calEvent.description);
                     $("#title").val(calEvent.modalTitle);
                     $('#selected_time').val(moment(calEvent.selected_time).format('YYYY-MM-DD'));
                     $('#editModal').modal();
@@ -203,5 +224,4 @@
 </div>
     </div>
 </div>
-
 @endsection

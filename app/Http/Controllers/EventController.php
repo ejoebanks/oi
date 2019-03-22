@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+
 class EventController extends Controller
 {
     public function index()
@@ -20,12 +21,13 @@ class EventController extends Controller
                 ->select('staff.firstName', 'staff.lastName', 'events.*')
                 ->get();
 
+        $generalevent = Event::whereNull('employee')->select('events.*')->get();
         $staff = \DB::table('staff')
                 //->join('events', 'events.employee', '=', 'staff.clockNumber')
                 //->select('staff.clockNumber', 'staff.firstName', 'staff.lastName')
                 ->get();
 
-        return view('calendar', compact('event', 'staff'));
+        return view('calendar', compact('event', 'staff', 'generalevent'));
     }
 
     public function create()
@@ -39,6 +41,7 @@ class EventController extends Controller
         $event = new Event([
              'title'=> $request->get('title'),
              'employee'=> $request->get('employee'),
+             'description'=> $request->get('description'),
              'date'=> $request->get('date')
          ]);
 
@@ -67,6 +70,7 @@ class EventController extends Controller
           'title'=>'required',
           'employee'=> 'required',
           'date'=> 'required',
+          'description'=> 'nullable',
         ]);
         $data['id'] = $id;
         $event->updateEvent($data);
@@ -82,76 +86,58 @@ class EventController extends Controller
 
         return redirect('/events');
     }
-/*
-    public function singleDestroy($id)
+
+    public function updateEvent(Request $request)
     {
-        $location = Location::find($id);
-        $location->delete();
-
-        return redirect('/home');
-    }
-
-    public function approveLocation($id)
-    {
-        $location = Location::find($id);
-        $location->status = 1;
-        $location->save();
-        return redirect('/home');
-    }
-
-    public function cancelLocation($id)
-    {
-        $location = Location::find($id);
-        $location->status = 0;
-        $location->save();
-        return redirect('/home');
-    }
-    */
-
-    public function ajaxUpdate(Request $request)
-      {
-          $event = Event::with('client')->findOrFail($request->id);
-          $event->update($request->all());
-
-          return response()->json(['event' => $event]);
-      }
-
-      public function updateEvent(Request $request)
-      {
-          $id = $request->input('id');
-          if (Event::find($id) == null) {
+        $id = $request->input('id');
+        if (Event::find($id) == null) {
             $event = new Event([
                  'title'=> $request->get('title'),
                  'employee'=> $request->get('employee'),
+                 'description'=> $request->get('description'),
                  'date'=> $request->get('date')
              ]);
             $event->save();
-          } else {
+        } else {
             $title = $request->input('title');
+            alert($request->input('employee'));
             $employee = $request->input('employee');
             $date = $request->input('date');
+            $description = $request->input('description');
             $event = Event::findOrFail($id);
+            $event->description = $description;
             $event->title = $title;
             $event->employee = $employee;
             $event->date = $date;
             $event->save();
-          }
-      }
-      public function removeEvent(Request $request)
-      {
-          $id = $request->input('id');
-          $event = Event::find($id);
-          $event->delete();
-      }
-      public function updateDate(Request $request)
-      {
-          $date = $request->input('date');
-          $id = $request->input('ev_id');
-          $event = Event::find($id);
-          $event->date = $date;
-          $event->save();
-      }
+        }
+    }
 
+    public function createEvent(Request $request)
+    {
+      $event = new Event([
+           'title'=> $request->get('title'),
+           'employee'=> $request->get('employee'),
+           'description'=> $request->get('description'),
+           'date'=> $request->get('date')
+       ]);
 
+      $event->save();
+    }
 
+    public function removeEvent(Request $request)
+    {
+        $id = $request->input('id');
+        $event = Event::find($id);
+        $event->delete();
+    }
+
+    public function updateDate(Request $request)
+    {
+        $date = $request->input('date');
+        $id = $request->input('ev_id');
+        $event = Event::find($id);
+        $event->date = $date;
+        $event->save();
+    }
 }

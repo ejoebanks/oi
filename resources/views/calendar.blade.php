@@ -157,7 +157,7 @@
                 events: [
                     @foreach($event as $ev) {
                         textColor: 'white',
-                        color: '#2370B8',
+                        color: '#073D72',
                         id: '{{ $ev->id }}',
                         title: "{{ $ev->title }}",
                         name: "{{ $ev->firstName}} {{$ev->lastName}}",
@@ -170,7 +170,7 @@
                     @endforeach
                     @foreach($generalevent as $ev) {
                         textColor: 'white',
-                        color: '#2370B8',
+                        color: '#073D72',
                         id: '{{ $ev->id }}',
                         title: "{{ $ev->title }}",
                         name: "{{ $ev->title }}",

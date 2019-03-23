@@ -6304,7 +6304,7 @@ a.close.disabled {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(19, 19, 153, .2);
+  border: 1px solid rgb(35, 43, 51, .7);
   border-radius: .3rem
 }
 
@@ -6338,7 +6338,7 @@ a.close.disabled {
 .bs-popover-auto[x-placement^=top]>.arrow:before, .bs-popover-top>.arrow:before {
   bottom: 0;
   border-width: .5rem .5rem 0;
-  border-top-color: rgba(0, 0, 0, .25)
+  border-top-color: rgb(35, 43, 51)
 }
 
 .bs-popover-auto[x-placement^=top]>.arrow:after, .bs-popover-top>.arrow:after {
@@ -6428,8 +6428,9 @@ a.close.disabled {
   padding: .5rem .75rem;
   margin-bottom: 0;
   font-size: 1rem;
-  background-color: rgb(242, 234, 227);
-  border-bottom: 1px solid #ebebeb;
+  color: white;
+  background-color: rgb(76, 94, 112);
+  border-bottom: 2px solid #E86F2A;
   border-top-left-radius: calc(.3rem - 1px);
   border-top-right-radius: calc(.3rem - 1px)
 }

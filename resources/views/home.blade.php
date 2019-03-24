@@ -175,6 +175,152 @@
 
   </div>
   <div class="col-md-9">
+            <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Label
+                      </th>
+                      <th>Label
+                      </th>
+                      <th>Label
+                      </th>
+                      <th>Label 3
+                      </th>
+                      <th>Label
+                      </th>
+                      <th>Label
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="items">
+                    <tr>
+                      <td>1
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>6
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>7
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>8
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>9
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                      <td>Table cell
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
 
   </div>
 </div>

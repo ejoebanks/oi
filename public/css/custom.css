@@ -141,6 +141,25 @@ pre {
   word-wrap: break-word;
 }
 
+#shift_home {
+  text-align: center;
+  font-size: 1.5em;
+  color: black;
+  height: 343px;
+  border: 3px solid #E86F2A;
+
+}
+#items{
+  border-bottom: 3px solid #103455;
+  border-left: 3px solid #103455;
+  border-right: 3px solid #103455;
+
+}
+#shifthome_header{
+  background-color: #E86F2A;
+  color: white;
+}
+
 #shift_header{
   color: #222;
   text-shadow: 0px 1px 2px #555;

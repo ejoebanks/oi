@@ -114,7 +114,7 @@
 <div class="container">
 <div class="row">
   <div class="col-xs-4 col-md-3">
-    <h1 id="greet">Hello, <br/>{{ $user->firstName }}</h1>
+    <h1 id="greet">Hello, <br/>{{ $user->firstName }}.</h1>
   </div>
   <div class="col-md-9">
     <h1 id="shift_header">You are currently on the <span id="currentshift">{{$user->shift}}</span> shift.</h1>
@@ -175,32 +175,20 @@
 
   </div>
   <div class="col-md-9">
-            <table class="table table-hover">
-                  <thead>
+            <table id="shift_home"class="table table-hover">
+                  <thead id="shifthome_header">
                     <tr>
-                      <th>Label
+                      <th>Shift
                       </th>
-                      <th>Label
+                      <th>Start Time
                       </th>
-                      <th>Label
-                      </th>
-                      <th>Label 3
-                      </th>
-                      <th>Label
-                      </th>
-                      <th>Label
+                      <th>End Time
                       </th>
                     </tr>
                   </thead>
                   <tbody id="items">
                     <tr>
-                      <td>1
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
+                      <td>A
                       </td>
                       <td>Table cell
                       </td>
@@ -208,13 +196,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>2
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
+                      <td>B
                       </td>
                       <td>Table cell
                       </td>
@@ -222,13 +204,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>3
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
+                      <td>C
                       </td>
                       <td>Table cell
                       </td>
@@ -236,83 +212,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>4
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>5
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>6
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>7
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>8
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>9
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
+                      <td>D
                       </td>
                       <td>Table cell
                       </td>

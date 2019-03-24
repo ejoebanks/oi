@@ -2,7 +2,7 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            Owens Illinois
+          Owens Illinois
         @endcomponent
     @endslot
 

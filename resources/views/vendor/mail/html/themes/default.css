@@ -65,7 +65,7 @@ h3 {
 
 p {
     color: #74787E;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.5em;
     margin-top: 0;
     text-align: left;
@@ -104,16 +104,17 @@ img {
 
 .header {
     padding: 25px 0;
+    font-family: Raleway;
     text-align: center;
-    background-color: #572929;
+    background-color: #103455;
+    border-bottom: 5px solid #E86F2A;
 }
 
 .header a {
-    color: #bbbfc3;
-    font-size: 19px;
+    color: #fff;
+    font-size: 2rem;
     font-weight: bold;
     text-decoration: none;
-    text-shadow: 0 1px 0 white;
 }
 
 /* Body */
@@ -159,6 +160,7 @@ img {
     padding: 0;
     text-align: center;
     width: 570px;
+    background-color:
     -premailer-cellpadding: 0;
     -premailer-cellspacing: 0;
     -premailer-width: 570px;

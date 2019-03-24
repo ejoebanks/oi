@@ -41,8 +41,8 @@ class ChangeNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Hey your shift changed.')
-                    ->action('Notification Action', url('/'))
+                    ->line('Your shift has been changed.')
+                    ->action('View Shift', url('/'))
                     ->line('Thank you for using our application!');
     }
 

@@ -20,7 +20,9 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             $shiftchanges = ShiftChange::
-                            whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+                            whereBetween('created_at',
+                            [Carbon::now()->startOfWeek(),
+                            Carbon::now()->endOfWeek()])
                             ->where('notified', '!=', 1)
                             ->get();
 
@@ -28,9 +30,9 @@ class Kernel extends ConsoleKernel
                     $sendTo = \App\User::find($change->clockNumber);
                     $sendTo->notify(new ChangeNotification());
 
-                    // Update order so e-mail doesn't get sent repeatedly
+                    // Update so e-mail doesn't get sent repeatedly
                     $thisChange = ShiftChange::find($change->id);
-                    $thisChange->notified = 1;
+                    //$thisChange->notified = 1;
                     $thisChange->save();
             }
           });

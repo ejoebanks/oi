@@ -46,14 +46,14 @@
 {{ $salutation }}
 @else
 Regards,<br>
-Kim Pevonka
+OI
 @endif
 
 {{-- Subcopy --}}
 @isset($actionText)
 @component('mail::subcopy')
 If you’re having trouble clicking the "{{ $actionText }}" button, copy and paste the URL below
-into your web browser: [www.horsebraiding.com)
+into your web browser: [shifts.us.to)
 @endcomponent
 @endisset
 @endcomponent

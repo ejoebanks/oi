@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Staff;
 use Auth;
 use DB;
 Use App\Notifications\NewUser;
@@ -53,6 +54,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             //'type' => User::DEFAULT_TYPE,
         ]);
+
+        $staff = Staff::find($data['id']);
+        if($staff != null) {
+          $staff->emergencycontact = $data['emergencycontact'];
+          $staff->save();
+        }
 
         $sendTo = \App\User::find($user["id"]);
         $sendTo->notify(new NewUser());

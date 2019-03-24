@@ -42,8 +42,8 @@ class ChangeNotification extends Notification
     {
         return (new MailMessage)
                     ->line('Your shift has been changed.')
-                    ->action('View Shift', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->action('View Shift', url('/'));
+
     }
 
     /**

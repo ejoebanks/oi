@@ -2,7 +2,7 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            Illinois Horse Braiding Online
+            Owens Illinois
         @endcomponent
     @endslot
 
@@ -21,7 +21,7 @@
     {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')
-            &copy; {{ date('Y') }} IHBO. All rights reserved.
+            &copy; {{ date('Y') }} OI. All rights reserved.
         @endcomponent
     @endslot
 @endcomponent

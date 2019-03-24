@@ -21,7 +21,7 @@
            {!! csrf_field() !!}
 
            <input type="hidden" name="_method" value="POST">
-
+           @if($user->info != null)
            <div class="form-group">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
                <label for="firstName">First Name:</label>
@@ -33,7 +33,7 @@
                <label for="lastName">Last Name:</label>
                <input type="text" class="form-control" name="lastName" value="{{ $user->info->lastName }}" required/>
            </div>
-
+           @endif
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="email">Email:</label>

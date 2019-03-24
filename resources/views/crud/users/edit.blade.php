@@ -17,7 +17,7 @@
            {!! csrf_field() !!}
 
            <input type="hidden" name="_method" value="PATCH">
-
+<!--
            <div class="form-group">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
                <label for="clockNumber">Clock Number:</label>
@@ -35,7 +35,7 @@
             <label for="lastname">Last Name:</label>
             <input type="text" class="form-control" name="lastname" value="{{ $user->lastname }}" required/>
         </div>
-
+-->
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
@@ -77,13 +77,6 @@
               <label for="password">Password:</label>
               <input type="password" class="form-control" name="password" value="{{ $user->password }}" required/>
           </div>
-
-        <!--  <div class="form-group">
-              <input type="hidden" value="{{csrf_token()}}" name="_token" />
-              <label for="admin">Admin:</label>
-              <input type="number" class="form-control" name="admin" value="{{ $user->admin }}" required/>
-          </div>
-        -->
 
           <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />

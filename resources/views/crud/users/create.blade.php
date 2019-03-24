@@ -15,6 +15,7 @@
 <div class="container">
     <form method="post" action="{{ action('UserController@store') }}">
 
+      <!--
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
           <label for="clockNumber">Clock Number:</label>
@@ -33,7 +34,6 @@
           <input type="text" class="form-control" name="lastname" required/>
       </div>
 
-<!--
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="address">Address:</label>
@@ -71,13 +71,6 @@
             <label for="password">Password:</label>
             <input type="password" class="form-control" name="password" required/>
         </div>
-
-        <!--<div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="admin">Admin:</label>
-            <input type="text" class="form-control" name="admin" required/>
-        </div>
-      -->
 
         <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />

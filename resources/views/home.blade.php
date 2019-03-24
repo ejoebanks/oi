@@ -100,6 +100,7 @@
             </span> shift changes in the past month.
           </h5>
         </div>
+        <br/>
         <a id="cardLink" href="/changes">View
         </a>
       </div>
@@ -111,222 +112,73 @@
 @endif
 @if(Auth::user()->type == 0 && is_object(Auth::user()->info))
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-          <h1 id="greet">Hello, <br/>{{ $user->firstName }}</h1>
-        </div>
-        <div class="col-sm-5">
-          <h1 >Your current shift is: <span id="currentshift">{{$user->shift}}</span></h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
-          <ul class="list-group">
-                <li class="list-group-item ulhead">
-                  <i class="far fa-user-circle"></i>
-                  Profile
-                </li>
-                <li class="list-group-item text-right">
-                  <span class="float-left">
-                    <strong>Full Name
-                    </strong>
-                  </span>{{ $user->firstName }} {{ $user->lastName}}
-                </li>
-                <li class="list-group-item text-right">
-                  <span class="float-left">
-                    <strong>Seniority
-                    </strong>
-                  </span> {{ $user->seniority }}
-                </li>
-                <li class="list-group-item text-right">
-                  <span class="float-left">
-                    <strong>Last seen
-                    </strong>
-                  </span> Yesterday
-                </li>
-              </ul>
-              <br/>
-              <ul class="list-group">
-                <li class="list-group-item ulhead">
-                  <i class="fas fa-chart-line"></i>
-                   Activity
-                </li>
-                <li class="list-group-item text-right">
-                  <span class="pull-left">
-                    <strong>Shares
-                    </strong>
-                  </span> 125
-                </li>
-                <li class="list-group-item text-right">
-                  <span class="pull-left">
-                    <strong>Likes
-                    </strong>
-                  </span> 13
-                </li>
-                <li class="list-group-item text-right">
-                  <span class="pull-left">
-                    <strong>Posts
-                    </strong>
-                  </span> 37
-                </li>
-                <li class="list-group-item text-right">
-                  <span class="pull-left">
-                    <strong>Followers
-                    </strong>
-                  </span> 78
-                </li>
-              </ul>
+<div class="row">
+  <div class="col-xs-4 col-md-3">
+    <h1 id="greet">Hello, <br/>{{ $user->firstName }}</h1>
+  </div>
+  <div class="col-md-9">
+    <h1 id="shift_header">You are currently on the <span id="currentshift">{{$user->shift}}</span> shift.</h1>
+  </div>
 </div>
-        <div class="col-sm-8">            <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>#
-                          </th>
-                          <th>Label 1
-                          </th>
-                          <th>Label 2
-                          </th>
-                          <th>Label 3
-                          </th>
-                          <th>Label
-                          </th>
-                          <th>Label
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody id="items">
-                        <tr>
-                          <td>1
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>3
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>4
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>5
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>6
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>7
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>8
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>9
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                          <td>Table cell
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+<br/>
+<div class="row">
+  <div class="col-xs-4 col-md-3">
+    <ul class="list-group">
+          <li class="list-group-item ulhead">
+            <span class="float-left ulhead">
+            <i class="far fa-user-circle"></i>
+            Profile
+          </span>
+            <span class="float-right"><a href="/update/user/{{Auth::user()->id}}" button type="button" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a></span>
+          </li>
+
+          <li class="list-group-item text-right">
+            <span class="float-left">
+              <strong>Clock #
+              </strong>
+            </span><span class="float-right">{{ $user->clockNumber }}</span>
+          </li>
+
+          <li class="list-group-item text-right">
+            <span class="float-left">
+              <strong>Full Name
+              </strong>
+            </span><span class="float-right">{{ $user->firstName }} {{ $user->lastName}}</span>
+          </li>
+          <li class="list-group-item text-right">
+            <span class="float-left">
+              <strong>Seniority
+              </strong>
+            </span> <span class="float-right">{{ $user->seniority }}</span>
+          </li>
+          <li class="list-group-item text-right">
+            <span class="float-left">
+              <strong>Primary Job
+              </strong>
+            </span> <span class="float-right">{{$user->primaryJob}}</span>
+          </li>
+
+          <li class="list-group-item text-right">
+            <span class="float-left">
+              <strong>E-Mail
+              </strong>
+            </span> <span class="float-right">{{ Auth::user()->email }}</span>
+          </li>
+
+          <li class="list-group-item text-right">
+            <span class="float-left">
+              <strong>Contact
+              </strong>
+            </span> <span class="float-right">{{ $user->emergencycontact }}</span>
+          </li>
+        </ul>
+
+  </div>
+  <div class="col-md-9">
+
+  </div>
 </div>
-    </div>
-</div>
-@endif
+</div>@endif
 @if (!is_object(Auth::user()->info) && Auth::user()->type == 0)
 <div class="container">
     <div class="row">

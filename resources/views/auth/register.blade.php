@@ -94,19 +94,19 @@
                         </div>
 -->
 
-<div class="form-group row">
-    <label for="emergencycontact" class="col-md-4 col-form-label text-md-right">{{ __('Emergency Contact') }}</label>
+                        <div class="form-group row">
+                            <label for="emergencycontact" class="col-md-4 col-form-label text-md-right">{{ __('Emergency Contact') }}</label>
 
-    <div class="col-md-6">
-        <input id="emergencycontact" type="emergencycontact" class="form-control{{ $errors->has('emergencycontact') ? ' is-invalid' : '' }}" name="emergencycontact" value="{{ old('emergencycontact') }}" >
+                            <div class="col-md-6">
+                                <input id="emergencycontact" type="emergencycontact" class="form-control{{ $errors->has('emergencycontact') ? ' is-invalid' : '' }}" name="emergencycontact" value="{{ old('emergencycontact') }}" >
 
-        @if ($errors->has('emergencycontact'))
-            <span class="invalid-feedback">
-                <strong>{{ $errors->first('emergencycontact') }}</strong>
-            </span>
-        @endif
-    </div>
-</div>
+                                @if ($errors->has('emergencycontact'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('emergencycontact') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

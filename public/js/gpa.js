@@ -9,8 +9,8 @@ function resetform() {
   var pastgpa = 0;
   var credtaken = 0;
   var termGPA = 0;
-  var credithours = 5;
-  var grade = 5;
+  var credithours = "cred";
+  var grade = "grade";
   var previousgrade = null;
 }
 
@@ -60,6 +60,15 @@ $(document).ready(function() {
     calcAll();
   });
 
+  $(document).on('click', '#repeat_courses', function() {
+    if(this.checked) {
+      $('table#t1 td:nth-child(5), table#t1 th:nth-child(5)').show();
+    } else {
+      $('table#t1 td:nth-child(5), table#t1 th:nth-child(5)').hide();
+    }
+  });
+
+
   // Removing a specific row for term calculator
   $(document).on('click', '.btn_remove', function() {
     var button_id = $(this).attr("id");
@@ -78,10 +87,10 @@ function calcAll() {
 
   // Variables for term calculation
   var gpa = 0;
-  var grade = 5;
-  var credithours = 5;
+  var grade = "grade";
+  var credithours = "cred";
   var previousgrade = null;
-  var tempGrade = 5;
+  var tempgrade = "grade";
 
   // Variables for the cumulative calculation
   var pastgradeval = 0;
@@ -129,7 +138,7 @@ function calcAll() {
       if (!isNaN(parseFloat($("#g" + testerNum + '').val()))) {
         previousgrade = parseFloat($("#g" + testerNum + '').val());
       }
-      if (previousgrade > tempGrade && previousgrade !== 5) {
+      if (previousgrade > tempGrade && previousgrade !== "grade") {
         grade = parseFloat($(this).find("#g" + testerNum + '').val());
       }
 
@@ -150,18 +159,18 @@ function calcAll() {
     }
 
     // If values are not set, display nothing
-    if (grade == 5 || credithours == 5 || tempGrade == 5 || previousgrade == null) {
+    if (grade == "grade" || credithours == "cred" || tempgrade == "grade" || previousgrade == null) {
       $(this).find(".total").val("");
     }
 
     //Marks I, W, X, and CR courses as not used in GPA calculation
     if (grade == 100) {
-      $(this).find(".total").val("Not used in calculation.");
-      credithours = 5;
-      grade = 5;
+      $(this).find(".total").val("Not used");
+      credithours = "cred";
+      grade = "grade";
     }
 
-    if (grade !== 5 && credithours !== 5) {
+    if (grade !== "grade" && credithours !== "cred") {
 
       //Totals credit hours
       if (credtaken == 0 && pastgpa == 0 || credtaken == "foo") {
@@ -178,7 +187,6 @@ function calcAll() {
       //Total the term credits separate from cumulative
       termCredits += credithours;
 
-
       //Remove minimum grade and credit hours from a repeated course
       //so GPA and total credits are displayed correctly.
       if (work == 50 && pastgpa !== 0 && credtaken !== 0) {
@@ -191,9 +199,9 @@ function calcAll() {
       $(this).find(".total").val(rowTotal.toFixed(2));
 
       //Re-set the variables
-      credithours = 5;
-      grade = 5;
-      tempGrade = 5;
+      credithours = "cred";
+      grade = "grade";
+      tempgrade = "grade";
       previousgrade = null;
       work = null;
     }

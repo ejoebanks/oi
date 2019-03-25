@@ -606,12 +606,12 @@ springStats.saConfig = springStats.saConfig || {
            <table id="t1" class="table table-bordered">
              <thead>
                <tr>
-                 <th scope="col"><div class="defo">Remove<span class="defotext">Remove an added course.</span></div></th>
-                 <th scope="col"><div class="defo">Course<span class="defotext">The name of the course.  For example, Math1010.</span></div></th>
-                 <th scope="col"><div class="defo">Anticipated Grade<span class="defotext">The grade you expect to achieve in the course.</span></div></th>
-                 <th scope="col"><div class="defo">Credits<span class="defotext">The amount of credit hours of the course.</span></div></th>
-                 <th scope="col"><div class="defo">Repeat<span class="defotext">Check the box if you have previously taken this course.</span></div></th>
-                 <th scope="col"><div class="defo">Quality Points<span class="defotext">This is determined by multiplying the amount of credit hours and the value of the grade.</span></div></th>
+                 <th style="width: 5%" scope="col"><div class="defo">Remove<span class="defotext">Remove an added course.</span></div></th>
+                 <th style="width: 20%"scope="col"><div class="defo">Course<span class="defotext">The name of the course.  For example, Math1010.</span></div></th>
+                 <th style="width: 20%" scope="col"><div class="defo">Anticipated Grade<span class="defotext">The grade you expect to achieve in the course.</span></div></th>
+                 <th style="width: 18%" scope="col"><div class="defo">Credits<span class="defotext">The amount of credit hours of the course.</span></div></th>
+                 <th><div class="defo">Repeat<span class="defotext">Check the box if you have previously taken this course.</span></div></th>
+                 <th style="width: 20%" scope="col"><div class="defo">Quality Points<span class="defotext">This is determined by multiplying the amount of credit hours and the value of the grade.</span></div></th>
                </tr>
              </thead>
 
@@ -687,6 +687,11 @@ springStats.saConfig = springStats.saConfig || {
       </div>
             <div id="cu_pr_container">
               <h3>Cumulative GPA Calculation</h3>
+							<div class="custom-control custom-switch">
+							  <input type="checkbox" class="custom-control-input" id="repeat_courses">
+							  <label class="custom-control-label" for="repeat_courses">Repeat Courses?</label>
+							</div>
+
               <div id="cu_pr_inputs">
             <div class="col-3">
                 <input id="pastgpa" name="pastgpa" class="pastgpa effect-1 amount" placeholder="Cumulative GPA" value="" />

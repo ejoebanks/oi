@@ -17,9 +17,9 @@ class Event extends Model
     {
         $event = $this->find($data['id']);
         $event->title = $data['title'];
-        $event->date = $data['employee'];
-        $event->date = $data['description'];
-        $event->employee = $data['date'];
+        $event->employee = $data['employee'];
+        $event->description = $data['description'];
+        $event->date = $data['date'];
         $event->save();
         return 1;
     }

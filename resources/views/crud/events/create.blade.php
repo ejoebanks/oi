@@ -32,6 +32,12 @@
             <input type="text" class="form-control" name="date"/>
         </div>
 
+        <div class="form-group">
+            <input type="hidden" value="{{csrf_token()}}" name="_token" />
+            <label for="description">Description:</label>
+            <textarea type="textarea" class="form-control" name="description" /></textarea>
+        </div>
+
         <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>

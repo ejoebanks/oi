@@ -23,39 +23,37 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             $shiftchanges = ShiftChange::
-                            whereBetween(
-                                'created_at',
-                                [Carbon::now()->startOfWeek(),
-                            Carbon::now()->endOfWeek()]
-                            )
+                            whereBetween('created_at',
+                            [Carbon::now()->startOfWeek(),
+                            Carbon::now()->endOfWeek()])
                             ->where('notified', '!=', 1)
                             ->get();
 
             foreach ($shiftchanges as $change) {
-                $sendTo = \App\User::find($change->clockNumber);
-                $sendTo->notify(new ChangeNotification());
+                    $sendTo = \App\User::find($change->clockNumber);
+                    $sendTo->notify(new ChangeNotification());
 
-                // Update so e-mail doesn't get sent repeatedly
-                $thisChange = ShiftChange::find($change->id);
-                //$thisChange->notified = 1;
-                $thisChange->save();
+                    // Update so e-mail doesn't get sent repeatedly
+                    $thisChange = ShiftChange::find($change->id);
+                    //$thisChange->notified = 1;
+                    $thisChange->save();
             }
 
             $events = Event::
-                            whereBetween(
-                                'date',
-                                [Carbon::now()->startOfWeek(),
-                            Carbon::now()->endOfWeek()]
-                            )
+                            whereBetween('date',
+                            [Carbon::now()->startOfWeek(),
+                            Carbon::now()->endOfWeek()])
                             ->get();
             $users = User::all();
 
             foreach ($events as $event) {
-                foreach ($users as $user) {
-                    $user->notify(new EventReminder());
-                }
+                    foreach ($users as $user) {
+                      $user->notify(new EventReminder());
+                    }
             }
-        });
+
+          });
+
     }
 
     protected function commands()

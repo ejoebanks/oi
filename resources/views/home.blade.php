@@ -100,7 +100,6 @@
             </span> shift changes in the past month.
           </h5>
         </div>
-        <br/>
         <a id="cardLink" href="/changes">View
         </a>
       </div>

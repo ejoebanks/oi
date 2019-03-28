@@ -17,6 +17,7 @@ class ShiftChangeController extends Controller
                   ->orderBy('shiftchanges.created_at', 'desc')
                   ->take(10)
                   ->get();
+
       return view('recent', compact('recentChanges'));
   }
 

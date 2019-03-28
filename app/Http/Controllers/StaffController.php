@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Staff;
+use App\Shift;
 use App\User;
 
 class StaffController extends Controller
@@ -30,6 +31,17 @@ class StaffController extends Controller
         ]);
 
         $staff->save();
+
+        if ($request->get('shift') != NULL){
+          $shift = new Shift([
+            'clockNumber'=>$request->get('clockNumber'),
+            'shift'=>$request->get('shift'),
+            'primaryJob'=>$request->get('primaryJob'),
+            'comments'=>$request->get('comments')
+          ]);
+          $shift->save();
+        }
+
         return redirect('/staff');
     }
 

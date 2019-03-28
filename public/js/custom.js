@@ -15,6 +15,22 @@ $( document ).ready(function() {
 */
 
 $(document).ready(function() {
+
+  $("#staff_btn").click(function(){
+    $("#staffbox").toggle();
+
+    if($('#staffbox').css('display') == 'none')
+    {
+      $("#primaryJob").prop('required',false);
+      $("#shift").prop('required',false);
+    } else {
+      $("#primaryJob").prop('required',true);
+      $("#shift").prop('required',true);
+
+    }
+
+  });
+
     const allEqual = arr => arr.every( v => v === arr[0] );
     var shiftA = document.getElementById('shiftA').getAttribute('value');
     var shiftB = document.getElementById('shiftB').getAttribute('value');

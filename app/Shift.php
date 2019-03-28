@@ -9,7 +9,7 @@ class Shift extends Model
     protected $table = 'shifts';
 
     protected $fillable = [
-      'clockNumber', 'comments', 'shift'
+      'clockNumber', 'comments', 'shift', 'primaryJob'
   ];
 
     public function updateShift($data)

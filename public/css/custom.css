@@ -315,3 +315,7 @@ pre {
 #newemployee{
   text-align: center;
 }
+
+#staffbox{
+  display: none;
+}

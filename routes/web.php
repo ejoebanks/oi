@@ -69,9 +69,11 @@ Route::get('/gpa', function () {
 // Contact Form
 //Route::get('/contact', 'ContactController@show');
 //Route::post('/contact', 'ContactController@mailToAdmin');
+Route::get('/test', function () {
+    return view('testpage');
+});
 
 Auth::routes();
-
 
 // Login Functions
 Route::get('login', array(

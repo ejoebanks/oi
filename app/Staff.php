@@ -13,6 +13,14 @@ class Staff extends Model
       return $this->belongsTo(User::class, 'id', 'clockNumber');
     }
 
+    public function shiftInfo() {
+      return $this->hasOne(Shift::class, 'clockNumber', 'clockNumber')
+      ->withDefault([
+        'shift' => NULL
+    ]);;
+    }
+
+
     protected $primaryKey = 'clockNumber';
 
     protected $fillable = [

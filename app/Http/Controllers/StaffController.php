@@ -67,6 +67,17 @@ class StaffController extends Controller
           'firstName'=>'required|string|max:255',
           'lastName'=>'required|string|max:255',
         ]);
+
+        if ($request->get('shift') != NULL){
+          $shift = new Shift([
+            'clockNumber'=>$request->get('clockNumber'),
+            'shift'=>$request->get('shift'),
+            'primaryJob'=>$request->get('primaryJob'),
+            'comments'=>$request->get('comments')
+          ]);
+          $shift->save();
+        }
+
         $data['clockNumber'] = $clockNumber;
         $staff->updateMember($data);
 

@@ -43,7 +43,16 @@
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="prevshift">Previous Shift:</label>
-            <input type="text" class="form-control" name="prevshift" value="{{ $shiftchange->prevshift }}" required/>
+            <select class="form-control" name="prevshift" value="{{ $shiftchange->prevshift }}">
+            @foreach(range('A', 'D') as $char)
+              @if($char == $shiftchange->prevshift)
+                @php ($active = "selected")
+              @else
+                @php ($active = "")
+              @endif
+              <option {{$active}} value="{{$char}}">{{$char}}</option>
+            @endforeach
+            </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>

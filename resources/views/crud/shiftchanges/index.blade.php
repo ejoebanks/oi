@@ -8,8 +8,8 @@
         <thead>
             <tr>
               <td>Clock #</td>
-              <td>Current Shift</td>
               <td>Name</td>
+              <td>Current Shift</td>
               <td>Previous Shift</td>
               <td>Changed On</td>
 

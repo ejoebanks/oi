@@ -319,3 +319,10 @@ pre {
 #staffbox{
   display: none;
 }
+
+.jobheader{
+  background: #2370B8;
+  border: 3px solid black !important;
+  color: white;
+  text-align: center;
+}

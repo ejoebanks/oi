@@ -12,9 +12,8 @@
 <div class="container">
   <div class="row">
     <br/>
-    <?php
-    foreach (range('A', 'D') as $char) {
-        $shiftcount = \DB::table('shifts')->where('shift', '=', $char)->count(); ?>
+    @foreach(range('A', 'D') as $char)
+      @php ($shiftcount = \DB::table('shifts')->where('shift', '=', $char)->count())
     <div class="col-sm">
     <div id="shift{{ $char }}" value="{{$shiftcount}}">{{ $shiftcount }}</div>
 
@@ -93,8 +92,7 @@
           </tbody>
       </table>
     </div>
-  <?php
-    } ?>
+@endforeach
   </div>
 </div>
 @endsection

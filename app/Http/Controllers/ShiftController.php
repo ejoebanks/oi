@@ -7,6 +7,9 @@ use App\Shift;
 use App\Staff;
 use App\Event;
 use \DateTime;
+use App\Exports\ShiftsFromView;
+use App\Exports\ShiftInfoFromView;
+use \Excel;
 use App\ShiftChange;
 use Auth;
 use Carbon\Carbon;
@@ -159,5 +162,29 @@ class ShiftController extends Controller
         $shift->delete();
 
         return redirect('/shifts');
+    }
+
+    public function spreadsheet() {
+      $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+            ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
+            ->orderBy('shift', 'ASC')
+            ->orderBy('primaryJob', 'ASC')
+            ->get();
+
+      return Excel::download(new ShiftsFromView, 'shifts.xlsx');
+    }
+
+    public function shiftspread() {
+      $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+            ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
+            ->orderBy('shift', 'ASC')
+            ->orderBy('primaryJob', 'ASC')
+            ->get();
+
+      return view('orgchart', compact('shifts'));
+    }
+
+    public function export() {
+      return Excel::download(new ShiftInfoFromView, 'shifts.xlsx');
     }
 }

@@ -69,9 +69,14 @@ Route::get('/gpa', function () {
 // Contact Form
 //Route::get('/contact', 'ContactController@show');
 //Route::post('/contact', 'ContactController@mailToAdmin');
-Route::get('/test', function () {
+Route::get('/test/download', function () {
     return view('testpage');
 });
+
+Route::get('/orgchart', 'ShiftController@shiftspread');
+
+Route::get('/test', 'ShiftController@shiftspread');
+Route::get('/orgchart/download', 'ShiftController@export');
 
 Auth::routes();
 

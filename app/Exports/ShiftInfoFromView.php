@@ -3,8 +3,9 @@ namespace App\Exports;
 use App\Shift;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class ShiftInfoFromView implements FromView
+class ShiftInfoFromView implements FromView, ShouldAutoSize
 {
     public function view(): View
     {

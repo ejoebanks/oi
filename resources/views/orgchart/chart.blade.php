@@ -1,5 +1,7 @@
 <div class="container">
 	<a href="{{action('ShiftController@export')}}">Link name/Embedded Button</a>
+  <a href="{{action('ShiftController@sendChart')}}">Send Mail</a>
+
 <div class="row">
 	@foreach(range('A', 'D') as $char)
 	<div class="col-sm">

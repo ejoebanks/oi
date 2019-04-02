@@ -74,8 +74,9 @@ Route::get('/test/download', function () {
 });
 
 Route::get('/orgchart', 'ShiftController@shiftspread');
+Route::get('/orgchart/send', 'ShiftController@sendChart');
 
-Route::get('/test', 'ShiftController@shiftspread');
+Route::get('/test', 'ShiftController@shiftspread2');
 Route::get('/orgchart/download', 'ShiftController@export');
 
 Auth::routes();

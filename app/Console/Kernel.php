@@ -12,6 +12,8 @@ use App\User;
 use App\Notifications\ChangeNotification;
 use App\Notifications\EventReminder;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrgChart;
 
 class Kernel extends ConsoleKernel
 {
@@ -53,6 +55,12 @@ class Kernel extends ConsoleKernel
             }
 
           });
+
+          $schedule->call(function () {
+            Mail::to(User::find(3648))->send(new OrgChart());
+          });
+
+
 
     }
 

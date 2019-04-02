@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Shift;
 use App\Staff;
 use App\Event;
+use App\User;
 use \DateTime;
 use App\Exports\ShiftsFromView;
 use App\Exports\ShiftInfoFromView;
@@ -13,6 +14,9 @@ use \Excel;
 use App\ShiftChange;
 use Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrgChart;
+
 
 class ShiftController extends Controller
 {
@@ -184,7 +188,24 @@ class ShiftController extends Controller
       return view('orgchart', compact('shifts'));
     }
 
+    public function shiftspread2() {
+      $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+            ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
+            ->orderBy('shift', 'ASC')
+            ->orderBy('primaryJob', 'ASC')
+            ->get();
+
+      return view('testpage', compact('shifts'));
+    }
+
+
     public function export() {
       return Excel::download(new ShiftInfoFromView, 'shifts.xlsx');
     }
+
+    public function sendChart() {
+      Mail::to(User::find(3648))->send(new OrgChart());
+      return redirect('/orgchart');
+    }
+
 }

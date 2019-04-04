@@ -34,8 +34,8 @@ class OrgChart extends Mailable
             ->attach(
                 Excel::download(
                     new ShiftInfoFromView(),
-                    'shifts.csv'
-                )->getFile(), ['as' => 'shifts.csv']
+                    'shifts.xlsx'
+                )->getFile(), ['as' => 'shifts.xlsx']
             );
     }
 

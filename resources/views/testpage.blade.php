@@ -32,43 +32,186 @@
   <br/>
   @endforeach
 -->
+
+<?php
+    $i = 0;
+    $aShifts = array();
+    $bShifts = array();
+    $cShifts = array();
+    $dShifts = array();
+
+    foreach ($testshift as $shift) {
+        if ($testshift[$i]->shift == "A") {
+            array_push($aShifts, $testshift[$i]);
+        }
+
+        if ($testshift[$i]->shift == "B") {
+            array_push($bShifts, $testshift[$i]);
+        }
+
+        if ($testshift[$i]->shift == "C") {
+            array_push($cShifts, $testshift[$i]);
+        }
+
+        if ($testshift[$i]->shift == "D") {
+            array_push($dShifts, $testshift[$i]);
+        }
+        $i++;
+    }
+    $array_count = (count($aShifts) + count($bShifts) + count($cShifts) + count($dShifts));
+    $biggest_array = max(count($aShifts), count($bShifts), count($cShifts), count($dShifts));
+?>
+
 <div class="row">
-	@foreach(range('A', 'D') as $char)
 	<div class="col-sm">
   <table class="table table-list-search table table-striped">
       <thead>
           <tr>
-            <td>
-							<h1 id="shift"> Shift {{ $char }}</h1>
-						</td>
+            <th class="shiftheader" colspan="2">Shift A</th>
+						<th class="shiftheader" colspan="2">Shift B</th>
+						<th class="shiftheader" colspan="2">Shift C</th>
+						<th class="shiftheader" colspan="2">Shift D</th>
           </tr>
       </thead>
       <tbody>
+				@foreach(range('A', 'D') as $char)
+        @php ($stack = array())
         @foreach ($shifts as $shift)
             @if ($char == $shift->shift)
-						<tr>
             @php (array_push($stack, $char))
               @if ($stack[0] !== $char)
                 @php ($stack = array())
                 @php (array_push($stack, $char))
               @endif
-              @if (in_array("$shift->primaryJob", $stack))
-                <td><strong>{{$shift->clockNumber}}: {{$shift->firstName}} {{$shift->lastName}}</td>
-              @else
-								<tr><th id="jobheader">{{ $shift->primaryJob }}</th></tr>
-                <td><strong>{{$shift->clockNumber}}</strong>: {{$shift->firstName}} {{$shift->lastName}}</td>
-              @endif
+              @if (!in_array("$shift->primaryJob", $stack))
+							<tr>
+								<th class="jobheader" colspan="2">
+									 {{ $shift->primaryJob }}
+								</th>
+							</tr>
+							@endif
+              <tr>
+                <td><strong>{{$shift->clockNumber}}</strong></td>
+                <td>{{$shift->firstName}} {{$shift->lastName}}</td>
+              </tr>
               @if (in_array("$shift->primaryJob", $stack))
               @else
                 @php (array_push($stack, $shift->primaryJob))
               @endif
             @endif
-          </tr>
           @endforeach
+				</tbody>
+				@endforeach
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm">
+  <table class="table table-list-search table table-striped">
+      <thead>
+          <tr>
+            <th class="shiftheader">Shift A</th>
+						<th class="shiftheader">Shift B</th>
+						<th class="shiftheader">Shift C</th>
+						<th class="shiftheader">Shift D</th>
+          </tr>
+      </thead>
+      <tbody>
+        			 @php ($stack = array())
+							 @php ($a = count($grouped['A']) - 1)
+							 @php ($b = count($grouped['B']) - 1)
+							 @php ($c = count($grouped['C']) - 1)
+							 @php ($d = count($grouped['D']) - 1)
+
+							 @foreach(range('A', 'D') as $char)
+							 	@foreach($grouped["$char"] as $group)
+								@if ($a < 0 && $b < 0 && $c < 0 && $d < 0)
+								 <?php break; ?>
+								@endif
+								      <tr>
+												<td>
+													@if ($a > 0)
+														{{$grouped['A'][$a]->firstName}}
+														{{$grouped['A'][$a]->lastName}}
+													@endif
+												</td>
+
+												<td>
+													@if ($b > 0)
+														{{$grouped['B'][$b]->firstName}}
+													@endif
+												</td>
+												<td>
+													@if ($c > 0)
+														{{$grouped['C'][$c]->firstName}}
+													@endif
+												</td>
+												<td>
+													@if ($d > 0)
+														{{$grouped['D'][$d]->firstName}}
+													@endif
+												</td>
+								       </tr>
+											 @php($a--)
+											 @php($b--)
+											 @php($c--)
+											 @php($d--)
+							@endforeach
+						@endforeach
 				</tbody>
 		</table>
 	</div>
-          @endforeach
+</div>
+
+<div class="row">
+	<div class="col-sm">
+  <table class="table table-list-search table table-striped">
+      <thead>
+          <tr>
+            <th class="shiftheader">Shift A</th>
+						<th class="shiftheader">Shift B</th>
+						<th class="shiftheader">Shift C</th>
+						<th class="shiftheader">Shift D</th>
+          </tr>
+      </thead>
+      <tbody>
+        			 @php ($stack = array())
+							 @for ( $i = 0; $i< $biggest_array; $i++ )
+								      <tr>
+												<td>
+													@if (isset($aShifts[$i]))
+														{{ $aShifts[$i]['clockNumber'] }}
+														{{ $aShifts[$i]['firstName'] }}
+														{{ $aShifts[$i]['lastName'] }}
+													@endif
+												</td>
+												<td>
+													@if (isset($bShifts[$i]))
+														{{ $bShifts[$i]['clockNumber'] }}
+														{{ $bShifts[$i]['firstName'] }}
+														{{ $bShifts[$i]['lastName'] }}
+													@endif
+												</td>
+												<td>
+													@if (isset($cShifts[$i]))
+														{{ $cShifts[$i]['clockNumber'] }}
+														{{ $cShifts[$i]['firstName'] }}
+														{{ $cShifts[$i]['lastName'] }}
+													@endif
+												</td>
+												<td>
+													@if (isset($dShifts[$i]))
+														{{ $dShifts[$i]['clockNumber'] }}
+														{{ $dShifts[$i]['firstName'] }}
+														{{ $dShifts[$i]['lastName'] }}
+													@endif
+												</td>
+								       </tr>
+								  @endfor
+				</tbody>
+		</table>
+	</div>
 </div>
 
   <div class="row">
@@ -145,6 +288,5 @@
     </div>
   </div>
 </div>
-<a href="{{action('ShiftController@spreadsheet')}}">Link name/Embedded Button</a>
 
 @endsection

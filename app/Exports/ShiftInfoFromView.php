@@ -25,8 +25,30 @@ class ShiftInfoFromView implements FromView, ShouldAutoSize, WithEvents
 {
     return [
         AfterSheet::class=> function(AfterSheet $event) {
-            $cellRange = 'A1:W1'; // All headers
+          $styleArray = [
+    'font' => [
+        'bold' => true,
+    ],
+    'alignment' => [
+        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+    ],
+    'borders' => [
+        'top' => [
+            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+        ],
+    ],
+    'fill' => [
+        'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+        'argb' => 'FFA0A0A0',
+        ],
+    ],
+];
+
+            $cellRange = 'A1:D1'; // All headers
             $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
+
+            $event->sheet->getStyle($cellRange)->applyFromArray($styleArray);
+
         },
     ];
 }

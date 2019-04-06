@@ -17,7 +17,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrgChart;
 
-
 class ShiftController extends Controller
 {
     public function recent()
@@ -168,44 +167,57 @@ class ShiftController extends Controller
         return redirect('/shifts');
     }
 
-    public function spreadsheet() {
-      $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+    public function spreadsheet()
+    {
+        $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
             ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
             ->orderBy('shift', 'ASC')
             ->orderBy('primaryJob', 'ASC')
             ->get();
 
-      return Excel::download(new ShiftsFromView, 'shifts.xlsx');
+        return Excel::download(new ShiftsFromView, 'shifts.xlsx');
     }
 
-    public function shiftspread() {
-      $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+    public function shiftspread()
+    {
+        $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
             ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
             ->orderBy('shift', 'ASC')
             ->orderBy('primaryJob', 'ASC')
             ->get();
 
-      return view('orgchart', compact('shifts'));
+        return view('orgchart', compact('shifts'));
     }
 
-    public function shiftspread2() {
-      $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
-            ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
-            ->orderBy('shift', 'ASC')
+    public function shiftspread2()
+    {
+        $shifts = Shift::orderBy('shift', 'ASC')
             ->orderBy('primaryJob', 'ASC')
             ->get();
 
-      return view('testpage', compact('shifts'));
+        $testshift = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+              ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
+              ->get();
+
+
+        $grouped = $testshift->groupBy('shift');
+
+        $grouped->toArray();
+
+
+        return view('orgchart.testchart', compact('grouped', 'shifts', 'testshift'));
     }
 
 
-    public function export() {
-      return Excel::download(new ShiftInfoFromView, 'shifts.xlsx');
+    public function export()
+    {
+        return Excel::download(new ShiftInfoFromView, 'shiftinfo.xlsx');
+        //return Excel::download(new ShiftInfoFromView, 'shifts.xlsx');
     }
 
-    public function sendChart() {
-      Mail::to(User::find(3648))->send(new OrgChart());
-      return redirect('/orgchart');
+    public function sendChart()
+    {
+        Mail::to(User::find(3648))->send(new OrgChart());
+        return redirect('/orgchart');
     }
-
 }

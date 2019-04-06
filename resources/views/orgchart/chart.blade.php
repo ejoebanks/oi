@@ -20,22 +20,17 @@
                 @php ($stack = array())
                 @php (array_push($stack, $char))
               @endif
-              @if (in_array("$shift->primaryJob", $stack))
+              @if (!in_array("$shift->primaryJob", $stack))
+							<tr>
+								<th class="jobheader" colspan="2">
+									 {{ $shift->primaryJob }}
+								</th>
+							</tr>
+							@endif
               <tr>
                 <td><strong>{{$shift->clockNumber}}</strong></td>
                 <td>{{$shift->firstName}} {{$shift->lastName}}</td>
               </tr>
-              @else
-              <tr>
-                <th class="jobheader" colspan="2">
-                   {{ $shift->primaryJob }}
-                </th>
-              </tr>
-                <tr>
-                  <td><strong>{{$shift->clockNumber}}</strong></td>
-                  <td>{{$shift->firstName}} {{$shift->lastName}}</td>
-                </tr>
-              @endif
               @if (in_array("$shift->primaryJob", $stack))
               @else
                 @php (array_push($stack, $shift->primaryJob))
@@ -43,6 +38,7 @@
             @endif
           @endforeach
 				</tbody>
+				<?php echo "\n"; ?>
 		</table>
 	</div>
   @endforeach

@@ -10,6 +10,11 @@ class Shift extends Model
       'clockNumber', 'comments', 'shift', 'primaryJob'
   ];
 
+  public function scopeGroupByColumnNameAsc($query)
+    {
+      return $query->orderBy('shift', 'asc');
+    }
+
     public function updateShift($data)
     {
         $shift = $this->find($data['id']);

@@ -79,15 +79,15 @@ class ShiftInfoFromView implements FromView, ShouldAutoSize, WithEvents
               }
             }
             */
-            $pos = 1;
             foreach(range('A', 'D') as $char){
+              $pos = 1;
              foreach($grouped["$char"] as $group){
               $sCount= Shift::where('shift', $group->shift)->count();
               if ($pos > $sCount){
-                $pos = 1;
+                $pos = 2;
+              } else {
+                $pos++;
               }
-
-              $pos++;
               $cell = $group->shift.$pos;
 
               if ($group->primaryJob == "G4010") {
@@ -120,6 +120,29 @@ class ShiftInfoFromView implements FromView, ShouldAutoSize, WithEvents
                     ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
                     ->getStartColor()->setARGB('ff555d');
               }
+
+              if ($group->primaryJob == "G0807") {
+                $event->sheet->getStyle($cell)->getFill()
+                    ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+                    ->getStartColor()->setARGB('8cabe1');
+              }
+
+              if ($group->primaryJob == "GD640") {
+                $event->sheet->getStyle($cell)->getFill()
+                    ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+                    ->getStartColor()->setARGB('eeea88');
+              }
+
+              if ($group->primaryJob == "G0809") {
+                $event->sheet->getStyle($cell)->getFill()
+                    ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+                    ->getStartColor()->setARGB('698b80');
+              }
+
+
+
+
+
 
             }
           }

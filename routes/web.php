@@ -14,13 +14,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('staff', 'StaffController');
     Route::resource('shiftchanges', 'ShiftChangeController');
 
-
     Route::get('/home', function () {
         return view('home');
     });
-
-    // Appointment list (requests, pending, complete)
-    //Route::get('/home', 'OrderController@homeList');
 
     //Recent Changes
     Route::get('/changes', 'ShiftChangeController@recent');
@@ -33,14 +29,15 @@ Route::group(['middleware' => 'admin'], function () {
     //Assigning a shift
     Route::get('/unassigned', 'ShiftController@unassignedEmployees');
 
-
-
+    //Org Chart Functions
+    Route::get('/orgchart', 'ShiftController@shiftspread');
+    Route::get('/orgchart/send', 'ShiftController@sendChart');
+    Route::get('/orgchart/download', 'ShiftController@export');
 });
 
 
 //Ensuring user is logged in
 Route::group(['middleware' => 'auth' ], function () {
-
 
     //Account details update
     Route::get('/update/user/{id}', 'UserController@singleEdit')->middleware('check');
@@ -73,15 +70,12 @@ Route::get('/test/download', function () {
     return view('testpage');
 });
 
-Route::get('/orgchart', 'ShiftController@shiftspread');
-Route::get('/orgchart/send', 'ShiftController@sendChart');
 
 Route::get('/test', 'ShiftController@shiftspread2');
 
 Route::get('/testchart', 'ShiftController@shiftspread2');
 Route::get('/testchart/download', 'ShiftController@shiftspread2');
 
-Route::get('/orgchart/download', 'ShiftController@export');
 
 Auth::routes();
 

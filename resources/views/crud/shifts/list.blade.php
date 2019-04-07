@@ -87,10 +87,6 @@
                   </div>
                 </td>
                 </tr>
-                @if (in_array("$shift->primaryJob", $stack))
-                @else
-                  @php (array_push($stack, $shift->primaryJob))
-                @endif
               @endif
               @endforeach
           </tbody>

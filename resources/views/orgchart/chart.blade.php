@@ -1,7 +1,7 @@
 <div class="container">
-	<a href="{{action('ShiftController@export')}}">Link name/Embedded Button</a>
-  <a href="{{action('ShiftController@sendChart')}}">Send Mail</a>
-
+	<a href="{{action('ShiftController@export')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Download</a>
+	<a href="{{action('ShiftController@sendChart')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Email</a>
+<hr/>
 <div class="row">
 	@foreach(range('A', 'D') as $char)
 	<div class="col-sm">

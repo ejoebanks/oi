@@ -13,14 +13,16 @@ class ShiftInfoFromView implements FromView, ShouldAutoSize, WithEvents
     public function view(): View
     {
         $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
-                    ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
-                    ->orderBy('shift', 'ASC')
-                    ->orderBy('primaryJob', 'ASC')
-                    ->get();
+            ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
+            ->get();
+
+        $grouped = $shifts->groupBy('shift');
+
+        $grouped->toArray();
 
         return view('orgchart.testchart', [
-            'shifts' => $shifts
-
+            'shifts' => $shifts,
+            'grouped' => $grouped,
         ]);
     }
 
@@ -51,10 +53,13 @@ class ShiftInfoFromView implements FromView, ShouldAutoSize, WithEvents
                 ],
             ];
             $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
-                        ->select('shifts.id', 'shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
-                        ->orderBy('shift', 'ASC')
-                        ->orderBy('primaryJob', 'ASC')
-                        ->get();
+                ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
+                ->get();
+
+            $grouped = $shifts->groupBy('shift');
+
+            $grouped->toArray();
+
 /*
             $arr = array();
             $cellVal = array();
@@ -74,34 +79,51 @@ class ShiftInfoFromView implements FromView, ShouldAutoSize, WithEvents
               }
             }
             */
-            $i = 2;
-            foreach($shifts as $shift){
-              if ($i >= 24){
-                $i = 2;
+            $pos = 1;
+            foreach(range('A', 'D') as $char){
+             foreach($grouped["$char"] as $group){
+              $sCount= Shift::where('shift', $group->shift)->count();
+              if ($pos > $sCount){
+                $pos = 1;
               }
 
-              $cell = $shift->shift.$i;
+              $pos++;
+              $cell = $group->shift.$pos;
 
-              if ($shift->primaryJob == "G4010"){
+              if ($group->primaryJob == "G4010") {
                 $event->sheet->getStyle($cell)->getFill()
                     ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
                     ->getStartColor()->setARGB('7a93b0');
               }
 
-              if ($shift->primaryJob == "G0410"){
+              if ($group->primaryJob == "G1003"){
+                $event->sheet->getStyle($cell)->getFill()
+                    ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+                    ->getStartColor()->setARGB('85c1cc');
+              }
+
+              if ($group->primaryJob == "G0410"){
                 $event->sheet->getStyle($cell)->getFill()
                     ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
                     ->getStartColor()->setARGB('b3a78f');
               }
 
 
-              if ($shift->primaryJob == "G0609"){
+              if ($group->primaryJob == "G0609"){
                 $event->sheet->getStyle($cell)->getFill()
                     ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
                     ->getStartColor()->setARGB('a1bfdc');
               }
-              $i++;
+
+              if ($group->primaryJob == "G410") {
+                $event->sheet->getStyle($cell)->getFill()
+                    ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+                    ->getStartColor()->setARGB('ff555d');
+              }
+
             }
+          }
+
 
             $cellRange = 'A1:D1';
             $event->sheet->setCellValue('A1', 'Shift A');

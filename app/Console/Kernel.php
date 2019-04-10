@@ -37,10 +37,17 @@ class Kernel extends ConsoleKernel
 
                     // Update so e-mail doesn't get sent repeatedly
                     $thisChange = ShiftChange::find($change->id);
-                    //$thisChange->notified = 1;
+                    $thisChange->notified = 1;
                     $thisChange->save();
             }
+          });
 
+/*
+          $schedule->call(function () {
+            Mail::to(User::find(3648))->send(new OrgChart());
+          });
+
+          $schedule->call(function () {
             $events = Event::
                             whereBetween('date',
                             [Carbon::now()->startOfWeek(),
@@ -53,15 +60,8 @@ class Kernel extends ConsoleKernel
                       $user->notify(new EventReminder());
                     }
             }
-
           });
-
-          $schedule->call(function () {
-            Mail::to(User::find(3648))->send(new OrgChart());
-          });
-
-
-
+*/
     }
 
     protected function commands()

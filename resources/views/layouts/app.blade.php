@@ -58,6 +58,12 @@
                   </a>
                 </li>
 
+                <li class="nav-item">
+                  <a class="nav-link" href="/orgchart">
+                    <i class="fas fa-chart-bar"></i>
+                    Org Chart
+                  </a>
+                </li>
               </ul>
                 <ul class="navbar-nav ml-auto">
                   <!-- Authentication Links -->
@@ -98,12 +104,12 @@
                       </span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <?php $uid = Auth::user()->id; ?>
+                      @php ($uid = Auth::user()->id)
                       <a href="{{action('UserController@singleEdit', $uid)}}" class="dropdown-item">Update Account
                       </a>
-                  @if ($id > 0)
-                    <a href="/admin" class="dropdown-item">Admin</a>
-                  @endif
+                    @if ($id > 0)
+                      <a href="/admin" class="dropdown-item">Admin</a>
+                    @endif
                       <a class="dropdown-item" href="{{ route('logout') }}"
                          onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">

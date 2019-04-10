@@ -17586,8 +17586,7 @@ $( document ).ready(function() {
       uiLibrary: 'bootstrap4'
   });
 
-  $('input[name="emergencyContact"]').mask('(123) 456-7890');
-  $('.emergencyContact').mask('(000) 000-0000');
+  $('input[name="emergencycontact"]').mask('(123) 456-7890');
   $('#selected_time').datepicker({
       format: 'yyyy-mm-dd',
       uiLibrary: 'bootstrap4',

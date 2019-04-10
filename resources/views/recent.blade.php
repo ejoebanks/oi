@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <h2>Recent Changes</h2>
+  <h2 class="text-center">Recent Changes</h2>
 
   <div class="row">
     <div class="col-md-2">

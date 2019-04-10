@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use App\Staff;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -23,7 +24,7 @@ class User extends Authenticatable
         $user->id = $data['id'];
         $user->firstName = $data['firstName'];
         $user->lastName = $data['lastName'];
-        $user->emergencyContact = $data['emergencyContact'];
+        $user->emergencycontact = $data['emergencycontact'];
         $user->email = $data['email'];
         $user->type = $data['type'];
         $user->password = bcrypt($data['password']);
@@ -37,7 +38,7 @@ class User extends Authenticatable
         $staff = Staff::find($data['id']);
         $staff->firstName = $data['firstName'];
         $staff->lastName = $data['lastName'];
-        $user->emergencyContact = $data['emergencyContact'];
+        $staff->emergencycontact = $data['emergencycontact'];
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
         $user->save();

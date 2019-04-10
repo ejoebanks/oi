@@ -34,7 +34,7 @@ class UserController extends Controller
             'firstname'=>$request->get('firstname'),
             'lastname'=>$request->get('lastname'),
             'email'=> $request->get('email'),
-            'emergencyContact'=>$request->get('emergencyContact'),
+            'emergencycontact'=>$request->get('emergencycontact'),
             'seniority'=>$request->get('seniority'),
             'type'=> $request->get('type'),
             'password'=> bcrypt($request->get('password'))
@@ -66,7 +66,8 @@ class UserController extends Controller
 
     public function singleEdit($id)
     {
-        $user = User::where('id', $id)
+        $user = User::join('staff', 'staff.clockNumber', '=', 'users.id')
+                      ->where('id', $id)
                       ->first();
 
         return view('crud.users.update', compact('user', 'id'));
@@ -81,7 +82,7 @@ class UserController extends Controller
           'lastName'=>'required|string|max:255',
           'seniority'=>'required|string|max:20',
           'email'=> 'required|string|email|max:255',
-          'emergencyContact'=> 'required|string|max:15',
+          'emergencycontact'=> 'required|string|max:15',
           'password'=> 'required|string|min:6',
           'type'=> 'required'
         ]);
@@ -98,7 +99,7 @@ class UserController extends Controller
           'firstName'=>'required|string|max:255',
           'lastName'=>'required|string|max:255',
           'email'=> 'required|string|email|max:255',
-          'emergencyContact'=> 'required|string|max:15',
+          'emergencycontact'=> 'required|string|max:15',
           'password'=> 'required|string|min:6|confirmed',
         ]);
         $data['id'] = $id;

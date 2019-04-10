@@ -1,12 +1,10 @@
 @component('mail::message')
-# Introduction
+# Hello,
 
-The body of your message.
+Here is the weekly organizational chart.
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => '/orgchart'])
+View Chart
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
 @endcomponent

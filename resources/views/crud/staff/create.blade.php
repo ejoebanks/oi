@@ -11,13 +11,12 @@
           </ul>
       </div><br />
   @endif
-
-	<h2>Edit Staff Member</h2>
 	<br/>
   <div class="row">
     <div class="col">
     </div>
     <div class="col-md-8">
+      <h2 id="crud_header">Create Staff Member</h2>
       <div id="bleh">
         <form method="post" action="{{ action('StaffController@store') }}">
         <div class="row">

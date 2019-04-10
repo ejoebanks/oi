@@ -175,7 +175,6 @@ class ShiftInfoFromView implements FromView, ShouldAutoSize, WithEvents
             $event->sheet->getStyle($cellRange)->applyFromArray($styleArray);
             $event->sheet->getStyle('A30:D30')->applyFromArray($footerStyle);
             $event->sheet->getStyle('A31:D31')->applyFromArray($footerStyle);
-    );
 
         },
     ];

@@ -5,6 +5,8 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\ShiftChange;
+use App\User;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class ChangeNotification extends Notification
@@ -40,8 +42,10 @@ class ChangeNotification extends Notification
      */
     public function toMail($notifiable)
     {
+        $changequery = ShiftChange::where('clockNumber', $notifiable->id)->first();
         return (new MailMessage)
                     ->line('Your shift has been changed.')
+                    ->line('You were previously on the '. $changequery->prevshift .' shift, but you are now on the '. $changequery->currentshift. ' shift.')
                     ->action('View Shift', url('/'));
 
     }

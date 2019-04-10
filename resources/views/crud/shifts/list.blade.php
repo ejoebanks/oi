@@ -4,7 +4,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-        <input class="form-control" id="system-search" name="q" placeholder="Search" required>
+        <!--<input class="form-control" id="system-search" name="q" placeholder="Search" required>-->
+        <input class="form-control" type="text" id="search" placeholder="Type to search..." />
+
         <br/>
       </div>
     </div>
@@ -13,20 +15,20 @@
   <div class="row">
     <br/>
     @foreach(range('A', 'D') as $char)
-      @php ($shiftcount = \DB::table('shifts')->where('shift', '=', $char)->count())
+      @php ($shiftcount = \DB::table('shifts')->where('shift', $char)->count())
     <div class="col-sm">
     <div id="shift{{ $char }}" value="{{$shiftcount}}">{{ $shiftcount }}</div>
 
     <br/>
       <h1 id="shift"> Shift {{ $char }}</h1>
-      <table class="table table-list-search table table-striped">
+      <table id="table" class="table table-list-search table table-striped">
           <thead>
               <tr>
                 <td>Action</td>
                 <td>Employee</td>
               </tr>
           </thead>
-          <tbody>
+          <tbody id="myTable">
               @foreach($shift as $s)
               @if($char == $s->shift)
               <tr>
@@ -48,44 +50,28 @@
                 </div>
                 </td>
                   <td>
-                    <h4><span class="badge badge-secondary">{{$s->id}}</span></h4>
-                    <h6>{{ $s->firstName }} {{ "Smith" }}</h6>
-                  </td>
-                </tr>
-                <tr></tr>
-                <tr class="no-bottom-border">
-                  <td colspan="2">
+                    <h4><span class="badge badge-secondary">{{$s->clockNumber}}</span></h4>
+                    <h6>{{ $s->firstName }} {{ $s->lastName }}</h6>
+
                     <div class="collapse" id="EMP{{$s->id}}">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <span id="collapseTitle" class="float-md-left">Seniority:</span>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <span class="float-md-right">{{ $s->seniority }}</span>
-                        </div>
-
-                        <div class="col-md-6 text-center">
-                            <span id="collapseTitle" class="float-md-left">Primary Job:</span>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <span class="float-md-right">{{ $s->primaryJob }}</span>
-                        </div>
-
-                        <div class="col-md-6 text-center">
-                            <span id="collapseTitle" class="float-md-left">Comments:</span>
-                        </div>
-                        <div class="col-md-6 text-center">
-                          <?php
-                          if ($s->comments == null){
+                      <div>
+                        <span class="float-md-left"><i id="collapse_icon" class="fas fa-calendar-day fa-lg"></i> {{ $s->seniority }}</span>
+                      </div>
+                      <div>
+                        <span class="float-md-left"><i id="collapse_icon" class="far fa-hand-point-right fa-lg"></i> {{ $s->primaryJob }}</span>
+                      </div>
+                      <div>
+                        <?php
+                        if ($s->comments == null) {
                             $var = "None";
-                          } else {
+                        } else {
                             $var = $s->comments;
-                          }?>
-                            <span class="float-md-right">{{ $var }}</span>
-                        </div>
+                        }?>
+                          <span class="float-md-left"><i id="collapse_icon" class="far fa-comment fa-lg"></i> {{ $var }}</span>
+                      </div>
+
                     </div>
-                  </div>
-                </td>
+                  </td>
                 </tr>
               @endif
               @endforeach

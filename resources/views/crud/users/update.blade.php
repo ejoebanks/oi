@@ -15,8 +15,8 @@
       <div class="row">
         <div class="col">
 </div>
-
 <div class="col-6">
+  <h2 class="text-center">Update Details</h2>
       <form class="form-horizontal" role="form" method="POST" action="{{ action('UserController@singleUpdate',$user->id) }}">
            {!! csrf_field() !!}
 
@@ -39,11 +39,10 @@
             <label for="email">Email:</label>
             <input type="text" class="form-control" name="email" value="{{ $user->email }}" required/>
         </div>
-
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="emergencyContact">Emergency Contact:</label>
-            <input type="text" class="form-control" name="emergencyContact" value="{{ $user->emergencyContact }}" required/>
+            <label for="emergencycontact">Emergency Contact:</label>
+            <input type="text" class="form-control" name="emergencycontact" value="{{ $user->emergencycontact }}" required/>
         </div>
 
 

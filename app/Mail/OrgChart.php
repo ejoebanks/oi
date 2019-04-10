@@ -8,6 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Exports\ShiftInfoFromView;
 use \Excel;
+use Carbon;
 
 class OrgChart extends Mailable
 {
@@ -35,7 +36,7 @@ class OrgChart extends Mailable
                 Excel::download(
                     new ShiftInfoFromView(),
                     'shifts.xlsx'
-                )->getFile(), ['as' => 'shifts.xlsx']
+                )->getFile(), ['as' => 'shifts_'.(Carbon::now())->toDateString().'.xlsx']
             );
     }
 

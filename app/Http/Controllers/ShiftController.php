@@ -211,7 +211,7 @@ class ShiftController extends Controller
 
     public function export()
     {
-        return Excel::download(new ShiftInfoFromView, 'shiftinfo.xlsx');
+        return Excel::download(new ShiftInfoFromView, 'shifts_'.(Carbon::now())->toDateString().'.xlsx');
         //return Excel::download(new ShiftInfoFromView, 'shifts.xlsx');
     }
 

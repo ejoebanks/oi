@@ -333,3 +333,11 @@ pre {
   text-decoration: none;
   font-weight: normal;
 }
+
+#collapse_icon{
+  padding-right:1em;
+}
+
+#crud_header{
+  text-align: center;
+}

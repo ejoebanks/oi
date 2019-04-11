@@ -17580,13 +17580,13 @@ gj.colorpicker.widget.constructor = gj.colorpicker.widget;
 })(jQuery);
 
 $( document ).ready(function() {
+  $('input[name="emergencycontact"]').mask('(000) 000-0000');
   $('input[name="seniority"]').mask('0000-00-00');
   $('#seniority').datepicker({
       format: 'yyyy-mm-dd',
       uiLibrary: 'bootstrap4'
   });
 
-  $('input[name="emergencycontact"]').mask('(123) 456-7890');
   $('#selected_time').datepicker({
       format: 'yyyy-mm-dd',
       uiLibrary: 'bootstrap4',

@@ -31,11 +31,11 @@ class UserController extends Controller
     {
         $user = new User([
             'id'=>$request->get('id'),
-            'firstname'=>$request->get('firstname'),
-            'lastname'=>$request->get('lastname'),
+            //'firstname'=>$request->get('firstname'),
+            //'lastname'=>$request->get('lastname'),
             'email'=> $request->get('email'),
             'emergencycontact'=>$request->get('emergencycontact'),
-            'seniority'=>$request->get('seniority'),
+            //'seniority'=>$request->get('seniority'),
             'type'=> $request->get('type'),
             'password'=> bcrypt($request->get('password'))
         ]);
@@ -66,7 +66,7 @@ class UserController extends Controller
 
     public function singleEdit($id)
     {
-        $user = User::join('staff', 'staff.clockNumber', '=', 'users.id')
+        $user = User::join('staff', 'staff.clockNumber', '=', 'users.clockNumber')
                       ->where('id', $id)
                       ->first();
 
@@ -77,12 +77,13 @@ class UserController extends Controller
     {
         $user = new User();
         $data = $this->validate($request, [
-          'id'=>'required|integer|max:255',
-          'firstName'=>'required|string|max:255',
-          'lastName'=>'required|string|max:255',
-          'seniority'=>'required|string|max:20',
+          //'id'=>'required|integer|max:255',
+          //'firstName'=>'required|string|max:255',
+          //'lastName'=>'required|string|max:255',
+          //'seniority'=>'required|string|max:20',
+          'clocknumber'=> 'nullable|string|max:15',
           'email'=> 'required|string|email|max:255',
-          'emergencycontact'=> 'required|string|max:15',
+          'emergencycontact'=> 'required|string|max:30',
           'password'=> 'required|string|min:6',
           'type'=> 'required'
         ]);
@@ -96,13 +97,14 @@ class UserController extends Controller
     {
         $user = new User();
         $data = $this->validate($request, [
-          'firstName'=>'required|string|max:255',
-          'lastName'=>'required|string|max:255',
+          //'firstName'=>'required|string|max:255',
+          //'lastName'=>'required|string|max:255',
           'email'=> 'required|string|email|max:255',
           'emergencycontact'=> 'required|string|max:15',
           'password'=> 'required|string|min:6|confirmed',
         ]);
         $data['id'] = $id;
+        $data['clockNumber'] = User::find($id)->pluck('clocknumber')->first();
         $user->singleUpdate($data);
 
         return redirect('');

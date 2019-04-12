@@ -30,12 +30,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'id' => "required|integer|unique:users",
-            //'firstname' => 'required|string|max:255',
-            //'lastname' => 'required|string|max:255',
-            //'city' => 'required|string|max:255',
-            //'address' => 'required|string|max:255',
-            //'state' => 'required|string|max:255',
+            'clocknumber' => "nullable|integer|unique:users",
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -44,18 +39,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'id' => $data['id'],
-            //'firstname' => $data['firstname'],
-            //'lastname' => $data['lastname'],
-            //'city' => $data['city'],
-            //'state' => $data['state'],
-            //'address' => $data['address'],
+            'clocknumber' => $data['clocknumber'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             //'type' => User::DEFAULT_TYPE,
         ]);
 
-        $staff = Staff::find($data['id']);
+        $staff = Staff::find($data['clocknumber']);
         if($staff != null) {
           $staff->emergencycontact = $data['emergencycontact'];
           $staff->save();

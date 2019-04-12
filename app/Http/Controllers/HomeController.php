@@ -43,7 +43,7 @@ class HomeController extends Controller
                         ->where('shifts.clockNumber', '=', null)
                         ->count();
 
-          $user = Staff::where('staff.clockNumber', Auth::user()->id)
+          $user = Staff::where('staff.clockNumber', Auth::user()->clockNumber)
                   ->join('shifts', 'shifts.clockNumber', '=', 'staff.clockNumber')
                   ->first();
 

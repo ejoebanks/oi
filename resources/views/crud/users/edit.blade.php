@@ -45,8 +45,8 @@
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="emergencyContact">Emergency Contact:</label>
-            <input type="text" class="form-control" name="emergencyContact" value="{{ $user->emergencyContact }}" required/>
+            <label for="emergencycontact">Emergency Contact:</label>
+            <input type="text" class="form-control" name="emergencycontact" value="{{ $user->emergencycontact }}" required/>
         </div>
 
 

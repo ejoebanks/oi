@@ -100,6 +100,7 @@
             </span> shift changes in the past month.
           </h5>
         </div>
+        <br/>
         <a id="cardLink" href="/changes">View
         </a>
       </div>
@@ -174,7 +175,7 @@
 
   </div>
   <div class="col-md-9">
-            <table id="shift_home"class="table table-hover">
+            <table id="shift_home" class="table table-hover">
                   <thead id="shifthome_header">
                     <tr>
                       <th>Shift

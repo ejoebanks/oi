@@ -1,30 +1,22 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-  <div id ="container">
+<html lang="en">
     <head>
-      <meta name="csrf-token" content="{{ csrf_token() }}">
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
-      @yield('style')
+      <meta name="csrf-token" content="{{ csrf_token() }}">
 
       <title>{{ ('OI Employee Management') }}
       </title>
-      <?php
-      if (is_Object(Auth::user())) {
-          $id = Auth::user()->type;
-      }
-      ?>
 
       <!-- Base Javascript -->
       <script src="{{ asset('js/app.js') }}" ></script>
-      <script src="{{ asset('js/custom.js') }}" ></script>
 
       <!-- Added Javascript  -->
       <script src="{{ asset('js/moment.min.js') }}" ></script>
       <script src="{{ asset('js/fullcalendar.js') }}" ></script>
       <script src="{{ asset('js/gijgo.js') }}" ></script>
+      <script src="{{ asset('js/custom.js') }}" ></script>
 
       <!-- Fonts -->
       <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -38,6 +30,12 @@
       <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     </head>
     <body>
+      <?php
+      if (is_Object(Auth::user())) {
+          $id = Auth::user()->type;
+      }
+      ?>
+
       <?php asset('images/Owens_Illinois.png') ?>
       <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -133,13 +131,11 @@
           @yield('content')
         </main>
       </div>
-      </div>
     </body>
   <div id="footer">
     © 2018
     <strong>Elijah Banks, Joshua Razalan, Joseph Kovack, Adam Deisz
     </strong>
-  </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>

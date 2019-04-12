@@ -2,35 +2,6 @@
 
 @section('content')
 
-<?php
-use App\Shift;
-
-    $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
-                ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
-                ->orderBy('shift', 'ASC')
-                ->orderBy('primaryJob', 'ASC')
-                ->get();
-
-    $arr = array();
-    $cellVal = array();
-    $cellVal[0] = "A";
-    $i = 0;
-    foreach($shifts as $shift){
-      if ($i >= 23){
-        $i = 0;
-      }
-      $i++;
-      if ($cellVal[0] !== $shift->shift){
-        $cellVal[0] = $shift->shift;
-      }
-      if (!in_array($shift->primaryJob, $cellVal) && $cellVal[0] == $shift->shift){
-        array_push($arr, $shift->primaryJob);
-        array_push($cellVal, $shift->shift.$i);
-      }
-    }
-var_dump($cellVal);
-exit;
- ?>
 <div class="container">
   <h2>Unassigned Employees</h2>
 

@@ -123,7 +123,6 @@
                   @endguest
                 </ul>
             </div>
-          </div>
         </nav>
 
         <main class="py-4">
@@ -131,12 +130,13 @@
           @yield('content')
         </main>
       </div>
+      <div id="footer">
+        © 2018
+        <strong>Elijah Banks, Joshua Razalan, Joseph Kovack, Adam Deisz
+        </strong>
+      </div>
+    </div>
     </body>
-  <div id="footer">
-    © 2018
-    <strong>Elijah Banks, Joshua Razalan, Joseph Kovack, Adam Deisz
-    </strong>
-  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
       @yield('script')

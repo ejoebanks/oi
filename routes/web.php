@@ -3,9 +3,8 @@
 Route::group(['middleware' => 'admin'], function () {
 
     //Admin Page
-    Route::get('/admin', function () {
-        return view('admin.admin');
-    });
+    Route::get('/admin', 'AdminController@adminPage');
+
 
     //CRUDS
     Route::resource('users', 'UserController');

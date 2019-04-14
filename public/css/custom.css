@@ -82,19 +82,19 @@ pre {
 }
 
 #counts {
-  color: #4183D7;
+  color: #274E81;
   font-weight: bold;
   font-size: 1.2rem;
 }
 
 #cardLink {
-  color: #4183D7;
+  color: #DD6031;
   font-size: 1.3rem;
 }
 
 #cardLink:hover {
   text-decoration: none;
-  color: #E86F2A;
+  color: #274E81;
 }
 
 #container {
@@ -133,8 +133,7 @@ pre {
   background: #1B263B;
   text-align: center;
   color: #999999;
-  border-top: 5px solid #4183D7;
-
+  border-top: 5px solid #DD6031;
 }
 
 #greet {
@@ -150,26 +149,25 @@ pre {
   color: black;
   height: 343px;
   border: 3px solid #8B4219;
-
 }
-#items{
+
+#items {
   border-bottom: 3px solid #103455;
   border-left: 3px solid #103455;
   border-right: 3px solid #103455;
-
 }
-#shifthome_header{
+
+#shifthome_header {
   background-color: #8B4219;
   color: white;
 }
 
-#shift_header{
+#shift_header {
   color: #222;
   text-shadow: 0px 1px 2px #555;
   font-size: 4rem;
   text-align: center;
   word-wrap: break-word;
-
 }
 
 .card {
@@ -196,12 +194,12 @@ a.cards {
 }
 
 .box-part {
-  background: #E0E1DD;
+  background: #FFF;
   height: 300px;
   border-radius: 0;
   padding: 60px 10px;
   margin: 30px 0px;
-  box-shadow: 0 0 0 3px #E0E1DD, 0 0 0 5px #bbbdb4, 0 0 0 10px #E0E1DD, 0 0 2px 10px #4183D7;
+  box-shadow: 0 0 0 3px #FFF, 0 0 0 5px #CFD0CA, 0 0 0 10px #FFF, 0 0 2px 11px #274E81;
 }
 
 .text {
@@ -209,7 +207,7 @@ a.cards {
 }
 
 #cardIcon {
-  color: #4183D7;
+  color: #274E81;
 }
 
 #shifts {
@@ -257,10 +255,9 @@ pre {
   line-height: 18.5714px;
 }
 
-.modal-content {
-}
+.modal-content {}
 
-#modalheader{
+#modalheader {
   text-align: center;
 }
 
@@ -279,19 +276,18 @@ pre {
   border-color: #E86F2A;
 }
 
-.btn-danger:hover, .btn-primary:hover{
+.btn-danger:hover, .btn-primary:hover {
   color: #fff;
   background-color: silver;
   border-color: silver;
 }
 
-
-#selected_time{
-    font-size: 1.25rem;
-    line-height: 1.5;
+#selected_time {
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
-#rIcon{
+#rIcon {
   color: #495057;
 }
 
@@ -306,22 +302,22 @@ pre {
   margin: 0;
 }
 
-#currentshift{
+#currentshift {
   font-weight: bold;
   font-size: 4rem;
   color: green;
 }
 
-#newemployee{
+#newemployee {
   text-align: center;
 }
 
-#staffbox{
+#staffbox {
   display: none;
 }
 
-.jobheader{
-  background: #2370B8;
+.jobheader {
+  background: #274E81;
   border: 3px solid black !important;
   color: white;
   text-align: center;
@@ -334,103 +330,102 @@ pre {
   font-weight: normal;
 }
 
-#collapse_icon{
-  padding-right:1em;
+#collapse_icon {
+  padding-right: 1em;
 }
 
-#crud_header{
+#crud_header {
   text-align: center;
 }
 
 /* Custom Colors */
-
 .pt-4, .py-4 {
   padding-top: 0rem !important;
-  background-color: #E0E1DD;
+  background-color: #E0E1DD ;
 }
 
 .bg-dark {
   background-color: #1B263B !important;
-  border-bottom: 5px solid #4183D7;
+  border-bottom: 5px solid #DD6031;
+  height: 95px;
 }
 
 #app {
   min-height: 100%;
-
-/* Equal to height of footer */
-/* But also accounting for potential margin-bottom of last child */
-margin-bottom: -30px;
-padding-bottom: 20px;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -30px;
+  padding-bottom: 20px;
 }
 
-.card-counter{
-    box-shadow: 2px 2px 10px #DADADA;
-    margin: 5px;
-    padding: 20px 10px;
-    background-color: #fff;
-    height: 100px;
-    border-radius: 5px;
-    transition: .3s linear all;
-  }
+.card-counter {
+  box-shadow: 2px 2px 10px #DADADA;
+  margin: 5px;
+  padding: 20px 10px;
+  background-color: #fff;
+  height: 100px;
+  border-radius: 5px;
+  transition: .3s linear all;
+}
 
-  .card-counter:hover{
-    box-shadow: 4px 4px 20px #DADADA;
-    transition: .3s linear all;
-  }
+.card-counter:hover {
+  box-shadow: 4px 4px 20px #DADADA;
+  transition: .3s linear all;
+}
 
-  .card-counter.primary{
-    background-color: #007bff;
-    color: #FFF;
-  }
+.card-counter.primary {
+  background-color: #007bff;
+  color: #FFF;
+}
 
-  .card-counter.danger{
-    background-color: #ef5350;
-    color: #FFF;
-  }
+.card-counter.danger {
+  background-color: #ef5350;
+  color: #FFF;
+}
 
-  .card-counter.success{
-    background-color: #66bb6a;
-    color: #FFF;
-  }
+.card-counter.success {
+  background-color: #66bb6a;
+  color: #FFF;
+}
 
-  .card-counter.info{
-    background-color: #26c6da;
-    color: #FFF;
-  }
+.card-counter.info {
+  background-color: #26c6da;
+  color: #FFF;
+}
 
-  .card-counter i{
-    font-size: 5em;
-    opacity: 0.2;
-  }
+.card-counter i {
+  font-size: 5em;
+  opacity: 0.2;
+}
 
-  .card-counter .count-numbers{
-    position: absolute;
-    right: 35px;
-    top: 20px;
-    font-size: 32px;
-    display: block;
-  }
+.card-counter .count-numbers {
+  position: absolute;
+  right: 35px;
+  top: 20px;
+  font-size: 32px;
+  display: block;
+}
 
-  .card-counter .count-name{
-    position: absolute;
-    right: 35px;
-    top: 65px;
-    font-style: italic;
-    text-transform: capitalize;
-    opacity: 0.5;
-    display: block;
-    font-size: 18px;
-  }
+.card-counter .count-name {
+  position: absolute;
+  right: 35px;
+  top: 65px;
+  font-style: italic;
+  text-transform: capitalize;
+  opacity: 0.5;
+  display: block;
+  font-size: 18px;
+}
 
-  #admin_cards{
-    color: white;
-  }
+#admin_cards {
+  color: white;
+}
 
-  #admin_cards:hover {
-    font-size: 90%;
-    background: #555;
-    color: #FF9B42;
-  }
+#admin_cards:hover {
+  font-size: 90%;
+  background: #555;
+  color: #FF9B42;
+}
 
 .staff-admin {
   background-color: #6B818C;

@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth' ], function () {
     Route::get('/submitted', 'OrderController@lastOrder');
 
     // Calendar View
-    Route::get('/calendar', 'EventController@all');
+    Route::get('/calendar', 'EventController@all')->middleware('verified');
     Route::post('/calendar', 'EventController@updateEvent');
     Route::post('/calendar/remove', 'EventController@removeEvent');
     Route::post('/calendar/create', 'EventController@updateEvent');
@@ -76,7 +76,8 @@ Route::get('/testchart', 'ShiftController@shiftspread2');
 Route::get('/testchart/download', 'ShiftController@shiftspread2');
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
 
 // Login Functions
 Route::get('login', array(
@@ -91,4 +92,8 @@ Route::get('logout', array(
     'uses' => 'MainController@doLogout'
 ));
 
+Auth::routes(['verify' => true]);
+
 Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

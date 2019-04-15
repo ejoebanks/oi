@@ -31,10 +31,6 @@ class ShiftInfoFromView implements FromView, ShouldAutoSize, WithEvents
 {
 
     return [
-      BeforeExport::class  => function(BeforeExport $event) {
-            $event->writer->setCreator('OI');
-        },
-
         AfterSheet::class=> function(AfterSheet $event) {
           $styleArray = [
                 'font' => [

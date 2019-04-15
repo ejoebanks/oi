@@ -7,7 +7,7 @@
       <div class="col-md-3">
       </div>
       <div class="col-md-3">
-         <a href="/users" id="admin_cards">
+         <a href="/staff" id="admin_cards">
             <div class="card-counter staff-admin">
                <i class="fas fa-users-cog"></i>
                <span class="count-numbers">{{ $staffcount }}</span>

@@ -8,7 +8,6 @@ use App\Staff;
 
 class UserController extends Controller
 {
-
     public function index()
     {
         //$users = User::where('id', auth()->user()->id)->get();
@@ -57,7 +56,6 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-
         $user = User::where('id', $id)
                       ->first();
 
@@ -66,9 +64,14 @@ class UserController extends Controller
 
     public function singleEdit($id)
     {
-        $user = User::join('staff', 'staff.clockNumber', '=', 'users.clockNumber')
-                      ->where('id', $id)
-                      ->first();
+        if (Staff::find($id) != null) {
+            $user = User::join('staff', 'staff.clockNumber', '=', 'users.clockNumber')
+                        ->where('id', $id)
+                        ->first();
+        } else {
+            $user = User::where('id', $id)->first();
+        }
+
 
         return view('crud.users.update', compact('user', 'id'));
     }

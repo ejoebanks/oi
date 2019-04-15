@@ -5,6 +5,13 @@
 
 <div class="container">
   <div class="row">
+    <a href="{{ action('StaffController@create') }}" button type="submit" class="btn btn-primary">Insert New Staff</a>
+</div>
+<div class="row">
+  <br/>
+</div>
+
+  <div class="row">
     <table class="table table-sm table-striped">
         <thead>
             <tr>
@@ -37,6 +44,5 @@
         </tbody>
     </table>
   </div>
-    <a href="{{ action('StaffController@create') }}" button type="submit" class="btn btn-primary">Insert New Staff</button></a>
 
 @endsection

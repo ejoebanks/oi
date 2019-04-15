@@ -1,9 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<br/>
 
 <div class="container">
+  <div class="row">
+  <a href="{{ action('UserController@create') }}" button type="submit" class="btn btn-primary">Insert New User</a>
+</div>
+<div class="row">
+  <br/>
+</div>
   <div class="row">
     <table class="table table-sm table-striped">
         <thead>
@@ -12,7 +17,6 @@
               <td>Email</td>
               <td>Password</td>
               <td>Admin</td>
-
               <td colspan="2">Action</td>
             </tr>
         </thead>
@@ -37,6 +41,5 @@
         </tbody>
     </table>
   </div>
-    <a href="{{ action('UserController@create') }}" button type="submit" class="btn btn-primary">Insert New User</button></a>
 
 @endsection

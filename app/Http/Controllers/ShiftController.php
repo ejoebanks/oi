@@ -217,7 +217,7 @@ class ShiftController extends Controller
 
     public function sendChart()
     {
-        Mail::to(User::find(3648))->send(new OrgChart());
+        Mail::to(User::find(Auth::user()->id))->send(new OrgChart());
         return redirect('/orgchart');
     }
 }

@@ -11,7 +11,7 @@ class User extends Authenticatable
     use Notifiable;
 
     function info() {
-        return $this->hasOne(Staff::class, 'clockNumber', 'id');
+        return $this->hasOne(Staff::class, 'clockNumber', 'clockNumber');
     }
 
     protected $fillable = [
@@ -21,16 +21,17 @@ class User extends Authenticatable
     public function updateUser($data)
     {
         $user = $this->find($data['id']);
-        $staff = Staff::find($data['id']);
         $user->id = $data['id'];
-        //$user->firstName = $data['firstName'];
-        //$user->lastName = $data['lastName'];
-        $staff->emergencycontact = $data['emergencycontact'];
+        if (is_object(Staff::find($data['id']))){
+          $staff = Staff::find($data['id']);
+          $staff->emergencycontact = $data['emergencycontact'];
+          $staff->save();
+        }
         $user->email = $data['email'];
+        $user->clockNumber = $data['clockNumber'];
         $user->type = $data['type'];
         $user->password = bcrypt($data['password']);
         $user->save();
-        $staff->save();
         return 1;
     }
 

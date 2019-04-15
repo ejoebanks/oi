@@ -11,10 +11,9 @@ class UserController extends Controller
 
     public function index()
     {
-        $user = User::find(3648);
         //$users = User::where('id', auth()->user()->id)->get();
         $users = \DB::table('users')->oldest()->get();
-        return view('crud.users.index', compact('users', 'user'));
+        return view('crud.users.index', compact('users'));
     }
 
     /**
@@ -34,6 +33,7 @@ class UserController extends Controller
             //'firstname'=>$request->get('firstname'),
             //'lastname'=>$request->get('lastname'),
             'email'=> $request->get('email'),
+            'clockNumber'=> $request->get('clockNumber'),
             //'emergencycontact'=>$request->get('emergencycontact'),
             //'seniority'=>$request->get('seniority'),
             'type'=> $request->get('type'),
@@ -77,13 +77,9 @@ class UserController extends Controller
     {
         $user = new User();
         $data = $this->validate($request, [
-          //'id'=>'required|integer|max:255',
-          //'firstName'=>'required|string|max:255',
-          //'lastName'=>'required|string|max:255',
-          //'seniority'=>'required|string|max:20',
           'clocknumber'=> 'nullable|string|max:15',
           'email'=> 'required|string|email|max:255',
-          'emergencycontact'=> 'required|string|max:30',
+          'emergencycontact'=> 'nullable|string|max:30',
           'password'=> 'required|string|min:6',
           'type'=> 'required'
         ]);
@@ -100,7 +96,7 @@ class UserController extends Controller
           //'firstName'=>'required|string|max:255',
           //'lastName'=>'required|string|max:255',
           'email'=> 'required|string|email|max:255',
-          'emergencycontact'=> 'required|string|max:15',
+          'emergencycontact'=> 'nullable|string|max:15',
           'password'=> 'required|string|min:6|confirmed',
         ]);
         $data['id'] = $id;

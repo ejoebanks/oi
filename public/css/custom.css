@@ -308,9 +308,6 @@ pre {
   color: green;
 }
 
-#newemployee {
-  text-align: center;
-}
 
 #staffbox {
   display: none;
@@ -445,4 +442,33 @@ pre {
 
 .user-admin {
   background-color: #4183D7;
+}
+
+.custom-card {
+  text-align: center;
+  background-color: #103455;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.custom-card-header {
+  background-color: #0e2a43;
+  border-bottom: 5px solid #E86F2A;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#notfound {
+  vertical-align: baseline;
+}
+
+#home-nostaff{
+  background: #FFF;
+  border-radius: 0;
+  padding: 60px 10px;
+  margin-top: 10%;
+  box-shadow: 0 0 0 3px #FFF, 0 0 0 5px #CFD0CA, 0 0 0 10px #FFF, 0 0 2px 11px #274E81;
+  text-align: center;
+  color: #274E81;
 }

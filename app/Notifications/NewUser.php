@@ -41,9 +41,9 @@ class NewUser extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Hello!  Welcome to IHBO.')
+                    ->line('Hello!  Welcome to OI.')
                     ->action('Visit Website', url('/'))
-                    ->line('Thank you for registering on IHBO!');
+                    ->line('Thank you for registering on OI Employee Management!');
     }
 
     /**

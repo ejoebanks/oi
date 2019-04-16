@@ -53,6 +53,7 @@ class RegisterController extends Controller
 
         $sendTo = \App\User::find($user["id"]);
         $sendTo->notify(new NewUser());
+        $user->sendEmailVerificationNotification();
 
         return $user;
     }

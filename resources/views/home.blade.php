@@ -227,12 +227,8 @@
 </div>@endif
 @if (!is_object(Auth::user()->info) && Auth::user()->type == 0)
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-          <br/></br/>
-          <br/></br/>
-          <br/></br/>
-        <h1 id="newemployee">You have not yet been assigned a shift, please check back later.</div>
+    <div id="home-nostaff" class="row">
+        <h1 id="newemployee">You have not yet been assigned a shift, please check back later.
     </div>
 </div>
 @endif

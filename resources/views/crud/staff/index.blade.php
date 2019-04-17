@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<br/>
-
 <div class="container">
   <div class="row">
+    <div class="col-3-md">
+      <input class="form-control" type="text" id="search" placeholder="Type to search..." />
+    </div>
+    &nbsp;    &nbsp;    &nbsp;
     <a href="{{ action('StaffController@create') }}" button type="submit" class="btn btn-primary">Insert New Staff</a>
-</div>
-<div class="row">
-  <br/>
-</div>
+  </div>
+
 
   <div class="row">
-    <table class="table table-sm table-striped">
+    <table id="table" class="table table-sm table-striped">
         <thead>
             <tr>
               <td>Clock </td>
@@ -23,7 +23,7 @@
               <td colspan="2">Action</td>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
             @foreach($staff as $member)
             <tr>
                 <td>{{$member->clockNumber}}</td>

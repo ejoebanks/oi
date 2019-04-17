@@ -11,9 +11,8 @@ class StaffController extends Controller
 {
     public function index()
     {
-        $user = User::find(3648);
         $staff = \DB::table('staff')->oldest()->get();
-        return view('crud.staff.index', compact('staff', 'user'));
+        return view('crud.staff.index', compact('staff'));
     }
 
     public function create()

@@ -4,7 +4,15 @@
 <br/>
 <div class="container">
   <div class="row">
-    <table class="table table-sm table-striped">
+    <div class="col-3-md">
+      <input class="form-control" type="text" id="search" placeholder="Type to search..." />
+    </div>
+    &nbsp;    &nbsp;    &nbsp;
+    <a href="{{ action('ShiftChangeController@create') }}" button type="submit" class="btn btn-primary">Insert New Shift Change</button></a>
+  </div>
+
+  <div class="row">
+    <table id="table" class="table table-sm table-striped">
         <thead>
             <tr>
               <td>Clock #</td>
@@ -16,7 +24,7 @@
               <td colspan="2">Action</td>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
             @foreach($shiftchange as $shift)
             <tr>
                 <td>{{$shift->clockNumber}}</td>
@@ -38,6 +46,4 @@
         </tbody>
     </table>
   </div>
-    <a href="{{ action('ShiftChangeController@create') }}" button type="submit" class="btn btn-primary">Insert New Shift Change</button></a>
-
 @endsection

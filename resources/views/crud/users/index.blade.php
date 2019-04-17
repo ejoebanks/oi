@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
   <div class="row">
-  <a href="{{ action('UserController@create') }}" button type="submit" class="btn btn-primary">Insert New User</a>
-</div>
-<div class="row">
-  <br/>
-</div>
+    <div class="col-3-md">
+      <input class="form-control" type="text" id="search" placeholder="Type to search..." />
+    </div>
+    &nbsp;    &nbsp;    &nbsp;
+    <a href="{{ action('UserController@create') }}" button type="submit" class="btn btn-primary">Insert New User</a>
+  </div>
   <div class="row">
-    <table class="table table-sm table-striped">
+    <table id="table" class="table table-sm table-striped">
         <thead>
             <tr>
               <td>ID</td>
@@ -20,7 +20,7 @@
               <td colspan="2">Action</td>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
             @foreach($users as $user)
             <tr>
                 <td>{{$user->id}}</td>

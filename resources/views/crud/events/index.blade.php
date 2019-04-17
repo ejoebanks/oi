@@ -2,7 +2,15 @@
 
 @section('content')
     <div class="container">
-      <table class="table table-striped">
+      <div class="row">
+        <div class="col-3-md">
+          <input class="form-control" type="text" id="search" placeholder="Type to search..." />
+        </div>
+        &nbsp;    &nbsp;    &nbsp;
+        <a href="{{ action('EventController@create') }}" button type="submit" class="btn btn-primary">Insert New Event</button></a>
+      </div>
+
+      <table id="table" class="table table-striped">
         <thead>
             <tr>
               <td>Employee</td>
@@ -11,7 +19,7 @@
               <td colspan="2">Action</td>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
             @foreach($event as $ev)
             <tr>
                 <td>{{$ev->id}}</td>
@@ -29,8 +37,5 @@
             @endforeach
         </tbody>
     </table>
-    <br/>
-    <a href="{{ action('EventController@create') }}" button type="submit" class="btn btn-primary">Insert New Event</button></a>
-
 <div>
 @endsection

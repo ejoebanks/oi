@@ -10,7 +10,6 @@
     <a href="{{ action('StaffController@create') }}" button type="submit" class="btn btn-primary">Insert New Staff</a>
   </div>
 
-
   <div class="row">
     <table id="table" class="table table-sm table-striped">
         <thead>

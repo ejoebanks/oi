@@ -696,3 +696,6 @@ input:-webkit-autofill,
 input:-internal-autofill-selected {
   background-color: black !important;
 }
+
+.title {
+padding-top: 15px;}

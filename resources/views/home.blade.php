@@ -13,6 +13,13 @@
         <div class="title">
           <h4>Shifts</h4>
         </div>
+        <a id="cardLink" href="/lists">View
+        </a>
+        <i class="fas fa-ellipsis-v">
+        </i>
+        <a id="cardLink" href="/unassigned">Assign
+        </a>
+
         <div class="text">
           <h5>There are currently
             <span id="counts">{{ $shiftCount }}
@@ -22,12 +29,6 @@
             have not been assigned a shift.
           </h5>
         </div>
-        <a id="cardLink" href="/lists">View
-        </a>
-        <i class="fas fa-ellipsis-v">
-        </i>
-        <a id="cardLink" href="/unassigned">Assign
-        </a>
       </div>
     </div>
     <div class="col-md-4">
@@ -38,6 +39,14 @@
           <h4>Employees
           </h4>
         </div>
+        <div>
+        <a id="cardLink" href="/staff">View
+        </a>
+        <i class="fas fa-ellipsis-v">
+        </i>
+        <a id="cardLink" href="/staff/create">Add
+        </a>
+      </div>
         <div class="text">
           <h5>There are currently
             <span id="counts">{{ $staffCount }}
@@ -45,12 +54,6 @@
           </h5>
         </div>
         <br/>
-        <a id="cardLink" href="/staff">View
-        </a>
-        <i class="fas fa-ellipsis-v">
-        </i>
-        <a id="cardLink" href="/staff/create">Add
-        </a>
       </div>
     </div>
     <div class="col-md-2">
@@ -67,6 +70,13 @@
           <h4>Events
           </h4>
         </div>
+        <a id="cardLink" href="/calendar">View
+        </a>
+        <i class="fas fa-ellipsis-v">
+        </i>
+        <a id="cardLink" href="/events/create">Add
+        </a>
+
         <div class="text">
           @if($eventCount > 0)
           <h5>There are currently
@@ -77,13 +87,6 @@
           <h5>There are no upcoming events.</h5>
           @endif
         </div>
-        <br/>
-        <a id="cardLink" href="/calendar">View
-        </a>
-        <i class="fas fa-ellipsis-v">
-        </i>
-        <a id="cardLink" href="/events/create">Add
-        </a>
       </div>
     </div>
     <div class="col-md-4">
@@ -94,15 +97,14 @@
           <h4>Recent Changes
           </h4>
         </div>
+        <a id="cardLink" href="/changes">View
+        </a>
         <div class="text">
           <h5>There has been
             <span id="counts">{{ $shiftchangecount }}
             </span> shift changes in the past month.
           </h5>
         </div>
-        <br/>
-        <a id="cardLink" href="/changes">View
-        </a>
       </div>
     </div>
     <div class="col-md-2">

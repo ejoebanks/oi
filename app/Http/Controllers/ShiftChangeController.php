@@ -11,8 +11,7 @@ class ShiftChangeController extends Controller
 
   public function recent()
   {
-      $recentChanges = \DB::table('shiftchanges')
-                  ->join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
+      $recentChanges = ShiftChange::join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
                   ->select('staff.clockNumber as id', 'shiftchanges.created_at AS created', 'shiftchanges.prevshift', 'shiftchanges.currentshift', 'staff.firstName', 'staff.lastName')
                   ->orderBy('shiftchanges.created_at', 'desc')
                   ->take(10)
@@ -24,8 +23,7 @@ class ShiftChangeController extends Controller
 
     public function index()
     {
-        $shiftchange = \DB::table('shiftchanges')
-                  ->join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
+        $shiftchange = ShiftChange::join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
                   ->select('shiftchanges.id as id', 'staff.clockNumber', 'staff.firstName', 'staff.lastName', 'shiftchanges.currentshift', 'shiftchanges.prevshift', 'shiftchanges.created_at')
                   ->orderBy('shiftchanges.created_at', 'desc')
                   ->get();

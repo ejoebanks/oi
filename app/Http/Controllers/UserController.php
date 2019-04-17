@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index()
     {
         //$users = User::where('id', auth()->user()->id)->get();
-        $users = \DB::table('users')->oldest()->get();
+        $users = User::oldest()->get();
         return view('crud.users.index', compact('users'));
     }
 

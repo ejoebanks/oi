@@ -21,8 +21,7 @@ class ShiftController extends Controller
 {
     public function recent()
     {
-        $recentChanges = \DB::table('shifts')
-                    ->join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+        $recentChanges = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
                     ->select('staff.clockNumber as id', 'shifts.updated_at AS updated', 'shifts.shift', 'shifts.clockNumber', 'staff.firstName', 'staff.lastName')
                     ->orderBy('shifts.updated_at', 'desc')
                     ->take(10)
@@ -33,8 +32,7 @@ class ShiftController extends Controller
 
     public function index()
     {
-        $shift = \DB::table('shifts')
-                  ->join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+        $shift = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
                   ->orderBy('shift')
                   ->get();
 
@@ -43,8 +41,7 @@ class ShiftController extends Controller
 
     public function listShifts()
     {
-        $shift = \DB::table('shifts')
-                  ->join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+        $shift = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
                   ->orderBy('seniority', 'desc')
                   ->get();
 
@@ -57,8 +54,7 @@ class ShiftController extends Controller
 
     public function unassignedEmployees()
     {
-        $unassigned = \DB::table('staff')
-                    ->leftjoin('shifts', 'staff.clockNumber', '=', 'shifts.clockNumber')
+        $unassigned = Staff::leftjoin('shifts', 'staff.clockNumber', '=', 'shifts.clockNumber')
                     ->where('shifts.clockNumber', '=', null)
                     ->select('staff.*')
                     ->get();

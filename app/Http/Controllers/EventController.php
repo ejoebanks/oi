@@ -16,8 +16,7 @@ class EventController extends Controller
 
     public function all()
     {
-        $event = \DB::table('events')
-                ->join('staff', 'events.employee', '=', 'staff.clockNumber')
+        $event = Event::join('staff', 'events.employee', '=', 'staff.clockNumber')
                 ->select('staff.firstName', 'staff.lastName', 'events.*')
                 ->get();
 

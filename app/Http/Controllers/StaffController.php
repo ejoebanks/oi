@@ -11,7 +11,7 @@ class StaffController extends Controller
 {
     public function index()
     {
-        $staff = \DB::table('staff')->oldest()->get();
+        $staff = Staff::oldest()->get();
         return view('crud.staff.index', compact('staff'));
     }
 

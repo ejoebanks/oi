@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,12 +22,11 @@
       <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
       <!-- Styles -->
-      <link href="{{ asset('css/gijgo.css') }}" rel="stylesheet">
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
       <link href="{{ asset('css/fullcalendar.css') }}" rel="stylesheet">
-      <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
       <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
-      <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/gijgo.css') }}" rel="stylesheet">
     </head>
     <body>
       <?php

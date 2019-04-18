@@ -14,6 +14,8 @@
 @endif
 
     <div class="container">
+      <h2 id="crud_header">Edit Shift Change</h2>
+
       <form class="form-horizontal" role="form" method="POST" action="{{ action('ShiftChangeController@update',$shiftchange->id) }}">
            {!! csrf_field() !!}
 

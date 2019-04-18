@@ -12,26 +12,21 @@
     </div><br />
 @endif
 <div class="container">
+    <h2 id="crud_header">Create Shift</h2>
+
     <form method="post" action="{{ action('ShiftController@store') }}">
 
       <div class="form-group">
-          <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="id">Clock #:</label>
-          <input type="text" class="form-control" name="id" />
-      </div>
+      <input type="hidden" value="{{csrf_token()}}" name="_token" />
+      <label for="id">Employee:</label>
 
-      <div class="form-group">
-          <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="firstName">First Name:</label>
-          <input type="text" class="form-control" name="firstName" />
-      </div>
-
-      <div class="form-group">
-          <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="lastName">Last Name:</label>
-          <input type="text" class="form-control" name="lastName" />
-      </div>
-
+      <select class="form-control" name="clockNumber" id="clockNumber" required>
+        <option value="">None</option>
+      @foreach($staff as $mem)
+        <option value="<?=$mem->clockNumber ?>"><?= $mem->firstName. " ".$mem->lastName ?></option>
+      @endforeach
+      </select>
+    </div>
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
           <label for="shift">Shift:</label>

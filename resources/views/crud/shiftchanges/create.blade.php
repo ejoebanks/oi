@@ -13,6 +13,8 @@
     </div><br />
 @endif
 <div class="container">
+    <h2 id="crud_header">Create Shift Change</h2>
+
     <form method="post" action="{{ action('ShiftChangeController@store') }}">
 
       <div class="form-group">

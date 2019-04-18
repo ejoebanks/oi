@@ -12,6 +12,7 @@
     </div><br />
 @endif
     <div class="container">
+      <h2 id="crud_header">Edit Event</h2>
       <form class="form-horizontal" role="form" method="POST" action="{{ action('EventController@update',$event->id) }}">
            {!! csrf_field() !!}
 

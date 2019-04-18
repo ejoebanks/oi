@@ -12,7 +12,13 @@
         </ul>
     </div><br />
 @endif
-<div class="container">
+<div class="row">
+  <div class="col">
+  </div>
+  <div class="col-md-8">
+    <div id="crud_box">
+    <h2 id="crud_header">Create User</h2>
+    <hr class="crud_hr"/>
     <form method="post" action="{{ action('UserController@store') }}">
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
@@ -42,8 +48,11 @@
           </select>
         </div>
        <button type="submit" class="btn btn-primary">Create</button>
-        </form>
-    </div>
+     </form>
+   </div>
+   </div>
+   <div class="col">
+   </div>
+ </div>
 </div>
-
 @endsection

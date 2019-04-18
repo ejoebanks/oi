@@ -12,7 +12,13 @@
         </ul>
     </div><br />
 @endif
-    <div class="container">
+<div class="row">
+  <div class="col">
+  </div>
+  <div class="col-md-8">
+    <div id="crud_box">
+    <h2 id="crud_header">Edit User</h2>
+    <hr class="crud_hr"/>
       <form class="form-horizontal" role="form" method="POST" action="{{ action('UserController@update',$user->id) }}">
            {!! csrf_field() !!}
 
@@ -88,8 +94,11 @@
           </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
-        </form>
+      </form>
     </div>
-</div>
-
+    </div>
+    <div class="col">
+    </div>
+  </div>
+ </div>
 @endsection

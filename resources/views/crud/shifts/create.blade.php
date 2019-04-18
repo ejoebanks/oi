@@ -15,11 +15,12 @@
   <div class="col">
   </div>
   <div class="col-md-8">
+    <div id="crud_box">
     <h2 id="crud_header">Create Shift</h2>
-    <div id="bleh">
+    <hr class="crud_hr"/>
       <form method="post" action="{{ action('ShiftController@store') }}">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <h5>Employee:</h5>
 
           <select class="form-control" name="clockNumber" id="clockNumber" required>
@@ -30,7 +31,7 @@
           </select>
         </div>
         <br/>
-        <div class="col-md-2">
+        <div class="col-md-4">
           <h5>Shift:</h5>
           <select class="form-control" value='' name="shift" id="shift">
             <option value="">None</option>
@@ -54,7 +55,7 @@
         <h5>Comments:</h5>
         <textarea type="textarea" class="form-control" name="comments" /></textarea>
       </div>
-    </div>
+</div>
 <br/>
        <button type="submit" class="btn btn-primary">Create</button>
 

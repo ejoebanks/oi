@@ -15,14 +15,15 @@
   <div class="col">
   </div>
   <div class="col-md-8">
+    <div id="crud_box">
       <h2 id="crud_header">Edit Shift</h2>
-      <div id="bleh">
+      <hr class="crud_hr"/>
       <form class="form-horizontal" role="form" method="POST" action="{{ action('ShiftController@update',$shift->id) }}">
            {!! csrf_field() !!}
            <input type="hidden" name="_method" value="PATCH">
 
            <div class="row">
-             <div class="col-md-6">
+             <div class="col-md-5">
                <h5>Employee:</h5>
 
                <select class="form-control" name="clockNumber" id="clockNumber" required>
@@ -38,10 +39,10 @@
                </select>
              </div>
              <br/>
-             <div class="col-md-2">
+             <div class="col-md-3">
                <h5>Shift:</h5>
                <select class="form-control" value='{{ $shift->shift }}' name="shift" id="shift">
-
+                 <option value="">None</option>
                <?php
                foreach (range('A', 'D') as $char) {
                  if ($shift->shift == $char) {

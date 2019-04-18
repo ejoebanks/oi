@@ -15,8 +15,9 @@
     <div class="col">
     </div>
     <div class="col-md-8">
+      <div id="crud_box">
       <h2 id="crud_header">Create Staff Member</h2>
-      <div id="bleh">
+      <hr class="crud_hr"/>
         <form method="post" action="{{ action('StaffController@store') }}">
         <div class="row">
           <div class="col-md-6">

@@ -11,8 +11,13 @@
         </ul>
     </div><br />
 @endif
-    <div class="container">
-      <h2 id="crud_header">Edit Event</h2>
+<div class="row">
+  <div class="col">
+  </div>
+  <div class="col-md-8">
+    <div id="crud_box">
+    <h2 id="crud_header">Edit Event</h2>
+    <hr class="crud_hr"/>
       <form class="form-horizontal" role="form" method="POST" action="{{ action('EventController@update',$event->id) }}">
            {!! csrf_field() !!}
 
@@ -43,7 +48,10 @@
 
         <button type="submit" class="btn btn-primary">Update</button>
         </form>
+      </div>
+      </div>
+      <div class="col">
+      </div>
     </div>
-</div>
-
+    </div>
 @endsection

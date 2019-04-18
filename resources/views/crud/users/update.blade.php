@@ -11,12 +11,13 @@
         </ul>
     </div><br />
 @endif
-    <div class="container">
-      <div class="row">
-        <div class="col">
-</div>
-<div class="col-6">
-  <h2 class="text-center">Update Details</h2>
+<div class="row">
+  <div class="col">
+  </div>
+  <div class="col-md-8">
+    <div id="crud_box">
+    <h2 id="crud_header">Update Details</h2>
+    <hr class="crud_hr"/>
       <form class="form-horizontal" role="form" method="POST" action="{{ action('UserController@singleUpdate',$user->id) }}">
            {!! csrf_field() !!}
 
@@ -39,12 +40,15 @@
             <label for="email">Email:</label>
             <input type="text" class="form-control" name="email" value="{{ $user->email }}" required/>
         </div>
+
+        @if($user->info != null)
+
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="emergencycontact">Emergency Contact:</label>
             <input type="text" class="form-control" name="emergencycontact" value="{{ $user->emergencycontact }}" required/>
         </div>
-
+        @endif
 
         <!--
         <div class="form-group">
@@ -82,9 +86,10 @@
         <button type="submit" class="btn btn-primary">Update</button>
         </form>
       </div>
-    <div class="col">
-</div>
-</div>
-</div>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+   </div>
 
 @endsection

@@ -12,13 +12,13 @@
         </ul>
     </div><br />
 @endif
-        <h2 id="crud_header">Edit Staff Member</h2>
-         	<br/>
-           <div class="row">
-             <div class="col">
-             </div>
-             <div class="col-md-8">
-               <div id="bleh">
+<div class="row">
+  <div class="col">
+  </div>
+  <div class="col-md-8">
+    <div id="crud_box">
+      <h2 id="crud_header">Edit Staff Member</h2>
+      <hr class="crud_hr"/>
                  <form class="form-horizontal" role="form" method="POST" action="{{ action('StaffController@update',$staff->clockNumber) }}">
                    {!! csrf_field() !!}
 
@@ -97,5 +97,4 @@
              </div>
            </div>
          </div>
-
 @endsection

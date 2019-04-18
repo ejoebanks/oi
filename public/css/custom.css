@@ -151,7 +151,7 @@ pre {
 #footer {
   position: static;
   clear: both;
-  height: 30px;
+  min-height: 30px;
   bottom: 0;
   width: 100%;
   /* Height of the footer */
@@ -368,7 +368,7 @@ pre {
 .bg-dark {
   background-color: #1B263B !important;
   border-bottom: 5px solid #DD6031;
-  height: 95px;
+  min-height: 95px;
 }
 
 #app {

@@ -7,7 +7,7 @@
       <input class="form-control" type="text" id="search" placeholder="Type to search..." />
     </div>
     &nbsp;    &nbsp;    &nbsp;
-    <a href="{{ action('ShiftController@create') }}" button type="submit" class="btn btn-primary">Insert New Schedule</button></a>
+    <a href="{{ action('ShiftController@create') }}" button type="submit" class="btn btn-primary">Insert New Shift</button></a>
   </div>
     <table id="table" class="table table-striped">
         <thead>

@@ -8,6 +8,7 @@
       <div class="col-sm">
           <div id='calendar'></div>
         </div>
+        @if (Auth::user()->type == 1)
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -68,6 +69,7 @@
                 </div>
             </div>
         </div>
+        @endif
         <div class="col-sm-1">
         </div>
 

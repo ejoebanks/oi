@@ -3,7 +3,9 @@
 @section('content')
 
 <div class="container">
-  <h2>Unassigned Employees</h2>
+  <div id="crud_box">
+  <h2 id="crud_header">Unassigned Employees</h2>
+  <hr class="crud_hr"/>
 
   <div class="row">
     <div class="col-md-2">

@@ -93,7 +93,12 @@ class ShiftController extends Controller
 
     public function create()
     {
-        return view('crud.shifts.create');
+        $staff = Staff::leftjoin('shifts', 'staff.clockNumber', '=', 'shifts.clockNumber')
+                      ->where('shifts.clockNumber', '=', null)
+                      ->select('staff.*')
+                      ->get();
+
+        return view('crud.shifts.create', compact('staff'));
     }
 
     public function store(Request $request)
@@ -119,8 +124,9 @@ class ShiftController extends Controller
         $shift = Shift::where('id', $id)
                       ->join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
                       ->first();
+        $staff = Staff::all();
 
-        return view('crud.shifts.edit', compact('shift', 'id'));
+        return view('crud.shifts.edit', compact('shift', 'id', 'staff'));
     }
 
     public function updateShift($id, $char)

@@ -10,7 +10,7 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-    </div><br />
+    </div>
 @endif
 <div class="row">
   <div class="col">

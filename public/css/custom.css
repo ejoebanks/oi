@@ -699,3 +699,20 @@ input:-internal-autofill-selected {
 
 .title {
 padding-top: 15px;}
+
+#crud_box {
+  background: #F5F5F5;
+  padding: 10px 30px 30px 30px;
+  border-radius: 0;
+  margin: 30px 0px;
+  box-shadow: 0 0 0 3px #F5F5F5, 0 0 0 5px #CFD0CA, 0 0 0 10px #F5F5F5, 0 0 2px 11px #274E81;
+}
+
+.crud_hr {
+  border-top: 2px solid #DD6031;
+  padding-bottom: 10px;
+}
+
+[role=right-icon] {
+      background-color: #e9ecef;
+   }

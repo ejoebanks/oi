@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
-  <h2 class="text-center">Recent Changes</h2>
+  <div id="crud_box">
+  <h2 id="crud_header">Recent Changes</h2>
+  <hr class="crud_hr"/>
 
   <div class="row">
-    <div class="col-md-2">
-    </div>
-    <div class="col-md-8">
+    <div class="col">
       <table class="table table-striped" id="recentTab">
         <thead>
     <tr>
@@ -32,8 +32,7 @@
     </tbody>
   </table>
     </div>
-    <div class="col-md-2">
-    </div>
+  </div>
   </div>
 </div>
 @endsection

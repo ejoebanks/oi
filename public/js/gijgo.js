@@ -23,4 +23,13 @@ $( document ).ready(function() {
       }
   });
 
+  $("input[name='date']").datepicker({
+      format: 'yyyy-mm-dd',
+      uiLibrary: 'bootstrap4',
+      icons: {
+          rightIcon: '<div id="rIcon"><i class="fas fa-calendar-alt 3x"></i></div>'
+      }
+  });
+
+
 });

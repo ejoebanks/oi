@@ -11,7 +11,6 @@
           </ul>
       </div><br />
   @endif
-	<br/>
   <div class="row">
     <div class="col">
     </div>

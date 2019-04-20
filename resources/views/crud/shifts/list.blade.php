@@ -6,7 +6,6 @@
         <div class="col-md-3">
         <!--<input class="form-control" id="system-search" name="q" placeholder="Search" required>-->
         <input class="form-control" type="text" id="search" placeholder="Type to search..." />
-
         <br/>
       </div>
     </div>
@@ -18,15 +17,18 @@
     @foreach(range('A', 'D') as $char)
       @php ($shiftcount = \DB::table('shifts')->where('shift', $char)->count())
     <div class="col">
-      <div class="circle-tile">
-        <div class="circle-tile-heading darker-blue">{{ $char }}</div>
-        <div class="circle-tile-content dark-blue">
-          <div class="circle-tile-description text-faded">Staff</div>
-          <div class="circle-tile-number text-faded ">{{$shiftcount}}</div>
-        </div>
-      </div>
-
       <table id="table" class="table table-list-search table table-striped">
+        <thead class="list_tablehead">
+          <tr>
+            <th colspan="2" class="circle-tile">
+              <div class="circle-tile-heading dark-blue">{{ $char }}</div>
+                    <div class="circle-tile-content darker-blue">
+                      <div class="circle-tile-description text-faded">Staff</div>
+                      <div class="circle-tile-number text-faded ">{{$shiftcount}}</div>
+                    </div>
+            </th>
+          </tr>
+        </thead>
         <thead class="list_head">
               <tr>
                 <td>Action</td>

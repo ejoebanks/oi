@@ -20,36 +20,33 @@
       </div>
     </div>
 
-    <table id="table" class="table table-striped">
-        <thead>
-            <tr>
+    <table id="table" class="table crud_table table-sm table-striped">
+        <thead class="crud_head">
+          <tr class="custom_border">
               <td>Clock #</td>
               <td>Shift</td>
               <td>First Name</td>
               <td>Last Name</td>
-
-              <td colspan="2">Action</td>
+              <td>Action</td>
             </tr>
         </thead>
         <tbody id="myTable">
             @foreach($shift as $s)
-            <tr>
+            <tr class="custom_border">
                 <td>{{$s->clockNumber}}</td>
                 <td>{{$s->shift}}</td>
                 <td>{{$s->firstName}}</td>
                 <td>{{$s->lastName}}</td>
-
                 <td>
                       <form action="{{action('ShiftController@destroy', $s->id)}}" method="post">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
-                        <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group" role="group">
                         <button class="btn btn-danger" onclick="return confirm('Are you sure?')" type="submit"><i class="fa fa-trash" /></i></button>
                       </form>
                       <a href="{{action('ShiftController@edit',$s->id)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                  </div>
+                    </div>
                 </td>
-
             </tr>
             @endforeach
         </tbody>

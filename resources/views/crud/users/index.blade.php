@@ -21,8 +21,8 @@
   </div>
   <div class="row">
     <div class="col">
-    <table id="table" class="table table-sm table-striped">
-        <thead>
+      <table id="table" class="table crud_table table-sm table-striped">
+          <thead class="crud_head">
             <tr>
               <td>ID</td>
               <td>Clock Number</td>
@@ -44,7 +44,7 @@
               @else
                 @php($clockNumber = $user->clockNumber)
               @endif
-            <tr>
+              <tr class="custom_border">
                 <td>{{$user->id}}</td>
                 <td>{{$clockNumber}}</td>
                 <td>{{$user->email}}</td>

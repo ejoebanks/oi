@@ -25,18 +25,18 @@
       <div class="row">
         <div class="col">
 
-      <table id="table" class="table table-striped">
-        <thead>
+    <table id="table" class="table crud_table table-sm table-striped">
+      <thead class="crud_head">
             <tr>
               <td>Employee</td>
               <td>Title</td>
               <td>Date</td>
-              <td colspan="2">Action</td>
+              <td>Action</td>
             </tr>
         </thead>
         <tbody id="myTable">
             @foreach($event as $ev)
-            <tr>
+            <tr class="custom_border">
                 <td>{{$ev->id}}</td>
                 <td>{{$ev->title}}</td>
                 <td>{{$ev->date}}</td>
@@ -50,7 +50,6 @@
                       <a href="{{action('EventController@edit',$ev->id)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                   </div>
                 </td>
-
             </tr>
             @endforeach
         </tbody>

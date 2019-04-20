@@ -22,20 +22,19 @@
 
   <div class="row">
     <div class="col">
-    <table id="table" class="table table-sm table-striped">
-        <thead>
+    <table id="table" class="table crud_table table-sm table-striped">
+        <thead class="crud_head">
             <tr>
-              <td>Clock </td>
+              <td>Clock #</td>
               <td>Seniority</td>
               <td>First Name</td>
               <td>Last Name</td>
-
-              <td colspan="2">Action</td>
+              <td>Action</td>
             </tr>
         </thead>
         <tbody id="myTable">
             @foreach($staff as $member)
-            <tr>
+            <tr class="custom_border">
                 <td>{{$member->clockNumber}}</td>
                 <td>{{$member->seniority}}</td>
                 <td>{{$member->firstName}}</td>
@@ -50,7 +49,6 @@
                       <a href="{{action('StaffController@edit',$member->clockNumber)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                   </div>
                 </td>
-
             </tr>
             @endforeach
         </tbody>

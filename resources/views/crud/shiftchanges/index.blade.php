@@ -7,7 +7,7 @@
       <div class="float-left"><h1>Shift Changes</h1></div>
     </div>
     <div class="col">
-      <div class="float-right"><a href="{{ action('ShiftChangeController@create') }}" button type="submit" class="btn btn-primary">Add Shift Change   <i class="fas fa-plus-circle"></i></a></div>
+      <div class="float-right"><a href="{{ action('ShiftChangeController@create') }}" button type="submit" class="btn btn-primary">Add Shift Change <i class="fas fa-plus-circle"></i></a></div>
     </div>
   </div>
   <hr class="crud_hr"/>
@@ -24,21 +24,20 @@
 
   <div class="row">
     <div class="col">
-    <table id="table" class="table table-sm table-striped">
-        <thead>
+      <table id="table" class="table crud_table table-sm table-striped">
+          <thead class="crud_head">
             <tr>
               <td>Clock #</td>
               <td>Name</td>
               <td>Current Shift</td>
               <td>Previous Shift</td>
               <td>Changed On</td>
-
-              <td colspan="2">Action</td>
+              <td>Action</td>
             </tr>
         </thead>
         <tbody id="myTable">
             @foreach($shiftchange as $shift)
-            <tr>
+            <tr class="custom_border">
                 <td>{{$shift->clockNumber}}</td>
                 <td>{{$shift->firstName}} {{$shift->lastName}}</td>
                 <td>{{$shift->currentshift}}</td>

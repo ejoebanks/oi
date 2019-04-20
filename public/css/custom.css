@@ -15,6 +15,7 @@ body {
   margin: auto;
 }
 
+
 .forcedWidth {
   width: 200px;
   word-wrap: break-word;
@@ -323,6 +324,7 @@ pre {
 
 #shift {
   color: black;
+  padding-bottom: 10px;
   margin: 0;
 }
 
@@ -645,6 +647,7 @@ fieldset[disabled] .btn-danger.active {
 
 .custom_border {
   border: 2px solid #1B263B;
+  min-width: 200px;
 }
 
 .crud_head {
@@ -657,6 +660,126 @@ fieldset[disabled] .btn-danger.active {
 
 .list_head{
   background-color: #1B263B;
-  font-size: 1em;
+  font-size: 1.1em;
   color: white;
+  border: 2px solid #1B263B;
+}
+
+.circle-tile {
+    text-align: center;
+}
+
+.circle-tile-heading {
+    border: 4px solid rgba(232,111,42, 0.6);
+    border-radius: 100%;
+    color: #FFFFFF;
+    height: 80px;
+    margin: 0 auto -40px;
+    position: relative;
+    width: 80px;
+    font-size: 3.2em;
+    border-bottom: 4px solid orange;
+}
+
+.badge-secondary, .btn-secondary {
+  background-color: #1B263B;
+}
+
+.btn-outline-secondary {
+  color: #1B263B
+}
+.circle-tile-heading .fa {
+    line-height: 80px;
+}
+.circle-tile-content {
+    padding-top: 50px;
+}
+.circle-tile-number {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 5px 0 15px;
+}
+.circle-tile-description {
+    text-transform: uppercase;
+}
+.circle-tile-heading.dark-blue:hover {
+    background-color: #2E4154;
+}
+.circle-tile-heading.green:hover {
+    background-color: #138F77;
+}
+.circle-tile-heading.orange:hover {
+    background-color: #DA8C10;
+}
+.circle-tile-heading.blue:hover {
+    background-color: #2473A6;
+}
+.circle-tile-heading.red:hover {
+    background-color: #CF4435;
+}
+.circle-tile-heading.purple:hover {
+    background-color: #7F3D9B;
+}
+.tile-img {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
+}
+
+.dark-blue {
+    background-color: #34495E;
+}
+.darker-blue {
+  background-color: #1B263B;
+}
+.green {
+    background-color: #16A085;
+}
+.blue {
+    background-color: #2980B9;
+}
+.orange {
+    background-color: #F39C12;
+}
+.red {
+    background-color: #E74C3C;
+}
+.purple {
+    background-color: #8E44AD;
+}
+.dark-gray {
+    background-color: #7F8C8D;
+}
+.gray {
+    background-color: #95A5A6;
+}
+.light-gray {
+    background-color: #BDC3C7;
+}
+.yellow {
+    background-color: #F1C40F;
+}
+.text-dark-blue {
+    color: #34495E;
+}
+.text-green {
+    color: #16A085;
+}
+.text-blue {
+    color: #2980B9;
+}
+.text-orange {
+    color: #F39C12;
+}
+.text-red {
+    color: #E74C3C;
+}
+.text-purple {
+    color: #8E44AD;
+}
+.text-faded {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#test {
+  width: 100%;
 }

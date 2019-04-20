@@ -11,16 +11,21 @@
       </div>
     </div>
   </div>
+
 <div class="container">
   <div class="row">
     <br/>
     @foreach(range('A', 'D') as $char)
       @php ($shiftcount = \DB::table('shifts')->where('shift', $char)->count())
-    <div class="col-sm">
-    <div id="shift{{ $char }}" value="{{$shiftcount}}">{{ $shiftcount }}</div>
+    <div class="col">
+      <div class="circle-tile">
+        <div class="circle-tile-heading darker-blue">{{ $char }}</div>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded">Staff</div>
+          <div class="circle-tile-number text-faded ">{{$shiftcount}}</div>
+        </div>
+      </div>
 
-    <br/>
-      <h1 id="shift"> Shift {{ $char }}</h1>
       <table id="table" class="table table-list-search table table-striped">
         <thead class="list_head">
               <tr>
@@ -31,7 +36,7 @@
           <tbody id="myTable">
               @foreach($shift as $s)
               @if($char == $s->shift)
-              <tr>
+              <tr class="custom_border">
                 <td>
                   <div class="btn-group-vertical">
                   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -22,7 +22,7 @@
     <br/>
       <h1 id="shift"> Shift {{ $char }}</h1>
       <table id="table" class="table table-list-search table table-striped">
-          <thead>
+        <thead class="list_head">
               <tr>
                 <td>Action</td>
                 <td>Employee</td>

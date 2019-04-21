@@ -5,20 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ShiftChange;
 use Auth;
+use App\Staff;
 
 class ShiftChangeController extends Controller
 {
-
-  public function recent()
-  {
-      $recentChanges = ShiftChange::join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
+    public function recent()
+    {
+        $recentChanges = ShiftChange::join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
                   ->select('staff.clockNumber as id', 'shiftchanges.created_at AS created', 'shiftchanges.prevshift', 'shiftchanges.currentshift', 'staff.firstName', 'staff.lastName')
                   ->orderBy('shiftchanges.created_at', 'desc')
                   ->take(10)
                   ->get();
 
-      return view('recent', compact('recentChanges'));
-  }
+        return view('recent', compact('recentChanges'));
+    }
 
 
     public function index()
@@ -34,7 +34,8 @@ class ShiftChangeController extends Controller
 
     public function create()
     {
-        return view('crud.shiftchanges.create');
+        $staff = Staff::all();
+        return view('crud.shiftchanges.create', compact('staff'));
     }
 
     public function store(Request $request)
@@ -59,8 +60,10 @@ class ShiftChangeController extends Controller
         $shiftchange = ShiftChange::where('id', $id)
                       ->join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
                       ->first();
+        $staff = Staff::all();
 
-        return view('crud.shiftchanges.edit', compact('shiftchange', 'id'));
+
+        return view('crud.shiftchanges.edit', compact('shiftchange', 'id', 'staff'));
     }
 
 

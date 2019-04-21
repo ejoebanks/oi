@@ -17,6 +17,7 @@ class ShiftChange extends Model
         $shiftchange = $this->find($data['id']);
         $shiftchange->prevshift = $data['prevshift'];
         $shiftchange->currentshift = $data['currentshift'];
+        $shiftchange->clockNumber = $data['clockNumber'];
         $shiftchange->save();
         return 1;
     }

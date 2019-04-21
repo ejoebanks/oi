@@ -23,76 +23,44 @@
            {!! csrf_field() !!}
 
            <input type="hidden" name="_method" value="PATCH">
-<!--
-           <div class="form-group">
+
+           <div class="row">
+             <div class="col-md-6">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
-               <label for="clockNumber">Clock Number:</label>
-               <input type="text" class="form-control" name="clockNumber" value="{{ $user->clockNumber }}" required/>
+               <h5 for="clockNumber">Clock Number (Optional):</h5>
+               <input type="text" class="form-control" name="clockNumber" value="{{ $user->clockNumber }}" />
+             </div>
+             <div class="col-md-6">
+               <input type="hidden" value="{{csrf_token()}}" name="_token" />
+               <h5>Email:</h5>
+               <input type="text" class="form-control" id="email" name="email" value="{{ $user->email }}" />
+             </div>
+             <br/>
            </div>
+           <br/>
 
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="firstname">First Name:</label>
-            <input type="text" class="form-control" name="firstname" value="{{ $user->firstname }}" required/>
-        </div>
+           <div class="row">
+             <div class="col-md-6">
+               <input type="hidden" value="{{csrf_token()}}" name="_token" />
+               <h5 for="password">Password:</h5>
+               <input type="password" class="form-control" name="password" value="{{ $user->password }}" required/>
+             </div>
+             <div class="col-md-6">
+               <input type="hidden" value="{{csrf_token()}}" name="_token" />
+               <h5 for="type">Admin Priviliges:</h5>
+               <select class="form-control" id="type" name="type">
+                 @if ($user->type == 1)
+                   <option selected value="1">Yes</option>
+                   <option value="0">No</option>
+                 @else
+                   <option value="1">Yes</option>
+                   <option selected value="0">No</option>
+                 @endif
 
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="lastname">Last Name:</label>
-            <input type="text" class="form-control" name="lastname" value="{{ $user->lastname }}" required/>
-        </div>
--->
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="email">Email:</label>
-            <input type="text" class="form-control" name="email" value="{{ $user->email }}" required/>
-        </div>
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="emergencycontact">Emergency Contact:</label>
-            <input type="text" class="form-control" name="emergencycontact" value="{{ $user->emergencycontact }}" required/>
-        </div>
-
-
-
-<!--
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="address">Address:</label>
-            <input type="text" class="form-control" name="address" value="{{ $user->address }}" required/>
-          </div>
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="city">City:</label>
-            <input type="text" class="form-control" name="city" value="{{ $user->city }}" required/>
-          </div>
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="state">State:</label>
-            <input type="text" class="form-control" name="state" value="{{ $user->state }}" required/>
-          </div>
--->
-
-
-          <div class="form-group">
-              <input type="hidden" value="{{csrf_token()}}" name="_token" />
-              <label for="password">Password:</label>
-              <input type="password" class="form-control" name="password" value="{{ $user->password }}" required/>
-          </div>
-
-          <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="type">Admin Priviliges:</label>
-            <select class="form-control" id="type" name="type">
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-            </select>
-          </div>
-
+               </select>
+             </div>
+           </div>
+           <br/>
         <button type="submit" class="btn btn-primary">Update</button>
       </form>
     </div>

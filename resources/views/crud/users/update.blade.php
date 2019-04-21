@@ -23,53 +23,42 @@
 
            <input type="hidden" name="_method" value="POST">
            @if($user->info != null)
-           <div class="form-group">
+           <div class="row">
+             <div class="col-md-6">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
-               <label for="firstName">First Name:</label>
+               <h5 for="clockNumber">First Name:</h5>
                <input type="text" class="form-control" name="firstName" value="{{ $user->info->firstName }}" required/>
-           </div>
-
-           <div class="form-group">
+             </div>
+             <div class="col-md-6">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
-               <label for="lastName">Last Name:</label>
+               <h5>Last Name:</h5>
                <input type="text" class="form-control" name="lastName" value="{{ $user->info->lastName }}" required/>
+             </div>
+             <br/>
            </div>
+           <br/>
            @endif
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="email">Email:</label>
-            <input type="text" class="form-control" name="email" value="{{ $user->email }}" required/>
-        </div>
 
-        @if($user->info != null)
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="emergencycontact">Emergency Contact:</label>
-            <input type="text" class="form-control" name="emergencycontact" value="{{ $user->emergencycontact }}" required/>
-        </div>
-        @endif
-
-        <!--
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="address">Address:</label>
-            <input type="text" class="form-control" name="address" value="{{ $user->address }}" required/>
-          </div>
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="city">City:</label>
-            <input type="text" class="form-control" name="city" value="{{ $user->city }}" required/>
-          </div>
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="state">State:</label>
-            <input type="text" class="form-control" name="state" value="{{ $user->state }}" required/>
-          </div>
-          -->
-
+           <div class="row">
+             @if ($user->info == null)
+             <div class="col-md-12">
+             @else
+             <div class="col-md-6">
+             @endif
+               <input type="hidden" value="{{csrf_token()}}" name="_token" />
+               <h5 for="clockNumber">Email:</h5>
+               <input type="text" class="form-control" name="email" value="{{ $user->email }}" required/>
+             </div>
+             @if($user->info != null)
+             <div class="col-md-6">
+               <input type="hidden" value="{{csrf_token()}}" name="_token" />
+               <h5>Emergency Contact:</h5>
+               <input type="text" class="form-control" name="emergencycontact" value="{{ $user->emergencycontact }}" required/>
+             </div>
+             @endif
+             <br/>
+           </div>
+           <br/>
 
           <div class="form-group">
               <input type="hidden" value="{{csrf_token()}}" name="_token" />

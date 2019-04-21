@@ -9,7 +9,7 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-    </div><br />
+    </div>
 @endif
 <div class="row">
   <div class="col">
@@ -53,7 +53,7 @@
              <div class="col-md-6">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
                <h5>Emergency Contact:</h5>
-               <input type="text" class="form-control" name="emergencycontact" value="{{ $user->emergencycontact }}" required/>
+               <input type="text" class="form-control" name="emergencycontact" value="{{ $user->info->emergencycontact }}" required/>
              </div>
              @endif
              <br/>
@@ -63,12 +63,12 @@
           <div class="form-group">
               <input type="hidden" value="{{csrf_token()}}" name="_token" />
               <label for="password">Password:</label>
-              <input type="password" class="form-control" name="password" value="{{ $user->password }}" required/>
+              <input type="password" class="form-control" name="password" value="{{ $user->password }}" required />
           </div>
 
           <div class="form-group">
               <label for="password-confirm">{{ __('Confirm Password') }}</label>
-              <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+              <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required >
           </div>
 
 

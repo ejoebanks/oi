@@ -1,16 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+<div class="container list_top">
       <div class="row">
         <div class="col-md-3">
         <!--<input class="form-control" id="system-search" name="q" placeholder="Search" required>-->
-        <input class="form-control" type="text" id="search" placeholder="Type to search..." />
-        <br/>
+        <input class="form-control" type="text" id="search" placeholder="Search" />
+        </div>
+        <div class="col-md-9">
+          <div class="float-right">
+          <a href="{{action('ShiftController@export')}}" class="btn btn-outline-secondary" role="button"><i class="fas fa-download"></i> Download</a>
+          <a href="{{action('ShiftController@sendChart')}}" class="btn btn-outline-info" role="button"><i class="far fa-envelope"></i> Email</a>
+        </div>
       </div>
     </div>
   </div>
-
 <div class="container">
   <div class="row">
     <br/>
@@ -38,7 +42,7 @@
           <tbody id="myTable">
               @foreach($shift as $s)
               @if($char == $s->shift)
-              <tr class="custom_border">
+              <tr class="list_border">
                 <td>
                   <div class="btn-group-vertical">
                   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

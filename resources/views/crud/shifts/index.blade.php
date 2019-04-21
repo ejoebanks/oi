@@ -20,6 +20,8 @@
       </div>
     </div>
 
+    <div class="table-responsive">
+
     <table id="table" class="table crud_table table-sm table-striped">
         <thead class="crud_head">
           <tr class="custom_border">
@@ -51,5 +53,6 @@
             @endforeach
         </tbody>
     </table>
+  </div>
 <div>
 @endsection

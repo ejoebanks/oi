@@ -22,6 +22,7 @@
 
   <div class="row">
     <div class="col">
+      <div class="table-responsive">
     <table id="table" class="table crud_table table-sm table-striped">
         <thead class="crud_head">
             <tr>
@@ -54,5 +55,6 @@
         </tbody>
     </table>
   </div>
+</div>
 </div>
 @endsection

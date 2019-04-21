@@ -11,19 +11,15 @@
         </div>
       </div>
       <hr class="crud_hr"/>
-
-
         <div class="row">
           <div class="col-3">
             <input class="form-control" type="text" id="search" placeholder="Search" />
             <hr class="blue_hr"/>
           </div>
         </div>
-
-
-
       <div class="row">
         <div class="col">
+          <div class="table-responsive">
 
     <table id="table" class="table crud_table table-sm table-striped">
       <thead class="crud_head">
@@ -54,6 +50,7 @@
             @endforeach
         </tbody>
     </table>
-<div>
+  </div>
+</div>
 </div>
 @endsection

@@ -23,11 +23,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $user = $this->find($data['id']);
         $user->id = $data['id'];
-        if (is_object(Staff::find($data['id']))){
-          $staff = Staff::find($data['id']);
-          $staff->emergencycontact = $data['emergencycontact'];
-          $staff->save();
-        }
         $user->email = $data['email'];
         $user->clockNumber = $data['clockNumber'];
         $user->type = $data['type'];
@@ -39,14 +34,14 @@ class User extends Authenticatable implements MustVerifyEmail
     public function singleUpdate($data)
     {
         $user = $this->find($data['id']);
-        $staff = Staff::find($data['clockNumber']);
-        //$staff->firstName = $data['firstName'];
-        //$staff->lastName = $data['lastName'];
-        $staff->emergencycontact = $data['emergencycontact'];
+        if (is_object(Staff::find($data['clockNumber']))){
+          $staff = Staff::find($data['clockNumber']);
+          $staff->emergencycontact = $data['emergencycontact'];
+          $staff->save();
+        }
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
         $user->save();
-        $staff->save();
         return 1;
     }
 }

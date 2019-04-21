@@ -220,6 +220,6 @@ class ShiftController extends Controller
     public function sendChart()
     {
         Mail::to(User::find(Auth::user()->id))->send(new OrgChart());
-        return redirect('/orgchart');
+        return redirect('/lists');
     }
 }

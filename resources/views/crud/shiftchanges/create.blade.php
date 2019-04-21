@@ -24,21 +24,33 @@
 
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="clockNumber">Clock Number:</label>
-          <input type="text" class="form-control" name="clockNumber" required/>
+          <h5>Employee:</h5>
+          <select class="form-control" value='' name="clockNumber" >
+          @foreach($staff as $member)
+            <option value="{{ $member->clockNumber }}">{{ $member->firstName.' '.$member->lastName }}</option>
+          @endforeach
+        </select>
       </div>
 
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="currentshift">Current Shift:</label>
-          <input type="text" class="form-control" name="currentshift" required/>
+          <h5>Current Shift:</h5>
+          <select class="form-control" value='' name="currentshift" >
+          @foreach(range('A', 'D') as $char)
+            <option value="{{ $char }}">{{ $char }}</option>
+          @endforeach
+        </select>
       </div>
 
 
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="prevshift">Previous Shift:</label>
-          <input type="text" class="form-control" name="prevshift" required/>
+          <h5>Previous Shift:</h5>
+          <select class="form-control" value='' name="prevshift" id="prevshift">
+          @foreach(range('A', 'D') as $char)
+            <option value="{{ $char }}">{{ $char }}</option>
+          @endforeach
+        </select>
       </div>
 
        <button type="submit" class="btn btn-primary">Create</button>

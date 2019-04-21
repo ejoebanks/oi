@@ -28,8 +28,17 @@
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="clockNumber">Clock Number:</label>
-            <input type="text" class="form-control" name="clockNumber" value="{{ $shiftchange->clockNumber }}" required/>
+            <h5>Employee:</h5>
+            <select class="form-control" value='' name="clockNumber" >
+            @foreach($staff as $member)
+              @if($member->clockNumber == $shiftchange->clockNumber)
+                @php ($active = "selected")
+              @else
+                @php ($active = "")
+              @endif
+              <option {{$active}} value="{{ $member->clockNumber }}">{{ $member->firstName.' '.$member->lastName }}</option>
+            @endforeach
+          </select>
         </div>
 
         <div class="form-group">

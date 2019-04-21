@@ -20,33 +20,41 @@
     <h2 id="crud_header">Create User</h2>
     <hr class="crud_hr"/>
     <form method="post" action="{{ action('UserController@store') }}">
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="email">Email:</label>
-            <input type="text" class="form-control" name="email" required/>
-        </div>
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="emergencycontact">Emergency Contact:</label>
-            <input type="text" class="form-control" name="emergencycontact" required/>
-        </div>
-
-
-        <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" name="password" required/>
-        </div>
-
-        <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="type">Admin Priviliges:</label>
+          <h5 for="clockNumber">Clock Number (Optional):</h5>
+          <input type="text" class="form-control" name="clockNumber" />
+        </div>
+        <div class="col-md-6">
+          <input type="hidden" value="{{csrf_token()}}" name="_token" />
+          <h5>Email:</h5>
+          <input type="text" class="form-control" id="email" name="email" />
+        </div>
+
+        <br/>
+      </div>
+      <br/>
+
+      <div class="row">
+        <div class="col-md-6">
+          <input type="hidden" value="{{csrf_token()}}" name="_token" />
+          <h5 for="password">Password:</h5>
+          <input type="text" class="form-control" name="password" required/>
+        </div>
+        <div class="col-md-6">
+          <input type="hidden" value="{{csrf_token()}}" name="_token" />
+          <input type="hidden" value="{{csrf_token()}}" name="_token" />
+          <h5 for="type">Admin Priviliges:</h5>
           <select class="form-control" id="type" name="type">
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
         </div>
+      </div>
+
+      <br/>
+
        <button type="submit" class="btn btn-primary">Create</button>
      </form>
    </div>

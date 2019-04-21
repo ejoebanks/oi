@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Staff;
+use Auth;
 
 class UserController extends Controller
 {
@@ -29,12 +30,8 @@ class UserController extends Controller
     {
         $user = new User([
             'id'=>$request->get('id'),
-            //'firstname'=>$request->get('firstname'),
-            //'lastname'=>$request->get('lastname'),
             'email'=> $request->get('email'),
             'clockNumber'=> $request->get('clockNumber'),
-            //'emergencycontact'=>$request->get('emergencycontact'),
-            //'seniority'=>$request->get('seniority'),
             'type'=> $request->get('type'),
             'password'=> bcrypt($request->get('password'))
         ]);
@@ -100,7 +97,7 @@ class UserController extends Controller
           'password'=> 'required|string|min:6|confirmed',
         ]);
         $data['id'] = $id;
-        $data['clockNumber'] = User::find($id)->pluck('clocknumber')->first();
+        $data['clockNumber'] = Auth::user()->clockNumber;
         $user->singleUpdate($data);
 
         return redirect('');

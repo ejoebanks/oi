@@ -604,6 +604,7 @@ fieldset[disabled] .btn-danger.active {
 .blue_hr {
   border-top: 2px solid #274E81;
   padding-bottom: 10px;
+  min-width: 200px;
 }
 
 .crud_table {
@@ -720,9 +721,6 @@ fieldset[disabled] .btn-danger.active {
   padding-bottom: 20px;
 }
 
-#search {
-  padding: 10px;
-}
 
 .btn-outline-secondary {
   color: #1B263B;
@@ -773,4 +771,10 @@ fieldset[disabled] .btn-danger.active {
 .btn-outline-info.focus, .btn-outline-info:focus {
   -webkit-box-shadow: 0 0 0 .2rem rgba(224, 138, 40, .5);
   box-shadow: 0 0 0 .2rem rgba(224, 138, 40, .5)
+}
+
+#search {
+  min-width: 200px;
+  padding: 10px;
+  margin-bottom: 20px;
 }

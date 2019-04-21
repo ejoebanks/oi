@@ -80,9 +80,8 @@ class UserController extends Controller
     {
         $user = new User();
         $data = $this->validate($request, [
-          'clocknumber'=> 'nullable|string|max:15',
           'email'=> 'required|string|email|max:255',
-          'emergencycontact'=> 'nullable|string|max:30',
+          'clockNumber'=> 'nullable|string|max:30',
           'password'=> 'required|string|min:6',
           'type'=> 'required'
         ]);
@@ -96,8 +95,6 @@ class UserController extends Controller
     {
         $user = new User();
         $data = $this->validate($request, [
-          //'firstName'=>'required|string|max:255',
-          //'lastName'=>'required|string|max:255',
           'email'=> 'required|string|email|max:255',
           'emergencycontact'=> 'nullable|string|max:15',
           'password'=> 'required|string|min:6|confirmed',

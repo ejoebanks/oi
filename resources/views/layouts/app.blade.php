@@ -54,6 +54,7 @@
                     Events
                   </a>
                 </li>
+                <!--
                 @if ($id == "1")
                 <li class="nav-item">
                   <a class="nav-link" href="/orgchart">
@@ -62,6 +63,7 @@
                   </a>
                 </li>
                 @endif
+              -->
             @endauth
               </ul>
                 <ul class="navbar-nav ml-auto">

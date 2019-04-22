@@ -32,7 +32,8 @@ class Kernel extends ConsoleKernel
                             ->get();
 
             foreach ($shiftchanges as $change) {
-                    $sendTo = \App\User::find($change->clockNumber);
+                    $sendTo = \App\User::where('clockNumber', $change->clockNumber)
+                              ->first();
                     $sendTo->notify(new ChangeNotification());
 
                     // Update so e-mail doesn't get sent repeatedly

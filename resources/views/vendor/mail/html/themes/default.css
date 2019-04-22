@@ -106,7 +106,7 @@ img {
     padding: 25px 0;
     font-family: Raleway;
     text-align: center;
-    background-color: #103455;
+    background-color: #1B263B;
     border-bottom: 5px solid #E86F2A;
 }
 
@@ -120,8 +120,7 @@ img {
 /* Body */
 
 .body {
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #EDEFF2;
+    background-color: #E0E1DD;
     border-top: 1px solid #EDEFF2;
     margin: 0;
     padding: 0;
@@ -132,7 +131,7 @@ img {
 }
 
 .inner-body {
-    background-color: #FFFFFF;
+    background-color: #E0E1DD;
     margin: 0 auto;
     padding: 0;
     width: 570px;
@@ -156,11 +155,11 @@ img {
 /* Footer */
 
 .footer {
-    margin: 0 auto;
+    max-height: 20px;
     padding: 0;
+    border-top: 5px solid #1B263B;
     text-align: center;
-    width: 570px;
-    background-color:
+    width: 100%;
     -premailer-cellpadding: 0;
     -premailer-cellspacing: 0;
     -premailer-width: 570px;

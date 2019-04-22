@@ -42,11 +42,11 @@ class ChangeNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        $changequery = ShiftChange::where('clockNumber', $notifiable->id)->first();
+        $changequery = ShiftChange::where('clockNumber', $notifiable->clockNumber)->first();
         return (new MailMessage)
                     ->line('Your shift has been changed.')
                     ->line('You were previously on the '. $changequery->prevshift .' shift, but you are now on the '. $changequery->currentshift. ' shift.')
-                    ->action('View Shift', url('/'));
+                    ->action('View Shift', url('shifts.us.to'));
 
     }
 

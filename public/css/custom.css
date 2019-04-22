@@ -76,7 +76,7 @@ pre {
 }
 
 #login_header {
-  background-color: #0e2a43;
+  background-color: #1B263B;
   border-bottom: 5px solid #E86F2A;
   color: white;
   font-size: 1.5rem;
@@ -478,6 +478,16 @@ p {
   box-shadow: 0 0 0 3px #F5F5F5, 0 0 0 5px #CFD0CA, 0 0 0 10px #F5F5F5, 0 0 2px 11px #274E81;
 }
 
+#login_box {
+  background: #1B263B;
+  padding: 10px 30px 30px 30px;
+  border-radius: 0;
+  color: white;
+  margin: 30px 0px;
+  box-shadow: 0 0 0 3px #1B263B, 0 0 0 5px #CFD0CA, 0 0 0 10px #1B263B, 0 0 2px 11px #274E81;
+}
+
+
 [role=right-icon] {
   background-color: #e9ecef;
 }
@@ -606,6 +616,13 @@ fieldset[disabled] .btn-danger.active {
   padding-bottom: 10px;
   min-width: 200px;
 }
+
+.orange_hr {
+  border-top: 2px solid #DD6031;
+  padding-bottom: 10px;
+  min-width: 200px;
+}
+
 
 .crud_table {
   text-align: center;
@@ -777,4 +794,8 @@ fieldset[disabled] .btn-danger.active {
   min-width: 200px;
   padding: 10px;
   margin-bottom: 20px;
+}
+
+.forgotpassword {
+  color: #e46605;
 }

@@ -79,7 +79,7 @@ class UserController extends Controller
         $data = $this->validate($request, [
           'email'=> 'required|string|email|max:255',
           'clockNumber'=> 'nullable|string|max:30',
-          'password'=> 'required|string|min:6',
+          'password'=> 'nullable|string|min:6',
           'type'=> 'required'
         ]);
         $data['id'] = $id;

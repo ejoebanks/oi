@@ -42,8 +42,8 @@
            <div class="row">
              <div class="col-md-6">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
-               <h5 for="password">Password:</h5>
-               <input type="password" class="form-control" name="password" value="{{ $user->password }}" required/>
+               <h5 for="password">New Password:</h5>
+               <input type="password" class="form-control" name="password" value="" />
              </div>
              <div class="col-md-6">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />

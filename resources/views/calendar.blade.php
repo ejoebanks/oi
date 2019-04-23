@@ -21,7 +21,7 @@
                       </button>
 
                         <h4 id="modalheader">Edit Event</h4>
-                        <hr />
+                        <hr class="orange_hr"/>
                         <div class="form-group">
                           <div class="input-group input-group-lg">
                             <div class="input-group-prepend">
@@ -143,7 +143,7 @@
                         color: '#073D72',
                         id: '{{ $ev->id }}',
                         title: "{{ $ev->title }}",
-                        name: "{{ $ev->firstName}} {{$ev->lastName}}",
+                        name: "{{ $ev->firstName}} {{ "Smith" }}",
                         modalTitle: "{{ $ev->title }}",
                         start: '{{ $ev->date }}',
                         employee: '{{ $ev->employee }}',
@@ -172,6 +172,7 @@
                 @if(Auth::user()->type == 1)
                 eventClick: function(calEvent, jsEvent, view) {
                     $('#modalheader').html("Edit Event");
+                    $('#event_remove').show();
                     $('#event_update').val("Save");
                     $('#event_id').val(calEvent._id);
                     $('#ev_id').val(calEvent.id);
@@ -185,6 +186,7 @@
                   $('#selected_time').val(calEvent.format('YYYY-MM-DD'));
                   $('#modalheader').html("Create Event");
                   $('#event_update').val("Submit");
+                  $('#event_remove').hide();
                   $('#editModal').modal();
                 },
                 eventDrop: function(calEvent, delta, revertFunc) {

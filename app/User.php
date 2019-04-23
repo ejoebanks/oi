@@ -42,7 +42,9 @@ class User extends Authenticatable implements MustVerifyEmail
           $staff->save();
         }
         $user->email = $data['email'];
-        $user->password = bcrypt($data['password']);
+        if ($data['password'] != NULL){
+          $user->password = bcrypt($data['password']);
+        }
         $user->save();
         return 1;
     }

@@ -248,10 +248,12 @@ p {
   line-height: 20px;
 }
 
-.modal-content {}
-
 #modalheader {
   text-align: center;
+}
+
+.modal-content {
+  background-color: #E0E1DD;
 }
 
 .modal-footer {
@@ -619,7 +621,7 @@ fieldset[disabled] .btn-danger.active {
 
 .orange_hr {
   border-top: 2px solid #DD6031;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   min-width: 200px;
 }
 
@@ -798,4 +800,17 @@ fieldset[disabled] .btn-danger.active {
 
 .forgotpassword {
   color: #e46605;
+}
+
+.fc-head {
+  background-color: #1B263B;
+  color: white;
+}
+
+.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td{
+  border-color: #1B263B;
+}
+
+.fc-toolbar .fc-left {
+  font-size: 5rem;
 }

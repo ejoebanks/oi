@@ -35,7 +35,7 @@ class HomeController extends Controller
                           ->count();
 
           $shiftchangecount = \DB::table('shiftchanges')
-                                ->whereBetween('created_at', [Carbon::today()->subDays(30)->toDateString(), Carbon::today()->toDateString()])
+                                ->whereBetween('created_at', [Carbon::today()->subDays(30)->toDateString(), Carbon::now()])
                                 ->count();
 
           $unassigned = \DB::table('staff')

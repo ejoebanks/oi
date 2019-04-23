@@ -46,7 +46,7 @@
              <div class="col-md-6">
              @endif
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
-               <h5 for="clockNumber">Email:</h5>
+               <h5>Email:</h5>
                <input type="text" class="form-control" name="email" value="{{ $user->email }}" required/>
              </div>
              @if($user->info != null)
@@ -62,12 +62,12 @@
 
           <div class="form-group">
               <input type="hidden" value="{{csrf_token()}}" name="_token" />
-              <label for="password">Password:</label>
-              <input type="password" class="form-control" name="password" value="{{ $user->password }}" required />
+              <h5>New Password</h5>
+              <input type="password" class="form-control" name="password" value="" />
           </div>
 
           <div class="form-group">
-              <label for="password-confirm">{{ __('Confirm Password') }}</label>
+              <h5>Confirm Password</h5>
               <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required >
           </div>
 

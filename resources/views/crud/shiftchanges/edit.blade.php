@@ -36,7 +36,7 @@
               @else
                 @php ($active = "")
               @endif
-              <option {{$active}} value="{{ $member->clockNumber }}">{{ $member->firstName.' '.$member->lastName }}</option>
+              <option {{$active}} value="{{ $member->clockNumber }}">{{ $member->firstName.' '."Smith" }}</option>
             @endforeach
           </select>
         </div>

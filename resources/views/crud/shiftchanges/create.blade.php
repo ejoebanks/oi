@@ -27,7 +27,7 @@
           <h5>Employee:</h5>
           <select class="form-control" value='' name="clockNumber" >
           @foreach($staff as $member)
-            <option value="{{ $member->clockNumber }}">{{ $member->firstName.' '.$member->lastName }}</option>
+            <option value="{{ $member->clockNumber }}">{{ $member->firstName.' '."Smith" }}</option>
           @endforeach
         </select>
       </div>

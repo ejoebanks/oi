@@ -23,6 +23,15 @@ class Kernel extends ConsoleKernel
 
     protected function schedule(Schedule $schedule)
     {
+
+      $schedule->call(function () {
+        $admins = User::where('type', 1)->get();
+
+        foreach ($admins as $adm) {
+          Mail::to(User::find($adm->id))->send(new OrgChart());
+        }
+      })->fridays()->at('12:00');
+
         $schedule->call(function () {
             $shiftchanges = ShiftChange::
                             whereBetween('created_at',
@@ -41,13 +50,10 @@ class Kernel extends ConsoleKernel
                     $thisChange->notified = 1;
                     $thisChange->save();
             }
-          });
+          })->daily();
+
 
 /*
-          $schedule->call(function () {
-            Mail::to(User::find(3648))->send(new OrgChart());
-          });
-
           $schedule->call(function () {
             $events = Event::
                             whereBetween('date',

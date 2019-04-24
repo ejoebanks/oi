@@ -35,7 +35,7 @@ Route::group(['middleware' => 'admin'], function () {
 
 
 //Ensuring user is logged in
-Route::group(['middleware' => ['auth', /*'verified'*/]], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
 
     //Account details update
     Route::get('/update/user/{id}', 'UserController@singleEdit')->middleware('check');

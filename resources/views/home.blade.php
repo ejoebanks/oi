@@ -9,7 +9,6 @@
       <div class="box-part text-center">
         <i class="far fa-clock fa-3x" id="cardIcon" aria-hidden="true">
         </i>
-
         <div class="title">
           <h4>Shifts</h4>
         </div>
@@ -17,17 +16,25 @@
         </a>
         <i class="fas fa-ellipsis-v">
         </i>
-        <a id="cardLink" href="/unassigned">Assign
+        <a id="cardLink" href="/shifts/create">Assign
         </a>
 
         <div class="text">
+          @if ($unassigned == 0)
+          <h5>There are currently
+            <span id="counts">{{ $shiftCount }}
+            </span> active shifts.
+          </h5>
+          @else
           <h5>There are currently
             <span id="counts">{{ $shiftCount }}
             </span> active shifts, and
             <span id="counts">{{ $unassigned }}
-            </span> employees
+            </span> employee(s)
             have not been assigned a shift.
           </h5>
+
+          @endif
         </div>
       </div>
     </div>

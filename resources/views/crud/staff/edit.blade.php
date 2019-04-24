@@ -27,7 +27,7 @@
                  <div class="row">
                    <div class="col-md-6">
                      <h5 for="clockNumber">Clock Number:</h5>
-                     <input type="text" class="form-control" name="clockNumber" value="{{$staff->clockNumber}}" required />
+                     <input type="text" class="form-control" name="clockNumber" value="{{ "000"}}" required />
                    </div>
                    <br/>
                    <div class="col-md-6">
@@ -44,7 +44,7 @@
                    <br/>
                    <div class="col-md-6">
                      <h5>Last Name:</h5>
-                     <input type="text" class="form-control" name="lastName" value="{{$staff->lastName}}"required />
+                     <input type="text" class="form-control" name="lastName" value="{{"Smith"}}"required />
                    </div>
                  </div>
                <br />

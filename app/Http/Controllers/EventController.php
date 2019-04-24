@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Staff;
 
 class EventController extends Controller
 {
@@ -59,7 +60,9 @@ class EventController extends Controller
         $event = Event::where('id', $id)
                     ->first();
 
-        return view('crud.events.edit', compact('event', 'id'));
+        $staff = Staff::all();
+
+        return view('crud.events.edit', compact('event', 'id', 'staff'));
     }
 
     public function update(Request $request, $id)

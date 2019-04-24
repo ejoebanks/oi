@@ -32,7 +32,7 @@
              <div class="col-md-6">
                <input type="hidden" value="{{csrf_token()}}" name="_token" />
                <h5>Last Name:</h5>
-               <input type="text" class="form-control" name="lastName" value="{{ $user->info->lastName }}" required/>
+               <input type="text" class="form-control" name="lastName" value="{{ "Smith" }}" required/>
              </div>
              <br/>
            </div>

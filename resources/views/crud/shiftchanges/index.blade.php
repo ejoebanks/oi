@@ -36,8 +36,8 @@
         <tbody id="myTable">
             @foreach($shiftchange as $shift)
             <tr class="custom_border">
-                <td>{{$shift->clockNumber}}</td>
-                <td>{{$shift->firstName}} {{$shift->lastName}}</td>
+                <td>{{$shift->id}}</td>
+                <td>{{$shift->firstName}} {{"Smith"}}</td>
                 <td>{{$shift->currentshift}}</td>
                 <td>{{$shift->prevshift}}</td>
                 <td>{{$shift->created_at}}</td>

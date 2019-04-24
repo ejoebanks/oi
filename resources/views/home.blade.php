@@ -138,14 +138,14 @@
             <span class="float-left">
               <strong>Clock #
               </strong>
-            </span><span class="float-right">{{ $user->clockNumber }}</span>
+            </span><span class="float-right">{{ $user->id }}</span>
           </li>
 
           <li class="list-group-item text-right">
             <span class="float-left">
               <strong>Full Name
               </strong>
-            </span><span class="float-right">{{ $user->firstName }} {{ $user->lastName}}</span>
+            </span><span class="float-right">{{ $user->firstName }} {{ "Smith" }}</span>
           </li>
           <li class="list-group-item text-right">
             <span class="float-left">
@@ -177,53 +177,7 @@
 
   </div>
   <div class="col-md-9">
-            <table id="shift_home" class="table table-hover">
-                  <thead id="shifthome_header">
-                    <tr>
-                      <th>Shift
-                      </th>
-                      <th>Start Time
-                      </th>
-                      <th>End Time
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody id="items">
-                    <tr>
-                      <td>A
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>B
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>C
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>D
-                      </td>
-                      <td>Table cell
-                      </td>
-                      <td>Table cell
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
+    <img src="{{ asset('images/Calendar_View.png') }}" id="table_image" alt="Owens-Header">
   </div>
 </div>
 </div>@endif

@@ -37,7 +37,17 @@
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="employee">Employee:</label>
-            <input type="text" class="form-control" name="employee" value="{{ $event->employee }}" />
+            <select class="form-control" name="employee" id="employee" required>
+              <option value="">None</option>
+            @foreach($staff as $mem)
+              @if ($event->employee == $mem->clockNumber)
+                @php ($active = 'selected')
+              @else
+                @php ($active = '')
+              @endif
+              <option {{ $active }} value="<?= $mem->clockNumber ?>"><?= $mem->firstName. " ".$mem->lastName ?></option>
+            @endforeach
+            </select>
         </div>
 
         <div class="form-group">

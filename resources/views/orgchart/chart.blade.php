@@ -1,8 +1,8 @@
 <div class="container">
 	<a href="{{action('ShiftController@export')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Download</a>
 	<a href="{{action('ShiftController@sendChart')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Email</a>
-<hr/>
 <div class="row">
+	@php ($i = 0)
 	@foreach(range('A', 'D') as $char)
 	<div class="col-sm">
   <table class="table table-list-search table table-striped">
@@ -16,6 +16,7 @@
         @foreach ($shifts as $shift)
             @if ($char == $shift->shift)
             @php (array_push($stack, $char))
+						@php ($i++)
               @if ($stack[0] !== $char)
                 @php ($stack = array())
                 @php (array_push($stack, $char))
@@ -28,8 +29,8 @@
 							</tr>
 							@endif
               <tr>
-                <td><strong>{{$shift->clockNumber}}</strong></td>
-                <td>{{$shift->firstName}} {{$shift->lastName}}</td>
+                <td><strong>{{$i}}</strong></td>
+                <td>{{$shift->firstName}} {{ "Smith"}}</td>
               </tr>
               @if (in_array("$shift->primaryJob", $stack))
               @else

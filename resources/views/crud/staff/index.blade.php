@@ -34,12 +34,13 @@
             </tr>
         </thead>
         <tbody id="myTable">
+            @php ($i=0)
             @foreach($staff as $member)
             <tr class="custom_border">
-                <td>{{$member->clockNumber}}</td>
+                <td>{{ $i++ }}</td>
                 <td>{{$member->seniority}}</td>
                 <td>{{$member->firstName}}</td>
-                <td>{{$member->lastName}}</td>
+                <td>{{ "Smith" }}</td>
                 <td>
                       <form action="{{action('StaffController@destroy', $member->clockNumber)}}" method="post">
                         {{csrf_field()}}

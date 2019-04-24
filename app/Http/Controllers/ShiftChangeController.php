@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ShiftChange;
 use Auth;
 use App\Staff;
+use Carbon;
 
 class ShiftChangeController extends Controller
 {
@@ -13,8 +14,10 @@ class ShiftChangeController extends Controller
     {
         $recentChanges = ShiftChange::join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
                   ->select('staff.clockNumber as id', 'shiftchanges.created_at AS created', 'shiftchanges.prevshift', 'shiftchanges.currentshift', 'staff.firstName', 'staff.lastName')
+                  ->whereBetween('shiftchanges.created_at',
+                  [Carbon::now()->startOfWeek(),
+                  Carbon::now()->endOfWeek()])
                   ->orderBy('shiftchanges.created_at', 'desc')
-                  ->take(10)
                   ->get();
 
         return view('recent', compact('recentChanges'));

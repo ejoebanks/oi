@@ -1,7 +1,3 @@
-<?php
-?>
-
-
 <a href="{{action('ShiftController@export')}}">Link name/Embedded Button</a>
 <div class="container">
 
@@ -35,37 +31,37 @@
   								@endif
   								      <tr>
   												<td>
-  													@if ($a <= $acount)
-                              {{$group->clockNumber}}
+  													@if ($a < $acount)
+                              {{$a}}
   														{{$group->firstName}}
-  														{{$group->lastName}}
+  														{{"Smith"}}
                               @php($a++)
   													@endif
   												</td>
 
   												<td>
   													@if ($b < $bcount)
-                              {{$grouped['B'][$b]->clockNumber}}
+                              {{$b}}
   														{{$grouped['B'][$b]->firstName}}
-                              {{$grouped['B'][$b]->lastName}}
+                              {{"Smith"}}
                               @php($b++)
   													@endif
   												</td>
 
   												<td>
   													@if ($c < $ccount)
-  														{{$grouped['C'][$c]->clockNumber}}
+  														{{$c}}
                               {{$grouped['C'][$c]->firstName}}
-                              {{$grouped['C'][$c]->lastName}}
+                              {{"Smith"}}
                               @php($c++)
   													@endif
   												</td>
 
   												<td>
   													@if ($d < $dcount)
-  														{{$grouped['D'][$d]->clockNumber}}
+  														{{$d}}
                               {{$grouped['D'][$d]->firstName}}
-                              {{$grouped['D'][$d]->lastName}}
+                              {{"Smith"}}
                               @php($d++)
   													@endif
   												</td>

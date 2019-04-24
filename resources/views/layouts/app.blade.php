@@ -99,7 +99,7 @@
                       @if (!is_object(Auth::user()->info))
                       {{ Auth::user()->email }}
                       @else
-                      {{ Auth::user()->info->firstName." ".Auth::user()->info->lastName }}
+                      {{ Auth::user()->info->firstName." "."Smith" }}
                       @endif
                       <span class="caret">
                       </span>

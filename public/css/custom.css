@@ -1,3 +1,4 @@
+/* Base Styling */
 html,
 body {
   margin: 0;
@@ -19,16 +20,6 @@ body {
   width: 200px;
   word-wrap: break-word;
   display: inline-block;
-}
-
-
-h3 {
-  font-family: Raleway;
-  font-size: 14px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 700;
-  line-height: 15.4px;
 }
 
 p {
@@ -58,79 +49,20 @@ pre {
   line-height: 18.5714px;
 }
 
-#shift, #shiftMenu {
-  text-align: center;
-}
-
-#collapseTitle {
-  font-weight: bold;
-}
-
-.no-bottom-border td {
-  border-bottom: none;
-  border-top: none;
-}
-
-#recentTab {
-  text-align: center;
-}
-
-#login_header {
-  background-color: #1B263B;
-  border-bottom: 5px solid #E86F2A;
-  color: white;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-#login_container {
-  background-color: black;
-}
-
-#login_body {
-  background-color: #103455;
-  color: white;
-}
-
-#counts {
-  color: #274E81;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-#cardLink {
-  color: #DD6031;
-  font-size: 1.3rem;
-}
-
-#cardLink:hover {
-  text-decoration: none;
-  color: #274E81;
-}
-
-#verifylink {
-  color: #DD6031;
-}
-
-#verifylink:hover {
-  color: #274E81;
-  text-decoration: none;
-}
-
-#container {
-  min-height: 100%;
-  position: relative;
-}
-
-.centerBlock {
-  display: table;
-  margin: auto;
-}
-
-.forcedWidth {
-  width: 200px;
+#greet {
+  color: #222;
+  text-shadow: 0px 1px 2px #555;
+  font-size: 4rem;
   word-wrap: break-word;
-  display: inline-block;
+}
+
+body {
+  background: #E0E1DD;
+  height: 100%;
+}
+
+span {
+  font-size: 15px;
 }
 
 #header {
@@ -156,11 +88,62 @@ pre {
   border-top: 5px solid #DD6031;
 }
 
-#greet {
-  color: #222;
-  text-shadow: 0px 1px 2px #555;
-  font-size: 4rem;
-  word-wrap: break-word;
+/* Misc Styling */
+#shift, #shiftMenu {
+  text-align: center;
+}
+
+/* Recent page */
+#recentTab {
+  text-align: center;
+}
+
+/* Admin Home Page */
+#collapse_icon {
+  padding-right: 1em;
+}
+
+#counts {
+  color: #274E81;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#cardLink {
+  color: #DD6031;
+  font-size: 1.3rem;
+}
+
+#cardLink:hover {
+  text-decoration: none;
+  color: #274E81;
+}
+
+#container {
+  min-height: 100%;
+  position: relative;
+}
+
+.centerBlock {
+  display: table;
+  margin: auto;
+}
+
+h3 {
+  font-family: Raleway;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+
+#app {
+  min-height: 100%;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -30px;
+  padding-bottom: 20px;
 }
 
 #shift_header {
@@ -171,21 +154,78 @@ pre {
   word-wrap: break-word;
 }
 
+/* Custom style for modal on calendar page */
+#modalheader {
+  text-align: center;
+}
+
+.modal-content {
+  background-color: #E0E1DD;
+}
+
+.modal-footer {
+  margin: 0 auto;
+  float: none;
+}
+
+#selected_time {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.ulhead {
+  background-color: #2370B8;
+  font-size: 1.2em;
+  color: white;
+}
+
+#shift {
+  color: black;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+#currentshift {
+  font-weight: bold;
+  font-size: 4rem;
+  color: green;
+}
+
+/* Staff creation for CRUD page */
+#staffbox {
+  display: none;
+}
+
+/* Headers for chart page */
+.jobheader {
+  background: #274E81;
+  border: 3px solid black !important;
+  color: white;
+  text-align: center;
+}
+
+.shiftheader {
+  font-size: 2.5em;
+  text-align: center;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+/* Custom Colors for navbar and main content*/
+.pt-4, .py-4 {
+  padding-top: 0rem !important;
+  background-color: #E0E1DD;
+}
+
+.bg-dark {
+  background-color: #1B263B !important;
+  border-bottom: 5px solid #DD6031;
+  min-height: 95px;
+}
+
+/* Custom button, container for admin page */
 .card {
   height: 100%;
-}
-
-#table_image {
-  border: 4px solid #BE5504;
-  width: 100%;
-}
-body {
-  background: #E0E1DD;
-  height: 100%;
-}
-
-span {
-  font-size: 15px;
 }
 
 a.cards {
@@ -222,126 +262,6 @@ a.cards {
   font-variant: normal;
   font-weight: 700;
   line-height: 26.4px;
-}
-
-h3 {
-  font-family: Raleway;
-  font-size: 14px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 700;
-  line-height: 15.4px;
-}
-
-p {
-  font-family: Raleway;
-  font-size: 14px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 400;
-  line-height: 20px;
-}
-
-#modalheader {
-  text-align: center;
-}
-
-.modal-content {
-  background-color: #E0E1DD;
-}
-
-.modal-footer {
-  margin: 0 auto;
-  float: none;
-}
-
-.btn-primary {
-  background-color: #0B3C5D;
-  border-color: #0B3C5D;
-}
-
-.btn-danger {
-  background-color: #E86F2A;
-  border-color: #E86F2A;
-}
-
-.btn-danger:hover, .btn-primary:hover {
-  color: #fff;
-  background-color: silver;
-  border-color: silver;
-}
-
-#selected_time {
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-#rIcon {
-  color: #495057;
-}
-
-.ulhead {
-  background-color: #2370B8;
-  font-size: 1.2em;
-  color: white;
-}
-
-#shift {
-  color: black;
-  padding-bottom: 10px;
-  margin: 0;
-}
-
-#currentshift {
-  font-weight: bold;
-  font-size: 4rem;
-  color: green;
-}
-
-#staffbox {
-  display: none;
-}
-
-.jobheader {
-  background: #274E81;
-  border: 3px solid black !important;
-  color: white;
-  text-align: center;
-}
-
-.shiftheader {
-  font-size: 2.5em;
-  text-align: center;
-  text-decoration: none;
-  font-weight: normal;
-}
-
-#collapse_icon {
-  padding-right: 1em;
-}
-
-#crud_header {
-  text-align: center;
-}
-
-/* Custom Colors */
-.pt-4, .py-4 {
-  padding-top: 0rem !important;
-  background-color: #E0E1DD;
-}
-
-.bg-dark {
-  background-color: #1B263B !important;
-  border-bottom: 5px solid #DD6031;
-  min-height: 95px;
-}
-
-#app {
-  min-height: 100%;
-  /* Equal to height of footer */
-  /* But also accounting for potential margin-bottom of last child */
-  margin-bottom: -30px;
-  padding-bottom: 20px;
 }
 
 .card-counter {
@@ -448,10 +368,7 @@ p {
   text-align: center;
 }
 
-#notfound {
-  vertical-align: baseline;
-}
-
+/* Container for home page if staff isn't found */
 #home-nostaff {
   background: #FFF;
   border-radius: 0;
@@ -464,6 +381,23 @@ p {
 
 .title {
   padding-top: 15px;
+}
+
+/* Employee Home Page */
+#table_image {
+  border: 4px solid #BE5504;
+  width: 100%;
+}
+
+.ulhead {
+  background-color: #2370B8;
+  font-size: 1.2em;
+  color: white;
+}
+
+/* Custom containers for page content */
+#crud_header {
+  text-align: center;
 }
 
 #crud_box {
@@ -483,125 +417,16 @@ p {
   box-shadow: 0 0 0 3px #1B263B, 0 0 0 5px #CFD0CA, 0 0 0 10px #1B263B, 0 0 2px 11px #274E81;
 }
 
-
+/* Set color of right icon for datepicker */
 [role=right-icon] {
   background-color: #e9ecef;
 }
 
-.demoPadder {
-  padding-top: 15px;
+#rIcon {
+  color: #495057;
 }
 
-.btn-default {
-  color: #007aff;
-  background-color: #fff;
-  border-color: #007aff;
-}
-
-.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.btn-default.dropdown-toggle {
-  color: #fff;
-  background-color: #007aff;
-  border-color: #007aff;
-}
-
-/* Custom Primary Button */
-.btn-primary {
-  color: #FFFFFF;
-  background-color: #274E81;
-  border-color: #1B263B;
-}
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.open .dropdown-toggle.btn-primary {
-  color: #FFFFFF;
-  background-color: #192E54;
-  border-color: #1B263B;
-}
-
-.btn-primary:active,
-.btn-primary.active,
-.open .dropdown-toggle.btn-primary {
-  background-image: none;
-}
-
-.btn-primary.disabled,
-.btn-primary[disabled],
-fieldset[disabled] .btn-primary,
-.btn-primary.disabled:hover,
-.btn-primary[disabled]:hover,
-fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus,
-.btn-primary[disabled]:focus,
-fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled:active,
-.btn-primary[disabled]:active,
-fieldset[disabled] .btn-primary:active,
-.btn-primary.disabled.active,
-.btn-primary[disabled].active,
-fieldset[disabled] .btn-primary.active {
-  background-color: #274E81;
-  border-color: #1B263B;
-}
-
-.btn-primary .badge {
-  color: #274E81;
-  background-color: #FFFFFF;
-}
-
-/* Custom Danger Button */
-.btn-danger {
-  color: #FFFFFF;
-  background-color: #DD6031;
-  border-color: #5E210A;
-}
-
-.btn-danger:hover,
-.btn-danger:focus,
-.btn-danger:active,
-.btn-danger.active,
-.open .dropdown-toggle.btn-danger {
-  color: #FFFFFF;
-  background-color: #5E210A;
-  border-color: #5E210A;
-}
-
-.btn-danger:active,
-.btn-danger.active,
-.open .dropdown-toggle.btn-danger {
-  background-image: none;
-}
-
-.btn-danger.disabled,
-.btn-danger[disabled],
-fieldset[disabled] .btn-danger,
-.btn-danger.disabled:hover,
-.btn-danger[disabled]:hover,
-fieldset[disabled] .btn-danger:hover,
-.btn-danger.disabled:focus,
-.btn-danger[disabled]:focus,
-fieldset[disabled] .btn-danger:focus,
-.btn-danger.disabled:active,
-.btn-danger[disabled]:active,
-fieldset[disabled] .btn-danger:active,
-.btn-danger.disabled.active,
-.btn-danger[disabled].active,
-fieldset[disabled] .btn-danger.active {
-  background-color: #DD6031;
-  border-color: #5E210A;
-}
-
-.btn-danger .badge {
-  color: #DD6031;
-  background-color: #FFFFFF;
-}
-
-.crud_btn {
-  display: inline-block;
-}
-
+/* Custom hr */
 .crud_hr {
   border-top: 2px solid #DD6031;
   padding-bottom: 10px;
@@ -619,7 +444,7 @@ fieldset[disabled] .btn-danger.active {
   min-width: 200px;
 }
 
-
+/* Custom CRUD table styling */
 .crud_table {
   text-align: center;
 }
@@ -636,6 +461,7 @@ fieldset[disabled] .btn-danger.active {
   border: 2px solid #1B263B;
 }
 
+/* Shift list page styling */
 .list_head {
   background-color: #1B263B;
   font-size: 1.1em;
@@ -734,6 +560,130 @@ fieldset[disabled] .btn-danger.active {
   padding-bottom: 20px;
 }
 
+/* Custom Bootstrap buttons */
+.btn-primary {
+  background-color: #0B3C5D;
+  border-color: #0B3C5D;
+}
+
+.btn-danger {
+  background-color: #E86F2A;
+  border-color: #E86F2A;
+}
+
+.btn-danger:hover, .btn-primary:hover {
+  color: #fff;
+  background-color: silver;
+  border-color: silver;
+}
+
+.crud_btn {
+  display: inline-block;
+}
+
+.btn-default {
+  color: #007aff;
+  background-color: #fff;
+  border-color: #007aff;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.btn-default.dropdown-toggle {
+  color: #fff;
+  background-color: #007aff;
+  border-color: #007aff;
+}
+
+.btn-primary {
+  color: #FFFFFF;
+  background-color: #274E81;
+  border-color: #1B263B;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #FFFFFF;
+  background-color: #192E54;
+  border-color: #1B263B;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #274E81;
+  border-color: #1B263B;
+}
+
+.btn-primary .badge {
+  color: #274E81;
+  background-color: #FFFFFF;
+}
+
+.btn-danger {
+  color: #FFFFFF;
+  background-color: #DD6031;
+  border-color: #5E210A;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active,
+.open .dropdown-toggle.btn-danger {
+  color: #FFFFFF;
+  background-color: #5E210A;
+  border-color: #5E210A;
+}
+
+.btn-danger:active,
+.btn-danger.active,
+.open .dropdown-toggle.btn-danger {
+  background-image: none;
+}
+
+.btn-danger.disabled,
+.btn-danger[disabled],
+fieldset[disabled] .btn-danger,
+.btn-danger.disabled:hover,
+.btn-danger[disabled]:hover,
+fieldset[disabled] .btn-danger:hover,
+.btn-danger.disabled:focus,
+.btn-danger[disabled]:focus,
+fieldset[disabled] .btn-danger:focus,
+.btn-danger.disabled:active,
+.btn-danger[disabled]:active,
+fieldset[disabled] .btn-danger:active,
+.btn-danger.disabled.active,
+.btn-danger[disabled].active,
+fieldset[disabled] .btn-danger.active {
+  background-color: #DD6031;
+  border-color: #5E210A;
+}
+
+.btn-danger .badge {
+  color: #DD6031;
+  background-color: #FFFFFF;
+}
 
 .btn-outline-secondary {
   color: #1B263B;
@@ -786,36 +736,45 @@ fieldset[disabled] .btn-danger.active {
   box-shadow: 0 0 0 .2rem rgba(224, 138, 40, .5)
 }
 
+/* Customized search input so it doesn't shrink on small screen */
 #search {
   min-width: 200px;
   padding: 10px;
   margin-bottom: 20px;
 }
 
-.forgotpassword {
-  color: #e46605;
-}
-
+/* FullCalendar Customization */
 .fc-head {
   background-color: #1B263B;
   color: white;
 }
 
-.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td{
+.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td {
   border-color: #1B263B;
 }
 
-.fc-toolbar .fc-left {
-  font-size: 5rem;
+/* Custom colors for success alert */
+.alert-success {
+  background-color: #3f704d;
+  border-color: #FFF;
+  color: white;
 }
 
+/* Customization for verification & forgot password page */
 .verify {
   text-align: center;
   font-size: 1.4em;
 }
 
-.alert-success {
-  background-color: #3f704d;
-  border-color: #FFF;
-  color: white;
+#verifylink {
+  color: #DD6031;
+}
+
+#verifylink:hover {
+  color: #274E81;
+  text-decoration: none;
+}
+
+.forgotpassword {
+  color: #e46605;
 }

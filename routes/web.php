@@ -20,9 +20,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/lists', 'ShiftController@listShifts');
     Route::get('/lists/{id}/{char}', 'ShiftController@updateShift');
 
-    //Assigning a shift
-    Route::get('/unassigned', 'ShiftController@unassignedEmployees');
-
     //Org Chart Functions
     Route::get('/orgchart', 'ShiftController@shiftspread');
     Route::get('/orgchart/send', 'ShiftController@sendChart');

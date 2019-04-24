@@ -52,6 +52,7 @@ class ShiftController extends Controller
         return view('crud.shifts.list', compact('shift', 'shiftcount', 'normalUser'));
     }
 
+/*
     public function unassignedEmployees()
     {
         $unassigned = Staff::leftjoin('shifts', 'staff.clockNumber', '=', 'shifts.clockNumber')
@@ -61,6 +62,7 @@ class ShiftController extends Controller
 
         return view('unassigned', compact('unassigned'));
     }
+*/
 
     public function personalShift()
     {

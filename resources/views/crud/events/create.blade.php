@@ -23,7 +23,12 @@
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
           <label for="employee">Employee:</label>
-          <input type="text" class="form-control" name="employee"/>
+          <select class="form-control" name="employee" id="employee" required>
+            <option value="">None</option>
+          @foreach($staff as $mem)
+            <option value="<?= $mem->clockNumber ?>"><?= $mem->firstName. " "."Smith" ?></option>
+          @endforeach
+          </select>
       </div>
 
         <div class="form-group">

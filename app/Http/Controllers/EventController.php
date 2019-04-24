@@ -32,7 +32,9 @@ class EventController extends Controller
 
     public function create()
     {
-        return view('crud.events.create');
+        $staff = Staff::all();
+
+        return view('crud.events.create', compact('staff'));
     }
 
 

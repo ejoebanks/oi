@@ -48,11 +48,9 @@
             </div>
          </a>
       </div>
-      <div class="col-md-3">
-      </div>
    </div>
-   <div class="row justify-content-center">
-      <div class="col-md-3">
+   <div class="row">
+      <div class="col-md-3 offset-md-3">
          <a href="/events" id="admin_cards">
             <div class="card-counter event-admin">
                <i class="fas fa-calendar-week"></i>
@@ -61,6 +59,25 @@
             </div>
          </a>
       </div>
+      <div class="col-md-3">
+            <div class="card-counter import-admin">
+               <i class="fas fa-upload" id="import-icon"></i>
+               <span class="card-import">
+                 <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="custom-file">
+                         <label for="file" class="custom-file-upload">
+                           <i class="fas fa-cloud-upload"></i> Upload File
+                         </label>
+                         <input id="file" name='file' type="file" style="display:none;">
+                     </div>
+                     <br>
+                     <button class="btn btn-primary">Import</button>
+                </form>
+              </span>
+            </div>
+      </div>
+
    </div>
 </div>
 @endsection

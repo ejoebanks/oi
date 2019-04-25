@@ -28,6 +28,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/calendar/remove', 'EventController@removeEvent');
     Route::post('/calendar/create', 'EventController@updateEvent');
     Route::post('/calendar/drop', 'EventController@updateDate');
+
+    Route::post('import', 'StaffController@import')->name('import');
+
 });
 
 

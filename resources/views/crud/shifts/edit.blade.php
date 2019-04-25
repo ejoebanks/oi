@@ -34,7 +34,7 @@
                     @else
                       @php ($selected = "")
                     @endif
-                   <option {{ $selected }} value="<?=$mem->clockNumber ?>"><?= $mem->firstName. " "."Smith" ?></option>
+                   <option {{ $selected }} value="<?=$mem->clockNumber ?>"><?= $mem->firstName. " ".$mem->lastName ?></option>
                  @endforeach
                </select>
              </div>

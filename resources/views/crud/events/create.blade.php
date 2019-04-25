@@ -26,7 +26,7 @@
           <select class="form-control" name="employee" id="employee" required>
             <option value="">None</option>
           @foreach($staff as $mem)
-            <option value="<?= $mem->clockNumber ?>"><?= $mem->firstName. " "."Smith" ?></option>
+            <option value="<?= $mem->clockNumber ?>"><?= $mem->firstName. " ".$mem->lastName ?></option>
           @endforeach
           </select>
       </div>

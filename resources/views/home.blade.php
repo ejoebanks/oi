@@ -152,7 +152,7 @@
             <span class="float-left">
               <strong>Full Name
               </strong>
-            </span><span class="float-right">{{ $user->firstName }} {{ "Smith" }}</span>
+            </span><span class="float-right">{{ $user->firstName }} {{ $user->lastName }}</span>
           </li>
           <li class="list-group-item text-right">
             <span class="float-left">

@@ -39,7 +39,7 @@
                 <td>{{$s->id}}</td>
                 <td>{{$s->shift}}</td>
                 <td>{{$s->firstName}}</td>
-                <td>{{ "Smith"}}</td>
+                <td>{{$s->lastName}}</td>
                 <td>{{$s->primaryJob}}</td>
 
                 <td>

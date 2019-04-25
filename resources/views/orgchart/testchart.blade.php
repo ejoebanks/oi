@@ -32,36 +32,36 @@
   								      <tr>
   												<td>
   													@if ($a < $acount)
-                              {{$a}}
+                              {{$group->clockNumber}}
   														{{$group->firstName}}
-  														{{"Smith"}}
+  														{{$group->lastName}}
                               @php($a++)
   													@endif
   												</td>
 
   												<td>
   													@if ($b < $bcount)
-                              {{$b}}
+                              {{$grouped['B'][$b]->clockNumber}}
   														{{$grouped['B'][$b]->firstName}}
-                              {{"Smith"}}
+                              {{$grouped['B'][$b]->lastName}}
                               @php($b++)
   													@endif
   												</td>
 
   												<td>
   													@if ($c < $ccount)
-  														{{$c}}
+  														{{$grouped['C'][$c]->clockNumber}}
                               {{$grouped['C'][$c]->firstName}}
-                              {{"Smith"}}
+                              {{$grouped['C'][$c]->lastName}}
                               @php($c++)
   													@endif
   												</td>
 
   												<td>
   													@if ($d < $dcount)
-  														{{$d}}
+  														{{$grouped['D'][$d]->clockNumber}}
                               {{$grouped['D'][$d]->firstName}}
-                              {{"Smith"}}
+                              {{$grouped['D'][$d]->lastName}}
                               @php($d++)
   													@endif
   												</td>

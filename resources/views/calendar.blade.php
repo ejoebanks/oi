@@ -30,7 +30,7 @@
                             <select class="form-control" name="employee" id="employee" required>
                               <option value="">None</option>
                             @foreach($staff as $mem)
-                              <option value="<?= $mem->clockNumber ?>"><?= $mem->firstName. " "."Smith" ?></option>
+                              <option value="<?= $mem->clockNumber ?>"><?= $mem->firstName. " ".$mem->lastName ?></option>
                             @endforeach
                             </select>
                           </div>
@@ -143,7 +143,7 @@
                         color: '#073D72',
                         id: '{{ $ev->id }}',
                         title: "{{ $ev->title }}",
-                        name: "{{ $ev->firstName}} {{ "Smith" }}",
+                        name: "{{ $ev->firstName}} {{ $ev->lastName }}",
                         modalTitle: "{{ $ev->title }}",
                         start: '{{ $ev->date }}',
                         employee: '{{ $ev->employee }}',

@@ -44,7 +44,7 @@
                    <br/>
                    <div class="col-md-6">
                      <h5>Last Name:</h5>
-                     <input type="text" class="form-control" name="lastName" value="{{"Smith"}}"required />
+                     <input type="text" class="form-control" name="lastName" value="{{$staff->lastName}}"required />
                    </div>
                  </div>
                <br />

@@ -30,7 +30,7 @@
 							@endif
               <tr>
                 <td><strong>{{$i}}</strong></td>
-                <td>{{$shift->firstName}} {{ "Smith"}}</td>
+                <td>{{$shift->firstName}} {{ $shift->lastName }}</td>
               </tr>
               @if (in_array("$shift->primaryJob", $stack))
               @else

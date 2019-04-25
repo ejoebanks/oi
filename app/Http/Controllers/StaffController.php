@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Staff;
 use App\Shift;
 use App\User;
+use App\Imports\StaffImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class StaffController extends Controller
 {
@@ -90,4 +93,11 @@ class StaffController extends Controller
 
         return redirect('/staff');
     }
+
+    public function import()
+    {
+        Excel::import(new StaffImport,request()->file('file'));
+        return redirect('/')->with('success', 'All good!');
+    }
+
 }

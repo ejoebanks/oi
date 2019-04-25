@@ -10,6 +10,8 @@
       <div class="float-right"><a href="{{ action('StaffController@create') }}" button type="submit" class="btn btn-primary">Add Staff <i class="fas fa-plus-circle"></i></a></div>
     </div>
   </div>
+
+
   <hr class="crud_hr"/>
 
 

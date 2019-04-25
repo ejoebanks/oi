@@ -14,10 +14,12 @@
         </div>
         <a id="cardLink" href="/lists">View
         </a>
+        @if($unassigned != 0)
         <i class="fas fa-ellipsis-v">
         </i>
         <a id="cardLink" href="/shifts/create">Assign
         </a>
+        @endif
 
         <div class="text">
           @if ($unassigned == 0)

@@ -312,6 +312,25 @@ a.cards {
   display: block;
 }
 
+.card-counter .card-import {
+  position: absolute;
+  right: 35px;
+  top: 20px;
+  font-size: 16px;
+  display: block;
+  text-align: right;
+}
+
+.card-counter .btn-primary {
+  margin-top: 3px;
+  border: #BE5504;
+  background-color: #BE5504;
+}
+
+.card-counter .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+  background-color: #733302;
+}
+
 .card-counter .count-name {
   position: absolute;
   right: 35px;
@@ -333,6 +352,15 @@ a.cards {
   color: #FF9B42;
 }
 
+label {
+  color: white;
+}
+
+label:hover, label:active, input:hover+label, input:active+label {
+    background: white;
+    color: black;
+}
+
 .staff-admin {
   background-color: #6B818C;
 }
@@ -351,6 +379,11 @@ a.cards {
 
 .user-admin {
   background-color: #4183D7;
+}
+
+.import-admin {
+  background-color: #56476d;
+  color: #FF9B42;
 }
 
 .custom-card {
@@ -777,4 +810,12 @@ fieldset[disabled] .btn-danger.active {
 
 .forgotpassword {
   color: #e46605;
+}
+
+/* Upload Button */
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }

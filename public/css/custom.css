@@ -791,6 +791,7 @@ fieldset[disabled] .btn-danger.active {
   background-color: #3f704d;
   border-color: #FFF;
   color: white;
+  text-align: center;
 }
 
 /* Customization for verification & forgot password page */

@@ -22,7 +22,7 @@
 
       <div class="form-group">
           <input type="hidden" value="{{csrf_token()}}" name="_token" />
-          <label for="employee">Employee:</label>
+          <h5>Employee:</h5>
           <select class="form-control" name="employee" id="employee" required>
             <option value="">None</option>
           @foreach($staff as $mem)
@@ -33,19 +33,19 @@
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="title">Title:</label>
+            <h5>Title:</h5>
             <input type="text" class="form-control" name="title"/>
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="date">Date:</label>
+            <h5>Date:</h5>
             <input type="text" class="form-control" name="date"/>
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="description">Description:</label>
+            <h5>Description:</h5>
             <textarea type="textarea" class="form-control" name="description" /></textarea>
         </div>
 

@@ -96,7 +96,7 @@ class StaffController extends Controller
         $staff = Staff::find($clockNumber);
         $staff->delete();
 
-        return redirect('/staff');
+        return redirect('/staff')->with('message', $staff->firstName.' '.$staff->lastName.' deleted.');
     }
 
     public function import()

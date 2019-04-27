@@ -1,8 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<br/>
 <div class="container-fluid">
+  @if( Session::has('message') )
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="alert alert-success alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {{ Session::get('message') }}
+      </div>
+    </div>
+  </div>
+  @endif
+
    <div class="row">
       <div class="col-md-3">
       </div>

@@ -97,7 +97,7 @@ class StaffController extends Controller
     public function import()
     {
         Excel::import(new StaffImport,request()->file('file'));
-        return redirect('/')->with('success', 'All good!');
+        return redirect('/admin');
     }
 
 }

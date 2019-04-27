@@ -43,8 +43,13 @@ class StaffController extends Controller
           ]);
           $shift->save();
         }
-
-        return redirect('/staff');
+        if ($request->get('shift') != NULL){
+          $shiftappend = " They were assigned to shift ".$shift->shift.".";
+        } else {
+          $shiftappend = '';
+        }
+        return redirect('/staff')->with('message',
+        'Staff member '.$staff->firstName.' '.$staff->lastName.' created.'.$shiftappend);
     }
 
     public function show($clockNumber)
@@ -97,7 +102,7 @@ class StaffController extends Controller
     public function import()
     {
         Excel::import(new StaffImport,request()->file('file'));
-        return redirect('/admin');
+        return redirect('/admin')->with('message', 'Staff and shifts created/updated!');
     }
 
 }

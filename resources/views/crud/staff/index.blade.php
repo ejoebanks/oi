@@ -49,8 +49,8 @@
             @foreach($staff as $member)
             <tr class="custom_border">
                 <td>{{ $member->clockNumber }}</td>
-                <td>{{$member->seniority}}</td>
-                <td>{{$member->firstName}}</td>
+                <td>{{ $member->seniority }}</td>
+                <td>{{ $member->firstName }}</td>
                 <td>{{ $member->lastName }}</td>
                 <td>
                       <form action="{{action('StaffController@destroy', $member->clockNumber)}}" method="post">

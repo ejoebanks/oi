@@ -36,7 +36,7 @@
         <tbody id="myTable">
             @foreach($shift as $s)
             <tr class="custom_border">
-                <td>{{$s->id}}</td>
+                <td>{{$s->clockNumber}}</td>
                 <td>{{$s->shift}}</td>
                 <td>{{$s->firstName}}</td>
                 <td>{{$s->lastName}}</td>

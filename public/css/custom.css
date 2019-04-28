@@ -812,6 +812,61 @@ fieldset[disabled] .btn-danger.active {
   text-decoration: none;
 }
 
+.dropdown-header {
+  font-size: 1em;
+  color: #FFF;
+  padding: .12rem .5rem !important;
+  border-bottom: 3px solid orange;
+}
+
+.dropdown-divider {
+    height: 0;
+    overflow: hidden;
+    border-top: 3px solid orange;
+}
+
+.dropdown-menu {
+  background-color: #313B4E;
+  color: white;
+  min-width: 1rem;
+  text-align: center;
+  left: 50% !important;
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(-50%, 0) !important;
+
+}
+
+.dropdown-menu h6 {
+  color: orange;
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+  background-color: #273756;
+}
+
+.btn-secondary.focus, .btn-secondary:focus {
+  -webkit-box-shadow: 0;
+  box-shadow: 0
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: #273756;
+  border-color: #273756
+}
+
+
+
+.dropdown-item.active, .dropdown-item:active {
+  background-color: #FFF;
+  color: #1B263B;
+}
+
 .forgotpassword {
   color: #e46605;
 }

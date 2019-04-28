@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
+@include('layouts.partials.head')
 <div class="main-container">
-  @include('layouts.partials.head')
       @include('layouts.partials.nav')
         <br/>
         @yield('content')

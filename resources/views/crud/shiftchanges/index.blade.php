@@ -25,6 +25,7 @@
       <table id="table" class="table crud_table table-sm table-striped">
           <thead class="crud_head">
             <tr>
+              <td>ID</td>
               <td>Clock #</td>
               <td>Name</td>
               <td>Current Shift</td>
@@ -36,6 +37,7 @@
         <tbody id="myTable">
             @foreach($shiftchange as $shift)
             <tr class="custom_border">
+                <td>{{$shift->id}}</td>
                 <td>{{$shift->clockNumber}}</td>
                 <td>{{$shift->firstName}} {{$shift->lastName}}</td>
                 <td>{{$shift->currentshift}}</td>

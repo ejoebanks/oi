@@ -94,6 +94,10 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function(){
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
   $('#file').change(function() {
     var i = $(this).prev('label').clone();
     var file = $('#file')[0].files[0].name;

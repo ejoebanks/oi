@@ -26,13 +26,13 @@
          </a>
       </div>
       <div class="col-md-3">
-         <a href="/users" id="admin_cards">
-            <div class="card-counter user-admin">
-               <i class="fas fa-users"></i>
-               <span class="count-numbers">{{ $usercount }}</span>
-               <span class="count-name">Users</span>
-            </div>
-         </a>
+        <a href="/shifts" id="admin_cards">
+           <div class="card-counter shift-admin">
+              <i class="fas fa-clock"></i>
+              <span class="count-numbers">{{ $shiftcount }}</span>
+              <span class="count-name">Shifts</span>
+           </div>
+        </a>
       </div>
       <div class="col-md-3">
       </div>
@@ -50,13 +50,14 @@
          </a>
       </div>
       <div class="col-md-3">
-         <a href="/shifts" id="admin_cards">
-            <div class="card-counter shift-admin">
-               <i class="fas fa-clock"></i>
-               <span class="count-numbers">{{ $shiftcount }}</span>
-               <span class="count-name">Shifts</span>
+         <a href="/users" id="admin_cards">
+            <div class="card-counter user-admin">
+               <i class="fas fa-users"></i>
+               <span class="count-numbers">{{ $usercount }}</span>
+               <span class="count-name">Users</span>
             </div>
          </a>
+
       </div>
    </div>
    <div class="row">
@@ -77,12 +78,14 @@
                     @csrf
                     <div class="custom-file">
                          <label for="file" class="custom-file-upload">
-                           <i class="fas fa-cloud-upload"></i> Upload File
+                           <i id="something" class="fas fa-cloud-uploads"></i> Upload File
                          </label>
                          <input id="file" name='file' type="file" style="display:none;">
                      </div>
                      <br>
-                     <button class="btn btn-primary">Import</button>
+                        <button class="btn btn-primary">Import</button>
+                    </div>
+
                 </form>
               </span>
             </div>

@@ -15,8 +15,8 @@ class ShiftChangeController extends Controller
         $recentChanges = ShiftChange::join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
                   ->select('staff.clockNumber as id', 'shiftchanges.created_at AS created', 'shiftchanges.prevshift', 'shiftchanges.currentshift', 'staff.firstName', 'staff.lastName')
                   ->whereBetween('shiftchanges.created_at',
-                  [Carbon::now()->startOfWeek(),
-                  Carbon::now()->endOfWeek()])
+                  [Carbon::today()->subDays(30)->toDateString(),
+                  Carbon::now()])
                   ->orderBy('shiftchanges.created_at', 'desc')
                   ->get();
 

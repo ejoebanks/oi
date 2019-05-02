@@ -33,7 +33,7 @@
         <tbody id="myTable">
             @foreach($event as $ev)
             <tr class="custom_border">
-                <td>{{$ev->id}}</td>
+                <td>{{$ev->employee}}</td>
                 <td>{{$ev->title}}</td>
                 <td>{{$ev->date}}</td>
                 <td>

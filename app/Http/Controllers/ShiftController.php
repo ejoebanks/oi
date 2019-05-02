@@ -42,7 +42,7 @@ class ShiftController extends Controller
     public function listShifts()
     {
         $shift = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
-                  ->orderBy('seniority', 'desc')
+                  ->orderBy('seniority', 'asc')
                   ->get();
 
         $normalUser = Shift::where('id', Auth::user()->id)

@@ -8,6 +8,8 @@ use App\Shift;
 use App\User;
 use App\Imports\StaffImport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ShiftsFromView;
+
 
 
 class StaffController extends Controller
@@ -105,4 +107,8 @@ class StaffController extends Controller
         return redirect('/admin')->with('message', 'Staff and shifts created/updated!');
     }
 
+    public function exportScheduling()
+    {
+        return Excel::download(new ShiftsFromView, 'Employee_Scheduling.xlsx');
+    }
 }

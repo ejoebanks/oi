@@ -9,7 +9,8 @@
         </div>
         <div class="col-md-9">
           <div class="float-right">
-          <a href="{{action('ShiftController@export')}}" class="btn btn-outline-secondary" role="button"><i class="fas fa-download"></i> Download</a>
+          <a href="{{action('ShiftController@export')}}" class="btn btn-outline-secondary" role="button"><i class="fas fa-download"></i> Org Chart</a>
+          <a href="{{action('StaffController@exportScheduling')}}" class="btn btn-outline-secondary" role="button"><i class="fas fa-download"></i> Employee List</a>
           <a href="{{action('ShiftController@sendChart')}}" class="btn btn-outline-info" role="button"><i class="far fa-envelope"></i> Email</a>
         </div>
       </div>

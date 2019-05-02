@@ -15,7 +15,7 @@ class ShiftsFromView implements FromCollection, WithHeadings, ShouldAutoSize, Wi
     {
 
         $shifts = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
-              ->select('shifts.clockNumber', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob')
+              ->select('shifts.clockNumber', 'staff.seniority', 'staff.firstName', 'staff.lastName', 'shifts.shift', 'shifts.primaryJob', 'shifts.comments')
               ->orderBy('shift', 'ASC')
               ->orderBy('primaryJob', 'ASC')
               ->get();
@@ -27,10 +27,12 @@ class ShiftsFromView implements FromCollection, WithHeadings, ShouldAutoSize, Wi
     {
         return [
         '#',
+        'Seniority',
         'First Name',
         'Last Name',
         'Shift',
-        'Primary Job'
+        'Primary Job',
+        'Comments'
     ];
     }
 

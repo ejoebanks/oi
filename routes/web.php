@@ -24,6 +24,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/orgchart', 'ShiftController@shiftspread');
     Route::get('/orgchart/send', 'ShiftController@sendChart');
     Route::get('/orgchart/download', 'ShiftController@export');
+    Route::get('/orgchart/scheduling', 'StaffController@exportScheduling');
+
 
     Route::post('/calendar/remove', 'EventController@removeEvent');
     Route::post('/calendar/create', 'EventController@updateEvent');

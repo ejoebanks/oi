@@ -27,7 +27,7 @@
                  <div class="row">
                    <div class="col-md-6">
                      <h5 for="clockNumber">Clock Number:</h5>
-                     <input type="text" class="form-control" name="clockNumber" value="{{ "000"}}" required />
+                     <input type="text" class="form-control" name="clockNumber" value="{{ $staff->clockNumber }}" required />
                    </div>
                    <br/>
                    <div class="col-md-6">

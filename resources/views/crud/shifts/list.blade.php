@@ -44,7 +44,7 @@
               @if($char == $s->shift)
               <tr class="list_border">
                 <td>
-                  <div class="btn-group-vertical">
+                  <div class="btn-group-vertical" id="list_btn">
                     <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-pencil-alt"></i>
                     </button>
@@ -53,7 +53,7 @@
                       <i class="fa fa-eye" aria-hidden="true"></i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <h6 class="dropdown-header"><i class="fas fa-pencil-alt"></i></h6>
+                    <h6 class="dropdown-header"></h6>
                     @include('functions.shiftdropdown')
                   </div>
                 </div>

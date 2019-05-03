@@ -5,15 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ShiftChange;
 use Auth;
+use App\User;
 use App\Staff;
 use Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Exports\RecentExport;
+use App\Mail\RecentChanges;
+
 
 class ShiftChangeController extends Controller
 {
     public function recent()
     {
         $recentChanges = ShiftChange::join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
-                  ->select('staff.clockNumber as id', 'shiftchanges.created_at AS created', 'shiftchanges.prevshift', 'shiftchanges.currentshift', 'staff.firstName', 'staff.lastName')
+                  ->join('shifts', 'staff.clockNumber', '=', 'shifts.clockNumber')
+                  ->select('staff.clockNumber as id', 'shiftchanges.created_at AS created', 'shiftchanges.prevshift', 'shiftchanges.currentshift', 'staff.firstName', 'staff.lastName', 'shifts.primaryJob AS job')
                   ->whereBetween('shiftchanges.created_at',
                   [Carbon::today()->subDays(30)->toDateString(),
                   Carbon::now()])
@@ -92,4 +98,11 @@ class ShiftChangeController extends Controller
 
         return redirect('/shiftchanges');
     }
+
+    public function sendRecent()
+    {
+        Mail::to(User::find(Auth::user()->id))->send(new RecentChanges());
+        return redirect('/changes');
+    }
+
 }

@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
+  <br/>
   @if( Session::has('message') )
   <div class="row">
     <div class="col-md-6 offset-md-3">

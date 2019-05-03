@@ -37,11 +37,15 @@ class ShiftsFromView implements FromCollection, WithHeadings, ShouldAutoSize, Wi
     }
 
     public function registerEvents(): array
-{
+    {
     return [
         AfterSheet::class=> function(AfterSheet $event) {
-            $cellRange = 'A1:W1'; // All headers
+            $cellRange = 'A1:G1'; // All headers
             $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
+
+            $event->sheet->getStyle($cellRange)->getFill()
+                         ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+                         ->getStartColor()->setARGB('85c1cc');
         },
     ];
 }

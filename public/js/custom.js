@@ -15,6 +15,22 @@ $( document ).ready(function() {
 */
 
 $(document).ready(function() {
+  function absence(name) {
+    $('#modal').modal();
+    $('#employee').val(name);
+  }
+
+  $('#modal').on('hidden.bs.modal', function () {
+      $(this).find('form').trigger('reset');
+  });
+
+  $("#absence_button").click(function(e){
+    console.log(e);
+    $('#modal').modal();
+  });
+
+
+
 
   $("#staff_btn").click(function(){
     $("#staffbox").toggle();
@@ -94,6 +110,31 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function(){
+  $('input[name="emergencycontact"]').mask('(000) 000-0000');
+  $('input[name="seniority"]').mask('0000-00-00');
+  $('input[name="date_missed"]').mask('0000-00-00');
+
+  $('#absence_create').click(function() {
+      $(function() {
+          $.ajax({
+              url: '/absence/create',
+              type: 'POST',
+              data: {
+                  'method': 'POST',
+                  'clock_number': $('#emp_id').val(),
+                  'date_missed': $('#date_missed').val(),
+                  'reason': $('#reason').val()
+              },
+              success: function(data) {
+                $('#modal').modal('hide');
+              },
+              error: function(data) {
+                  alert("Please enter a date & reason.");
+              }
+          });
+      });
+  });
+
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })

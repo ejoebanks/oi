@@ -41,7 +41,7 @@ function absence(name, id) {
                       <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-info"></i></span>
                       </div>
-                      <textarea class="form-control" name="reason" id="reason" placeholder="Reason (Optional)" rows="3"></textarea>
+                      <textarea class="form-control" name="reason" id="reason" placeholder="Reason" rows="3"></textarea>
                     </div>
                   </div>
                     </form>

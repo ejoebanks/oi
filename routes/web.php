@@ -10,6 +10,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('shifts', 'ShiftController');
     Route::resource('events', 'EventController');
     Route::resource('staff', 'StaffController');
+    Route::resource('absences', 'AbsenceController');
     Route::resource('shiftchanges', 'ShiftChangeController');
 
     //Recent Changes
@@ -29,9 +30,13 @@ Route::group(['middleware' => 'admin'], function () {
     //Recent changes export
     Route::get('/recent/send', 'ShiftChangeController@sendRecent');
 
+    //Calendar Functions
     Route::post('/calendar/remove', 'EventController@removeEvent');
     Route::post('/calendar/create', 'EventController@updateEvent');
     Route::post('/calendar/drop', 'EventController@updateDate');
+
+    //Absence functions
+    Route::post('/absence/create', 'AbsenceController@createAbsence');
 
     Route::post('import', 'StaffController@import')->name('import');
 

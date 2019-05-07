@@ -1,7 +1,58 @@
 @extends('layouts.app')
 
 @section('content')
+<script>
+function absence(name, id) {
+  $('#modal').modal();
+  $('#employee').val(name);
+  $('#emp_id').val(id);
+}
+</script>
 <div class="container list_top">
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form id="modalInputs">
+            <input type="hidden" name="emp_id" id="emp_id" value="" />
+            <div class="modal-body mx-3">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+
+                  <h4 id="modalheader">Absence</h4>
+                  <hr class="orange_hr"/>
+                  <div class="form-group">
+                    <div class="input-group input-group-lg">
+                      <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input class="form-control" name="employee" id="employee" value="" disabled></input>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group input-group-lg">
+                      <input type="blank" class="form-control" name="date_missed" id="date_missed" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group input-group-lg">
+                      <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-info"></i></span>
+                      </div>
+                      <textarea class="form-control" name="reason" id="reason" placeholder="Reason (Optional)" rows="3"></textarea>
+                    </div>
+                  </div>
+                    </form>
+              </div>
+              <div class="modal-footer">
+                  <input type="button" class="btn btn-primary" id="absence_create" value="Submit">
+              </div>
+          </div>
+      </div>
+  </div>
+
       <div class="row">
         <div class="col-md-3">
         <!--<input class="form-control" id="system-search" name="q" placeholder="Search" required>-->
@@ -60,8 +111,11 @@
                 </div>
                 </td>
                   <td>
-                    <h4><span class="badge badge-secondary">{{$s->clockNumber}}</span></h4>
-                    <h6>{{ $s->firstName }} {{ $s->lastName }}</h6>
+                    <h4><span class="badge badge-secondary {{$outputclass[$s->primaryJob]}}">{{$s->id}}</span>
+                      @php ($name = $s->firstName.' '.$s->lastName)
+                      <button type="button" class="btn btn-info btn-custom btn-sm" onclick="absence('{{ $name }}', '{{ $s->id }}')"><i class="fas fa-calendar-times"></i></button>
+                    </h4>
+                    <h6>{{ $s->firstName }} {{ "Smith" }}</h6>
 
                     <div class="collapse" id="EMP{{$s->id}}">
                       <div>

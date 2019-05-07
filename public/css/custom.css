@@ -888,3 +888,57 @@ fieldset[disabled] .btn-danger.active {
 }
 
 .btn-secondary + .tooltip > .tooltip-inner {background-color: red;}
+
+/* Job Colors */
+
+.job-color-1 {
+  background: #85c1cc;
+}
+
+.job-color-2 {
+  background: #7a93b0;
+}
+
+.job-color-3 {
+  background: #b3a78f;
+}
+
+.job-color-4 {
+  background: #ff555d;
+}
+
+.job-color-5 {
+  background: #8cabe1;
+}
+
+.job-color-6 {
+  background: #a1bfdc;
+}
+
+.job-color-7 {
+  background: #698b80;
+}
+
+.job-color-8 {
+  background: #eeea88;
+}
+
+.btn-custom {
+  background: #1B263B;
+  border-color: #1B263B;
+  height: 2em;
+}
+
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active, .btn-custom.active, .open>.btn-custom.dropdown-toggle {
+  color: orange;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: #354c77;
+  border-color: #354c77;
+  -webkit-box-shadow: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+
+}

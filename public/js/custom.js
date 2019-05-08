@@ -4,17 +4,8 @@ $.ajaxSetup({
        }
    });
 
-/*
-$( document ).ready(function() {
-  $('input[name="scheduledtime"]').mask('0000-00-00');
-  $('#scheduledtime').datepicker({
-      format: 'yyyy-mm-dd',
-      uiLibrary: 'bootstrap4'
-  });
-});
-*/
-
 $(document).ready(function() {
+  $(document).on("change", ".start_date", setDate);
   function absence(name) {
     $('#modal').modal();
     $('#employee').val(name);
@@ -28,9 +19,6 @@ $(document).ready(function() {
     console.log(e);
     $('#modal').modal();
   });
-
-
-
 
   $("#staff_btn").click(function(){
     $("#staffbox").toggle();
@@ -109,10 +97,31 @@ $(document).ready(function() {
         }
     });
 });
+
 $(document).ready(function(){
   $('input[name="emergencycontact"]').mask('(000) 000-0000');
   $('input[name="seniority"]').mask('0000-00-00');
-  $('input[name="date_missed"]').mask('0000-00-00');
+  $('input[name="start_date"]').mask('0000-00-00');
+
+  var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+  $('#start_date').datepicker({
+      uiLibrary: 'bootstrap4',
+      format: 'yyyy-mm-dd',
+      iconsLibrary: 'fontawesome',
+      minDate: today,
+      maxDate: function () {
+          return $('#end_date').val();
+      }
+  });
+
+  $('#end_date').datepicker({
+      uiLibrary: 'bootstrap4',
+      format: 'yyyy-mm-dd',
+      iconsLibrary: 'fontawesome',
+      minDate: function () {
+          return $('#start_date').val();
+      },
+  });
 
   $('#absence_create').click(function() {
       $(function() {
@@ -122,11 +131,22 @@ $(document).ready(function(){
               data: {
                   'method': 'POST',
                   'clock_number': $('#emp_id').val(),
-                  'date_missed': $('#date_missed').val(),
+                  'start_date': $('#start_date').val(),
+                  'end_date': $('#end_date').val(),
                   'reason': $('#reason').val()
               },
               success: function(data) {
                 $('#modal').modal('hide');
+                $('#modal').on('hidden.bs.modal', function (e) {
+                  $(this)
+                    .find("input,textarea,select")
+                       .val('')
+                       .end()
+                    .find("input[type=checkbox], input[type=radio]")
+                       .prop("checked", "")
+                       .end();
+                })
+
               },
               error: function(data) {
                   alert("Please enter a date & reason.");

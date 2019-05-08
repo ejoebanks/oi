@@ -9,6 +9,15 @@ function absence(name, id) {
 }
 </script>
 <div class="container list_top">
+  <div class="row" id="added_absence">
+    <div class="col-md-6 offset-md-3">
+      <div class="alert alert-success alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div id="absence_text"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
           <div class="modal-content">

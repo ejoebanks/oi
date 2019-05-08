@@ -940,5 +940,8 @@ fieldset[disabled] .btn-danger.active {
   -moz-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
+}
 
+#added_absence {
+  display: none;
 }

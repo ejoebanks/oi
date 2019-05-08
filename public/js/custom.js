@@ -137,6 +137,8 @@ $(document).ready(function(){
               },
               success: function(data) {
                 $('#modal').modal('hide');
+                $("#absence_text").text('Absence added for employee ' + $('#emp_id').val() + ' from ' + $('#start_date').val() + ' to ' + $('#end_date').val());
+                $("#added_absence").show();
                 $('#modal').on('hidden.bs.modal', function (e) {
                   $(this)
                     .find("input,textarea,select")

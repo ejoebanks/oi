@@ -48,21 +48,16 @@ class ShiftController extends Controller
         $normalUser = Shift::where('id', Auth::user()->id)
                       ->first();
 
+        $jobs = Shift::all()->keyBy('primaryJob')->pluck('primaryJob')->toArray();
 
-        return view('crud.shifts.list', compact('shift', 'shiftcount', 'normalUser'));
+        $i = 1;
+        foreach ($jobs as $job) {
+          $outputclass[$job] = 'job-color-'.$i;
+          $i++;
+        }
+
+        return view('crud.shifts.list', compact('shift', 'shiftcount', 'normalUser', 'jobs', 'outputclass'));
     }
-
-/*
-    public function unassignedEmployees()
-    {
-        $unassigned = Staff::leftjoin('shifts', 'staff.clockNumber', '=', 'shifts.clockNumber')
-                    ->where('shifts.clockNumber', '=', null)
-                    ->select('staff.*')
-                    ->get();
-
-        return view('unassigned', compact('unassigned'));
-    }
-*/
 
     public function personalShift()
     {
@@ -84,10 +79,6 @@ class ShiftController extends Controller
                       ->leftjoin('shifts', 'staff.clockNumber', '=', 'shifts.clockNumber')
                       ->where('shifts.clockNumber', '=', null)
                       ->count();
-
-
-        //$firstName = $normalUser->firstName;
-        //$lastName = $normalUser->lastName;
 
         return view('home', compact('unassigned', 'normalUser', 'firstName', 'lastName', 'shiftCount', 'staffCount', 'eventCount', 'shiftchangecount'));
     }
@@ -216,7 +207,6 @@ class ShiftController extends Controller
     public function export()
     {
         return Excel::download(new ShiftInfoFromView, 'shifts_'.(Carbon::now())->toDateString().'.xlsx');
-        //return Excel::download(new ShiftInfoFromView, 'shifts.xlsx');
     }
 
     public function sendChart()

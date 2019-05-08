@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Absence extends Model
 {
     protected $fillable = [
-      'clock_number', 'date_missed', 'reason'
+      'clock_number', 'start_date', 'end_date', 'reason'
   ];
 
     public function updateAbsence($data)

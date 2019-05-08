@@ -40,7 +40,8 @@ class AbsenceController extends Controller
     {
         $absence = new Absence([
             'clock_number'=>$request->get('clock_number'),
-            'date_missed'=> $request->get('date_missed'),
+            'start_date'=> $request->get('start_date'),
+            'end_date'=> $request->get('end_date'),
             'reason'=> $request->get('reason')
         ]);
 
@@ -85,7 +86,8 @@ class AbsenceController extends Controller
         $data = $this->validate($request, [
           'clock_number'=> 'required',
           'reason'=> 'nullable',
-          'date_missed'=> 'required',
+          'start_date'=> 'required',
+          'end_date'=> 'required'
         ]);
         $data['id'] = $id;
         $absence->updateAbsence($data);
@@ -104,7 +106,8 @@ class AbsenceController extends Controller
     public function createAbsence(Request $request) {
       $absence = new Absence([
            'clock_number'=> $request->get('clock_number'),
-           'date_missed'=> $request->get('date_missed'),
+           'start_date'=> $request->get('start_date'),
+           'end_date'=> $request->get('end_date'),
            'reason'=> $request->get('reason')
        ]);
       $absence->save();

@@ -1,3 +1,47 @@
+var count = 0;
+var incomingElement = [];
+
+function toggler(clicked_id) {
+  var btn_id = clicked_id;
+  var div_id = clicked_id.split("_")[0];
+  var theElement = document.getElementById(div_id);
+  var forTitle = div_id.charAt(0).toUpperCase() + div_id.slice(1);
+
+  if (this.incomingElement.indexOf(forTitle) === -1) {
+    this.incomingElement.push(forTitle);
+  }
+
+  if (theElement.style.display == "block") {
+    theElement.style.display = "none";
+    incomingElement.pop(forTitle);
+    if (!incomingElement.length) {
+      $("#calcHeader").text("Term Calculator");
+    } else {
+      $("#calcHeader").text(incomingElement.join(" & ") + " Calculator");
+    }
+    $("#" + btn_id).removeClass("focusCumulative");
+
+    if (div_id == "cumulative") {
+      $('table#t1 td:nth-child(5), table#t1 th:nth-child(5)').hide();
+      pastgpa.value = '';
+      credtaken.value = '';
+      calcAll();
+    } else {
+      credleft.value = '';
+      targetgpa.value = '';
+      $("#proj_box").hide();
+    }
+  } else {
+    $("#calcHeader").text(incomingElement.join(" & ") + " Calculator");
+    theElement.style.display = "block";
+    $("#" + btn_id).addClass("focusCumulative");
+    if (div_id == "cumulative") {
+      $('table#t1 td:nth-child(5), table#t1 th:nth-child(5)').show();
+    }
+  }
+}
+
+
 // Resets term form
 function resetform() {
   $("#myform")[0].reset();
@@ -243,14 +287,8 @@ function calcAll() {
   if (grade == "x" || credithours == "x") {
     $("#show_box").text(" 0.00");
   } else {
-    $("#show_box").text(termGPA.toFixed(2));
-    $("#term_cred").text(termCredits.toFixed(2));
-    if (!isNaN(parseFloat($('#pastgpa').val()).toFixed(2)) && !isNaN(parseFloat($('#credtaken').val()).toFixed(2)) && termSum !== 0) {
-      $("#cred_box").show();
-      $("#cred_box").text("Combined with your current term GPA of " + termGPA.toFixed(2) + " and current cumulative GPA of " + parseFloat($('#pastgpa').val()).toFixed(2) + ", your new cumulative GPA will be " + gpa.toFixed(2) + " over " + totalcredits.toFixed(2) + " total credits.");
-    } else {
-      $("#cred_box").hide();
-    }
+    $("#show_box").text(gpa.toFixed(2));
+    $("#term_cred").text(totalcredits.toFixed(2));
   }
 
   // Projection calculation

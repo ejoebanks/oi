@@ -30,10 +30,14 @@ function absence(name, id) {
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <div class="input-group input-group-lg">
-                      <input type="blank" class="form-control" name="date_missed" id="date_missed" required/>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input class="form-control" name="start_date" id="start_date" placeholder="Start Date" required/>
                     </div>
+                    <div class="col-md-6">
+                      <input class="form-control" name="end_date" id="end_date" placeholder="End Date" required/>
+                  </br>
+                  </div>
                   </div>
 
                   <div class="form-group">
@@ -47,7 +51,8 @@ function absence(name, id) {
                     </form>
               </div>
               <div class="modal-footer">
-                  <input type="button" class="btn btn-primary" id="absence_create" value="Submit">
+                  <button class="btn btn-primary" id="absence_create" type="submit">Submit</button>
+
               </div>
           </div>
       </div>

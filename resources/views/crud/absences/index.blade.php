@@ -41,7 +41,8 @@
               <td>ID</td>
               <td>Employee</td>
               <td>Reason</td>
-              <td>Date</td>
+              <td>Start Date</td>
+              <td>End Date</td>
               <td>Action</td>
             </tr>
         </thead>
@@ -51,7 +52,9 @@
                 <td>{{ $absence->id }}</td>
                 <td>{{ $absence->clock_number }}</td>
                 <td>{{ $absence->reason }}</td>
-                <td>{{ $absence->date_missed }}</td>
+                <td>{{ $absence->start_date }}</td>
+                <td>{{ $absence->end_date }}</td>
+
                 <td>
                       <form action="{{action('AbsenceController@destroy', $absence->id)}}" method="post">
                         {{csrf_field()}}

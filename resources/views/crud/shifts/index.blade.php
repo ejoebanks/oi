@@ -30,18 +30,28 @@
               <td>First Name</td>
               <td>Last Name</td>
               <td>Primary Job</td>
+              <td>Comments</td>
               <td>Action</td>
             </tr>
         </thead>
         <tbody id="myTable">
             @foreach($shift as $s)
+            @php ($str_arr = explode (",", $s->comments))
             <tr class="custom_border">
                 <td>{{$s->clockNumber}}</td>
                 <td>{{$s->shift}}</td>
                 <td>{{$s->firstName}}</td>
                 <td>{{$s->lastName}}</td>
                 <td>{{$s->primaryJob}}</td>
-
+                <td>
+                      @foreach ($str_arr as $comment)
+                        @if ($comment == null)
+                          {{ "None" }}
+                        @else
+                          {{ $comment }}
+                        @endif
+                      @endforeach
+                </td>
                 <td>
                       <form action="{{action('ShiftController@destroy', $s->id)}}" method="post">
                         {{csrf_field()}}

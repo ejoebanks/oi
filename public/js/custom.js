@@ -5,12 +5,6 @@ $.ajaxSetup({
    });
 
 $(document).ready(function() {
-  $(document).on("change", ".start_date", setDate);
-  function absence(name) {
-    $('#modal').modal();
-    $('#employee').val(name);
-  }
-
   $('#modal').on('hidden.bs.modal', function () {
       $(this).find('form').trigger('reset');
   });

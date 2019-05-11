@@ -140,12 +140,22 @@ function absence(name, id) {
                       </div>
                       <div>
                         <?php
+                        $str_arr = explode (",", $s->comments);
                         if ($s->comments == null) {
                             $var = "None";
                         } else {
                             $var = $s->comments;
-                        }?>
-                          <span class="float-md-left"><i id="collapse_icon" class="far fa-comment fa-lg"></i> {{ $var }}</span>
+                        }
+                        ?>
+                          <span class="float-md-left"><i id="collapse_icon" class="far fa-comment fa-lg"></i>
+                            @foreach ($str_arr as $comment)
+                              @if ($comment == null)
+                                {{ $var }}
+                              @else
+                                {{ $comment }}
+                                @endif
+                            @endforeach
+                          </span>
                       </div>
 
                     </div>

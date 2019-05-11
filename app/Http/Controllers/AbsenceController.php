@@ -19,6 +19,16 @@ use App\Mail\OrgChart;
 
 class AbsenceController extends Controller
 {
+  public function employeeAbsences()
+  {
+      $absences = Absence::join('staff', 'staff.clockNumber', '=', 'absences.clock_number')
+                  ->select('staff.clockNumber as clock_number', 'absences.start_date AS start', 'absences.end_date AS end', 'staff.firstName', 'staff.lastName')
+                  ->orderBy('absences.created_at', 'desc')
+                  ->get();
+
+      return view('absences.report', compact('absences'));
+  }
+
     public function index()
     {
         $absences = Absence::all();

@@ -37,7 +37,9 @@ Route::group(['middleware' => 'admin'], function () {
 
     //Absence functions
     Route::post('/absence/create', 'AbsenceController@createAbsence');
+    Route::get('/absence-list', 'AbsenceController@employeeAbsences');
 
+    // Spreadsheet import function
     Route::post('import', 'StaffController@import')->name('import');
 
 });

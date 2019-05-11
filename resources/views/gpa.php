@@ -532,6 +532,9 @@ springStats.saConfig = springStats.saConfig || {
 			<div id="s-lg-content-46186158" class="  clearfix">
 				<h2>Calculator Guidelines</h2>
 		   </div>
+			 <div id="warning">
+				 WARNING! This calculator is not tied to the Aurora University student records system. The results are based only on the data you supply.
+			 </div>
 								</div>
 
 							</div>
@@ -546,13 +549,94 @@ springStats.saConfig = springStats.saConfig || {
 								<div class="s-lib-box-content s-lib-floating-box-content">
 
 			<div id="s-lg-content-40654912" class="  clearfix">
+
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+					 <div class="panel-heading">
+						 <h4 class="panel-title">
+							 <a data-toggle="collapse" data-parent="#accordion" href="#collapse0">
+							 Contact My Advisor</a>
+						 </h4>
+					 </div>
+					 <div id="collapse0" class="panel-collapse collapse">
+						 <div class="panel-body">
+							 <h4>Online</h4>
+							 Advisor info.
+
+							 <h4>Graduate</h4>
+							 Advisor info.
+
+							 <h4>Undergraduate</h4>
+							 Advisor info.
+						 </div>
+					 </div>
+					</div>
+
+		<div class="panel panel-default">
+		 <div class="panel-heading">
+			 <h4 class="panel-title">
+				 <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+				 What is the difference between a term and your cumulative GPA?</a>
+			 </h4>
+		 </div>
+		 <div id="collapse1" class="panel-collapse collapse">
+			 <div class="panel-body">Your term/semester GPA is the grade point average
+				 that you earned for a single semester or “term”, so it is the numerical
+				 weighted average of your class grades. Your cumulative grade point average
+				 is the numerical weighted average of the grades you’ve earned over your
+				 entire college career at Aurora University.</div>
+		 </div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+					Credits/Hours</a>
+				</h4>
+			</div>
+			<div id="collapse2" class="panel-collapse collapse">
+				<div class="panel-body">Enter the total number of credit hours that your
+					class is worth in the Credits/Hours field. A typical class is 4 credit
+					hours, but there are a lot of variations including labs, music, activity
+					 courses. If you aren’t sure how many credit hours your class is worth,
+					 check the course syllabus or in web advisor click on “my schedule” and
+					 your current class list will include credit hours. </div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+					Transfer Students</a>
+				</h4>
+			</div>
+			<div id="collapse3" class="panel-collapse collapse">
+				<div class="panel-body">While the credit hours for courses you earned at
+					other institutions transfer to AU, your grade point average from your
+					former school does not. </div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+					New Students</a>
+				</h4>
+			</div>
+				<div id="collapse4" class="panel-collapse collapse">
+		      <div class="panel-body">If you have been enrolled at AU for only one
+		        semester, you will not have a cumulative GPA until after you complete
+		        the semester.  In this case, your term GPA for your first semester is
+		        equivalent to your cumulative GPA.</div>
+		    </div>
+		  </div>
+
+</div>
         <h4>Term (Semester) GPA Calculator</h4>
 				<ul>
 	<li>This calculator is not intended to be used for checking your current GPA. It should only be used to help predict your GPA for the semester.
       Enter the name or course code, anticipated letter grade (from the drop down menu) and credit hours you have earned or expect to earn from each class. If you are repeating the course you need to click the box. The quality points will automatically calculate as will your projected grade point average for the semester.</li>
-      <br/>
-      WARNING! This calculator is not tied to the Aurora University student records system. The results are based only on the data you supply.
-    </ul><br/>
+    </ul>
       <h4>Cumulative GPA Calculator</h4><ul>
   <li>Students may use this calculator to estimate the outcome of this semester's grades on their overall Aurora University cumulative grade point average. To calculate your anticipated new cumulative GPA, enter in your GPA prior to the current semester and total number of graded credit hours from all previous semesters at AU. Your cumulative GPA and total credits you have earned to date can be found can be found on web advisor under “transcript” Choose undergraduate or graduate, but not both for the purpose of this calculator. </li>
 </ul>
@@ -581,35 +665,43 @@ springStats.saConfig = springStats.saConfig || {
 			<div id="s-lg-content-43703457" class="  clearfix">
         <div id="term" class="tab-pane active" >
         <div class="form-group">
-
+							<h2 class="togLabel" for="togLabel">Cumulative</h2>
+	            <label class="switch">
+	                <input id="cumulative_button" onclick="toggler(this.id)"  type="checkbox">
+	                <span class="slider"></span>
+	            </label>
         <form id="myform" name="myform">
-          <!--
+
           <div class="cumulative" id="cumulative">
-            <div id="s-lg-content-43583332" class="  clearfix">
-            <h5>Cumulative</h5>
-          </div>
-                <p class="dheader">&emsp;Current GPA&emsp;&emsp;&emsp;Credits Completed</p>
-                <input id="pastgpa" name="pastgpa" placeholder="GPA" class="pastgpa amount form-control" value="" size="10"/>
-                <input id="credtaken" name="credtaken" placeholder="Credits" class="credtaken amount form-control" value="" size="10"/>
-                <h1 class="descript">This allows you to calculate your cumulative GPA, which takes into account your past GPA and total credit hours and uses your current term to calculate your GPA.  You can find your current GPA and credit hours in WebAdvisor by using the "Grade Point Average by Term" link under the Academic Profile menu.<hr></h1>
+						<div class="row">
+							<h3>Projected Cumulative GPA</h3>
+						</div>
+						<div id="cu_pr_inputs">
+					<div class="col-3">
+							<h5>Current Cumulative GPA</h5>
+							<input id="pastgpa" name="pastgpa" class="pastgpa form-control amount" placeholder="Cumulative GPA" value="" />
+								<span class="focus-border"></span>
+						</div>
+						<div class="col-3">
+							<h5>Credits Completed</h5>
+								<input id="credtaken" name="credtaken" class="credtaken form-control amount" placeholder="Credits Completed" value="" />
+									<span class="focus-border"></span>
+							</div>
+							<h1 class="descript">This allows you to calculate your cumulative GPA, which takes into account your past GPA and total credit hours and uses your current term to calculate your GPA.  You can find your current GPA and credit hours in WebAdvisor by using the "Grade Point Average by Term" link under the Academic Profile menu.<hr></h1>
+
+							<hr/>
+							<div class="cu_box" id="cu_box"></div>
+							<h4><div id="cred_box" class="cred_box"></div></h4>
+						</div>
           </div>
 
-          <div class="projection" id="projection">
-                <h2>Projection</h2>
-                <p class="dheader"><label for="targetgpa">Target GPA</label>&emsp;&emsp;&emsp;<label for="credleft">Credits Left</label></p>
-                <input id="targetgpa" name="targetgpa" placeholder="GPA" class="targetgpa amount form-control" value="" size="10"/>
-                <input id="credleft" name="credleft" placeholder="Credits" class="credleft amount form-control" value="" size="10"/>
-                <br/>
-                <h1 class="descript">This allows you to project your final GPA based on the GPA you currently have and your remaining credits.<hr></h1>
-          </div>
-        -->
            <table id="t1" class="table table-bordered">
              <thead>
                <tr>
                  <th style="width: 5%" scope="col"><div class="defo">Remove<span class="defotext">Remove an added course.</span></div></th>
                  <th style="width: 20%"scope="col"><div class="defo">Course<span class="defotext">The name of the course.  For example, Math1010.</span></div></th>
                  <th style="width: 20%" scope="col"><div class="defo">Anticipated Grade<span class="defotext">The grade you expect to achieve in the course.</span></div></th>
-                 <th style="width: 18%" scope="col"><div class="defo">Credits<span class="defotext">The amount of credit hours of the course.</span></div></th>
+                 <th style="width: 15%" scope="col"><div class="defo">Credits<span class="defotext">The amount of credit hours of the course.</span></div></th>
                  <th><div class="defo">Repeat<span class="defotext">Check the box if you have previously taken this course.</span></div></th>
                  <th style="width: 20%" scope="col"><div class="defo">Quality Points<span class="defotext">This is determined by multiplying the amount of credit hours and the value of the grade.</span></div></th>
                </tr>
@@ -648,12 +740,19 @@ springStats.saConfig = springStats.saConfig || {
                  		<option value="5">5</option>
                  		<option value="6">6</option>
                  		<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
                  	</select>
                  	</td>
 
-                  <td style="text-align:center;">
+                  <td class="repeat_options">
                     <input type="checkbox" class="btn_repeat" id="0" val="0">
-                    <select id="g0" class="previousgrade amount grds"></select>
+                    <select id="g0" class="previousgrade amount grds form-control"></select>
                   </td>
 
                   <td><input name="total" class="total form-control" id="total1" value="" readonly="readonly" /></td>
@@ -664,7 +763,7 @@ springStats.saConfig = springStats.saConfig || {
              <input type="button" value="Add Course" class="btn btn-success addRow" />
              <input type="reset" value="Reset Fields" onclick="resetform()" class="btn btn-success" />
              <hr/>
-             <section class="outputcontainer">
+             <div class="outputcontainer">
                <div class="left-half">
                  <article>
                    <h1 class="head_out">Term GPA</h1>
@@ -678,114 +777,34 @@ springStats.saConfig = springStats.saConfig || {
                    <div id="term_cred" class="term_cred">0.00</div>
                  </article>
                </div>
-             </section>
+             </div>
              <br/>
            </div>
-          </form>
 
         </div>
       </div>
-            <div id="cu_pr_container">
-              <h3>Cumulative GPA Calculation</h3>
-							<div class="custom-control custom-switch">
-							  <input type="checkbox" class="custom-control-input" id="repeat_courses">
-							  <label class="custom-control-label" for="repeat_courses">Repeat Courses?</label>
-							</div>
-
-              <div id="cu_pr_inputs">
-            <div class="col-3">
-                <input id="pastgpa" name="pastgpa" class="pastgpa effect-1 amount" placeholder="Cumulative GPA" value="" />
-                  <span class="focus-border"></span>
-              </div>
-              <div class="col-3">
-                  <input id="credtaken" name="credtaken" class="credtaken effect-1 amount" placeholder="Credits Completed" value="" />
-                    <span class="focus-border"></span>
-                </div>
-                <hr/>
-                <div class="cu_box" id="cu_box"></div>
-                <h4><div id="cred_box" class="cred_box"></div></h4>
-              </div>
-      </div>
         <hr/>
-        <div id="cu_pr_container">
-          <h3>Projection GPA Calculation</h3>
+        <div id="output_container">
+          <h3>Goal Cumulative GPA</h3>
           <div id="cu_pr_inputs">
         <div class="col-3">
-          <input id="targetgpa" name="targetgpa" placeholder="GPA" class="targetgpa amount effect-1" type="number" value=""/>
+          <input id="targetgpa" name="targetgpa" placeholder="GPA" class="targetgpa amount form-control" type="number" value=""/>
               <span class="focus-border"></span>
           </div>
           <div class="col-3">
-              <input id='credleft' class="credleft effect-1 amount" placeholder="Credits Remaining" type="number" value=""/>
+              <input id='credleft' class="credleft form-control amount" placeholder="Credits Remaining" type="number" value=""/>
                 <span class="focus-border"></span>
             </div>
             <hr/>
             <h4><div class="proj_box" id="proj_box"></div></h4>
           </div>
         </div>
+			</form>
 
 
 		   </div>
        <br/>
 
-       <div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        What is the difference between a term and your cumulative GPA?</a>
-      </h4>
-    </div>
-    <div id="collapse1" class="panel-collapse collapse in">
-      <div class="panel-body">Your term/semester GPA is the grade point average
-        that you earned for a single semester or “term”, so it is the numerical
-        weighted average of your class grades. Your cumulative grade point average
-        is the numerical weighted average of the grades you’ve earned over your
-        entire college career at Aurora University.</div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-        Credits/Hours</a>
-      </h4>
-    </div>
-    <div id="collapse2" class="panel-collapse collapse">
-      <div class="panel-body">Enter the total number of credit hours that your
-        class is worth in the Credits/Hours field. A typical class is 4 credit
-        hours, but there are a lot of variations including labs, music, activity
-         courses. If you aren’t sure how many credit hours your class is worth,
-         check the course syllabus or in web advisor click on “my schedule” and
-         your current class list will include credit hours. </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-        Transfer Students</a>
-      </h4>
-    </div>
-    <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">While the credit hours for courses you earned at
-        other institutions transfer to AU, your grade point average from your
-        former school does not. </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-        New Students</a>
-      </h4>
-    </div>
-    <div id="collapse4" class="panel-collapse collapse">
-      <div class="panel-body">If you have been enrolled at AU for only one
-        semester, you will not have a cumulative GPA until after you complete
-        the semester.  In this case, your term GPA for your first semester is
-        equivalent to your cumulative GPA.</div>
-    </div>
-  </div>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
@@ -801,6 +820,7 @@ springStats.saConfig = springStats.saConfig || {
           <br/><br/>
           B (3 quality points per semester hour) Denotes performance that meets
            and at times exceeds expectations and indicates good preparation in the subject.
+					<br/><br/>
           C (2 quality points per semester hour) Denotes performance that meets
           expectations and demonstrates adequate preparation in the subject.
           <br/><br/>

@@ -16,15 +16,28 @@ html, body {
   padding-bottom: 30px;
 }
 
+.panel {
+  border: 1px solid #00467f !important;
+}
 .panel > .panel-heading {
-    background-image: none !important;
-    background-color: #00467f !important;
-    color: white !important;
-    border-color: #00467f !important
+    border-color: #00467f !important;
+    color: #00467f !important;
+    background-color: transparent !important;
 }
 
 .panel-default {
-  border-color: #00467f !important;
+}
+
+.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {
+    border-top: 2px solid #5cb85c !important;
+}
+
+.panel-body {
+  border-top: 2px solid #5cb85c !important;
+
+}
+.panel-title>a {
+  color: #00467f;
 }
 
 .panel-default > a:focus, a:hover {
@@ -56,11 +69,14 @@ html, body {
 
 .form-actions {
   background-color: transparent;
+  padding-bottom: 25px;
   text-align: center;
   margin: auto;
   position: relative;
   width: 600px;
 }
+
+
 
 /*  ------ Tooltips ------ */
 
@@ -111,7 +127,6 @@ article {
 }
 
 .head_out {
-  font-size: 2rem;
   margin: 0 0 0.75rem 0;
 }
 
@@ -128,19 +143,20 @@ div.err_box {
   -ms-grid-columns:2fr;
   display: grid;
   position: relative;
-  width: 400px;
+  width: 500px;
   margin: auto;
   box-shadow: 0 0 0 3px #fff, 0 0 0 5px #00467f, 0 0 0 10px #fff, 0 0 2px 10px #00467f;
 }
 
-#output_container {
+.output_container {
   position: relative;
-  margin: auto;
+  margin: 0 auto;
   color: #00467f;
   padding: 10px;
-  width: 600px;
+  width: 500px;
   background-color: #f2f2f2;
   text-align: center;
+  min-height: 100px;
   box-shadow: 0 0 0 3px #fff, 0 0 0 5px #00467f, 0 0 0 10px #fff, 0 0 2px 10px #00467f;
 }
 
@@ -175,18 +191,24 @@ hr {
 }
 */
 
-.left-half {
-  background: #f2f2f2;
-  grid-column: 1;
-  -ms-grid-column:1;
-  width: 198px;
+.output_part {
+  margin: 0 50px;
+  /* inline-block hack */
+  display: inline-block;
+  font-size: medium;
+  text-align: center;
 }
 
+.output_header {
+  margin-top: 10px !important;
+}
+
+.show_box, .term_cred {
+  font-size: 20px;
+}
 .right-half {
+  float: right;
   background: #f2f2f2;
-  grid-column: 2;
-  -ms-grid-column:2;
-  width: 198px;
 }
 
 /*  ------ Cumulative and projection areas ------ */
@@ -283,7 +305,6 @@ table#t1 td:nth-of-type(5), table#t1 th:nth-child(5) {
 }
 
 #myform {
-  padding-top: 15px;
 }
 
 .slider {
@@ -328,8 +349,8 @@ input:checked + .slider {
 
 .togLabel {
   display: inline-block;
-  padding-top: 10px;
   padding-right: 20px;
+  padding-bottom: 20px;
 }
 
 #cu_pr_inputs{
@@ -338,9 +359,16 @@ input:checked + .slider {
   margin-right: auto;
 }
 
+.descript_heading {
+  font-weight: bold;
+  color: #000099;
+  padding-bottom: 10px;
+  border-bottom: 2px solid green;
+  border-right: 2px solid green;
+}
+
 /*= input focus effects css
 =========================== */
-:focus{outline: none;}
 
 .col-3{
   display: inline-block;
@@ -350,12 +378,6 @@ input:checked + .slider {
   justify-content: center;
   position: relative;
   } /* necessary to give position: relative to parent. */
-input[type="text"]{font: 15px/24px "Lato", Arial, sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
-
-.effect-1{border: 0; padding: 7px 0; border-bottom: 1px solid #ccc; text-align: center;}
-
-.effect-1 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #00467f; transition: 0.4s;}
-.effect-1:focus ~ .focus-border{width: 100%; transition: 0.4s;}
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)

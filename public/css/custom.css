@@ -945,3 +945,9 @@ fieldset[disabled] .btn-danger.active {
 #added_absence {
   display: none;
 }
+
+#marker {
+  width: 100px;
+  height: 100px;
+  background: red;
+}

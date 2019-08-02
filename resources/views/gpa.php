@@ -440,7 +440,8 @@ springStats.saConfig = springStats.saConfig || {
         <span class="icon-bar"></span>
     </button>
     </div>
-    <div id="AUNav" class="collapse navbar-collapse">
+
+    <div id="AUNav" class="navbar navbar-expand-lg">
      <ul class="nav navbar-nav">
       <li><a href="https://aurora.edu/academics/library/index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
       <li><a href="http://libguides.aurora.edu/research"><span class="glyphicon glyphicon-search"></span> Research</a></li>
@@ -450,7 +451,7 @@ springStats.saConfig = springStats.saConfig || {
         <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> My Accounts
-        <span class="caret"></span></a>
+        </a>
         <ul class="dropdown-menu">
           <li><a href="https://i-share.carli.illinois.edu/vf-aru/MyResearch/Home">I-Share</a></li>
           <li><a href="https://787.account.worldcat.org/profile">Tipasa</a></li>
@@ -464,61 +465,11 @@ springStats.saConfig = springStats.saConfig || {
 <br />
         <!-- END: Page Header -->
         <!-- BEGIN: Guide Info Header -->
-        <div id="s-lg-guide-header" class="container s-lib-header s-lib-side-borders">
-            <div id="s-lib-bc">
 
-			<ol id="s-lib-bc-list" class="breadcrumb">
-
-					<li id="s-lib-bc-customer">
-						<a title="Phillips Library"  href="http://www.aurora.edu/academics/library/index.html">Phillips Library
-						</a>
-					</li>
-					<li id="s-lib-bc-site">
-						<a title="Guides"  href="//libguides.aurora.edu/">Guides
-						</a>
-					</li>
-					<li id="s-lib-bc-group">
-						<a title="Library Information"  href="//libguides.aurora.edu/testing">Library Information
-						</a>
-					</li>
-					<li id="s-lib-bc-guide">
-						<a title="Study Rooms"  href="//libguides.aurora.edu/studyrooms">Study Rooms
-						</a>
-					</li>
-					<li id="s-lib-bc-page" class="active">Study Areas and Room Reservations
-					</li>
-			</ol>
-            </div>
-			<div class="pull-right">
-
-
-			</div>
-            <div id="s-lg-guide-header-info">
-                <h1 id="s-lg-guide-name">Calculators</h1>
-                <div id="s-lg-guide-desc-container" class="pad-top-med">
-                    <span id="s-lg-guide-description"></span>
-                </div>
-            </div>
-        </div>
         <!-- END: Guide Info Header -->
-        <div id="s-lg-tabs-container" class="container s-lib-side-borders pad-top-med">
-            <div id="s-lg-guide-tabs" class="tabs">
-                <ul class="nav nav-tabs split-button-nav">
-
-                </ul>
-            </div>
-        </div>
-        <div id="s-lg-guide-tabs-title-bar" class="container s-lib-side-borders"></div>
         <!-- BEGIN: Guide Content -->
         <div id="s-lg-guide-main" class="container s-lib-main s-lib-side-borders">
 
-				<div class="row s-lg-row">
-    <div id="s-lg-col-126" class="col-md-12">
-        <div class="s-lg-col-boxes">
-        </div>
-    </div>
-
-</div>
 				<div class="row s-lg-row">
     <div id="s-lg-col-1" class="col-md-4">
         <div class="s-lg-col-boxes">
@@ -529,12 +480,6 @@ springStats.saConfig = springStats.saConfig || {
 							<div id="s-lg-box-collapse-20622137" >
 								<div class="s-lib-box-content s-lib-floating-box-content">
 
-			<div id="s-lg-content-46186158" class="  clearfix">
-				<h2>Calculator Guidelines</h2>
-		   </div>
-			 <div id="warning">
-				 WARNING! This calculator is not tied to the Aurora University student records system. The results are based only on the data you supply.
-			 </div>
 								</div>
 
 							</div>
@@ -549,7 +494,65 @@ springStats.saConfig = springStats.saConfig || {
 								<div class="s-lib-box-content s-lib-floating-box-content">
 
 			<div id="s-lg-content-40654912" class="  clearfix">
+				<div id="warning">
+				WARNING! This calculator is not tied to the Aurora University student records system. The results are based only on the data you supply.
+				</div>
 
+				<div class="panel-group">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse_term">
+							Term (Semester) GPA Calculator</a>
+						</h4>
+					</div>
+					<div id="collapse_term" class="panel-collapse collapse">
+				  <div class="panel-body">
+						<p>
+						This calculator is not intended to be used for checking
+							your current GPA. It should only be used to help predict
+							your GPA for the semester.
+						</p>
+
+						<p>
+							Enter the name or course code, anticipated letter grade
+							(from the drop down menu) and credit hours you have earned
+							or expect to earn from each class. If you are repeating
+							the course you need to click the box. The quality points
+							 will automatically calculate as will your projected grade
+								point average for the semester.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse_cumulative">
+							Cumulative GPA Calculator</a>
+						</h4>
+					</div>
+					<div id="collapse_cumulative" class="panel-collapse collapse">
+					<div class="panel-body">
+						<p>
+						Students may use this calculator to estimate the outcome
+						of this semester's grades on their overall Aurora University
+						 cumulative grade point average.
+					 </p>
+					 <p>
+						To calculate your anticipated
+						 new cumulative GPA, enter in your GPA prior to the current
+						 semester and total number of graded credit hours from all
+						 previous semesters at AU. Your cumulative GPA and total
+						 credits you have earned to date can be found can be found
+						 on web advisor under “transcript” Choose undergraduate or
+						 graduate, but not both for the purpose of this calculator.
+					 </p>
+					 </div>
+					</div>
+				</div>
+</div>
 				<div class="panel-group" id="accordion">
 					<div class="panel panel-default">
 					 <div class="panel-heading">
@@ -632,14 +635,78 @@ springStats.saConfig = springStats.saConfig || {
 		  </div>
 
 </div>
-        <h4>Term (Semester) GPA Calculator</h4>
-				<ul>
-	<li>This calculator is not intended to be used for checking your current GPA. It should only be used to help predict your GPA for the semester.
-      Enter the name or course code, anticipated letter grade (from the drop down menu) and credit hours you have earned or expect to earn from each class. If you are repeating the course you need to click the box. The quality points will automatically calculate as will your projected grade point average for the semester.</li>
-    </ul>
-      <h4>Cumulative GPA Calculator</h4><ul>
-  <li>Students may use this calculator to estimate the outcome of this semester's grades on their overall Aurora University cumulative grade point average. To calculate your anticipated new cumulative GPA, enter in your GPA prior to the current semester and total number of graded credit hours from all previous semesters at AU. Your cumulative GPA and total credits you have earned to date can be found can be found on web advisor under “transcript” Choose undergraduate or graduate, but not both for the purpose of this calculator. </li>
-</ul>
+
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+	 <div class="panel-heading">
+		 <h4 class="panel-title">
+			 <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+			 Order Your Transcript</a>
+		 </h4>
+	 </div>
+	 <div id="collapse5" class="panel-collapse collapse">
+		 <div class="panel-body">
+			 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+			 et ex justo. Suspendisse nec nunc rhoncus, consectetur mauris ut,
+			 mattis libero. Donec commodo vestibulum sem, eu dictum mi interdum
+			 eget. Aenean consectetur aliquet posuere. Nulla et tellus hendrerit
+			 nisi sagittis tempus. Nullam blandit cursus velit, ut viverra velit
+			 luctus et. Praesent in arcu non purus posuere vestibulum. Nunc ut
+			 tincidunt urna. Praesent et ipsum tortor. Quisque dui arcu, luctus
+			 eget commodo nec, commodo quis urna. Aenean ornare orci ac elit
+			 maximus mollis. Phasellus eu finibus arcu. Morbi ex augue, convallis
+			 in tortor vitae, elementum pharetra dolor.
+		 </div>
+	 </div>
+	</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+ <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+ Academic Catalog</a>
+</h4>
+</div>
+<div id="collapse6" class="panel-collapse collapse">
+<div class="panel-body">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+	et ex justo. Suspendisse nec nunc rhoncus, consectetur mauris ut,
+	mattis libero. Donec commodo vestibulum sem, eu dictum mi interdum
+	eget. Aenean consectetur aliquet posuere. Nulla et tellus hendrerit
+	nisi sagittis tempus. Nullam blandit cursus velit, ut viverra velit
+	luctus et. Praesent in arcu non purus posuere vestibulum. Nunc ut
+	tincidunt urna. Praesent et ipsum tortor. Quisque dui arcu, luctus
+	eget commodo nec, commodo quis urna. Aenean ornare orci ac elit
+	maximus mollis. Phasellus eu finibus arcu. Morbi ex augue, convallis
+	in tortor vitae, elementum pharetra dolor.
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+	Moodle</a>
+</h4>
+</div>
+<div id="collapse7" class="panel-collapse collapse">
+<div class="panel-body">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+	et ex justo. Suspendisse nec nunc rhoncus, consectetur mauris ut,
+	mattis libero. Donec commodo vestibulum sem, eu dictum mi interdum
+	eget. Aenean consectetur aliquet posuere. Nulla et tellus hendrerit
+	nisi sagittis tempus. Nullam blandit cursus velit, ut viverra velit
+	luctus et. Praesent in arcu non purus posuere vestibulum. Nunc ut
+	tincidunt urna. Praesent et ipsum tortor. Quisque dui arcu, luctus
+	eget commodo nec, commodo quis urna. Aenean ornare orci ac elit
+	maximus mollis. Phasellus eu finibus arcu. Morbi ex augue, convallis
+	in tortor vitae, elementum pharetra dolor.
+</div>
+</div>
+</div>
+
+
+</div>
 
 		   </div>
 								</div>
@@ -659,23 +726,22 @@ springStats.saConfig = springStats.saConfig || {
 							<div id="s-lg-box-collapse-19578660" >
 								<div class="s-lib-box-content s-lib-floating-box-content">
 
+
+			<div id="s-lg-content-43703457" class="  clearfix">
 				<h2>Term Calculation</h2>
 
 <hr />
-			<div id="s-lg-content-43703457" class="  clearfix">
+
         <div id="term" class="tab-pane active" >
+					<form id="myform" name="myform">
         <div class="form-group">
-							<h2 class="togLabel" for="togLabel">Cumulative</h2>
+							<h3 class="togLabel">Calculate Your New Cumulative GPA</h3>
 	            <label class="switch">
 	                <input id="cumulative_button" onclick="toggler(this.id)"  type="checkbox">
 	                <span class="slider"></span>
 	            </label>
-        <form id="myform" name="myform">
 
           <div class="cumulative" id="cumulative">
-						<div class="row">
-							<h3>Projected Cumulative GPA</h3>
-						</div>
 						<div id="cu_pr_inputs">
 					<div class="col-3">
 							<h5>Current Cumulative GPA</h5>
@@ -687,7 +753,14 @@ springStats.saConfig = springStats.saConfig || {
 								<input id="credtaken" name="credtaken" class="credtaken form-control amount" placeholder="Credits Completed" value="" />
 									<span class="focus-border"></span>
 							</div>
-							<h1 class="descript">This allows you to calculate your cumulative GPA, which takes into account your past GPA and total credit hours and uses your current term to calculate your GPA.  You can find your current GPA and credit hours in WebAdvisor by using the "Grade Point Average by Term" link under the Academic Profile menu.<hr></h1>
+							<h1 class="descript">
+								This allows you to calculate your cumulative GPA, which takes
+								into account your past GPA and total credit hours and uses
+								your current term to calculate your GPA.  You can find your
+								current GPA and credit hours in WebAdvisor by using the
+								"Grade Point Average by Term" link under the Academic
+								Profile menu.
+							</h1>
 
 							<hr/>
 							<div class="cu_box" id="cu_box"></div>
@@ -699,7 +772,7 @@ springStats.saConfig = springStats.saConfig || {
              <thead>
                <tr>
                  <th style="width: 5%" scope="col"><div class="defo">Remove<span class="defotext">Remove an added course.</span></div></th>
-                 <th style="width: 20%"scope="col"><div class="defo">Course<span class="defotext">The name of the course.  For example, Math1010.</span></div></th>
+                 <th style="width: 20%" scope="col"><div class="defo">Course<span class="defotext">The name of the course.  For example, Math1010.</span></div></th>
                  <th style="width: 20%" scope="col"><div class="defo">Anticipated Grade<span class="defotext">The grade you expect to achieve in the course.</span></div></th>
                  <th style="width: 15%" scope="col"><div class="defo">Credits<span class="defotext">The amount of credit hours of the course.</span></div></th>
                  <th><div class="defo">Repeat<span class="defotext">Check the box if you have previously taken this course.</span></div></th>
@@ -751,7 +824,7 @@ springStats.saConfig = springStats.saConfig || {
                  	</td>
 
                   <td class="repeat_options">
-                    <input type="checkbox" class="btn_repeat" id="0" val="0">
+                    <input type="checkbox" class="btn_repeat" id="0">
                     <select id="g0" class="previousgrade amount grds form-control"></select>
                   </td>
 
@@ -762,118 +835,117 @@ springStats.saConfig = springStats.saConfig || {
            <div class="form-actions">
              <input type="button" value="Add Course" class="btn btn-success addRow" />
              <input type="reset" value="Reset Fields" onclick="resetform()" class="btn btn-success" />
-             <hr/>
-             <div class="outputcontainer">
-               <div class="left-half">
-                 <article>
-                   <h1 class="head_out">Term GPA</h1>
-                   <div id="show_box" class="show_box">0.00</div>
-                 </article>
+					 </div>
 
+						 <div class="output_container">
+							 <div class="output_part">
+                   <h3 class="output_header">Term GPA</h3>
+                   <div id="show_box" class="show_box">0.00</div>
                </div>
-               <div class="right-half">
-                 <article>
-                   <h1 class="head_out">Credits</h1>
+							 <div class="output_part">
+                   <h3 class="output_header">Credits</h3>
                    <div id="term_cred" class="term_cred">0.00</div>
-                 </article>
                </div>
              </div>
              <br/>
-           </div>
 
-        </div>
       </div>
-        <hr/>
-        <div id="output_container">
-          <h3>Goal Cumulative GPA</h3>
+        <div class="output_container">
+          <h3>
+						Have a goal to increase your GPA?
+						Calculate your goal Cumulative GPA:
+					</h3>
           <div id="cu_pr_inputs">
         <div class="col-3">
-          <input id="targetgpa" name="targetgpa" placeholder="GPA" class="targetgpa amount form-control" type="number" value=""/>
-              <span class="focus-border"></span>
+          <input id="targetgpa" name="targetgpa" placeholder="GPA Goal" class="targetgpa amount form-control" type="number" value=""/>
           </div>
           <div class="col-3">
               <input id='credleft' class="credleft form-control amount" placeholder="Credits Remaining" type="number" value=""/>
-                <span class="focus-border"></span>
-            </div>
+          </div>
             <hr/>
             <h4><div class="proj_box" id="proj_box"></div></h4>
           </div>
         </div>
 			</form>
-
-
 		   </div>
        <br/>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-        Undergraduate Grading System - Letter Grades</a>
-      </h4>
-    </div>
-    <div id="collapse5" class="panel-collapse collapse">
-      <div class="panel-body">
-          A (4 quality points per semester hour) Denotes performance that consistently
-          exceeds expectations and demonstrates comprehensive understanding of the
-          subject.
-          <br/><br/>
-          B (3 quality points per semester hour) Denotes performance that meets
-           and at times exceeds expectations and indicates good preparation in the subject.
-					<br/><br/>
-          C (2 quality points per semester hour) Denotes performance that meets
-          expectations and demonstrates adequate preparation in the subject.
-          <br/><br/>
-          D (1 quality point per semester hour) Denotes performance that is
-          inadequate or inconsistently meets expectations and makes it inadvisable
-          to proceed further in the subject without additional work.
-          <br/><br/>
-          F (0 quality points per semester hour) Failure. Denotes performance that
-          consistently fails to meet expectations.
-          <br/><br/>
-          CR (quality points not calculated in grade point average) Pass. Denotes pass
-           with credit at least at the level of “C” work, in courses that are graded
-           CR/NCR.
-           <br/><br/>
-          NCR (0 quality points per semester hour) No credit. Denotes work that
-          fails to meet college or university standards for academic performance at least at the level of “C” work.
-  </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
-        Graduate Grading System - Letter Grades</a>
-      </h4>
-    </div>
-    <div id="collapse6" class="panel-collapse collapse">
-      <div class="panel-body">
-            A  (4 quality points per semester hour) Excellent. Denotes work that
-             is consistently at the highest level of achievement in a graduate
-             college or university course.
-            <br/><br/>
-            B  (3 quality points per semester hour) Good. Denotes work that
-            consistently meets the high level of college or university standards
-            for academic performance in a graduate college or university course.
-            <br/><br/>
-            C  (2 quality points per semester hour) The lowest passing grade. Denotes
-            work that does not meet in all respects college or university standards
-            for academic performance in a graduate college or university course.
-            <br/><br/>
-            F  (0 quality points per semester hour) Failure. Denotes work that
-            fails to meet graduate college or university standards for academic
-            performance in a course.
-            <br/><br/>
-            CR  (Quality points are not calculated in grade point average) Pass.
-             Denotes pass with credit at least at the level of “C” work, in graduate
-             courses that are graded CR/NCR.
-             <br/><br/>
-            NCR (0 quality points per semester hour) No credit. Denotes work that
-            fails to meet graduate college or university standards for academic performance at least at the level of “C” work.
-</div>
-    </div>
-  </div>
+			 <div class="wrapper center-block">
+			   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			   <div class="panel panel-default">
+			     <div class="panel-heading active" role="tab" id="headingOne">
+			       <h4 class="panel-title">
+			         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+			           Undergraduate Grading System - Letter Grades
+			         </a>
+			       </h4>
+			     </div>
+			     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+			       <div class="panel-body">
+							 A (4 quality points per semester hour) Denotes performance that consistently
+		           exceeds expectations and demonstrates comprehensive understanding of the
+		           subject.
+		           <br/><br/>
+		           B (3 quality points per semester hour) Denotes performance that meets
+		            and at times exceeds expectations and indicates good preparation in the subject.
+		 					<br/><br/>
+		           C (2 quality points per semester hour) Denotes performance that meets
+		           expectations and demonstrates adequate preparation in the subject.
+		           <br/><br/>
+		           D (1 quality point per semester hour) Denotes performance that is
+		           inadequate or inconsistently meets expectations and makes it inadvisable
+		           to proceed further in the subject without additional work.
+		           <br/><br/>
+		           F (0 quality points per semester hour) Failure. Denotes performance that
+		           consistently fails to meet expectations.
+		           <br/><br/>
+		           CR (quality points not calculated in grade point average) Pass. Denotes pass
+		            with credit at least at the level of “C” work, in courses that are graded
+		            CR/NCR.
+		            <br/><br/>
+		           NCR (0 quality points per semester hour) No credit. Denotes work that
+		           fails to meet college or university standards for academic performance at least at the level of “C” work.
+			       </div>
+			     </div>
+			   </div>
+			   <div class="panel panel-default">
+			     <div class="panel-heading" role="tab" id="headingTwo">
+			       <h4 class="panel-title">
+			         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			           Graduate Grading System - Letter Grades
+			         </a>
+			       </h4>
+			     </div>
+			     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+			       <div class="panel-body">
+							 A  (4 quality points per semester hour) Excellent. Denotes work that
+	              is consistently at the highest level of achievement in a graduate
+	              college or university course.
+	             <br/><br/>
+	             B  (3 quality points per semester hour) Good. Denotes work that
+	             consistently meets the high level of college or university standards
+	             for academic performance in a graduate college or university course.
+	             <br/><br/>
+	             C  (2 quality points per semester hour) The lowest passing grade. Denotes
+	             work that does not meet in all respects college or university standards
+	             for academic performance in a graduate college or university course.
+	             <br/><br/>
+	             F  (0 quality points per semester hour) Failure. Denotes work that
+	             fails to meet graduate college or university standards for academic
+	             performance in a course.
+	             <br/><br/>
+	             CR  (Quality points are not calculated in grade point average) Pass.
+	              Denotes pass with credit at least at the level of “C” work, in graduate
+	              courses that are graded CR/NCR.
+	              <br/><br/>
+	             NCR (0 quality points per semester hour) No credit. Denotes work that
+	             fails to meet graduate college or university standards for academic performance at least at the level of “C” work.
+			       </div>
+			     </div>
+			   </div>
+			 </div>
+			 </div>
+
 
 
 </div>

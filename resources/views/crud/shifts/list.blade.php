@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<?php
+use App\Absence;
+ ?>
 <script>
 function absence(name, id) {
   $('#modal').modal();
@@ -108,13 +111,15 @@ function absence(name, id) {
           <tbody id="myTable">
               @foreach($shift as $s)
               @if($char == $s->shift)
+              @if (isset($employee_absence[$s->clockNumber]))
+                {{ $marker = $employee_absence[$s->clockNumber]}}
+              @endif
               <tr class="list_border">
                 <td>
                   <div class="btn-group-vertical" id="list_btn">
                     <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-pencil-alt"></i>
                     </button>
-
                     <button data-toggle="collapse" data-target="#EMP{{$s->id}}" aria-controls="EMP" aria-expanded="false" class="btn btn-md btn-outline-secondary">
                       <i class="fa fa-eye" aria-hidden="true"></i>
                     </button>
@@ -125,11 +130,12 @@ function absence(name, id) {
                 </div>
                 </td>
                   <td>
-                    <h4><span class="badge badge-secondary {{$outputclass[$s->primaryJob]}}">{{$s->id}}</span>
+                    <h4><span class="badge badge-secondary {{$outputclass[$s->primaryJob]}}">{{$s->clockNumber}}</span>
                       @php ($name = $s->firstName.' '.$s->lastName)
-                      <button type="button" class="btn btn-info btn-custom btn-sm" onclick="absence('{{ $name }}', '{{ $s->id }}')"><i class="fas fa-calendar-times"></i></button>
+                      <button type="button" class="btn btn-info btn-custom btn-sm" onclick="absence('{{ $name }}', '{{ $s->clockNumber }}')"><i class="fas fa-calendar-times"></i></button>
                     </h4>
-                    <h6>{{ $s->firstName }} {{ "Smith" }}</h6>
+                    <div id="{{ $marker }}"></div>
+                    <h6>{{ $name }}</h6>
 
                     <div class="collapse" id="EMP{{$s->id}}">
                       <div>

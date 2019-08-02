@@ -7,6 +7,7 @@ use App\Shift;
 use App\Staff;
 use App\Event;
 use App\User;
+use App\Absence;
 use \DateTime;
 use App\Exports\ShiftsFromView;
 use App\Exports\ShiftInfoFromView;
@@ -49,14 +50,14 @@ class ShiftController extends Controller
                       ->first();
 
         $jobs = Shift::all()->keyBy('primaryJob')->pluck('primaryJob')->toArray();
-
+        $employee_absence = Absence::all()->keyBy('clock_number');
         $i = 1;
         foreach ($jobs as $job) {
           $outputclass[$job] = 'job-color-'.$i;
           $i++;
         }
 
-        return view('crud.shifts.list', compact('shift', 'shiftcount', 'normalUser', 'jobs', 'outputclass'));
+        return view('crud.shifts.list', compact('shift', 'shiftcount', 'normalUser', 'jobs', 'outputclass', 'employee_absence'));
     }
 
     public function personalShift()

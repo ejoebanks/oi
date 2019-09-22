@@ -112,9 +112,9 @@ function absence(name, id) {
               @foreach($shift as $s)
               @if($char == $s->shift)
               @if (isset($employee_absence[$s->clockNumber]))
-                {{ $marker = $employee_absence[$s->clockNumber]}}
+                 @php($marker = $employee_absence[$s->clockNumber] )
               @else
-               {{ $marker = ''}}
+               @php($marker = '')
               @endif
               <tr class="list_border">
                 <td>

@@ -113,6 +113,8 @@ function absence(name, id) {
               @if($char == $s->shift)
               @if (isset($employee_absence[$s->clockNumber]))
                 {{ $marker = $employee_absence[$s->clockNumber]}}
+              @else
+               {{ $marker = ''}}
               @endif
               <tr class="list_border">
                 <td>

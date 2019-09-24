@@ -126,6 +126,7 @@ class ShiftController extends Controller
     public function updateShift($id, $char)
     {
         $shift = Shift::find($id);
+        try{
         $shiftchange = new ShiftChange();
         if ($char == 'A' || $char == 'B' || $char == 'C' || $char == 'D') {
             $shiftchange->prevshift = $shift->shift;
@@ -135,8 +136,13 @@ class ShiftController extends Controller
             $shiftchange->save();
             $shift->save();
         }
+      }
+      catch(\Exception $e) {
+        $message = "Database Interaction Disabled";
+      }
 
-        return redirect('/lists');
+      return back()->withErrors(['errors', 'message']);
+
     }
 
     public function update(Request $request, $id)

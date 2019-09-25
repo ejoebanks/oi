@@ -2,6 +2,16 @@
 @section('content')
 @if(Auth::user()->type == 1)
 <div class="container-fluid">
+  <div class="row justify-content-md-center">
+
+  <div class="alert-custom">
+    <p id="alert_text">
+      All database interaction has been disabled, as this is for demonstration
+      purposes.  Any creations, deletes, or edits will not be saved to the database,
+      though it normally would.
+    </p>
+  </div>
+</div>
   <div class="row">
     <div class="col-md-2">
     </div>

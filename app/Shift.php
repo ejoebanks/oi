@@ -17,6 +17,7 @@ class Shift extends Model
 
     public function updateShift($data)
     {
+      try{
         $shift = $this->find($data['id']);
         $shift->shift = $data['shift'];
         $shift->clockNumber = $data['clockNumber'];
@@ -24,5 +25,11 @@ class Shift extends Model
         $shift->comments = $data['comments'];
         $shift->save();
         return 1;
+
+      }
+      catch(\Exception $e) {
+      $message = "Database Interaction Disabled";
+      }
+
     }
 }

@@ -951,3 +951,21 @@ fieldset[disabled] .btn-danger.active {
   height: 100px;
   background: red;
 }
+
+.alert-custom{
+  background-color: #B22222	;
+  width: 50%;
+  border: 2px solid black;
+  text-align: center;
+}
+
+#alert_text {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  padding: 5px;
+}
+
+.nav_img {
+  height: 100px;
+  width: 100px;
+}

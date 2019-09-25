@@ -6,7 +6,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="/">
-        <img src="{{ asset('images/Owens_Illinois.png') }}" alt="Owens-Header">
+        <img src="{{ asset('images/employee_management.svg') }}" alt="Owens-Header" class="nav_img">
         </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-chevron-circle-down"></i>

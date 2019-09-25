@@ -53,8 +53,8 @@ class ShiftController extends Controller
         $employee_absence = Absence::all()->keyBy('clock_number');
         $i = 1;
         foreach ($jobs as $job) {
-          $outputclass[$job] = 'job-color-'.$i;
-          $i++;
+            $outputclass[$job] = 'job-color-'.$i;
+            $i++;
         }
 
         return view('crud.shifts.list', compact('shift', 'shiftcount', 'normalUser', 'jobs', 'outputclass', 'employee_absence'));
@@ -97,14 +97,18 @@ class ShiftController extends Controller
 
     public function store(Request $request)
     {
-        $shift = new Shift([
+        try {
+            $shift = new Shift([
             'clockNumber'=>$request->get('clockNumber'),
             'comments'=> $request->get('comments'),
             'primaryJob'=> $request->get('primaryJob'),
             'shift'=> $request->get('shift')
         ]);
+            $shift->save();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
 
-        $shift->save();
         return redirect('/shifts');
     }
 
@@ -126,27 +130,28 @@ class ShiftController extends Controller
     public function updateShift($id, $char)
     {
         $shift = Shift::find($id);
-        try{
-        $shiftchange = new ShiftChange();
-        if ($char == 'A' || $char == 'B' || $char == 'C' || $char == 'D') {
-            $shiftchange->prevshift = $shift->shift;
-            $shift->shift = $char;
-            $shiftchange->clockNumber = $shift->clockNumber;
-            $shiftchange->currentshift = $char;
-            $shiftchange->save();
-            $shift->save();
+        try {
+            $shiftchange = new ShiftChange();
+            if ($char == 'A' || $char == 'B' || $char == 'C' || $char == 'D') {
+                $shiftchange->prevshift = $shift->shift;
+                $shift->shift = $char;
+                $shiftchange->clockNumber = $shift->clockNumber;
+                $shiftchange->currentshift = $char;
+                $shiftchange->save();
+                $shift->save();
+            }
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
         }
-      }
-      catch(\Exception $e) {
-        $message = "Database Interaction Disabled";
-      }
 
-      return back()->withErrors(['errors', 'message']);
-
+        return back()->withErrors(['Database Interaction Disabled']);
     }
+
+
 
     public function update(Request $request, $id)
     {
+      try{
         $shift = new Shift();
         $data = $this->validate($request, [
           'clockNumber'=> 'required',
@@ -156,6 +161,11 @@ class ShiftController extends Controller
         ]);
         $data['id'] = $id;
         $shift->updateShift($data);
+      }
+      catch(\Exception $e) {
+      $message = "Database Interaction Disabled";
+      }
+
 
         return redirect('/shifts');
     }
@@ -163,8 +173,12 @@ class ShiftController extends Controller
 
     public function destroy($id)
     {
-        $shift = Shift::find($id);
-        $shift->delete();
+        try {
+            $shift = Shift::find($id);
+            $shift->delete();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
 
         return redirect('/shifts');
     }

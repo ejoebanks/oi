@@ -19,15 +19,15 @@ use App\Mail\OrgChart;
 
 class AbsenceController extends Controller
 {
-  public function employeeAbsences()
-  {
-      $absences = Absence::join('staff', 'staff.clockNumber', '=', 'absences.clock_number')
+    public function employeeAbsences()
+    {
+        $absences = Absence::join('staff', 'staff.clockNumber', '=', 'absences.clock_number')
                   ->select('staff.clockNumber as clock_number', 'absences.start_date AS start', 'absences.end_date AS end', 'staff.firstName', 'staff.lastName')
                   ->orderBy('absences.created_at', 'desc')
                   ->get();
 
-      return view('absences.report', compact('absences'));
-  }
+        return view('absences.report', compact('absences'));
+    }
 
     public function index()
     {
@@ -48,14 +48,19 @@ class AbsenceController extends Controller
 
     public function store(Request $request)
     {
-        $absence = new Absence([
+        try {
+            $absence = new Absence([
             'clock_number'=>$request->get('clock_number'),
             'start_date'=> $request->get('start_date'),
             'end_date'=> $request->get('end_date'),
             'reason'=> $request->get('reason')
         ]);
 
-        $absence->save();
+            $absence->save();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
         return redirect('/absences');
     }
 
@@ -76,50 +81,70 @@ class AbsenceController extends Controller
 
     public function updateShift($id, $char)
     {
-        $shift = Absence::find($id);
-        $shiftchange = new ShiftChange();
-        if ($char == 'A' || $char == 'B' || $char == 'C' || $char == 'D') {
-            $shiftchange->prevshift = $shift->shift;
-            $shift->shift = $char;
-            $shiftchange->clockNumber = $shift->clockNumber;
-            $shiftchange->currentshift = $char;
-            $shiftchange->save();
-            $shift->save();
+        try {
+            $shift = Absence::find($id);
+            $shiftchange = new ShiftChange();
+            if ($char == 'A' || $char == 'B' || $char == 'C' || $char == 'D') {
+                $shiftchange->prevshift = $shift->shift;
+                $shift->shift = $char;
+                $shiftchange->clockNumber = $shift->clockNumber;
+                $shiftchange->currentshift = $char;
+                $shiftchange->save();
+                $shift->save();
+            }
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
         }
+
 
         return redirect('/lists');
     }
 
     public function update(Request $request, $id)
     {
-        $absence = new Absence();
-        $data = $this->validate($request, [
+        try {
+            $absence = new Absence();
+            $data = $this->validate($request, [
           'clock_number'=> 'required',
           'reason'=> 'nullable',
           'start_date'=> 'required',
           'end_date'=> 'required'
         ]);
-        $data['id'] = $id;
-        $absence->updateAbsence($data);
+            $data['id'] = $id;
+            $absence->updateAbsence($data);
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
 
         return redirect('/absences');
     }
 
     public function destroy($id)
     {
-        $shift = Absence::find($id);
-        $shift->delete();
+        try {
+            $shift = Absence::find($id);
+            $shift->delete();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
 
         return redirect('/absences');
     }
 
-    public function createAbsence(Request $request) {
-      $absence = new Absence([
-           'clock_number'=> $request->get('clock_number'),
-           'start_date'=> $request->get('start_date'),
-           'end_date'=> $request->get('end_date'),
-           'reason'=> $request->get('reason')
-       ]);
-      $absence->save();
+    public function createAbsence(Request $request)
+    {
+        try {
+            $absence = new Absence([
+             'clock_number'=> $request->get('clock_number'),
+             'start_date'=> $request->get('start_date'),
+             'end_date'=> $request->get('end_date'),
+             'reason'=> $request->get('reason')
+         ]);
+            $absence->save();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
     }
 }

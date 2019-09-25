@@ -40,14 +40,19 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        $event = new Event([
+        try {
+            $event = new Event([
              'title'=> $request->get('title'),
              'employee'=> $request->get('employee'),
              'description'=> $request->get('description'),
              'date'=> $request->get('date')
          ]);
 
-        $event->save();
+            $event->save();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
         return redirect('/events');
     }
 
@@ -69,15 +74,20 @@ class EventController extends Controller
 
     public function update(Request $request, $id)
     {
-        $event = Event::find($id);
-        $data = $this->validate($request, [
+        try {
+            $event = Event::find($id);
+            $data = $this->validate($request, [
           'title'=>'required',
           'employee'=> 'required',
           'date'=> 'required',
           'description'=> 'nullable',
         ]);
-        $data['id'] = $id;
-        $event->updateEvent($data);
+            $data['id'] = $id;
+            $event->updateEvent($data);
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
 
         return redirect('/events');
     }
@@ -85,63 +95,83 @@ class EventController extends Controller
 
     public function destroy($id)
     {
-        $event = Event::find($id);
-        $event->delete();
+        try {
+            $event = Event::find($id);
+            $event->delete();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
 
         return redirect('/events');
     }
 
     public function updateEvent(Request $request)
     {
-        $id = $request->input('id');
-        if (Event::find($id) == null) {
-            $event = new Event([
-                 'title'=> $request->get('title'),
-                 'employee'=> $request->get('employee'),
-                 'description'=> $request->get('description'),
-                 'date'=> $request->get('date')
-             ]);
-            $event->save();
-        } else {
-            $title = $request->input('title');
-            alert($request->input('employee'));
-            $employee = $request->input('employee');
-            $date = $request->input('date');
-            $description = $request->input('description');
-            $event = Event::findOrFail($id);
-            $event->description = $description;
-            $event->title = $title;
-            $event->employee = $employee;
-            $event->date = $date;
-            $event->save();
+        try {
+            $id = $request->input('id');
+            if (Event::find($id) == null) {
+                $event = new Event([
+               'title'=> $request->get('title'),
+               'employee'=> $request->get('employee'),
+               'description'=> $request->get('description'),
+               'date'=> $request->get('date')
+           ]);
+                $event->save();
+            } else {
+                $title = $request->input('title');
+                alert($request->input('employee'));
+                $employee = $request->input('employee');
+                $date = $request->input('date');
+                $description = $request->input('description');
+                $event = Event::findOrFail($id);
+                $event->description = $description;
+                $event->title = $title;
+                $event->employee = $employee;
+                $event->date = $date;
+                $event->save();
+            }
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
         }
     }
 
     public function createEvent(Request $request)
     {
-      $event = new Event([
-           'title'=> $request->get('title'),
-           'employee'=> $request->get('employee'),
-           'description'=> $request->get('description'),
-           'date'=> $request->get('date')
-       ]);
+        try {
+            $event = new Event([
+             'title'=> $request->get('title'),
+             'employee'=> $request->get('employee'),
+             'description'=> $request->get('description'),
+             'date'=> $request->get('date')
+         ]);
 
-      $event->save();
+            $event->save();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
     }
 
     public function removeEvent(Request $request)
     {
-        $id = $request->input('id');
-        $event = Event::find($id);
-        $event->delete();
+        try {
+            $id = $request->input('id');
+            $event = Event::find($id);
+            $event->delete();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
     }
 
     public function updateDate(Request $request)
     {
-        $date = $request->input('date');
-        $id = $request->input('ev_id');
-        $event = Event::find($id);
-        $event->date = $date;
-        $event->save();
+        try {
+            $date = $request->input('date');
+            $id = $request->input('ev_id');
+            $event = Event::find($id);
+            $event->date = $date;
+            $event->save();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
     }
 }

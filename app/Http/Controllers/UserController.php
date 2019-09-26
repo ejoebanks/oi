@@ -28,7 +28,8 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $user = new User([
+        try {
+            $user = new User([
             'id'=>$request->get('id'),
             'email'=> $request->get('email'),
             'clockNumber'=> $request->get('clockNumber'),
@@ -36,7 +37,11 @@ class UserController extends Controller
             'password'=> bcrypt($request->get('password'))
         ]);
 
-        $user->save();
+            $user->save();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
         return redirect('/users');
     }
 
@@ -45,12 +50,7 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $user = User::where('id', $id)
@@ -75,30 +75,40 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $user = new User();
-        $data = $this->validate($request, [
+        try {
+            $user = new User();
+            $data = $this->validate($request, [
           'email'=> 'required|string|email|max:255',
           'clockNumber'=> 'nullable|string|max:30',
           'password'=> 'nullable|string|min:6',
           'type'=> 'required'
         ]);
-        $data['id'] = $id;
-        $user->updateUser($data);
+            $data['id'] = $id;
+            $user->updateUser($data);
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
 
         return redirect('/users');
     }
 
     public function singleUpdate(Request $request, $id)
     {
-        $user = new User();
-        $data = $this->validate($request, [
+        try {
+            $user = new User();
+            $data = $this->validate($request, [
           'email'=> 'required|string|email|max:255',
           'emergencycontact'=> 'nullable|string|max:15',
           'password'=> 'required|string|min:6|confirmed',
         ]);
-        $data['id'] = $id;
-        $data['clockNumber'] = Auth::user()->clockNumber;
-        $user->singleUpdate($data);
+            $data['id'] = $id;
+            $data['clockNumber'] = Auth::user()->clockNumber;
+            $user->singleUpdate($data);
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
 
         return redirect('');
     }
@@ -106,8 +116,12 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
+        try {
+            $user = User::find($id);
+            $user->delete();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
 
         return redirect('/users');
     }

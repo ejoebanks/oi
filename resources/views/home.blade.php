@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<!--@if(Auth::user()->type == 1)-->
 <div class="container-fluid">
   <div class="row justify-content-md-center">
 
@@ -130,82 +129,4 @@
     </div>
   </div>
 </div>
-<!--@endif-->
-<!--
-@if(Auth::user()->type == 0 && is_object(Auth::user()->info))
-<div class="container">
-<div class="row">
-  <div class="col-xs-4 col-md-3">
-    <h1 id="greet">Hello, <br/>{{ $user->firstName }}.</h1>
-  </div>
-  <div class="col-md-9">
-    <h1 id="shift_header">You are currently on the <span id="currentshift">{{$user->shift}}</span> shift.</h1>
-  </div>
-</div>
-<br/>
-<div class="row">
-  <div class="col-xs-4 col-md-3">
-    <ul class="list-group">
-          <li class="list-group-item ulhead">
-            <span class="float-left ulhead">
-            <i class="far fa-user-circle"></i>
-            Profile
-          </span>
-            <span class="float-right"><a href="/update/user/{{Auth::user()->id}}" button type="button" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a></span>
-          </li>
-
-          <li class="list-group-item text-right">
-            <span class="float-left">
-              <strong>Clock #
-              </strong>
-            </span><span class="float-right">{{ $user->id }}</span>
-          </li>
-
-          <li class="list-group-item text-right">
-            <span class="float-left">
-              <strong>Full Name
-              </strong>
-            </span><span class="float-right">{{ $user->firstName }} {{ $user->lastName }}</span>
-          </li>
-          <li class="list-group-item text-right">
-            <span class="float-left">
-              <strong>Seniority
-              </strong>
-            </span> <span class="float-right">{{ $user->seniority }}</span>
-          </li>
-          <li class="list-group-item text-right">
-            <span class="float-left">
-              <strong>Primary Job
-              </strong>
-            </span> <span class="float-right">{{$user->primaryJob}}</span>
-          </li>
-
-          <li class="list-group-item text-right">
-            <span class="float-left">
-              <strong>E-Mail
-              </strong>
-            </span> <span class="float-right">{{ Auth::user()->email }}</span>
-          </li>
-
-          <li class="list-group-item text-right">
-            <span class="float-left">
-              <strong>Contact
-              </strong>
-            </span> <span class="float-right">{{ $user->emergencycontact }}</span>
-          </li>
-        </ul>
-
-  </div>
-  <div class="col-md-9">
-    <img src="{{ asset('images/Calendar_View.png') }}" id="table_image" alt="Owens-Header">
-  </div>
-</div>
-</div>@endif
-@if (!is_object(Auth::user()->info) && Auth::user()->type == 0)
-<div class="container">
-    <div id="home-nostaff" class="row">
-        <h1 id="newemployee">You have not yet been assigned a shift, please check back later.
-    </div>
-</div>
-@endif-->
 @endsection

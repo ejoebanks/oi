@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'admin'], function () {
+//Route::group(['middleware' => 'admin'], function () {
 
     //Admin Page
     Route::get('/admin', 'AdminController@adminPage');
@@ -42,11 +42,11 @@ Route::group(['middleware' => 'admin'], function () {
     // Spreadsheet import function
     Route::post('import', 'StaffController@import')->name('import');
 
-});
+//});
 
 
 //Ensuring user is logged in
-Route::group(['middleware' => ['auth', 'verified']], function () {
+//Route::group(['middleware' => ['auth', 'verified']], function () {
 
     //Account details update
     Route::get('/update/user/{id}', 'UserController@singleEdit')->middleware('check');
@@ -56,12 +56,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/view/{id}', 'OrderController@appointment')->middleware('check');
 
     // Calendar View
-    Route::get('/calendar', 'EventController@all');
 
     //Home Page
     Route::get('', 'HomeController@homepage');
-});
+//});
 
+Route::get('/calendar', 'EventController@all');
 
 Route::get('/gpa', function () {
     return view('gpa');

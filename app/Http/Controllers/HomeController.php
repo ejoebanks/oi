@@ -13,10 +13,10 @@ use Carbon\Carbon;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    //public function __construct()
+    //{
+    //    $this->middleware('auth');
+    //}
 
     public function index()
     {
@@ -24,7 +24,14 @@ class HomeController extends Controller
     }
 
     public function homepage() {
-          $normalUser = Shift::where('id', Auth::user()->clockNumber)
+          if(is_object(Auth::user())){
+            $user_id = Auth::user()->clockNumber;
+          }
+          else {
+            $user_id = '';
+          }
+
+          $normalUser = Shift::where('id', $user_id)
                         ->first();
 
           //Counts
@@ -43,7 +50,7 @@ class HomeController extends Controller
                         ->where('shifts.clockNumber', '=', null)
                         ->count();
 
-          $user = Staff::where('staff.clockNumber', Auth::user()->clockNumber)
+          $user = Staff::where('staff.clockNumber', $user_id)
                   ->join('shifts', 'shifts.clockNumber', '=', 'staff.clockNumber')
                   ->first();
 

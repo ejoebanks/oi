@@ -46,8 +46,8 @@ class ShiftController extends Controller
                   ->orderBy('seniority', 'asc')
                   ->get();
 
-        $normalUser = Shift::where('id', Auth::user()->id)
-                      ->first();
+        //$normalUser = Shift::where('id', Auth::user()->id)
+        //              ->first();
 
         $jobs = Shift::all()->keyBy('primaryJob')->pluck('primaryJob')->toArray();
         $employee_absence = Absence::all()->keyBy('clock_number');

@@ -8,7 +8,7 @@
       <div class="col-sm">
           <div id='calendar'></div>
         </div>
-        @if (Auth::user()->type == 1)
+        <!--@if (is_object(Auth::user()) && Auth::user()->type == 1)-->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-        @endif
+        <!--@endif-->
         <div class="col-sm-1">
         </div>
 
@@ -123,11 +123,12 @@
             });
 
             $('#calendar').fullCalendar({
-              @if(Auth::user()->type == 1)
+              //@if(is_object(Auth::user()) && Auth::user()->type == 1)
                 editable: true,
                 selectable: true,
                 selectHelper: true,
-              @endif
+              //@endif
+
                 eventRender: function(eventObj, $el) {
                   $el.popover({
                     title: eventObj.name,
@@ -169,7 +170,7 @@
                     center: '',
                     right: 'month,list prev,today,next'
                 },
-                @if(Auth::user()->type == 1)
+                //@if(is_object(Auth::user()) && Auth::user()->type == 1)
                 eventClick: function(calEvent, jsEvent, view) {
                     $('#modalheader').html("Edit Event");
                     $('#event_remove').show();
@@ -201,7 +202,7 @@
                                 });
                               });
                             }
-                  @endif
+                  //@endif
 
             });
         });

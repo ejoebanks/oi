@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@if(Auth::user()->type == 1)
+<!--@if(Auth::user()->type == 1)-->
 <div class="container-fluid">
   <div class="row justify-content-md-center">
 
@@ -130,7 +130,8 @@
     </div>
   </div>
 </div>
-@endif
+<!--@endif-->
+<!--
 @if(Auth::user()->type == 0 && is_object(Auth::user()->info))
 <div class="container">
 <div class="row">
@@ -206,5 +207,5 @@
         <h1 id="newemployee">You have not yet been assigned a shift, please check back later.
     </div>
 </div>
-@endif
+@endif-->
 @endsection

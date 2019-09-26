@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Mail;
 use App\Exports\RecentExport;
 use App\Mail\RecentChanges;
 
-
 class ShiftChangeController extends Controller
 {
     public function recent()
@@ -20,9 +19,11 @@ class ShiftChangeController extends Controller
         $recentChanges = ShiftChange::join('staff', 'staff.clockNumber', '=', 'shiftchanges.clockNumber')
                   ->join('shifts', 'staff.clockNumber', '=', 'shifts.clockNumber')
                   ->select('staff.clockNumber as id', 'shiftchanges.created_at AS created', 'shiftchanges.prevshift', 'shiftchanges.currentshift', 'staff.firstName', 'staff.lastName', 'shifts.primaryJob AS job')
-                  ->whereBetween('shiftchanges.created_at',
+                  ->whereBetween(
+                      'shiftchanges.created_at',
                   [Carbon::today()->subDays(30)->toDateString(),
-                  Carbon::now()])
+                  Carbon::now()]
+                  )
                   ->orderBy('shiftchanges.created_at', 'desc')
                   ->get();
 
@@ -49,13 +50,18 @@ class ShiftChangeController extends Controller
 
     public function store(Request $request)
     {
-        $shiftchange = new ShiftChange([
+        try {
+            $shiftchange = new ShiftChange([
             'clockNumber'=>$request->get('clockNumber'),
             'currentshift'=> $request->get('currentshift'),
             'prevshift'=> $request->get('prevshift')
             ]);
 
-        $shiftchange->save();
+            $shiftchange->save();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
         return redirect('/shiftchanges');
     }
 
@@ -78,14 +84,19 @@ class ShiftChangeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $shiftchange = new ShiftChange();
-        $data = $this->validate($request, [
+        try {
+            $shiftchange = new ShiftChange();
+            $data = $this->validate($request, [
           'clockNumber'=>'required',
           'currentshift'=> 'required',
           'prevshift'=> 'required',
         ]);
-        $data['id'] = $id;
-        $shiftchange->updateChange($data);
+            $data['id'] = $id;
+            $shiftchange->updateChange($data);
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
 
         return redirect('/shiftchanges');
     }
@@ -93,16 +104,25 @@ class ShiftChangeController extends Controller
 
     public function destroy($id)
     {
-        $shiftchange = ShiftChange::find($id);
-        $shiftchange->delete();
+        try {
+            $shiftchange = ShiftChange::find($id);
+            $shiftchange->delete();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
 
         return redirect('/shiftchanges');
     }
 
     public function sendRecent()
     {
-        Mail::to(User::find(Auth::user()->id))->send(new RecentChanges());
+        try {
+            Mail::to(User::find(Auth::user()->id))->send(new RecentChanges());
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
         return redirect('/changes');
     }
-
 }

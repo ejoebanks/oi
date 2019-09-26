@@ -151,20 +151,19 @@ class ShiftController extends Controller
 
     public function update(Request $request, $id)
     {
-      try{
-        $shift = new Shift();
-        $data = $this->validate($request, [
+        try {
+            $shift = new Shift();
+            $data = $this->validate($request, [
           'clockNumber'=> 'required',
           'primaryJob'=> 'required',
           'comments'=> 'nullable',
           'shift'=> 'required',
         ]);
-        $data['id'] = $id;
-        $shift->updateShift($data);
-      }
-      catch(\Exception $e) {
-      $message = "Database Interaction Disabled";
-      }
+            $data['id'] = $id;
+            $shift->updateShift($data);
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
 
 
         return redirect('/shifts');
@@ -232,7 +231,12 @@ class ShiftController extends Controller
 
     public function sendChart()
     {
-        Mail::to(User::find(Auth::user()->id))->send(new OrgChart());
+        try {
+            Mail::to(User::find(Auth::user()->id))->send(new OrgChart());
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
         return redirect('/lists');
     }
 }

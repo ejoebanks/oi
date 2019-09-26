@@ -10,8 +10,6 @@ use App\Imports\StaffImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ShiftsFromView;
 
-
-
 class StaffController extends Controller
 {
     public function index()
@@ -27,31 +25,43 @@ class StaffController extends Controller
 
     public function store(Request $request)
     {
-        $staff = new Staff([
+        try {
+            $staff = new Staff([
             'clockNumber'=>$request->get('clockNumber'),
             'seniority'=>$request->get('seniority'),
             'firstName'=>$request->get('firstName'),
             'lastName'=>$request->get('lastName')
         ]);
 
-        $staff->save();
+            $staff->save();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
 
-        if ($request->get('shift') != NULL){
-          $shift = new Shift([
+
+        try {
+            if ($request->get('shift') != null) {
+                $shift = new Shift([
             'clockNumber'=>$request->get('clockNumber'),
             'shift'=>$request->get('shift'),
             'primaryJob'=>$request->get('primaryJob'),
             'comments'=>$request->get('comments')
           ]);
-          $shift->save();
+                $shift->save();
+            }
+            if ($request->get('shift') != null) {
+                $shiftappend = " They were assigned to shift ".$shift->shift.".";
+            } else {
+                $shiftappend = '';
+            }
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
         }
-        if ($request->get('shift') != NULL){
-          $shiftappend = " They were assigned to shift ".$shift->shift.".";
-        } else {
-          $shiftappend = '';
-        }
-        return redirect('/staff')->with('message',
-        'Staff member '.$staff->firstName.' '.$staff->lastName.' created.'.$shiftappend);
+
+        return redirect('/staff')->with(
+            'message',
+        'Staff member '.$staff->firstName.' '.$staff->lastName.' created.'.$shiftappend
+        );
     }
 
     public function show($clockNumber)
@@ -69,41 +79,56 @@ class StaffController extends Controller
 
     public function update(Request $request, $clockNumber)
     {
-        $staff = new Staff();
-        $data = $this->validate($request, [
+        try {
+            $staff = new Staff();
+            $data = $this->validate($request, [
           'clockNumber'=>'required|integer',
           'seniority'=>'required|date_format:Y-m-d',
           'firstName'=>'required|string|max:255',
           'lastName'=>'required|string|max:255',
         ]);
 
-        if ($request->get('shift') != NULL){
-          $shift = new Shift([
+            if ($request->get('shift') != null) {
+                $shift = new Shift([
             'clockNumber'=>$request->get('clockNumber'),
             'shift'=>$request->get('shift'),
             'primaryJob'=>$request->get('primaryJob'),
             'comments'=>$request->get('comments')
           ]);
-          $shift->save();
+                $shift->save();
+            }
+
+            $data['clockNumber'] = $clockNumber;
+            $staff->updateMember($data);
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
         }
 
-        $data['clockNumber'] = $clockNumber;
-        $staff->updateMember($data);
 
         return redirect('/staff');
     }
 
     public function destroy($clockNumber)
     {
-        $staff = Staff::find($clockNumber);
-        $staff->delete();
+        try {
+            $staff = Staff::find($clockNumber);
+            $staff->delete();
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
 
         return redirect('/staff')->with('message', $staff->firstName.' '.$staff->lastName.' deleted.');
     }
 
     public function import()
     {
-        Excel::import(new StaffImport,request()->file('file'));
+        try {
+            Excel::import(new StaffImport, request()->file('file'));
+        } catch (\Exception $e) {
+            $message = "Database Interaction Disabled";
+        }
+
         return redirect('/admin')->with('message', 'Staff and shifts created/updated!');
     }
 

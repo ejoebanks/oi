@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid">
-  <div class="row justify-content-md-center">
+  <div class="row d-flex justify-content-center">
 
-  <div class="alert-custom">
+  <div class="col-md-6 alert-custom text-center">
     <p id="alert_text">
       All database interaction has been disabled, as this is for demonstration
       purposes.  Any creations, deletes, or edits will not be saved to the database,

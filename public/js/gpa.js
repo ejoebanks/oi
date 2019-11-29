@@ -289,17 +289,11 @@ function calcAll() {
       if (achievedgoal.toFixed(2) <= 4.0 && achievedgoal.toFixed(2) > 0) {
         if (achievedgoal.toFixed(2) == gpa.toFixed(2)) {
           $("#proj_box").text("To achieve a GPA of " + achievedgoal.toFixed(2) + " you need to maintain your current GPA.  Keep it up!");
-          //proj_box.style.background = '#93C572';
-          //proj_box.style.borderColor = '#00467f';
         } else {
           $("#proj_box").text("To achieve a GPA of " + targetgpa.toFixed(2) + " you need to maintain a GPA of " + achievedgoal.toFixed(2) + " in your remaining " + credleft + " credits.");
-          //proj_box.style.background = '#93C572';
-          //proj_box.style.borderColor = '#00467f';
         }
       } else if (achievedgoal.toFixed(2) > 4) {
         $("#proj_box").text("It is not possible to reach a GPA of " + targetgpa.toFixed(2) + ". You would need a GPA of " + achievedgoal.toFixed(2) + ".");
-        //proj_box.style.background = '#e6adad';
-        //proj_box.style.borderColor = '#00467f';
       } else if (achievedgoal.toFixed(2) < 0) {
         $("#proj_box").text("It is not possible to lower your GPA that much.");
       } else {

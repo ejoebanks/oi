@@ -1,16 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid">
-  <div class="row d-flex justify-content-center">
-
-  <div class="col-md-6 alert-custom text-center">
-    <p id="alert_text">
-      All database interaction has been disabled, as this is for demonstration
-      purposes.  Any creations, deletes, or edits will not be saved to the database,
-      though it normally would.
-    </p>
+  <div id="alert_text">
+    This is for demonstration purposes only.  All database functionality has been
+    disabled, so none of the create, edit, or delete functions will do anything to
+    the values.
   </div>
-</div>
+
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
     </div>

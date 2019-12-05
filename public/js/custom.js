@@ -27,23 +27,6 @@ $(document).ready(function() {
     }
   });
 
-
-//    const allEqual = arr => arr.every( v => v === arr[0] );
-//    var shiftA = document.getElementById('shiftA').getAttribute('value');
-//    var shiftB = document.getElementById('shiftB').getAttribute('value');
-//    var shiftC = document.getElementById('shiftC').getAttribute('value');
-//    var shiftD = document.getElementById('shiftD').getAttribute('value');
-//    var min = Math.min(shiftA, shiftB, shiftC, shiftD);
-
-//    var alphabet = "ABCD".split("");
-//    _.each(alphabet, function(letter) {
-//      if (document.getElementById('shift'+letter).getAttribute('value') == min && !allEqual([shiftA, shiftB, shiftC, shiftD])){
-        //document.getElementById('shift'+letter).style.backgroundColor = "#CCCC00";
-//      } else {
-        //document.getElementById('shift'+letter).style.backgroundColor = "#4D8C57";
-//      }
-//    });
-
     var activeSystemClass = $('.list-group-item.active');
 
     //Something is entered into the input
@@ -62,9 +45,6 @@ $(document).ready(function() {
             if(inputText != '')
             {
                 $('.search-query-sf').remove();
-                //tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
-                //    + $(that).val()
-                //    + '"</strong></td></tr>');
             }
             else
             {
@@ -116,6 +96,16 @@ $(document).ready(function(){
           return $('#start_date').val();
       },
   });
+
+  $('#selected_time').datepicker({
+      uiLibrary: 'bootstrap4',
+      format: 'yyyy-mm-dd',
+      iconsLibrary: 'fontawesome',
+      minDate: function () {
+          return $('#start_date').val();
+      },
+  });
+
 
   $('#absence_create').click(function() {
       $(function() {
@@ -179,28 +169,4 @@ $(document).ready(function(){
   });
 
 
-  (function(){
-  var searchTerm, panelContainerId;
-  // Create a new contains that is case insensitive
-  $.expr[':'].containsCaseInsensitive = function (n, i, m) {
-    return jQuery(n).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
-  };
-
-  $('#accordion_search_bar').on('change keyup paste click', function () {
-    searchTerm = $(this).val();
-    $('#accordion > .panel').each(function () {
-      panelContainerId = '#' + $(this).attr('id');
-      $(panelContainerId + ':not(:containsCaseInsensitive(' + searchTerm + '))').hide();
-      $(panelContainerId + ':containsCaseInsensitive(' + searchTerm + ')').show();
-    });
-  });
-}());
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      $(this).$("#EMP44").collapse('show');
-    });
-
-  });
 });

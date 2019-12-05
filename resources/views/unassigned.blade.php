@@ -24,18 +24,20 @@
         <tr>
           <td><h5>{{ $emp->clockNumber }}</h5></th>
           <td><h5>{{ $emp->firstName }} {{ $emp->lastName}}</h5></th>
-          <td><h5><div class="form-group">
+          <td>
+            <h5>
+            <div class="form-group">
                     <input type="hidden" value="{{csrf_token()}}" name="_token" />
                     <select class="form-control" value='' name="shift" id="shift">
                     <?php
                     foreach (range('A', 'D') as $char) {
-                    ?>
+                        ?>
                       <option value="<?= $char ?>"><?=  $char ?></option>
                       <?php
-                      }?>
+                    }?>
                   </select>
-                </div>
-</h5></th>
+            </div>
+              </h5>
         </tr>
       @endforeach
     </tbody>

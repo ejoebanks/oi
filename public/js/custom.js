@@ -97,7 +97,7 @@ $(document).ready(function(){
       },
   });
 
-  $('#selected_time').datepicker({
+  $('#selected_time, #seniority').datepicker({
       uiLibrary: 'bootstrap4',
       format: 'yyyy-mm-dd',
       iconsLibrary: 'fontawesome',

@@ -503,7 +503,7 @@ springStats.saConfig = springStats.saConfig || {
 				  <div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-parent="#accordion" href="#collapse_term">
-							Term (Semester) GPA Calculator</a>
+							Term (Semester) GPA Calculatorsssssss</a>
 						</h4>
 					</div>
 					<div id="collapse_term" class="panel-collapse collapse">

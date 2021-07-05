@@ -57,7 +57,7 @@ class ShiftController extends Controller
             $i++;
         }
 
-        return view('crud.shifts.list', compact('shift', 'shiftcount', 'normalUser', 'jobs', 'outputclass', 'employee_absence'));
+        return view('crud.shifts.list', compact('shift', 'normalUser', 'jobs', 'outputclass', 'employee_absence'));
     }
 
     public function personalShift()

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Shift;
+use App\Admin;
 use App\Staff;
 use App\Event;
 use App\User;

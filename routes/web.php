@@ -1,7 +1,5 @@
 <?php
 
-Route::group(['middleware' => 'admin'], function () {
-
     //Admin Page
     Route::get('/admin', 'AdminController@adminPage');
 
@@ -42,8 +40,6 @@ Route::group(['middleware' => 'admin'], function () {
     // Spreadsheet import function
     Route::post('import', 'StaffController@import')->name('import');
 
-});
-
 
 //Ensuring user is logged in
 Route::group(['middleware' => ['auth', 'verified']], function () {
@@ -62,6 +58,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('', 'HomeController@homepage');
 });
 
+Auth::routes(['verify' => true]);
 
 Route::get('/gpa', function () {
     return view('gpa');

@@ -47,6 +47,10 @@ class HomeController extends Controller
                   ->join('shifts', 'shifts.clockNumber', '=', 'staff.clockNumber')
                   ->first();
 
+
+			$firstName = ''; 
+			$lastName = '';
+
     return view('home', compact('unassigned', 'normalUser', 'firstName', 'lastName', 'shiftCount', 'staffCount', 'eventCount', 'shiftchangecount', 'user'));
 
     }

@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Exports\ShiftInfoFromView;
 use App\Exports\ShiftsFromView;
 use \Excel;
-use Carbon\Carbon;
+use Carbon;
 
 
 class OrgChart extends Mailable

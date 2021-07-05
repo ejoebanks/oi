@@ -11,10 +11,12 @@ class IsAdmin
 {
      public function handle($request, Closure $next)
      {
-          if (Auth::user() &&  Auth::user()->type == 1) {
-                 return $next($request);
-          }
+          //if (Auth::user() &&  Auth::user()->type == 1) {
+                // return $next($request);
+          //}
+          //abort(403);
 
-         return redirect('/');
+
+         //return redirect('/');
      }
 }

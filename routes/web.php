@@ -1,5 +1,7 @@
 <?php
 
+//Route::group(['middleware' => 'IsAdmin'], function () {
+
     //Admin Page
     Route::get('/admin', 'AdminController@adminPage');
 
@@ -39,7 +41,7 @@
 
     // Spreadsheet import function
     Route::post('import', 'StaffController@import')->name('import');
-
+//});
 
 //Ensuring user is logged in
 Route::group(['middleware' => ['auth', 'verified']], function () {

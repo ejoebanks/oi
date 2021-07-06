@@ -17,7 +17,7 @@
       <th scope="col">Job</th>
       <th scope="col">New Shift</th>
       <th scope="col">Moved From</th>
-      <th scope="col">Updated At</th>
+      <th scope="col">Updated On</th>
     </tr>
   </thead>
   <tbody>

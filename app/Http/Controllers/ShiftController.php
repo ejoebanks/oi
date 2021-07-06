@@ -25,7 +25,6 @@ class ShiftController extends Controller
         $recentChanges = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
                     ->select('staff.clockNumber as id', 'shifts.updated_at AS updated', 'shifts.shift', 'shifts.clockNumber', 'staff.firstName', 'staff.lastName')
                     ->orderBy('shifts.updated_at', 'desc')
-                    ->take(10)
                     ->get();
 
         return view('recent', compact('recentChanges'));
@@ -43,6 +42,7 @@ class ShiftController extends Controller
     public function listShifts()
     {
         $shift = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+                  ->join('departments', 'shifts.primaryJob', '=', 'departments.jobId')
                   ->orderBy('seniority', 'asc')
                   ->get();
 

@@ -15,6 +15,9 @@ use App\Absence;
      </div><br />
  @endif
 
+ <?php
+  ?>
+
 <script>
 function absence(name, id) {
   $('#modal').modal();
@@ -135,6 +138,7 @@ function absence(name, id) {
                     </button>
                     <button data-toggle="collapse" data-target="#EMP{{$s->id}}" aria-controls="EMP" aria-expanded="false" class="btn btn-md btn-outline-secondary">
                       <i class="fa fa-eye" aria-hidden="true"></i>
+                      {{$s->clockNumber}}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <h6 class="dropdown-header"></h6>
@@ -143,7 +147,7 @@ function absence(name, id) {
                 </div>
                 </td>
                   <td>
-                    <h4><span class="badge badge-secondary {{$outputclass[$s->primaryJob]}}">{{$s->clockNumber}}</span>
+                    <h4><span class="badge badge-secondary {{$outputclass[$s->primaryJob]}}">{{$s->jobTitle}}</span>
                       @php ($name = $s->firstName.' '.$s->lastName)
                       <button type="button" class="btn btn-info btn-custom btn-sm" onclick="absence('{{ $name }}', '{{ $s->clockNumber }}')"><i class="fas fa-calendar-times"></i></button>
                     </h4>
@@ -155,7 +159,7 @@ function absence(name, id) {
                         <span class="float-md-left"><i id="collapse_icon" class="fas fa-calendar-day fa-lg"></i> {{ $s->seniority }}</span>
                       </div>
                       <div>
-                        <span class="float-md-left"><i id="collapse_icon" class="far fa-hand-point-right fa-lg"></i> {{ $s->primaryJob }}</span>
+                        <span class="float-md-left"><i id="collapse_icon" class="far fa-hand-point-right fa-lg"></i> {{ $s->jobTitle }}</span>
                       </div>
                       <div>
                         <?php

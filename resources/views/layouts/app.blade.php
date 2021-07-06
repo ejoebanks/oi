@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 @include('layouts.partials.head')
-<div class="main-container">
       @include('layouts.partials.nav')
-        <br/>
+      <br/>
+      <div class="main-container">
         @yield('content')
     @include('layouts.partials.footer')
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
       @yield('script')
-</div>
 </html>

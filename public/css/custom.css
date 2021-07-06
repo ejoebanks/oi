@@ -56,7 +56,7 @@ pre {
 }
 
 body {
-  background: #E0E1DD;
+  background: #e5e5e5;
   min-height: 100%;
   /* Equal to height of footer */
   /* But also accounting for potential margin-bottom of last child */
@@ -93,10 +93,10 @@ span {
   width: 100%;
   min-height: 30px;
   /* Height of the footer */
-  background: #1B263B;
+  background: #080F0F;
   text-align: center;
-  color: #999999;
-  border-top: 5px solid #DD6031;
+  color: #EFE6DD;
+  border-top: 3px solid #A52422;
 }
 
 /* Misc Styling */
@@ -121,7 +121,7 @@ span {
 }
 
 #cardLink {
-  color: #DD6031;
+  color: #a4161a;
   font-size: 1.3rem;
 }
 
@@ -221,9 +221,30 @@ h3 {
 }
 
 .bg-dark {
-  background-color: #1B263B !important;
-  border-bottom: 5px solid #DD6031;
-  min-height: 95px;
+  background-color: #080F0F !important;
+  border-bottom: 3px solid #A52422;
+}
+
+.bg-light {
+  border-bottom: 3px solid #A52422;
+}
+
+#nav_title {
+  color: #EFE6DD;
+  font-size: 1.8rem;
+  padding-right: 10px;
+}
+
+#nav_title:hover {
+  color: #A52422;
+}
+
+.nav-link {
+  color: #EFE6DD !important;
+}
+
+.nav-link:hover  {
+  color: #A52422 !important;
 }
 
 /* Custom button, container for admin page */
@@ -242,12 +263,12 @@ a.cards {
 }
 
 .box-part {
-  background: #FFF;
+  background: #d3d3d3;
   height: 300px;
   border-radius: 0;
   padding: 60px 10px;
   margin: 30px 0px;
-  box-shadow: 0 0 0 3px #FFF, 0 0 0 5px #CFD0CA, 0 0 0 10px #FFF, 0 0 2px 11px #274E81;
+  box-shadow: 0 0 0 5px #CFD0CA, 0 0 0 10px #b1a7a6, 0 0 2px 11px #080F0F;
 }
 
 .text {
@@ -255,7 +276,7 @@ a.cards {
 }
 
 #cardIcon {
-  color: #274E81;
+  color: #080F0F;
 }
 
 #shifts {

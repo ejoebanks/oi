@@ -4168,7 +4168,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 0;
-  list-style: none
+  list-style: none;
+  background-color: #191919;
 }
 
 .nav-link {
@@ -4275,14 +4276,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .navbar-brand {
-  display: inline-block;
-  padding-top: .3125rem;
-  padding-bottom: .3125rem;
-  margin-right: 1rem;
-  font-size: 1.25rem;
-  line-height: inherit;
-  white-space: nowrap
-}
+text-align: left;}
 
 .navbar-brand:focus, .navbar-brand:hover {
   text-decoration: none

@@ -2,11 +2,11 @@
   @php ($id = Auth::user()->type)
 @endif
 
-@php(asset('images/Owens_Illinois.png'))
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg mr-auto navbar-dark bg-dark">
       <a class="navbar-brand" href="/">
-        <img src="{{ asset('images/employee_management.svg') }}" alt="Owens-Header" class="nav_img">
+        <!--<img src="{{ asset('images/employee_management.svg') }}" alt="Owens-Header" class="nav_img">
+        -->
+        <h6 id="nav_title">Shift Management</h6>
         </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-chevron-circle-down"></i>

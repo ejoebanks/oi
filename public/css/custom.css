@@ -123,6 +123,7 @@ span {
 #cardLink {
   color: #a4161a;
   font-size: 1.3rem;
+  text-decoration: none;
 }
 
 #cardLink:hover {
@@ -241,6 +242,7 @@ h3 {
 
 .nav-link {
   color: #EFE6DD !important;
+  text-decoration: none;
 }
 
 .nav-link:hover  {

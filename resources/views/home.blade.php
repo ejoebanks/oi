@@ -63,8 +63,8 @@
         <div>
         <a id="cardLink" href="/staff">View
         </a>
-        <i class="fas fa-ellipsis-v">
-        </i>
+        <i class="bi bi-grip-vertical"></i>
+
         <a id="cardLink" href="/staff/create">Add
         </a>
       </div>
@@ -93,8 +93,8 @@
         </div>
         <a id="cardLink" href="/calendar">View
         </a>
-        <i class="fas fa-ellipsis-v">
-        </i>
+        <i class="bi bi-grip-vertical"></i>
+
         <a id="cardLink" href="/events/create">Add
         </a>
 

@@ -191,16 +191,31 @@ function absence(name, id) {
     </div>
 @endforeach
   </div>
-  @foreach($newshift as $s)
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{ $s->firstName.' '.$s->lastName}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div>
-  @endforeach
 </div>
+<div class="row">
+        @php($num = 0)
+        @php($shiftChar = 'A')
+@foreach($newshift as $s)
+@php($num++)
+@if($s->shift !== $shiftChar)
+  @php($shiftChar = $s->shift)
+  </div>
+  <div class="row">
+@endif
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ $s->firstName.' '.$s->lastName}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ $s->shift }}</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">{{ $num }}</a>
+  </div>
+</div>
+@if($s->shift !== $shiftChar)
+  @php($shiftChar = $s->shift)
+  </div>
+  <div class="row">
+@endif
+@endforeach
+
 @endsection

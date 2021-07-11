@@ -90,7 +90,7 @@ function absence(name, id) {
         <input class="form-control" type="text" id="search" placeholder="Search" />
         </div>
         <div class="col-md-9">
-          <div class="float-right">
+          <div class="float-end">
           <a href="{{action('ShiftController@export')}}" class="btn btn-outline-secondary" role="button"><i class="bi bi-download"></i> Org Chart</a>
           <a href="{{action('StaffController@exportScheduling')}}" class="btn btn-outline-secondary" role="button"><i class="bi bi-card-list"></i> Employee List</a>
           <a href="{{action('ShiftController@sendChart')}}" class="btn btn-outline-info" role="button"><i class="bi bi-mailbox2"></i> Email</a>

@@ -25,7 +25,9 @@ function absence(name, id) {
   $('#emp_id').val(id);
 }
 </script>
+
 <div class="container list_top">
+
   <div class="row" id="added_absence">
     <div class="col-md-6 offset-md-3">
       <div class="alert alert-success alert-dismissable">
@@ -191,5 +193,38 @@ function absence(name, id) {
     </div>
 @endforeach
   </div>
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-success">Header</div>
+  <div class="card-body text-success">
+    <h5 class="card-title">Success card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <div class="card-footer bg-transparent border-success">Footer</div>
+</div>
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      @php($i = 0)
+      @foreach($newshift as $s)
+      <tr>
+        <th scope="row">{{$s->seniority}}</th>
+        <td>      {{ $s->shift}}
+</td>
+        <td>{{ $s-> clockNumber }}</td>
+        <td>{{ $s-> firstName.' '.$s->lastName }}</td>
+        <td>{{ $s-> jobTitle}}</td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+
 </div>
 @endsection

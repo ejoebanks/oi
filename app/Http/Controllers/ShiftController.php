@@ -45,6 +45,12 @@ class ShiftController extends Controller
                   ->join('departments', 'shifts.primaryJob', '=', 'departments.jobId')
                   ->orderBy('seniority', 'asc')
                   ->get();
+                  $newshift = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
+                            ->join('departments', 'shifts.primaryJob', '=', 'departments.jobId')
+                            ->orderBy('shift', 'asc')
+                            ->orderBy('seniority', 'desc')
+                            ->get();
+
 
         $normalUser = Shift::where('id', Auth::user()->id)
                       ->first();
@@ -57,7 +63,7 @@ class ShiftController extends Controller
             $i++;
         }
 
-        return view('crud.shifts.list', compact('shift', 'normalUser', 'jobs', 'outputclass', 'employee_absence'));
+        return view('crud.shifts.list', compact('shift', 'newshift', 'normalUser', 'jobs', 'outputclass', 'employee_absence'));
     }
 
     public function personalShift()

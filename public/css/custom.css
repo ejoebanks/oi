@@ -28,6 +28,7 @@ p {
   font-variant: normal;
   font-weight: 400;
   line-height: 20px;
+  padding: 15px;
 }
 
 blockquote {
@@ -276,6 +277,7 @@ a.cards {
 
 #cardIcon {
   color: #080F0F;
+  font-size: 2.8rem;
 }
 
 #shifts {
@@ -459,7 +461,7 @@ label:hover, label:active, input:hover+label, input:active+label {
 
 /* Custom containers for page content */
 #crud_header {
-  text-align: center;
+  text-align: left;
 }
 
 #crud_box {
@@ -471,12 +473,12 @@ label:hover, label:active, input:hover+label, input:active+label {
 }
 
 #login_box {
-  background: #1B263B;
+  width: 100%;
+  background: #080F0F;
   padding: 10px 30px 30px 30px;
   border-radius: 0;
   color: white;
   margin: 30px 0px;
-  box-shadow: 0 0 0 3px #1B263B, 0 0 0 5px #CFD0CA, 0 0 0 10px #1B263B, 0 0 2px 11px #274E81;
 }
 
 /* Set color of right icon for datepicker */
@@ -501,7 +503,7 @@ label:hover, label:active, input:hover+label, input:active+label {
 }
 
 .orange_hr {
-  border-top: 2px solid #DD6031;
+  border-top: 2px solid #A52422;
   padding-bottom: 5px;
   min-width: 200px;
 }
@@ -988,4 +990,34 @@ fieldset[disabled] .btn-danger.active {
 .nav_img {
   height: 100px;
   width: 100px;
+}
+
+@font-face {
+  font-family: Font Awesome\ 5 Free;
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.eot?414ff5daad323a1c47c5177d4bd29674);
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.eot?414ff5daad323a1c47c5177d4bd29674) format("embedded-opentype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff2?65779ebcc35604a25c2ba77309c5b8af) format("woff2"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff?5dd3976cb5d61e2e561f2a46b916f377) format("woff"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.ttf?f6c6f6c8cb7784254ad00056f6fbd74e) format("truetype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.svg?e7e957c87c454bccaa3bf9fdaa6874f8) format("svg")
+}
+
+.far {
+  font-weight: 400
+}
+
+@font-face {
+  font-family: Font Awesome\ 5 Free;
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.eot?b5596f4d339f99e3d69bc41be78db962);
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.eot?b5596f4d339f99e3d69bc41be78db962) format("embedded-opentype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff2?462806316fea535a6a57651bc2b000b0) format("woff2"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff?61969d433bf265b9717a6c357a1e04e4) format("woff"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.ttf?b70cea0339374107969eb53e5b1f603f) format("truetype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.svg?82905d8d1c06969df11c8c378e9bdd4c) format("svg")
+}
+
+.fa, .far, .fas {
+  font-family: Font Awesome\ 5 Free
+}
+
+.fa, .fas {
+  font-weight: 900
 }

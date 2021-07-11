@@ -4,7 +4,6 @@
 <?php
 use App\Absence;
  ?>
-
  @if ($errors->any())
      <div class="alert alert-danger">
          <ul>
@@ -15,8 +14,7 @@ use App\Absence;
      </div><br />
  @endif
 
- <?php
-  ?>
+ <script>typeof Alert !== 'undefined' || document.write('<script src="/js/bootstrap/bootstrap.min.js">\x3C/script>')</script>
 
 <script>
 function absence(name, id) {
@@ -93,9 +91,9 @@ function absence(name, id) {
         </div>
         <div class="col-md-9">
           <div class="float-right">
-          <a href="{{action('ShiftController@export')}}" class="btn btn-outline-secondary" role="button"><i class="fas fa-download"></i> Org Chart</a>
-          <a href="{{action('StaffController@exportScheduling')}}" class="btn btn-outline-secondary" role="button"><i class="fas fa-download"></i> Employee List</a>
-          <a href="{{action('ShiftController@sendChart')}}" class="btn btn-outline-info" role="button"><i class="far fa-envelope"></i> Email</a>
+          <a href="{{action('ShiftController@export')}}" class="btn btn-outline-secondary" role="button"><i class="bi bi-download"></i> Org Chart</a>
+          <a href="{{action('StaffController@exportScheduling')}}" class="btn btn-outline-secondary" role="button"><i class="bi bi-card-list"></i> Employee List</a>
+          <a href="{{action('ShiftController@sendChart')}}" class="btn btn-outline-info" role="button"><i class="bi bi-mailbox2"></i> Email</a>
         </div>
       </div>
     </div>
@@ -136,10 +134,10 @@ function absence(name, id) {
                 <td>
                   <div class="btn-group-vertical" id="list_btn">
                     <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-pencil-alt"></i>
+                      <i class="bi bi-pencil-square"></i>
                     </button>
                     <button data-toggle="collapse" data-target="#EMP{{$s->id}}" aria-controls="EMP" aria-expanded="false" class="btn btn-md btn-outline-secondary">
-                      <i class="fa fa-eye" aria-hidden="true"></i>
+                      <i class="bi bi-eye"></i>
                       {{$s->clockNumber}}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -193,38 +191,16 @@ function absence(name, id) {
     </div>
 @endforeach
   </div>
-  <div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Header</div>
-  <div class="card-body text-success">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  @foreach($newshift as $s)
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ $s->firstName.' '.$s->lastName}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
   </div>
-  <div class="card-footer bg-transparent border-success">Footer</div>
-</div>
-
-  <table class="table table-dark">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      @php($i = 0)
-      @foreach($newshift as $s)
-      <tr>
-        <th scope="row">{{$s->seniority}}</th>
-        <td>      {{ $s->shift}}
-</td>
-        <td>{{ $s-> clockNumber }}</td>
-        <td>{{ $s-> firstName.' '.$s->lastName }}</td>
-        <td>{{ $s-> jobTitle}}</td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
-
+  @endforeach
 </div>
 @endsection

@@ -19,8 +19,8 @@
     </div>
     <div class="col-md-4">
       <div class="box-part text-center">
-        <i class="far fa-clock fa-3x" id="cardIcon" aria-hidden="true">
-        </i>
+        <i class="bi bi-list-ol" id="cardIcon" ></i>
+
         <div class="title">
           <h4>Shifts</h4>
         </div>
@@ -54,8 +54,8 @@
     </div>
     <div class="col-md-4">
       <div class="box-part text-center">
-        <i class="fas fa-users fa-3x" id="cardIcon" aria-hidden="true">
-        </i>
+        <i class="bi bi-file-earmark-person-fill" id="cardIcon"></i>
+
         <div class="title">
           <h4>Employees
           </h4>
@@ -85,8 +85,8 @@
     </div>
     <div class="col-md-4">
       <div class="box-part text-center">
-        <i class="fas fa-calendar-day fa-3x" id="cardIcon" aria-hidden="true">
-        </i>
+        <i class="bi bi-calendar-event-fill" id="cardIcon" ></i>
+
         <div class="title">
           <h4>Events
           </h4>
@@ -112,8 +112,9 @@
     </div>
     <div class="col-md-4">
       <div class="box-part text-center">
-        <i class="fas fa-exchange-alt fa-3x" id="cardIcon" aria-hidden="true">
-        </i>
+
+        <i class="bi bi-eyeglasses" id="cardIcon"></i>
+
         <div class="title">
           <h4>Recent Changes
           </h4>

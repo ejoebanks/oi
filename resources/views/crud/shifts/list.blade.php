@@ -41,9 +41,7 @@ function absence(name, id) {
             <form id="modalInputs">
             <input type="hidden" name="emp_id" id="emp_id" value="" />
             <div class="modal-body mx-3">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i class="fas fa-times-circle"></i>
-                </button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
 
                   <h4 id="modalheader">Absence</h4>
                   <hr class="orange_hr"/>
@@ -130,16 +128,15 @@ function absence(name, id) {
               @else
                @php($marker = '')
               @endif
+              @php ($name = $s->firstName.' '.$s->lastName)
+
               <tr class="list_border">
                 <td>
                   <div class="btn-group-vertical" id="list_btn">
                     <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="bi bi-pencil-square"></i>
+                      <i class="bi bi-pencil-square" style="font-size:1.2rem;"></i>
                     </button>
-                    <button data-toggle="collapse" data-target="#EMP{{$s->id}}" aria-controls="EMP" aria-expanded="false" class="btn btn-md btn-outline-secondary">
-                      <i class="bi bi-eye"></i>
-                      {{$s->clockNumber}}
-                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="absence('{{ $name }}', '{{ $s->clockNumber }}')"><i class="bi bi-calendar-x" style="color:white;font-size:1.2rem;"></i></button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <h6 class="dropdown-header"></h6>
                     @include('functions.shiftdropdown')
@@ -147,12 +144,15 @@ function absence(name, id) {
                 </div>
                 </td>
                   <td>
+                    <!--
                     <h4><span class="badge badge-secondary {{$outputclass[$s->primaryJob]}}">{{$s->jobTitle}}</span>
-                      @php ($name = $s->firstName.' '.$s->lastName)
-                      <button type="button" class="btn btn-info btn-custom btn-sm" onclick="absence('{{ $name }}', '{{ $s->clockNumber }}')"><i class="fas fa-calendar-times"></i></button>
+                    -->
+                    <h4><span class="badge bg-secondary">{{ $s->clockNumber }}</span></h4>
                     </h4>
                     <div id="{{ $marker }}"></div>
-                    <h6>{{ $name }}</h6>
+                    <h5>{{ $name }}</h5>
+                    <h6>{{ $s->jobTitle }}</h6>
+                    <h6>{{ $s->seniority }}</h6>
 
                     <div class="collapse" id="EMP{{$s->id}}">
                       <div>
@@ -191,24 +191,30 @@ function absence(name, id) {
     </div>
 @endforeach
   </div>
-</div>
+  <!--
 <div class="row">
         @php($num = 0)
-        @php($shiftChar = 'A')
+        @php($shiftChar = '')
+
 @foreach($newshift as $s)
-@php($num++)
 @if($s->shift !== $shiftChar)
   @php($shiftChar = $s->shift)
   </div>
   <div class="row">
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+      <i class="bi bi-info-circle"></i>
+      <div>
+         An example success alert with an icon
+      </div>
+    </div>
 @endif
-<div class="card" style="width: 18rem;">
+<div class="card">
   <div class="card-body">
     <h5 class="card-title">{{ $s->firstName.' '.$s->lastName}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ $s->shift }}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{ $s->jobTitle }}</h6>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">{{ $num }}</a>
+    <a href="#" class="card-link">Something</a>
   </div>
 </div>
 @if($s->shift !== $shiftChar)
@@ -217,5 +223,8 @@ function absence(name, id) {
   <div class="row">
 @endif
 @endforeach
+</div>
+-->
+</div>
 
 @endsection

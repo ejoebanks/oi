@@ -43,7 +43,8 @@ class ShiftController extends Controller
     {
         $shift = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
                   ->join('departments', 'shifts.primaryJob', '=', 'departments.jobId')
-                  ->orderBy('seniority', 'asc')
+                  ->orderBy('shift', 'asc')
+                  ->orderBy('seniority', 'desc')
                   ->get();
                   $newshift = Shift::join('staff', 'staff.clockNumber', '=', 'shifts.clockNumber')
                             ->join('departments', 'shifts.primaryJob', '=', 'departments.jobId')

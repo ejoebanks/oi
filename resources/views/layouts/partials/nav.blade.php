@@ -2,17 +2,19 @@
   @php ($id = Auth::user()->type)
 @endif
 
-  <nav class="navbar navbar-expand-lg mr-auto navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <div class="container-fluid">
+
       <a class="navbar-brand" href="/">
         <!--<img src="{{ asset('images/employee_management.svg') }}" alt="Owens-Header" class="nav_img">
         -->
         <h6 id="nav_title">Shift Management</h6>
         </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-chevron-circle-down"></i>
+        <i class="bi bi-arrow-down-circle" style="color:white; font-size: 2rem;"></i>
       </button>
       @auth
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="/calendar">
@@ -90,4 +92,5 @@
             @endguest
           </ul>
       </div>
+    </div>
   </nav>

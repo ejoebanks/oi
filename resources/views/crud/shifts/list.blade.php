@@ -23,7 +23,6 @@ function absence(name, id) {
   $('#emp_id').val(id);
 }
 </script>
-
 <div class="container list_top">
 
   <div class="row" id="added_absence">
@@ -106,8 +105,8 @@ function absence(name, id) {
         <thead class="list_tablehead">
           <tr>
             <th colspan="2" class="circle-tile">
-              <div class="circle-tile-heading dark-blue">{{ $char }}</div>
-                    <div class="circle-tile-content darker-blue">
+              <div class="circle-tile-heading black">{{ $char }}</div>
+                    <div class="circle-tile-content black">
                       <div class="circle-tile-description text-faded">Staff</div>
                       <div class="circle-tile-number text-faded ">{{$shiftcount}}</div>
                     </div>
@@ -115,10 +114,6 @@ function absence(name, id) {
           </tr>
         </thead>
         <thead class="list_head">
-              <tr>
-                <td>Action</td>
-                <td>Employee</td>
-              </tr>
           </thead>
           <tbody id="myTable">
               @foreach($shift as $s)
@@ -133,7 +128,7 @@ function absence(name, id) {
               <tr class="list_border">
                 <td>
                   <div class="btn-group-vertical" id="list_btn">
-                    <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="bi bi-pencil-square" style="font-size:1.2rem;"></i>
                     </button>
                     <button type="button" class="btn btn-secondary" onclick="absence('{{ $name }}', '{{ $s->clockNumber }}')"><i class="bi bi-calendar-x" style="color:white;font-size:1.2rem;"></i></button>
@@ -191,6 +186,7 @@ function absence(name, id) {
     </div>
 @endforeach
   </div>
+
   <!--
 <div class="row">
         @php($num = 0)

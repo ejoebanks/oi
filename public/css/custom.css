@@ -584,12 +584,8 @@ label:hover, label:active, input:hover+label, input:active+label {
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
 }
 
-.dark-blue {
+.black {
   background-color: #080F0F;
-}
-
-.darker-blue {
-  background-color: #1B263B;
 }
 
 .blue {
@@ -610,7 +606,7 @@ label:hover, label:active, input:hover+label, input:active+label {
 }
 
 .list_border {
-  outline: 2px solid #1B263B;
+  outline: 2px solid #A52422;
   outline-offset: -2px;
 }
 
@@ -1014,4 +1010,9 @@ fieldset[disabled] .btn-danger.active {
 
 .fa, .fas {
   font-weight: 900
+}
+
+#myTable td {
+  background-color: #202626;
+  color: white;
 }

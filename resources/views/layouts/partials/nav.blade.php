@@ -1,41 +1,26 @@
 @if (is_Object(Auth::user()))
   @php ($id = Auth::user()->type)
 @endif
-
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <div class="container-fluid">
-
       <a class="navbar-brand" href="/">
-        <!--<img src="{{ asset('images/employee_management.svg') }}" alt="Owens-Header" class="nav_img">
-        -->
         <h6 id="nav_title">Shift Management</h6>
         </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="bi bi-arrow-down-circle" style="color:white; font-size: 2rem;"></i>
-      </button>
-      @auth
-      <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <i class="bi bi-arrow-down-circle" style="color:white; font-size: 2rem;"></i>
+        </button>
+	      @auth
+        <div class="navbar-collapse collapse" id="navbar">
+          <ul class="navbar-nav">
+        <li class="nav-item">
             <a class="nav-link" href="/calendar">
               <i class="fas fa-calendar-alt fa-lg"></i>
               Events
             </a>
           </li>
-          <!--
-          @if ($id == "1")
-          <li class="nav-item">
-            <a class="nav-link" href="/orgchart">
-              <i class="fas fa-chart-bar"></i>
-              Org Chart
-            </a>
-          </li>
-          @endif
-        -->
-      @endauth
-        </ul>
-          <ul class="navbar-nav ml-auto">
-            <!-- Authentication Links -->
+        </li>
+		      @endauth
+                    <!-- Authentication Links -->
             @guest
 
             <li>
@@ -60,7 +45,7 @@
             </li>
             @endif
             <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 <i class="fa fa-user-o"></i>
                 </i>
                 <i class="fas fa-user"></i>
@@ -91,6 +76,7 @@
             </li>
             @endguest
           </ul>
-      </div>
+
     </div>
-  </nav>
+  </div>
+</nav>

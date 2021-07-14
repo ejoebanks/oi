@@ -9,7 +9,7 @@
           <div id='calendar'></div>
         </div>
         @if (Auth::user()->type == 1)
-        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal" tabindex="-1" id="editModal" >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <form id="modalInputs">
@@ -180,14 +180,14 @@
                     $("#description").val(calEvent.description);
                     $("#title").val(calEvent.modalTitle);
                     $('#selected_time').val(moment(calEvent.selected_time).format('YYYY-MM-DD'));
-                    $('#editModal').modal();
+                    $('#editModal').show();
                 },
                 dayClick: function(calEvent, jsEvent, view, date) {
                   $('#selected_time').val(calEvent.format('YYYY-MM-DD'));
                   $('#modalheader').html("Create Event");
                   $('#event_update').val("Submit");
                   $('#event_remove').hide();
-                  $('#editModal').modal();
+                  $('#editModal').show();
                 },
                 eventDrop: function(calEvent, delta, revertFunc) {
                             $(function() {

@@ -148,34 +148,6 @@ function absence(name, id) {
                     <h5>{{ $name }}</h5>
                     <h6>{{ $s->jobTitle }}</h6>
                     <h6>{{ $s->seniority }}</h6>
-
-                    <div class="collapse" id="EMP{{$s->id}}">
-                      <div>
-                        <span class="float-md-left"><i id="collapse_icon" class="fas fa-calendar-day fa-lg"></i> {{ $s->seniority }}</span>
-                      </div>
-                      <div>
-                        <span class="float-md-left"><i id="collapse_icon" class="far fa-hand-point-right fa-lg"></i> {{ $s->jobTitle }}</span>
-                      </div>
-                      <div>
-                        <?php
-                        $str_arr = explode (",", $s->comments);
-                        if ($s->comments == null) {
-                            $var = "None";
-                        } else {
-                            $var = $s->comments;
-                        }
-                        ?>
-                          <span class="float-md-left"><i id="collapse_icon" class="far fa-comment fa-lg"></i>
-                            @foreach ($str_arr as $comment)
-                              @if ($comment == null)
-                                {{ $var }}
-                              @else
-                                {{ $comment }}
-                                @endif
-                            @endforeach
-                          </span>
-                      </div>
-
                     </div>
                   </td>
                 </tr>
@@ -186,41 +158,6 @@ function absence(name, id) {
     </div>
 @endforeach
   </div>
-
-  <!--
-<div class="row">
-        @php($num = 0)
-        @php($shiftChar = '')
-
-@foreach($newshift as $s)
-@if($s->shift !== $shiftChar)
-  @php($shiftChar = $s->shift)
-  </div>
-  <div class="row">
-    <div class="alert alert-success d-flex align-items-center" role="alert">
-      <i class="bi bi-info-circle"></i>
-      <div>
-         An example success alert with an icon
-      </div>
-    </div>
-@endif
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">{{ $s->firstName.' '.$s->lastName}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ $s->jobTitle }}</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Something</a>
-  </div>
-</div>
-@if($s->shift !== $shiftChar)
-  @php($shiftChar = $s->shift)
-  </div>
-  <div class="row">
-@endif
-@endforeach
-</div>
--->
 </div>
 
 @endsection

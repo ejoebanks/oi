@@ -153,7 +153,7 @@
             <i class="far fa-user-circle"></i>
             Profile
           </span>
-            <span class="float-right"><a href="/update/user/{{Auth::user()->id}}" button type="button" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a></span>
+            <span class="float-right"><a href="/update/user/{{Auth::user()->id}}" button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-square"></i></a></span>
           </li>
 
           <li class="list-group-item text-right">

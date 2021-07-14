@@ -57,9 +57,9 @@
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                        <button class="btn btn-danger" onclick="return confirm('Are you sure?')" type="submit"><i class="fa fa-trash" /></i></button>
+                        <button class="btn btn-danger" onclick="return confirm('Are you sure?')" type="submit"><i class="bi bi-trash"></i></button>
                       </form>
-                      <a href="{{action('StaffController@edit',$member->clockNumber)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                      <a href="{{action('StaffController@edit',$member->clockNumber)}}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                   </div>
                 </td>
             </tr>

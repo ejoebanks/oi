@@ -18,9 +18,9 @@ use App\Absence;
 
 <script>
 function absence(name, id) {
-  $('#modal').modal();
   $('#employee').val(name);
   $('#emp_id').val(id);
+  $('#modal').modal('show');
 }
 </script>
 <div class="container list_top">
@@ -33,8 +33,9 @@ function absence(name, id) {
       </div>
     </div>
   </div>
+  <!-- Button trigger modal -->
 
-  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" tabindex="-1" id="modal" >
       <div class="modal-dialog" role="document">
           <div class="modal-content">
             <form id="modalInputs">
@@ -47,7 +48,7 @@ function absence(name, id) {
                   <div class="form-group">
                     <div class="input-group input-group-lg">
                       <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      <span class="input-group-text"><i class="bi bi-person"></i></span>
                       </div>
                       <input class="form-control" name="employee" id="employee" value="" disabled></input>
                     </div>
@@ -74,6 +75,8 @@ function absence(name, id) {
                     </form>
               </div>
               <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
                   <button class="btn btn-primary" id="absence_create" type="submit">Submit</button>
 
               </div>
@@ -90,7 +93,7 @@ function absence(name, id) {
           <div class="float-end">
           <a href="{{action('ShiftController@export')}}" class="btn btn-outline-secondary" role="button"><i class="bi bi-download"></i> Org Chart</a>
           <a href="{{action('StaffController@exportScheduling')}}" class="btn btn-outline-secondary" role="button"><i class="bi bi-card-list"></i> Employee List</a>
-          <a href="{{action('ShiftController@sendChart')}}" class="btn btn-outline-info" role="button"><i class="bi bi-mailbox2"></i> Email</a>
+          <a href="{{action('ShiftController@sendChart')}}" class="btn btn-outline-secondary" role="button"><i class="bi bi-mailbox2"></i> Email</a>
         </div>
       </div>
     </div>

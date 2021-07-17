@@ -57,7 +57,8 @@ pre {
 }
 
 body {
-  background: #e5e5e5;
+  background: #191919;
+  color: #ffff;
   min-height: 100%;
   /* Equal to height of footer */
   /* But also accounting for potential margin-bottom of last child */
@@ -265,12 +266,17 @@ a.cards {
 }
 
 .box-part {
-  background: #d3d3d3;
   height: 300px;
   border-radius: 0;
   padding: 60px 10px;
   margin: 30px 0px;
-  box-shadow: 0 0 0 5px #CFD0CA, 0 0 0 10px #b1a7a6, 0 0 2px 11px #080F0F;
+  box-shadow: 0 0 0 5px #FFFF, 0 0 0 10px #2f2f2f ;
+}
+
+#search {
+  border-color: gray;
+  color: #ffffff;
+  border-radius: 0;
 }
 
 .text {
@@ -278,7 +284,6 @@ a.cards {
 }
 
 #cardIcon {
-  color: #080F0F;
   font-size: 2.8rem;
 }
 
@@ -529,7 +534,7 @@ label:hover, label:active, input:hover+label, input:active+label {
 
 /* Shift list page styling */
 .list_head {
-  background-color: #080F0F;
+  background-color: #FFFFFF;
   font-size: 1.1em;
   color: white;
 }
@@ -547,15 +552,12 @@ label:hover, label:active, input:hover+label, input:active+label {
   position: relative;
   width: 80px;
   font-size: 3.2em;
-  border-bottom: 6px solid #A52422;
+  border-bottom: 6px solid #ffff;
+
 }
 
 .badge-secondary, .btn-secondary {
   background-color: #1B263B;
-}
-
-.btn-outline-secondary {
-  color: #1B263B
 }
 
 .circle-tile-heading .fa {
@@ -565,7 +567,7 @@ label:hover, label:active, input:hover+label, input:active+label {
 .circle-tile-content {
   padding-top: 50px;
   padding-bottom: 0px;
-  border-top: 5px solid #A52422;
+  border-top: 5px solid #FFFFFF;
 }
 
 .circle-tile-number {
@@ -602,12 +604,12 @@ label:hover, label:active, input:hover+label, input:active+label {
 
 .list_tablehead {
   padding: 0px;
-  border-bottom: 4px solid #A52422;
+  border-bottom: 4px solid #FFFF;
 }
 
 .list_border {
-  outline: 2px solid #A52422;
-  outline-offset: -2px;
+  border-style: inset;
+  border: 2px solid #FFFF;
 }
 
 .list_top {
@@ -740,28 +742,31 @@ fieldset[disabled] .btn-danger.active {
 }
 
 .btn-outline-secondary {
-  color: #1B263B;
-  border-color: #1B263B;
+  color: #ffff;
+  border-color: #ffff;
 }
 
 .btn-outline-secondary:hover {
-  background-color: #1B263B;
+  background-color: #A52422;
 }
 
 .btn-outline-secondary:not(:disabled):not(.disabled).active, .btn-outline-secondary:not(:disabled):not(.disabled):active, .show>.btn-outline-secondary.dropdown-toggle {
   color: #fff;
-  background-color: #2d4063;
-  border-color: #2d4063
+  background-color: #661615;
+  border-color: #661615
 }
 
 .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-secondary.dropdown-toggle:focus {
-  -webkit-box-shadow: 0 0 0 .2rem hsla(208, 51%, 30%, .5);
-  box-shadow: 0 0 0 .2rem hsla(208, 51%, 30%, .5);
+  -webkit-box-shadow: 0 0 0 0;
+  box-shadow: 0 0 0 0;
+  color: #fff;
 }
 
 .btn-outline-secondary.focus, .btn-outline-secondary:focus {
-  -webkit-box-shadow: 0 0 0 .2rem hsla(208, 51%, 30%, .5);
-  box-shadow: 0 0 0 .2rem hsla(208, 51%, 30%, .5)
+  -webkit-box-shadow:0 0 0 0;
+  box-shadow: 0 0 0 0;
+  color: #fff;
+
 }
 
 .btn-outline-info {
@@ -1013,6 +1018,6 @@ fieldset[disabled] .btn-danger.active {
 }
 
 #myTable td {
-  background-color: #202626;
+  background-color: #191919;
   color: white;
 }

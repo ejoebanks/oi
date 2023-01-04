@@ -16,7 +16,7 @@
     "cross-env": "^5.1",
     "fullcalendar": "^3.10.0",
     "jquery": "^3.4.1",
-    "laravel-mix": "^2.0",
+    "laravel-mix": "^6.0",
     "lodash": "^4.17.4",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.14",
